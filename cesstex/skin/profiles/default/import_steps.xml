@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<import-steps>
+  <import-step id="cesstex.skin.various"
+               version="20090129-01"
+               handler="cesstex.skin.setuphandlers.setupVarious"
+               title="Cesstex skin: miscellaneous import steps">
+    <dependency step="skins" />
+    Various import steps that are not handled by GS import/export
+    handlers.
+  </import-step>
+</import-steps>

@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<object name="portal_skins" allow_any="False" cookie_persistence="False"
+   default_skin="Cesstex skin">
+
+ <object name="cesstex_skin_custom_images"
+    meta_type="Filesystem Directory View"
+    directory="cesstex.skin:skins/cesstex_skin_custom_images"/>
+ <object name="cesstex_skin_custom_templates"
+    meta_type="Filesystem Directory View"
+    directory="cesstex.skin:skins/cesstex_skin_custom_templates"/>
+ <object name="cesstex_skin_styles"
+    meta_type="Filesystem Directory View"
+    directory="cesstex.skin:skins/cesstex_skin_styles"/>
+
+ <skin-path name="Cesstex skin" based-on="Plone Default">
+  <layer name="cesstex_skin_custom_images"
+     insert-after="custom"/>
+  <layer name="cesstex_skin_custom_templates"
+     insert-after="cesstex_skin_custom_images"/>
+  <layer name="cesstex_skin_styles"
+     insert-after="cesstex_skin_custom_templates"/>
+ </skin-path>
+
+</object>
