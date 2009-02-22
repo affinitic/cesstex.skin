@@ -3,9 +3,8 @@
   <import-step id="cesstex.skin.various"
                version="20090129-01"
                handler="cesstex.skin.setuphandlers.setupVarious"
-               title="Cesstex skin: miscellaneous import steps">
+               title="cesstex skin: miscellaneous import steps">
     <dependency step="skins" />
-    Various import steps that are not handled by GS import/export
-    handlers.
+    Setup portal for CesStEx skin.
   </import-step>
 </import-steps>

@@ -12,7 +12,7 @@
     meta_type="Filesystem Directory View"
     directory="cesstex.skin:skins/cesstex_skin_styles"/>
 
- <skin-path name="Cesstex skin" based-on="Plone Default">
+ <skin-path name="cesstex skin" based-on="Plone Default">
   <layer name="cesstex_skin_custom_images"
      insert-after="custom"/>
   <layer name="cesstex_skin_custom_templates"
