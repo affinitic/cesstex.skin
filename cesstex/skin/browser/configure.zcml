@@ -13,18 +13,4 @@
     <!-- Viewlets registration -->
     <!-- Zope 3 browser resources -->
 
-    <!-- Resource directory for images -->
-    <browser:resourceDirectory
-        name="cesstex.skin.images"
-        directory="images"
-        layer=".interfaces.IThemeSpecific"
-        />
-
-    <!-- Resource directory for stylesheets -->
-    <browser:resourceDirectory
-        name="cesstex.skin.stylesheets"
-        directory="stylesheets"
-        layer=".interfaces.IThemeSpecific"
-        />
-
 </configure>
