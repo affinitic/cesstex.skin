@@ -5,10 +5,10 @@
 
    <!-- File System Directory Views registration -->
    <cmf:registerDirectory
-       name="cesstex_skin_custom_images"/>
+       name="cesstex_images"/>
    <cmf:registerDirectory
-       name="cesstex_skin_custom_templates"/>
+       name="cesstex_templates"/>
    <cmf:registerDirectory
-       name="cesstex_skin_styles"/>
+       name="cesstex_styles"/>
 
 </configure>
