@@ -5,12 +5,43 @@
 
     <!-- 'Cesstex skin' Zope 3 browser layer -->
     <interface
-        interface=".interfaces.IThemeSpecific"
+        interface=".interfaces.ICesstexTheme"
         type="zope.publisher.interfaces.browser.IBrowserSkinType"
         name="Cesstex skin"
+    />
+
+    <!-- page d'accueil avec listing des news -->
+    <browser:view
+        name="homepageView"
+        for="*"
+        permission="zope.Public"
         />
 
-    <!-- Viewlets registration -->
-    <!-- Zope 3 browser resources -->
+    <!-- Home page header with flash animation viewlet -->
+    <browser:viewlet
+        name="cesstex.header"
+        manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
+        class=".viewlets.CesstexSectionsViewlet"
+        layer=".interfaces.ICesstexTheme"
+        permission="zope.Public"
+        />
+
+    <!-- move portlet plone.path_bar-->
+    <browser:viewlet
+        name="plone.path_bar"
+        manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
+        class="plone.app.layout.viewlets.common.PathBarViewlet"
+        layer=".interfaces.ICesstexTheme"
+        permission="zope2.View"
+        />
+
+    <!-- move portlet plone.personnal_bar-->
+     <browser:viewlet
+        name="plone.personnal_bar"
+        manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
+        class="plone.app.layout.viewlets.common.PersonalBarViewlet"
+        layer=".interfaces.ICesstexTheme"
+        permission="zope2.View"
+        />
 
 </configure>
