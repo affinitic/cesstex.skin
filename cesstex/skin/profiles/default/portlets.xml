@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<portlets>
+
+ <!-- Portlet type registrations -->
+ <portlet
+   addview="cesstex.portlet-ism-sec-album"
+   title="Portlet Album"
+   description="ism sec album"
+   />
+
+
+</portlets>
