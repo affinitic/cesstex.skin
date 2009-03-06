@@ -1,5 +1,5 @@
 <div id="header-cesstex">
-  <table>
+  <table id="site-ces">
     <tr>
       <td>
         <div id="rectangle-bleu"></div>
@@ -9,63 +9,66 @@
       </td>
       <td>
         <div id="site">
-          <a href="site-de-la-louvirere">La Louvière</a>
+          <a href="site-de-la-louviere">La Louvièire</a>
+          <img src="puce_bleue.gif" class="puce-bleue" />
           <a href="site-de-manage">Manage</a>
         </div>
       </td>
       <td>
         <div id="ces">
-          <a href="centre-scolaire-saint-exupery"> Centre scolaire Saint-Exupéry</a>
+          <a href="centre-scolaire-saint-exupery">
+          <span class="centre">Centre scolaire</span>
+          <span class="stex">Saint-Exupéry</span></a>
         </div>
       </td>
     </tr>
   </table>
 
-  <table>
+  <table id="implentation">
     <tr>
       <td>
         <div class="ecole">
-          <a href="">Ecole fondamentale Sainte-Marie</a>
+          <a href="ecole-fondamentale-sainte-marie">Ecole fondamentale Sainte-Marie</a>
         </div>
       </td>
       <td>
         <div class="ecole">
-          <a href="">Ecole fondamentale Sainte-Antoine</a>
+          <a href="section-fondamentale-saint-antoine">Ecole fondamentale Sainte-Antoine</a>
         </div>
       </td>
       <td>
         <div class="ecole">
-          <a href="">Ecole primaire Sainte-Marie</a>
+          <a href="ecole-primaire-sainte-marie">Ecole primaire Sainte-Marie</a>
         </div>
       </td>
       <td>
         <div class="ecole">
-          <a href="">Institut Sainte-Marie</a>
+          <a href="institut-sainte-marie">Institut Sainte-Marie</a>
         </div>
       </td>
       <td>
         <div class="ecole">
-          <a href="">Institut Sainte-Thérèse</a>
+          <a href="institut-sainte-therese">Institut Sainte-Thérèse</a>
         </div>
       </td>
     </tr>
   </table>
 
-  <table>
+  <table id="enseignement" >
     <tr>
       <td>
-        <div class="type">
-          <a href="">Maternelle</a>
+        <div id="type-maternelle">
+          <a href="maternelle">Maternelle</a>
         </div>
       </td>
       <td>
-        <div class="type">
-          <a href="">Primaire</a>
+        <div id="type-primaire">
+          <a href="primaire">Primaire</a>
         </div>
       </td>
       <td>
-        <div class="type">
-          <a href="">Secondaire</a>
+        <div id="type-secondaire">
+          <a href="secondaire">Secondaire</a>
         </div>
       </td>
     </tr>

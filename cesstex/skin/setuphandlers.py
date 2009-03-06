@@ -164,9 +164,9 @@ def createContent(portal):
     createPage(cesstexFolder, "section-fondamentale-saint-antoine", "Section fondamentale Saint-Antoine")
 
     ecolePrimaireStMarieFolder = createFolder(portal, "ecole-primaire-sainte-marie", "Ecole primaire Sainte-Marie")
-    createPage(cesstexFolder, "ecole-primaire-sainte-marie", "Ecole primaire Sainte Marie")
+    createPage(cesstexFolder, "ecole-primaire-sainte-marie", "Ecole primaire Sainte-Marie")
 
-    institutStMarieFolder = createFolder(portal, "institut-sainte-marie", "Institut Sainte Marie")
+    institutStMarieFolder = createFolder(portal, "institut-sainte-marie", "Institut Sainte-Marie")
     createPage(cesstexFolder, "institut-sainte-marie", "Institut Sainte-Marie")
 
     institutStThereseFolder = createFolder(portal, "institut-sainte-therese", "Institut Sainte-Thérèse")
