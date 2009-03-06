@@ -2,7 +2,7 @@
 <import-steps>
   <import-step id="cesstex.skin.various"
                version="20090129-01"
-               handler="cesstex.skin.setuphandlers.setupVarious"
+               handler="cesstex.skin.setuphandlers.setupcesstex"
                title="cesstex skin: miscellaneous import steps">
     <dependency step="skins" />
     Setup portal for CesStEx skin.

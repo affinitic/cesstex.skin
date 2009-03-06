@@ -1,3 +1,6 @@
+# aller declarer le setuphandlers dans le ƣmport_steps.xml
+
+
 # -*- coding: utf-8 -*-
 
 from zope.component import getUtility
@@ -138,4 +141,61 @@ def createContent(portal):
     #Create empty documents and folders
     cesstexFolder = createFolder(portal, "centre-scolaire-saint-exupery", "Centre scolaire Saint-Exupéry")
     createPage(cesstexFolder, "centre-scolaire-saint-exupery", "Centre scolaire Saint-Exupéry ?")
-    # quiSommesNousFolder.setDefaultPage('qui-sommes-nous')
+
+    lalouviereFolder = createFolder(portal, "site-de-la-louviere", "Site de La Louvière")
+    createPage(cesstexFolder, "site-de-la-louviere", "Site de La Louvière")
+
+    manageFolder = createFolder(portal, "site-de-manage", "Site de Manage")
+    createPage(cesstexFolder, "site-de-manage", "Site de Manage")
+
+    maternelleFolder = createFolder(portal, "maternelle", "Maternelle")
+    createPage(cesstexFolder, "maternelle", "Maternelle")
+
+    primaireFolder = createFolder(portal, "primaire", "Primaire")
+    createPage(cesstexFolder, "primaire", "Primaire")
+
+    secondaireFolder = createFolder(portal, "secondaire", "Secondaire")
+    createPage(cesstexFolder, "secondaire", "Secondaire")
+
+    ecoleFondamentaleStMarieFolder = createFolder(portal, "ecole-fondamentale-sainte-marie", "Ecole fondamentale Sainte-Marie")
+    createPage(cesstexFolder, "ecole-fondamentale-sainte-marie", "Ecole fondamentale Sainte-Marie")
+
+    sectionFondamentaleStAntoineFolder = createFolder(portal, "section-fondamentale-saint-antoine", "Section fondamentale Saint-Antoine")
+    createPage(cesstexFolder, "section-fondamentale-saint-antoine", "Section fondamentale Saint-Antoine")
+
+    ecolePrimaireStMarieFolder = createFolder(portal, "ecole-primaire-sainte-marie", "Ecole primaire Sainte-Marie")
+    createPage(cesstexFolder, "ecole-primaire-sainte-marie", "Ecole primaire Sainte Marie")
+
+    institutStMarieFolder = createFolder(portal, "institut-sainte-marie", "Institut Sainte Marie")
+    createPage(cesstexFolder, "institut-sainte-marie", "Institut Sainte-Marie")
+
+    institutStThereseFolder = createFolder(portal, "institut-sainte-therese", "Institut Sainte-Thérèse")
+    createPage(cesstexFolder, "institut-sainte-therese", "Institut Sainte-Thérèse")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
