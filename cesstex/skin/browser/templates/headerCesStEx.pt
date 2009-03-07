@@ -1,97 +1,100 @@
 <div id="header-cesstex">
-  <table id="site-ces">
-    <tr>
-      <td>
-        <div id="rectangle-bleu"></div>
-      </td>
-      <td>
-        <div id="small-logo">
-          <a href=""
-             tal:attributes="href string: ${context/portal_url}">logo</a>
-        </div>
-      </td>
-      <td>
-        <div id="site">
-          <a href=""
-             tal:attributes="href string: ${context/portal_url}/site-de-la-louviere">La Louvière</a>
-          <img src="puce_bleue.gif" class="puce-bleue" />
-          <a href=""
-             tal:attributes="href string: ${context/portal_url}/site-de-manage">Manage</a>
-        </div>
-      </td>
-      <td>
-        <div id="ces">
-          <a href=""
-             tal:attributes="href string: ${context/portal_url}/centre-scolaire-saint-exupery">
-          <span class="centre">Centre scolaire</span>
-          <span class="stex">Saint-Exupéry</span></a>
-        </div>
-      </td>
-    </tr>
-  </table>
-
-  <table id="implentation"
-         cellspacing="0"
-         cellpadding="0">
-    <tr>
-      <td>
-        <div class="ecole">
-          <a href=""
-             tal:attributes="href string: ${context/portal_url}/ecole-fondamentale-sainte-marie">Ecole
-             fondamentale<br />Sainte-Marie</a>
-        </div>
-      </td>
-      <td>
-        <div class="ecole">
-          <a href=""
-             tal:attributes="href string:
-             ${context/portal_url}/section-fondamentale-saint-antoine">Ecole fondamentale<br />Sainte-Antoine</a>
-        </div>
-      </td>
-      <td>
-        <div class="ecole">
-          <a href=""
-             tal:attributes="href string: ${context/portal_url}/ecole-primaire-sainte-marie">Ecole
-             primaire<br />Sainte-Marie</a>
-        </div>
-      </td>
-      <td>
-        <div class="ecole">
-          <a href=""
-             tal:attributes="href string: ${context/portal_url}/institut-sainte-marie">Institut<br />Sainte-Marie</a>
-        </div>
-      </td>
-      <td>
-        <div class="ecole">
-          <a href=""
-             tal:attributes="href string: ${context/portal_url}/institut-sainte-therese">Institut<br
-             />Sainte-Thérèse</a>
-        </div>
-      </td>
-    </tr>
-  </table>
-
-  <table id="enseignement"
-         cellpadding="0"
+  <table cellpadding="0"
          cellspacing="0">
     <tr>
-      <td>
-        <div id="type-maternelle">
-          <a href=""
-             tal:attributes="href string: ${context/portal_url}/maternelle">Maternelle</a>
-        </div>
+      <td id="small-logo">
+        <a href=""
+           tal:attributes="href string: ${context/portal_url}">
+          <img src="petit_prince.jpg"/></a>
       </td>
       <td>
-        <div id="type-primaire">
-          <a href=""
-             tal:attributes="href string: ${context/portal_url}/primaire">Primaire</a>
-        </div>
-      </td>
-      <td>
-        <div id="type-secondaire">
-          <a href=""
-             tal:attributes="href string: ${context/portal_url}/secondaire">Secondaire</a>
-        </div>
+        <table id="site-ces">
+          <tr>
+            <td>
+              <div id="site">
+                <a href=""
+                   tal:attributes="href string: ${context/portal_url}/site-de-la-louviere">La Louvière</a>
+                <img src="puce_bleue.gif" class="puce-bleue" />
+                <a href=""
+                   tal:attributes="href string: ${context/portal_url}/site-de-manage">Manage</a>
+              </div>
+            </td>
+            <td>
+              <div id="ces">
+                <a href=""
+                   tal:attributes="href string: ${context/portal_url}/centre-scolaire-saint-exupery">
+                <span class="centre">Centre scolaire</span>
+                <span class="stex">Saint-Exupéry</span></a>
+              </div>
+            </td>
+          </tr>
+        </table>
+
+        <table id="implentation"
+               cellspacing="0"
+               cellpadding="0">
+          <tr>
+            <td>
+              <div class="ecole">
+                <a href=""
+                   tal:attributes="href string: ${context/portal_url}/ecole-fondamentale-sainte-marie">Ecole
+                   fondamentale<br />Sainte-Marie</a>
+              </div>
+            </td>
+            <td>
+              <div class="ecole">
+                <a href=""
+                   tal:attributes="href string:
+                   ${context/portal_url}/section-fondamentale-saint-antoine">Ecole fondamentale<br />Sainte-Antoine</a>
+              </div>
+            </td>
+            <td>
+              <div class="ecole">
+                <a href=""
+                   tal:attributes="href string: ${context/portal_url}/ecole-primaire-sainte-marie">Ecole
+                   primaire<br />Sainte-Marie</a>
+              </div>
+            </td>
+            <td>
+              <div class="ecole">
+                <a href=""
+                   tal:attributes="href string: ${context/portal_url}/institut-sainte-marie">Institut<br />Sainte-Marie</a>
+              </div>
+            </td>
+            <td>
+              <div class="ecole">
+                <a href=""
+                   tal:attributes="href string: ${context/portal_url}/institut-sainte-therese">Institut<br
+                   />Sainte-Thérèse</a>
+              </div>
+            </td>
+          </tr>
+        </table>
+
+        <table id="enseignement"
+               cellpadding="0"
+               cellspacing="0">
+          <tr>
+            <td>
+              <div id="type-maternelle">
+                <a href=""
+                   tal:attributes="href string: ${context/portal_url}/maternelle">Maternelle</a>
+              </div>
+            </td>
+            <td>
+              <div id="type-primaire">
+                <a href=""
+                   tal:attributes="href string: ${context/portal_url}/primaire">Primaire</a>
+              </div>
+            </td>
+            <td>
+              <div id="type-secondaire">
+                <a href=""
+                   tal:attributes="href string: ${context/portal_url}/secondaire">Secondaire</a>
+              </div>
+            </td>
+          </tr>
+        </table>
       </td>
     </tr>
   </table>
