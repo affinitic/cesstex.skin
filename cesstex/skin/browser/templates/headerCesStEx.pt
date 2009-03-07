@@ -5,7 +5,10 @@
         <div id="rectangle-bleu"></div>
       </td>
       <td>
-        <div id="small-logo">logo</div>
+        <div id="small-logo">
+          <a href=""
+             tal:attributes="href string: ${context/portal_url}">logo</a>
+        </div>
       </td>
       <td>
         <div id="site">
