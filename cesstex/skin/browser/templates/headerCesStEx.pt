@@ -34,39 +34,29 @@
                cellspacing="0"
                cellpadding="0">
           <tr>
-            <td>
-              <div class="ecole">
+            <td class="ecole">
                 <a href=""
                    tal:attributes="href string: ${context/portal_url}/ecole-fondamentale-sainte-marie">Ecole
                    fondamentale<br />Sainte-Marie</a>
-              </div>
             </td>
-            <td>
-              <div class="ecole">
+            <td class="ecole">
                 <a href=""
                    tal:attributes="href string:
                    ${context/portal_url}/section-fondamentale-saint-antoine">Ecole fondamentale<br />Sainte-Antoine</a>
-              </div>
             </td>
-            <td>
-              <div class="ecole">
+            <td class="ecole">
                 <a href=""
                    tal:attributes="href string: ${context/portal_url}/ecole-primaire-sainte-marie">Ecole
                    primaire<br />Sainte-Marie</a>
-              </div>
             </td>
-            <td>
-              <div class="ecole">
+            <td class="ecole">
                 <a href=""
                    tal:attributes="href string: ${context/portal_url}/institut-sainte-marie">Institut<br />Sainte-Marie</a>
-              </div>
             </td>
-            <td>
-              <div class="ecole">
+            <td class="ecole">
                 <a href=""
                    tal:attributes="href string: ${context/portal_url}/institut-sainte-therese">Institut<br
                    />Sainte-Thérèse</a>
-              </div>
             </td>
           </tr>
         </table>
