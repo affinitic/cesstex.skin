@@ -5,7 +5,7 @@
 
   <genericsetup:registerProfile
       name="default"
-      title="Cesstex skin"
+      title="cesstex skin"
       directory="profiles/default"
       description='Extension profile for the "Cesstex skin" Plone theme.'
       provides="Products.GenericSetup.interfaces.EXTENSION"

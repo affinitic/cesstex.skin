@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <object name="portal_skins" allow_any="False" cookie_persistence="False"
-   default_skin="Cesstex skin">
+   default_skin="cesstex skin">
 
  <object name="cesstex_images"
     meta_type="Filesystem Directory View"
@@ -12,7 +12,7 @@
     meta_type="Filesystem Directory View"
     directory="cesstex.skin:skins/cesstex_styles"/>
 
- <skin-path name="Cesstex skin" based-on="Plone Default">
+ <skin-path name="cesstex skin" based-on="Plone Default">
   <layer name="cesstex_images"
      insert-after="custom"/>
   <layer name="cesstex_templates"

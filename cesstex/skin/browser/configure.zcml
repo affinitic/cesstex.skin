@@ -7,7 +7,7 @@
     <interface
         interface=".interfaces.ICesstexTheme"
         type="zope.publisher.interfaces.browser.IBrowserSkinType"
-        name="Cesstex skin"
+        name="cesstex skin"
     />
 
     <!-- page d'accueil avec listing des news -->

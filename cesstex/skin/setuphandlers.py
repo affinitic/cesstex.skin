@@ -1,6 +1,3 @@
-# aller declarer le setuphandlers dans le ƣmport_steps.xml
-
-
 # -*- coding: utf-8 -*-
 
 from zope.component import getUtility
@@ -19,6 +16,7 @@ import logging
 logger = logging.getLogger('Cesstex.skin')
 
 LANGUAGES = ['fr']
+
 
 def setupcesstex(context):
     logger.debug('Setup cesstex skin')
@@ -171,31 +169,3 @@ def createContent(portal):
 
     institutStThereseFolder = createFolder(portal, "institut-sainte-therese", "Institut Sainte-Thérèse")
     createPage(cesstexFolder, "institut-sainte-therese", "Institut Sainte-Thérèse")
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
