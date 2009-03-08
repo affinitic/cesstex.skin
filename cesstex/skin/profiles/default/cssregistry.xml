@@ -21,6 +21,6 @@
     compression="safe"
     cookable="True"
     enabled="1"
-    expression="python: object_url.startswith('/'.join([portal_url, 'ces-stex']))"/>
+    expression="object/isHomePage"/>
 
 </object>
