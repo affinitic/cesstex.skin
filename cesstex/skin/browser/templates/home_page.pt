@@ -1,0 +1,35 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="plone">
+
+  <head>
+    <tal:comment replace="nothing">
+            Please note that this template will most likely be renamed to news_listing
+            in the future, so if you reference this template or its macros from
+            another template, make sure to change it when you upgrade.
+    </tal:comment>
+  </head>
+  <body>
+    <div metal:fill-slot="main" id="content-news">
+
+    <div align="center">
+      <object type="application/x-shockwave-flash"
+              data="main2.swf"
+              style="width:800px;height:600px;">
+        <param name="base"
+               value="main2.swf" />
+        <param name="movie"
+               value="main2.swf" />
+        <param name="quality"
+               value="high">
+        <param name="wmode"
+               value="transparent" />
+        <param name="menu"
+               value="true" />
+      </object>
+    </div>
+   </div>
+  </body>
+</html>
+
