@@ -16,7 +16,12 @@
         for="*"
         permission="zope.Public"
         />
-
+    <browser:page
+      for="*"
+      name="ces-stex"
+      template="templates/home_page.pt"
+      permission="zope.Public"
+      />
     <!-- Home page header with flash animation viewlet -->
     <browser:viewlet
         name="cesstex.header"

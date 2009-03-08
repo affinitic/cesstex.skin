@@ -33,7 +33,7 @@ text-align:left;
 }
 
 
-
+/*la louviere-manage*/
 #site-ces{
 }
 #site a{
@@ -42,24 +42,20 @@ font-size:1.1em;
 font-weight:bold;
 text-transform:uppercase;
 }
+#site a:hover {
+color:#14044e;
+}
 .puce-bleue{
 margin-left:1.1em;
 margin-right:1.1em;
 margin-bottom:0.7;
 }
 
-
+/*centre scolaire*/
 #ces{
 text-align:right;
 padding-right:1em;
-}
-#ces a{
-font-size:2.3em;
-text-decoration:none;
-letter-spacing:0.3em;
-}
-#ces a:hover {
-text-decoration:underline;
+display:block;
 }
 .centre{
 color:#2b84a6;
@@ -67,9 +63,17 @@ color:#2b84a6;
 .stex{
 color:#0caeef;
 }
+#ces a{
+font-size:2.3em;
+text-decoration:none;
+letter-spacing:0.3em;
+}
+#ces a:hover {
+background-color:#efefff;
+}
 
 
-
+/*nom des ecoles*/
 #implentation{
 background-color:#fff;      /*#075a7c;*/
 height:53px;
@@ -97,7 +101,6 @@ text-decoration:none;
 }
 #implentation a:hover {
 color:#fff;
-text-decoration:underline;
 }
 
 
