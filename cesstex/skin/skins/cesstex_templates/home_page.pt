@@ -15,12 +15,12 @@
 
     <div align="center">
       <object type="application/x-shockwave-flash"
-              data="main2.swf"
+              data="cesstex.swf"
               style="width:800px;height:600px;">
         <param name="base"
-               value="main2.swf" />
+               value="cesstex.swf" />
         <param name="movie"
-               value="main2.swf" />
+               value="cesstex.swf" />
         <param name="quality"
                value="high">
         <param name="wmode"
