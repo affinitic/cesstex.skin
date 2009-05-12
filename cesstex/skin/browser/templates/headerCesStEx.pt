@@ -45,8 +45,7 @@
                    ${context/portal_url}/ecole-fondamentale-saint-antoine">Ecole fondamentale<br />Sainte-Antoine</a>
             </td>
             <td class="ecole">
-                <a href=""
-                   tal:attributes="href string: ${context/portal_url}/ecole-primaire-sainte-marie">Ecole
+                <a href="http://www.ismprimaire.be">Ecole
                    primaire<br />Sainte-Marie</a>
             </td>
             <td class="ecole">
