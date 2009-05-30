@@ -2,6 +2,8 @@
   home_page
   masquer la barre de navigation sur la page d'accueil
 */
+
+
 #header-cesstex{
 display:none;
 }
