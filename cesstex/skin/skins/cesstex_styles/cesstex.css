@@ -8,6 +8,78 @@ body{
 background-color:#fff;                /*#e7eaf8;*/
 }
 
+#portal-column-one {
+border-collapse:collapse;
+padding:0;
+vertical-align:top;
+width:200px;
+}
+
+#portal-column-one .visualPadding {
+padding:2em 0 1em 5px;
+}
+
+.portletItem {
+border-left:1px solid #8CACBB;
+border-right:1px solid #8CACBB;
+margin:0;
+padding:5px 0px;
+}
+
+.navTreeItem a, dd.portletItem .navTreeItem a {
+border-width:1px 1px 1px 1px;
+border-style:solid solid dashed solid; 
+border-color:#fff #fff #ccc #fff;
+display:block;
+padding-bottom:0.3em;
+padding-top:0.3em;
+padding-left:3px;
+text-decoration:none;
+}
+
+.navTreeItem a:hover, dd.portletItem .navTreeItem a:hover {
+background-color:#DEE7EC;
+border:1px solid #8CACBB;
+color:#436976;
+}
+
+#portal-column-two {
+border-collapse:collapse;
+padding:0;
+vertical-align:top;
+width:150px;
+}
+
+#portal-column-two .visualPadding {
+padding:2em 5px 1em 0;
+}
+
+/*** SEARCH ***/
+.portletItemSearch{
+background-color:transparent;
+height: 61px;
+border-top:0px solid #8CACBB;
+border-bottom:0px solid #8CACBB;
+border-left:1px solid #8CACBB;
+border-right:1px solid #8CACBB;
+margin:0;
+padding:15px 2px 6px 4px;
+}
+
+input.searchButton {
+background:White url(http://localhost:8080/plone/search_icon.gif) no-repeat scroll 2px 1px;
+border:1px solid #ddd;
+color:Black;
+cursor:pointer;
+font-size:90%;
+margin-bottom:1px !important;
+padding:1px 1px 1px 19px;
+text-transform:none;
+}
+
+
+
+
 #header-cesstex{
 background-color:#a5d3ed;
 }

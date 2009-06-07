@@ -1,5 +1,6 @@
 <configure
     xmlns="http://namespaces.zope.org/zope"
+    xmlns:plone="http://namespaces.plone.org/plone"
     xmlns:browser="http://namespaces.zope.org/browser"
     i18n_domain="cesstex.skin">
 
@@ -8,7 +9,14 @@
         interface=".interfaces.ICesstexTheme"
         type="zope.publisher.interfaces.browser.IBrowserSkinType"
         name="cesstex skin"
-    />
+        />
+
+    <!-- Customize the navigation portlet -->
+    <plone:portletRenderer
+           portlet="plone.app.portlets.portlets.navigation.INavigationPortlet"
+           layer=".interfaces.ICesstexTheme"
+           class=".navigation.MyNavRenderer"
+           />
 
     <!-- page d'accueil avec listing des news -->
     <browser:view
