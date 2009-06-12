@@ -210,37 +210,38 @@ background-color:#dae4fa;
 
 .table-max{
 width:95%;
+margin:auto;
 }
 
-.bleuA{`
+.bleuA{
 color:rgb(94,187,244);
 }
 
-.bleuB{`
+.bleuB{
 color:rgb(22,139,217);
 }
 
-.grisBleuC{`
+.grisBleuC{
 color:rgb(37,108,154);
 }
 
-.jauneD{`
+.jauneD{
 color:rgb(255,237,152);
 }
 
-.orangeE{`
+.orangeE{
 color:rgb(254,214,106);
 }
 
-.grisG{`
+.grisG{
 color:rgb(155,155,155);
 }
 
-.grisH{`
+.grisH{
 color:rgb(102,102,102);
 }
 
-.grisBleuI{`
+.grisBleuI{
 color:rgb(66,90,146);
 }
 
