@@ -23,16 +23,18 @@
 
         <div tal:define="item_class python:is_current and item_class + ' navTreeCurrentItem' or item_class">
             <a tal:attributes="href python:link_remote and remote_url or item_url;
-                           title node/Description;
-                           class string:$item_class${li_class}${li_extr_class}${li_folder_class}">
-                    <img src="puce.png" />
+                               title node/Description;
+                               class string:$item_class${li_class}${li_extr_class}${li_folder_class}">
+                    
                 <span tal:content="node/Title">Selected Item Title</span>
             </a>
         </div>
 
     <ul tal:attributes="class python:'navTree navTreeLevel'+str(level)"
-        tal:condition="python: len(children) > 0 and show_children">  
+        tal:condition="python: len(children) > 0 and show_children">
+        <span tal:define="item_icon string:<img src='puce.png' />">
         <span tal:replace="structure python:view.recurse(children=children, level=level+1, bottomLevel=bottomLevel)" />
+        </span>
     </ul>
     </tal:level>
 </li>

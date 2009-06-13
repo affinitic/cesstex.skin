@@ -6,6 +6,19 @@
 
 body{
 background-color:#fff;                /*#e7eaf8;*/
+color:Black;
+font-family:"Lucida Grande",sans-serif;
+}
+
+a {
+background-color:transparent;
+color:#436976;
+text-decoration:none;
+}
+
+a:hover{
+text-decoration:underline;
+color:#0085cd;
 }
 
 #portal-column-one {
