@@ -39,6 +39,14 @@
       attribute="isHomePage"
       permission="zope2.View"
       />
+      
+    <browser:page
+        for="*"
+        name="logoView"
+        class=".LogoView.LogoView"
+        permission="zope.Public"
+        allowed_interface=".interfaces.ILogoView"
+        />
 
     <!-- Home page header with flash animation viewlet -->
     <browser:viewlet

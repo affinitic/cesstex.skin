@@ -112,8 +112,9 @@ text-decoration:none;
 }
 
 #small-logo{
-width:110px;
-background-color:#a6d2ed;
+width:209px;
+border-right:4px solid #a6d2ed;
+background-color:#fff;
 text-align:left;
 }
 

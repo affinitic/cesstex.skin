@@ -1,11 +1,21 @@
-<div id="header-cesstex">
+<div id="header-cesstex"
+     tal:define="view context/logoView">
+     
   <table cellpadding="0"
          cellspacing="0">
     <tr>
       <td id="small-logo">
-        <a href=""
-           tal:attributes="href string: ${context/portal_url}">
-          <img src="petit_prince.jpg"/></a>
+        <span tal:define="logo view/getLogo | nothing">
+            <a href=""
+               tal:attributes="href string: ${context/portal_url}">
+                <img tal:condition="logo" 
+                     src=""
+                     tal:replace="structure logo"/>
+                 
+                <img tal:condition="not: logo"
+                     src="petit_prince.jpg" />
+            </a>
+        </span>
       </td>
       <td>
         <table id="site-ces">
