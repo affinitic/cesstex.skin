@@ -41,6 +41,9 @@
                 SUBTREE
             </li>
         </ul>
+    </dd>
+    <dd class="portletFooter">
+        &nbsp;
         <span class="portletBottomLeft"></span>
         <span class="portletBottomRight"></span>
     </dd>
