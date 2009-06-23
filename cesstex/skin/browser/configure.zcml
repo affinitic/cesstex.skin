@@ -25,6 +25,13 @@
            class=".events.MyEventRenderer"
            />
 
+     <!-- Customize the news portlet -->
+     <plone:portletRenderer
+            portlet="plone.app.portlets.portlets.news.INewsPortlet"
+            layer=".interfaces.ICesstexTheme"
+            class=".news.MyNewsRenderer"
+            />
+
     <!-- page d'accueil avec listing des news -->
     <browser:view
         name="homepageView"
