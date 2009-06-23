@@ -17,6 +17,13 @@
            layer=".interfaces.ICesstexTheme"
            class=".navigation.MyNavRenderer"
            />
+           
+    <!-- Customize the events portlet -->
+    <plone:portletRenderer
+           portlet="plone.app.portlets.portlets.events.IEventsPortlet"
+           layer=".interfaces.ICesstexTheme"
+           class=".events.MyEventRenderer"
+           />
 
     <!-- page d'accueil avec listing des news -->
     <browser:view
