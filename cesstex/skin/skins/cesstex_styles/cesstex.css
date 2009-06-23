@@ -32,12 +32,58 @@ width:200px;
 padding:2em 0 1em 5px;
 }
 
+.portletHeader {
+height:23px;
+background-image:url(bg_header_portlet.png);
+background-repeat:no-repeat;
+background-color:#fff;
+border-left:none;
+border-right:none;
+border-top:none;
+border-bottom:none;
+font-weight:normal;
+line-height:1.6em;
+padding:5px 10px 0px 5px;
+text-align:right;
+text-transform:none;
+}
+
+.portlet {
+width:192px;
+background-color:White;
+border-bottom:1px solid #0075d2;
+margin:1px 0 1em;
+}
+
+.portletHeader a {
+color:#fff;
+font-weight:bold;
+font-variant:small-caps;
+}
+
+.portletHeader a:hover {
+color:#bbe4ff;
+}
+
 .portletItem {
-border-left:1px solid #8CACBB;
-border-right:1px solid #8CACBB;
+border-left:1px solid #0075d2;
+border-right:1px solid #0075d2;
 margin:0;
 padding:5px 0px;
 }
+
+.portletFooter {
+background-color:#fff;
+border-left:1px solid #0075d2;
+border-right:1px solid #0075d2;
+border-bottom:none;
+margin:0;
+padding:0.25em 1em;
+text-align:right;
+}
+
+
+
 
 .navTreeItem a, dd.portletItem .navTreeItem a {
 border-width:1px 1px 1px 1px;
