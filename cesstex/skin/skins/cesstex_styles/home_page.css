@@ -2,7 +2,16 @@
   home_page
   masquer la barre de navigation sur la page d'accueil
 */
+body{
+background-image:url(background.png);
+background-color:none;
+}
 
+.documentContent {
+background-color:transparent;
+font-size:110%;
+padding:1em 1em 2em !important;
+}
 
 #header-cesstex{
 display:none;

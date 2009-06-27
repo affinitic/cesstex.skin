@@ -22,9 +22,7 @@
         <param name="movie"
                value="cesstex.swf" />
         <param name="quality"
-               value="high">
-        <param name="wmode"
-               value="transparent" />
+               value="high" />
         <param name="menu"
                value="true" />
       </object>
