@@ -280,6 +280,31 @@ background-color:#0daff0;
 }
 
 
+
+/*** GALERIE ***/
+div#plone-true-gallery {
+background-color:transparent;
+}
+
+.jcarousel-skin-truegallery .jcarousel-container {
+background:transparent;
+border:1px solid #436976;
+margin:auto;
+}
+
+div#plone-true-gallery div.info {
+background-color:#DEE7EC;
+border:1px dashed #436976;
+margin:5px auto;
+padding-bottom:5px;
+text-align:center;
+width:400px;
+}
+
+
+
+
+
 /*** KUPU ***/
 .fond-jaune{
 background-color:#f9f7c7;
