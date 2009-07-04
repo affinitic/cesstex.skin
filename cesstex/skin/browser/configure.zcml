@@ -32,6 +32,16 @@
             class=".news.MyNewsRenderer"
             />
 
+    <!-- formulaire contact-info -->
+    <!--
+    <browser:page
+            for="*"
+            name="contact-info"
+            template="templates/contact-info.cpt"
+            permission="zope.Public"
+            />
+    -->
+    
     <!-- page d'accueil avec listing des news -->
     <browser:view
         name="homepageView"
