@@ -33,11 +33,18 @@ width:200px;
 padding:2em 0 1em 5px;
 }
 
+.portlet {
+width:192px;
+background-color:transparent;
+border-bottom:none;
+margin:1px 0 1em;
+}
+
 .portletHeader {
 height:23px;
 background-image:url(bg_header_portlet.png);
 background-repeat:no-repeat;
-background-color:#fff;
+background-color:none;
 border-left:none;
 border-right:none;
 border-top:none;
@@ -49,11 +56,19 @@ text-align:right;
 text-transform:none;
 }
 
-.portlet {
-width:192px;
-background-color:White;
-border-bottom:none;
-margin:1px 0 1em;
+.portletHeader {cesstex.css (ligne 39)
+background-image:url(bggg_header_portlet.png);
+background-repeat:no-repeat;
+border:medium none;
+font-weight:normal;
+height:23px;
+line-height:1.6em;
+padding:5px 10px 0 5px;
+text-align:right;
+text-transform:none;
+}
+.portletHeader, .managedPortlet .portletHeader {
+background-color:transparent;
 }
 
 .portletHeader a {
@@ -67,14 +82,15 @@ color:#bbe4ff;
 }
 
 .portletItem {
+background-color:#fff;
 border-left:1px solid #0075d2;
 border-right:1px solid #0075d2;
 margin:0;
-padding:5px 0px;
+padding:5px 5px;
 }
 
 .portletFooter {
-background-color:#fff;
+background-color:transparent;
 background-image:url(bg_footer_portlet.png);
 background-repeat:no-repeat;
 background-position: 0px -60px;
@@ -87,10 +103,10 @@ text-align:right;
 }
 
 .portletFooterEvents {
-background-color:#fff;
+background-color:none;
 background-image:url(bg_footer_portlet.png);
 background-repeat:no-repeat;
-background-position: 0px -43px;
+background-position: 0px -45px;
 border-left:none;
 border-right:none;
 border-bottom:none;
@@ -101,9 +117,6 @@ border-left:none;
 border-right:none;
 border-top:1px dotted #8CACBB;
 }
-
-
-
 
 .navTreeItem a, dd.portletItem .navTreeItem a {
 border-width:1px 1px 1px 1px;
@@ -117,7 +130,7 @@ text-decoration:none;
 }
 
 .navTreeItem a:hover, dd.portletItem .navTreeItem a:hover {
-background-color:#DEE7EC;
+background-color:none;     /*#DEE7EC;*/
 border:1px solid #8CACBB;
 color:#436976;
 }
@@ -125,7 +138,7 @@ color:#436976;
 #portal-column-two {
 background-image:url(background.png);
 border-collapse:collapse;
-padding:0;
+padding:0px 0px 0px 4px;
 vertical-align:top;
 width:150px;
 }
@@ -136,14 +149,14 @@ padding:2em 5px 1em 0;
 
 /*** SEARCH ***/
 .portletItemSearch{
-background-color:transparent;
+background-color:#fff;
 height: 61px;
 border-top:0px solid #8CACBB;
 border-bottom:0px solid #8CACBB;
 border-left:1px solid #0075d2;
 border-right:1px solid #0075d2;
 margin:0;
-padding:15px 2px 6px 4px;
+padding:15px 2px 6px 2px;
 }
 
 input.searchButton {
@@ -153,13 +166,14 @@ color:Black;
 cursor:pointer;
 font-size:90%;
 margin-bottom:1px !important;
-padding:1px 1px 1px 19px;
+margin-right:5px;
+padding:1px 5px 1px 19px;
 text-transform:none;
 }
 
 
 
-
+/***HEADER BARRE NAVIGATION PLONE***/
 #header-cesstex{
 background-color:#a5d3ed;
 }
@@ -295,14 +309,14 @@ margin:auto;
 div#plone-true-gallery div.info {
 background-color:#DEE7EC;
 border:1px dashed #436976;
-margin:5px auto;
+margin:5px auto;ƒ
 padding-bottom:5px;
 text-align:center;
 width:400px;
 }
 
 
-
+ƒ
 /*** KUPU ***/
 .fond-jaune{
 background-color:#f9f7c7;
@@ -364,8 +378,3 @@ color:rgb(172,247,254);
 .grisBleuK{
 color:rgb(47,77,96);
 }
-
-
-
-
-
