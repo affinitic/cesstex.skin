@@ -56,7 +56,7 @@ text-align:right;
 text-transform:none;
 }
 
-.portletHeader {cesstex.css (ligne 39)
+.portletHeader {
 background-image:url(bggg_header_portlet.png);
 background-repeat:no-repeat;
 border:medium none;
@@ -377,4 +377,13 @@ color:rgb(172,247,254);
 
 .grisBleuK{
 color:rgb(47,77,96);
+}
+
+#content a[href^="http:"],
+#content a.link-external {
+-moz-background-clip:border;
+-moz-background-inline-policy:continuous;
+-moz-background-origin:padding;
+padding:1px 0 1px 0px;
+background-image:none;
 }
