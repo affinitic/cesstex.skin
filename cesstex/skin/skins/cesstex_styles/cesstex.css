@@ -21,6 +21,8 @@ text-decoration:underline;
 color:#0085cd;
 }
 
+
+/*** COLONNE ***/
 #portal-column-one {
 background-image:url(background.png);
 border-collapse:collapse;
@@ -33,6 +35,19 @@ width:200px;
 padding:2em 0 1em 5px;
 }
 
+#portal-column-two {
+background-image:url(background.png);
+border-collapse:collapse;
+padding:0px 0px 0px 4px;
+vertical-align:top;
+width:150px;
+}
+
+#portal-column-two .visualPadding {
+padding:2em 5px 1em 0;
+}
+
+/*** PORTLET ***/
 .portlet {
 width:192px;
 background-color:transparent;
@@ -135,16 +150,13 @@ border:1px solid #8CACBB;
 color:#436976;
 }
 
-#portal-column-two {
-background-image:url(background.png);
-border-collapse:collapse;
-padding:0px 0px 0px 4px;
-vertical-align:top;
-width:150px;
-}
 
-#portal-column-two .visualPadding {
-padding:2em 5px 1em 0;
+/*** CALENDAR ***/
+.ploneCalendar {
+border-bottom:1px solid #0075d2;
+border-collapse:collapse;
+border-spacing:0;
+width:100%;
 }
 
 /*** SEARCH ***/
