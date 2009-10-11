@@ -1,0 +1,22 @@
+<html xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      i18n:domain="plone">
+
+<body>
+    <div metal:define-macro="portlet">
+        <div class="portlet">
+            <div class="portletHeader">150 ANS</div>
+            <div id="annif-ism">
+                150 ANS<br />
+                ORGANISATION
+                <!--a href="" tal:attributes="href string:${context/portal_url}/"-->
+                    <a href=""
+                       tal:attributes="href string:${context/portal_url}/institut-sainte-marie/150-ans-organisation/">
+                       <img src="blason_150_ans.gif"></a>
+                <!--/a-->
+            </div>
+            <div class="portletFooter">.</div>
+         </div>
+    </div>
+</body>
+</html>

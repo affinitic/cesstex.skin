@@ -69,6 +69,7 @@ line-height:1.6em;
 padding:5px 10px 0px 5px;
 text-align:right;
 text-transform:none;
+color:#fff;
 }
 
 .portletHeader {
@@ -149,7 +150,6 @@ background-color:none;     /*#DEE7EC;*/
 border:1px solid #8CACBB;
 color:#436976;
 }
-
 
 /*** CALENDAR ***/
 .ploneCalendar {
@@ -417,6 +417,13 @@ text-align:center;
 }
 
 
+/*** PORLET ISM ***/
+#annif-ism{
+background-color:#fff;
+border-left:1px solid #0075d2;
+border-right:1px solid #0075d2;
+text-align:center;
+}
 
 
 
