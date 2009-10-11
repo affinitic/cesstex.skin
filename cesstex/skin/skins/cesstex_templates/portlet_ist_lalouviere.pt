@@ -12,9 +12,9 @@
     <div id="portlet-ist">
         <div class="portlet-header-ist">ACTU La Louvi&egrave;re</div>
         <div id="anim-manage">
-            <a href="" tal:attributes="href string:${context/portal_url}/">
+            <!--a href="" tal:attributes="href string:${context/portal_url}/"-->
                 <img src="portlet_ist_lalouviere.gif">
-            </a>
+            <!--/a-->
         </div>
      </div>
 </div>
