@@ -387,3 +387,25 @@ color:rgb(47,77,96);
 padding:1px 0 1px 0px;
 background-image:none;
 }
+
+
+/*** PORTLET IST ***/
+#portlet-ist{
+background-color:#DBF2FF;
+border:1px solid #999; /*#0075d2;*/
+padding:2px 0px 5px 0px;
+margin-bottom:1.2em;
+}
+
+.portlet-header-ist{
+font-weight:bold;
+font-size:1.1em;
+text-align:center;
+
+}
+
+
+
+
+
+

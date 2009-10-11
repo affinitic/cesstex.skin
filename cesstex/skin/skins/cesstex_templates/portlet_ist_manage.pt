@@ -1,0 +1,22 @@
+<html xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      i18n:domain="plone">
+
+<body>
+
+<!-- 
+    Portlet ist site la louviere 
+-->
+
+<div metal:define-macro="portlet">
+    <div id="portlet-ist">
+        <div class="portlet-header-ist">ACTU Manage</div>
+        <div id="anim-manage">
+            <a href="" tal:attributes="href string:${context/portal_url}/institut-sainte-therese/en/actu-manage">
+                <img src="portlet_ist_manage.gif">
+            </a>
+        </div>
+     </div>
+</div>
+</body>
+</html>
