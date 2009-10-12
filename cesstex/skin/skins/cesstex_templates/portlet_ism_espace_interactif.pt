@@ -1,0 +1,20 @@
+<html xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      i18n:domain="plone">
+
+<body>
+    <div metal:define-macro="portlet">
+        <div class="portlet">
+            <div class="portletHeaderEspaceInteractif">ESPACE INTERACTIF</div>
+            <div id="espace-interactif-ism">
+                <a href=""
+                   tal:attributes="href string:${context/portal_url}/institut-sainte-marie/espace-interactif/">
+                       Espace interactif pour<br />
+                       les profs et les &eacute;tudiants
+                </a>
+            </div>
+            <div class="portletFooterEspaceInteractif">&nbsp;&nbsp;</div>
+         </div>
+    </div>
+</body>
+</html>

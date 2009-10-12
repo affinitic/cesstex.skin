@@ -425,6 +425,38 @@ border-right:1px solid #0075d2;
 text-align:center;
 }
 
+.portletHeaderEspaceInteractif{
+background-image:url(portlet_ism_interactif.png);
+height:31px;
+color:#fff;
+text-align:right;
+line-height:2.6em;
+padding-right:5px;
+font-variant:small-caps;
+font-weight:bold;
+}
+
+#espace-interactif-ism{
+border-left:1px solid #ff8900;
+border-right:1px solid #ff8900;
+padding:8px 5px 12px 5px;
+text-align:center;
+background-color:#fff0df;
+}
+
+.portletFooterEspaceInteractif{
+    background-color:transparent;
+    background-image:url(bg_footer_portlet_espace_interactif.png);
+    background-repeat:no-repeat;
+    background-position: 0px -60px;
+    border-left:none;
+    border-right:none;
+    border-bottom:none;
+    margin:0;
+    padding:0.25em 1em;
+    text-align:right;
+}
+
 
 
 
