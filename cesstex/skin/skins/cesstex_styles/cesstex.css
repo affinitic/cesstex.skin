@@ -109,7 +109,7 @@ padding:5px 5px;
 background-color:transparent;
 background-image:url(bg_footer_portlet.png);
 background-repeat:no-repeat;
-background-position: 0px -60px;
+background-position: 0px -61px;
 border-left:none;
 border-right:none;
 border-bottom:none;
@@ -445,16 +445,16 @@ background-color:#fff0df;
 }
 
 .portletFooterEspaceInteractif{
-    background-color:transparent;
-    background-image:url(bg_footer_portlet_espace_interactif.png);
-    background-repeat:no-repeat;
-    background-position: 0px -60px;
-    border-left:none;
-    border-right:none;
-    border-bottom:none;
-    margin:0;
-    padding:0.25em 1em;
-    text-align:right;
+background-color:transparent;
+background-image:url(bg_footer_portlet_espace_interactif.png);
+background-repeat:no-repeat;
+background-position: 0px -61px;
+border-left:none;
+border-right:none;
+border-bottom:none;
+margin:0;
+padding:0.25em 1em;
+text-align:right;
 }
 
 
