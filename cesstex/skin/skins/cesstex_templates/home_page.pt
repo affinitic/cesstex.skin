@@ -27,6 +27,28 @@
                value="true" />
       </object>
     </div>
+    <div id="liens-texte">
+      <a href=""
+         tal:attributes="href string: ${context/portal_url}/ecole-fondamentale-sainte-marie">
+         Ecole fondamentale Sainte-Marie</a> |
+
+      <a href="http://www.ismprimaire.be">
+          Ecole primaire Sainte-Marie</a> |
+
+      <a href=""
+         tal:attributes="href string:
+                         ${context/portal_url}/ecole-fondamentale-saint-antoine">
+         Ecole fondamentale Sainte-Antoine</a> |
+
+      <a href=""
+         tal:attributes="href string: ${context/portal_url}/institut-sainte-marie">
+         Institut Sainte-Marie</a> |
+
+      <a href=""
+         tal:attributes="href string: ${context/portal_url}/institut-sainte-therese">
+         Institut Sainte-Therese</a>
+    </div>
+    
    </div>
   </body>
 </html>

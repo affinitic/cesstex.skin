@@ -13,6 +13,7 @@
   <body>
     <div metal:fill-slot="main" id="content-news">
 
+
     <div align="center">
       <object type="application/x-shockwave-flash"
               data="main2.swf"

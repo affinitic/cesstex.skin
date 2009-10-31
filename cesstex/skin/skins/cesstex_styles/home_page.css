@@ -24,3 +24,19 @@ display:none;
 #portal-personaltools{
 display:none;
 }
+
+#liens-texte{
+width:85%;
+margin:auto;
+text-align:center;
+margin-top:10px;
+border:1px solid #ccc;
+}
+
+#liens-texte a{
+color:#bbb;
+}
+
+#liens-texte a:hover{
+color:#555;
+}
