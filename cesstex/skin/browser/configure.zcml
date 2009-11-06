@@ -17,7 +17,7 @@
            layer=".interfaces.ICesstexTheme"
            class=".navigation.MyNavRenderer"
            />
-           
+
     <!-- Customize the events portlet -->
     <plone:portletRenderer
            portlet="plone.app.portlets.portlets.events.IEventsPortlet"
@@ -63,7 +63,7 @@
       attribute="isHomePage"
       permission="zope2.View"
       />
-      
+
     <browser:page
         for="*"
         name="logoView"
@@ -98,5 +98,17 @@
         layer=".interfaces.ICesstexTheme"
         permission="zope2.View"
         />
+
+
+<!-- IST -->
+     <browser:page
+        name="ist-formulaire-de-demande"
+        for="*"
+        template="templates/ist_contact_form.pt"
+        permission="zope.Public"
+     />
+        <!--class=".ManageIST.ManageIST"
+        allowed_interface=".interfaces.IManageOperateur"-->
+
 
 </configure>

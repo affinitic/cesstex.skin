@@ -1,0 +1,144 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="plone">
+
+<head>
+    <tal:comment replace="nothing">
+        Please note that this template will most likely be renamed to news_listing
+        in the future, so if you reference this template or its macros from
+        another template, make sure to change it when you upgrade.
+    </tal:comment>
+</head>
+<body>
+<div metal:fill-slot="main" id="content-news">
+    <h1>Demande d’informations</h1>
+    Vous avez une demande particulière…
+
+    N’hésitez pas à compléter ce formulaire et nous vous recontacterons
+    au plus vite pour une réponse précise et personnalisée.
+
+    Merci de compléter vos coordonnées complètes :
+    
+    <div>
+        <div>
+            <label for="civilite">Civilité</label>
+            <br />
+            <select name="Civilité"
+                    id="civilite">
+                <option> ... </option>
+                <option value="Madame"> Madame </option>
+                <option value="Monsieur"> Monsieur </option>
+            </select>
+        </div>
+        <div>
+            <label for="prenom">Prénom</label>
+            <br />
+            <input type="text"
+                   name="Prénom"
+                   id="prenom"
+                   value=""
+                   size="50" />
+        </div>
+        <div>
+            <label for="nom">Nom</label>
+            <br />
+            <input type="text"
+                   name="Nom"
+                   id="nom"
+                   value=""
+                   size="50" />
+        </div>
+        <div>
+            <label for="rue">Rue</label>
+            <br />
+            <input type="text"
+                   name="Rue"
+                   id="rue"
+                   value=""
+                   size="50" />
+        </div>
+        <div>
+            <label for="num">N°</label>
+            <br />
+            <input type="text"
+                   name="Numéro"
+                   id="num"
+                   value=""
+                   size="5" />
+        </div>
+        <div>
+            <label for="cp">CP</label>
+            <br />
+            <input type="text"
+                   name="CP"
+                   id="cp"
+                   value=""
+                   size="5" />
+        </div>
+        <div>
+            <label for="localite">Localoité</label>
+            <br />
+            <input type="text"
+                   name="Localoité"
+                   id="localite"
+                   value=""
+                   size="50" />
+        </div>
+        <div>
+            <label for="tel">Téléphone</label>
+            <br />
+            <input type="text"
+                   name="Tél"
+                   id="tel"
+                   value=""
+                   size="12" />
+        </div>
+        <div>
+            <label for="email">E-Mail</label>
+            <br />
+            <input type="text"
+                   name="E-Mail"
+                   id="email"
+                   value=""
+                   size="50" />
+        </div>
+        <p>
+        Votre demande concerne :
+        </p>
+        <div>
+            <label for="option">Option</label>
+            <br />
+            <input type="text"
+                   name="Option"
+                   id="option"
+                   value=""
+                   size="50" />
+        </div>
+        <div>
+            <label for="implantation">Implantation</label>
+            <br />
+            <select name="Implantation"
+                    id="implantation">
+                <option> ... </option>
+                <option value="IST MANAGE"> IST MANAGE </option>
+                <option value="IST LA LOUVIERE"> IST LA LOUVIERE </option>
+                <option value="CEFA MANAGE"> CEFA MANAGE </option>
+            </select>
+        </div>
+        <div>
+            <label for="demande">Votre demande</label>
+            <br />
+            <textarea name="Demande"
+                      id="demande"
+                      rows="5"
+                      cols="80"></textarea>
+        </div>
+        <div>
+            <input type="submit"
+                   value="Envoyer ma demande" />
+        </div>
+    </div>
+</div>
+</body>
+</html>
