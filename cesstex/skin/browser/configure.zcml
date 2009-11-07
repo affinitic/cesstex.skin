@@ -106,7 +106,7 @@
         for="*"
         template="templates/ist_contact_form.pt"
         permission="zope.Public"
-        class=".IManageIST.IManageIST"
+        class=".ManageIST.ManageIST"
         allowed_interface=".interfaces.IManageIST" />
 
 

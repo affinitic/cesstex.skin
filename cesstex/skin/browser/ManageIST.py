@@ -3,10 +3,10 @@
 from Products.Five import BrowserView
 from zope.interface import implements
 from mailer import Mailer
-#from cesstex.skin.browser.interfaces import ManageIST
+from cesstex.skin.browser.interfaces import IManageIST
 
 
-class IManageIST(BrowserView):
+class ManageIST(BrowserView):
     implements(IManageIST)
 
     def sendMailDemande(self):
