@@ -21,6 +21,9 @@
     Merci de compléter vos coordonnées complètes :
     
     <div>
+        <form action=""
+              method="post"
+              tal:attributes="action python:view.sendMailDemande()">
         <div>
             <label for="civilite">Civilité</label>
             <br />
@@ -138,6 +141,7 @@
             <input type="submit"
                    value="Envoyer ma demande" />
         </div>
+        </form>
     </div>
 </div>
 </body>
