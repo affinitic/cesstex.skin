@@ -37,6 +37,7 @@ class ManageIST(BrowserView):
         option=fields.get('option')
         implantation=fields.get('implantation')
         demande=fields.get('demande')
+        direction=''
         
         #pour MANAGE : direction.ist@istmanage.be   IST MANAGE
         #pour LA LOUVIERE :  christina.papadopoulos@gmail.com  IST LA LOUVIERE
