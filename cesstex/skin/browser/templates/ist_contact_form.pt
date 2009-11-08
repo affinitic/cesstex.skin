@@ -24,123 +24,123 @@
         <form action=""
               method="post"
               tal:attributes="action python:view.traiterDemandeIst()">
-        <div>
-            <label for="civilite">Civilité</label>
-            <br />
-            <select name="civilite"
-                    id="civilite">
-                <option> ... </option>
-                <option value="Madame"> Madame </option>
-                <option value="Monsieur"> Monsieur </option>
-            </select>
-        </div>
-        <div>
-            <label for="prenom">Prénom</label>
-            <br />
-            <input type="text"
-                   name="prenom"
-                   id="prenom"
-                   value=""
-                   size="50" />
-        </div>
-        <div>
-            <label for="nom">Nom</label>
-            <br />
-            <input type="text"
-                   name="nom"
-                   id="nom"
-                   value=""
-                   size="50" />
-        </div>
-        <div>
-            <label for="rue">Rue</label>
-            <br />
-            <input type="text"
-                   name="rue"
-                   id="rue"
-                   value=""
-                   size="50" />
-        </div>
-        <div>
-            <label for="num">N°</label>
-            <br />
-            <input type="text"
-                   name="numero"
-                   id="num"
-                   value=""
-                   size="5" />
-        </div>
-        <div>
-            <label for="cp">CP</label>
-            <br />
-            <input type="text"
-                   name="cp"
-                   id="cp"
-                   value=""
-                   size="5" />
-        </div>
-        <div>
-            <label for="localite">Localité</label>
-            <br />
-            <input type="text"
-                   name="localite"
-                   id="localite"
-                   value=""
-                   size="50" />
-        </div>
-        <div>
-            <label for="tel">Téléphone</label>
-            <br />
-            <input type="text"
-                   name="telephone"
-                   id="tel"
-                   value=""
-                   size="12" />
-        </div>
-        <div>
-            <label for="email">E-Mail</label>
-            <br />
-            <input type="text"
-                   name="email"
-                   id="email"
-                   value=""
-                   size="50" />
-        </div>
-        <p>
-        Votre demande concerne :
-        </p>
-        <div>
-            <label for="option">Option</label>
-            <br />
-            <input type="text"
-                   name="option"
-                   id="option"
-                   value=""
-                   size="50" />
-        </div>
-        <div>
-            <label for="implantation">Implantation</label>
-            <br />
-            <select name="implantation"
-                    id="implantation">
-                <option> ... </option>
-                <option value="IST MANAGE"> IST MANAGE </option>
-                <option value="IST LA LOUVIERE"> IST LA LOUVIERE </option>
-                <option value="CEFA MANAGE"> CEFA MANAGE </option>
-            </select>
-        </div>
-        <div>
-            <label for="demande">Votre demande</label>
-            <br />
-            <textarea name="demande"
-                      id="demande"
-                      rows="5"
-                      cols="80"></textarea>
-        </div>
-        <div>
-            <input type="submit"
-                   value="Envoyer ma demande" />
-        </div>
+            <div>
+                <label for="civilite">Civilité</label>
+                <br />
+                <select name="civilite"
+                        id="civilite">
+                    <option> ... </option>
+                    <option value="Madame"> Madame </option>
+                    <option value="Monsieur"> Monsieur </option>
+                </select>
+            </div>
+            <div>
+                <label for="prenom">Prénom</label>
+                <br />
+                <input type="text"
+                       name="prenom"
+                       id="prenom"
+                       value=""
+                       size="50" />
+            </div>
+            <div>
+                <label for="nom">Nom</label>
+                <br />
+                <input type="text"
+                       name="nom"
+                       id="nom"
+                       value=""
+                       size="50" />
+            </div>
+            <div>
+                <label for="rue">Rue</label>
+                <br />
+                <input type="text"
+                       name="rue"
+                       id="rue"
+                       value=""
+                       size="50" />
+            </div>
+            <div>
+                <label for="num">N°</label>
+                <br />
+                <input type="text"
+                       name="numero"
+                       id="num"
+                       value=""
+                       size="5" />
+            </div>
+            <div>
+                <label for="cp">CP</label>
+                <br />
+                <input type="text"
+                       name="cp"
+                       id="cp"
+                       value=""
+                       size="5" />
+            </div>
+            <div>
+                <label for="localite">Localité</label>
+                <br />
+                <input type="text"
+                       name="localite"
+                       id="localite"
+                       value=""
+                       size="50" />
+            </div>
+            <div>
+                <label for="tel">Téléphone</label>
+                <br />
+                <input type="text"
+                       name="telephone"
+                       id="tel"
+                       value=""
+                       size="12" />
+            </div>
+            <div>
+                <label for="email">E-Mail</label>
+                <br />
+                <input type="text"
+                       name="email"
+                       id="email"
+                       value=""
+                       size="50" />
+            </div>
+            <p>
+            Votre demande concerne :
+            </p>
+            <div>
+                <label for="option">Option</label>
+                <br />
+                <input type="text"
+                       name="option"
+                       id="option"
+                       value=""
+                       size="50" />
+            </div>
+            <div>
+                <label for="implantation">Implantation</label>
+                <br />
+                <select name="implantation"
+                        id="implantation">
+                    <option> ... </option>
+                    <option value="IST MANAGE"> IST MANAGE </option>
+                    <option value="IST LA LOUVIERE"> IST LA LOUVIERE </option>
+                    <option value="CEFA MANAGE"> CEFA MANAGE </option>
+                </select>
+            </div>
+            <div>
+                <label for="demande">Votre demande</label>
+                <br />
+                <textarea name="demande"
+                          id="demande"
+                          rows="5"
+                          cols="80"></textarea>
+            </div>
+            <div>
+                <input type="submit"
+                       value="Envoyer ma demande" />
+            </div>
         </form>
     </div>
 </div>
