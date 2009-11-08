@@ -23,11 +23,11 @@
     <div>
         <form action=""
               method="post"
-              tal:attributes="action python:view.sendMailDemande()">
+              tal:attributes="action python:view.traiterDemandeIst()">
         <div>
             <label for="civilite">Civilité</label>
             <br />
-            <select name="Civilité"
+            <select name="civilite"
                     id="civilite">
                 <option> ... </option>
                 <option value="Madame"> Madame </option>
@@ -38,7 +38,7 @@
             <label for="prenom">Prénom</label>
             <br />
             <input type="text"
-                   name="Prénom"
+                   name="prenom"
                    id="prenom"
                    value=""
                    size="50" />
@@ -47,7 +47,7 @@
             <label for="nom">Nom</label>
             <br />
             <input type="text"
-                   name="Nom"
+                   name="nom"
                    id="nom"
                    value=""
                    size="50" />
@@ -56,7 +56,7 @@
             <label for="rue">Rue</label>
             <br />
             <input type="text"
-                   name="Rue"
+                   name="rue"
                    id="rue"
                    value=""
                    size="50" />
@@ -65,7 +65,7 @@
             <label for="num">N°</label>
             <br />
             <input type="text"
-                   name="Numéro"
+                   name="numero"
                    id="num"
                    value=""
                    size="5" />
@@ -74,16 +74,16 @@
             <label for="cp">CP</label>
             <br />
             <input type="text"
-                   name="CP"
+                   name="cp"
                    id="cp"
                    value=""
                    size="5" />
         </div>
         <div>
-            <label for="localite">Localoité</label>
+            <label for="localite">Localité</label>
             <br />
             <input type="text"
-                   name="Localoité"
+                   name="localite"
                    id="localite"
                    value=""
                    size="50" />
@@ -92,7 +92,7 @@
             <label for="tel">Téléphone</label>
             <br />
             <input type="text"
-                   name="Tél"
+                   name="telephone"
                    id="tel"
                    value=""
                    size="12" />
@@ -101,7 +101,7 @@
             <label for="email">E-Mail</label>
             <br />
             <input type="text"
-                   name="E-Mail"
+                   name="email"
                    id="email"
                    value=""
                    size="50" />
@@ -113,7 +113,7 @@
             <label for="option">Option</label>
             <br />
             <input type="text"
-                   name="Option"
+                   name="option"
                    id="option"
                    value=""
                    size="50" />
@@ -121,7 +121,7 @@
         <div>
             <label for="implantation">Implantation</label>
             <br />
-            <select name="Implantation"
+            <select name="implantation"
                     id="implantation">
                 <option> ... </option>
                 <option value="IST MANAGE"> IST MANAGE </option>
@@ -132,7 +132,7 @@
         <div>
             <label for="demande">Votre demande</label>
             <br />
-            <textarea name="Demande"
+            <textarea name="demande"
                       id="demande"
                       rows="5"
                       cols="80"></textarea>
