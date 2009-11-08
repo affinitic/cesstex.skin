@@ -15,8 +15,8 @@ class ManageIST(BrowserView):
         """
         #yohannamazzeo@hotmail.com
         direction="alain.meurant@affinitic.be, alain.meurant@skynet.be"
-        #mailer = Mailer("localhost", "alain.meurant@skynet.be)
-        mailer = Mailer("relay.skynet.be", direction)
+        mailer = Mailer("localhost", direction)
+        #mailer = Mailer("relay.skynet.be", direction)
         mailer.setSubject(sujet)
         mailer.setRecipients("alain.meurant@affinitic.be, alain.meurant@skynet.be")
         #mailer.setRecipients("alain.meurant@skynet.be")
