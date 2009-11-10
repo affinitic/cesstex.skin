@@ -21,9 +21,8 @@
     Merci de compléter vos coordonnées complètes :
     
     <div>
-        <form action=""
-              method="post"
-              tal:attributes="action python:view.traiterDemandeIst()">
+        <form action="ist-formulaire-de-demande/traiterDemandeISt"
+              method="post">
             <div>
                 <label for="civilite">Civilité</label>
                 <br />
