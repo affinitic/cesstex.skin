@@ -28,3 +28,8 @@ class IManageIST(Interface):
         """
         Envoie une demande faite par le site
         """
+
+    def traiterDemandeIst():
+        """
+        gère la demande et envoie mail selon implantation
+        """

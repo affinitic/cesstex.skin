@@ -19,9 +19,9 @@
     au plus vite pour une réponse précise et personnalisée.
 
     Merci de compléter vos coordonnées complètes :
-    
+
     <div>
-        <form action="ist-formulaire-de-demande/traiterDemandeISt"
+        <form action="ist-formulaire-de-demande/traiterDemandeIst"
               method="post">
             <div>
                 <label for="civilite">Civilité</label>

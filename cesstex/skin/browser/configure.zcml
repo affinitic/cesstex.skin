@@ -41,7 +41,7 @@
             permission="zope.Public"
             />
     -->
-    
+
     <!-- page d'accueil avec listing des news -->
     <browser:view
         name="homepageView"
@@ -100,8 +100,16 @@
         />
 
 
-<!-- IST -->
-     <browser:page
+      <!-- IST -->
+      <browser:page
+         for="*"
+         name="manageIST"
+         class=".ManageIST.ManageIST"
+         allowed_interface=".interfaces.IManageIST"
+         permission="zope.Public"
+         />
+
+      <browser:page
         name="ist-formulaire-de-demande"
         for="*"
         template="templates/ist_contact_form.pt"
