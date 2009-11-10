@@ -42,16 +42,16 @@ class ManageIST(BrowserView):
         demande=fields.get('demande')
         direction=''
 
-        #pour MANAGE : direction.ist@istmanage.be   IST MANAGE
+        #pour MANAGE : Marie-Christine DELMOITIEZ, coordination@istmanage.be   IST MANAGE
         #pour LA LOUVIERE :  christina.papadopoulos@gmail.com  IST LA LOUVIERE
-        #pour le CEFA : ist.cefa@skynet.be  CEFA MANAGE
+        #pour le CEFA : Dominique BERTRAND, dominiquewillaerts@hotmail.com  CEFA MANAGE
 
         if implantation=="IST MANAGE":
-            direction="direction.ist@istmanage.be"
+            direction="coordination@istmanage.be"
         elif implantation=="IST LA LOUVIERE":
             direction="christina.papadopoulos@gmail.com"
         elif implantation=="CEFA MANAGE":
-            direction="ist.cefa@skynet.be"
+            direction="dominiquewillaerts@hotmail.com"
 
         sujet="testmail %s"%(implantation)
 
