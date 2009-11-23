@@ -7,16 +7,17 @@
         <div class="portlet">
             <div class="portletHeaderEspaceInteractif">ESPACE INTERACTIF</div>
             <div id="espace-interactif-ism">
-                <a href=""
-                   tal:attributes="href string:${context/portal_url}/institut-sainte-marie/espace-interactif/">
-                       Espace interactif pour<br />
-                       les profs et les &eacute;tudiants
-                </a>
-                <hr />
-                <div class="discreet" align="center">
-                    Documents - exercices - travaux - projets
+                <div class="texte-interactif">
+                    Documents - Exercices - Travaux - Projets
+                    <br /><br />
                     Professeurs et &eacute;l&egrave;ves communiquent
                 </div>
+                <hr />
+                <a href=""
+                   tal:attributes="href string:${context/portal_url}/institut-sainte-marie/espace-interactif/">
+                       Entrez dans l'espace interactif pour<br />
+                       les profs et les &eacute;tudiants <img src="puce.png" />
+                </a>
             </div>
             <div class="portletFooterEspaceInteractif">&nbsp;&nbsp;</div>
          </div>
