@@ -269,7 +269,7 @@ bugfix: eventlister, mMeventlister - class: defaulted to "eventPublished" instea
                 tal:content="string:$year">&nbsp;
           </span>
       </span>
-      &nbsp;
+      &nbsp;aaaaaaaaaaaaaaaaaaaaaa
     </th>
     <th class="noshow"
         tal:attributes="colspan python:7"
@@ -413,6 +413,9 @@ bugfix: eventlister, mMeventlister - class: defaulted to "eventPublished" instea
 
 
 
+
+
+
 <!-- subjectlinks -->
 <!-- A table ROW of links for different categories via the Subject field -->
 <!-- includes code for Public/My events on the left side -->
@@ -420,11 +423,10 @@ bugfix: eventlister, mMeventlister - class: defaulted to "eventPublished" instea
 <!-- Checks useMultiSubjects to choose old, or new MultiSubject form -->
 <!-- Checks for subCalendars, specifically for Resources -->
 <span tal:omit-tag="" metal:define-macro="subjectlinks" i18n:domain="calendarx">
-  <tr tal:condition="python:here.getCXAttribute('showSubjectBar')" class="subjectlinksrow"> 
-    <td class="barleft">
-      <table width="100%">
-        <tr>
-          <td class="barleft2"> 
+<table tal:condition="python:here.getCXAttribute('showSubjectBar')" 
+       id="calendarx-liste-categorie">
+    <tr> 
+        <td>
             <span class="nowrap"
                   tal:condition="python:here.getCXAttribute('showPublicPrivateLink')">
               <img tal:replace="structure here/calLinkOpaque.gif" />
@@ -458,8 +460,8 @@ bugfix: eventlister, mMeventlister - class: defaulted to "eventPublished" instea
                             tal:define="image here/calLinkOpaque.gif" >Show Pending</a>
                 <img tal:replace="structure here/calLinkOpaque.gif" />
             </span>
-          </td> 
-          <td class="barright2" tal:define="std modules/Products.PythonScripts.standard;
+      
+          <span class="barright2" tal:define="std modules/Products.PythonScripts.standard;
                                             mstring modules/string;
                                             url_quote nocall: std/url_quote;
                                             count nocall: mstring/count;"> 
@@ -470,7 +472,6 @@ bugfix: eventlister, mMeventlister - class: defaulted to "eventPublished" instea
                 <input tal:attributes="type string:hidden; name string:currentDate; value python:url_quote(currentDate.Date());" /> 
                 <input tal:attributes="type string:hidden; name string:xmy; value python:xmy;" /> 
                 <input tal:attributes="type string:hidden; name string:xsub; value string:;" /> 
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
                 <a tal:condition="python:here.getCXAttribute('isSubCalendar')"
                    tal:define="strDate python:currentDate.Date();
                                urlly string:${request/URL2}/$viewname?currentDate=$strDate&xmy=$xmy&xsub=ALL"
@@ -489,7 +490,8 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
                       i18n:translate="">
                   lead in:
                 </span>
-                <span class="nowrap">
+                <ul class="calendarx-toute-categorie">
+                  <li>
                   <input i18n:attributes="value" value="label_sublinks_viewall" 
                          tal:attributes="type string:checkbox; 
                                          name string:xsubALL; 
@@ -497,7 +499,8 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
                                          checked python:count(xsub,'ALL') or nothing; 
                                          onclick string:fixCategories('ALL');;" />
                   <span i18n:translate="label_sublinks_viewall">View All</span>
-                </span>
+                  </li>
+                </ul>
                 <span class="nowrap" 
                       tal:condition="python:not here.getCXAttribute('useSubCalendarSubjectMenu') or here.getCXAttribute('isSubCalendar')"
                       tal:define="sublist python:here.getCXAttribute('listOfSubjects');
@@ -506,8 +509,10 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
                                   subtitles python:here.getListOfSubjectTitles();
                                   hassubtitles python:len(subtitles);
                                   usesubtitles python:(here.getCXAttribute('useSubjectTitles') and hassubtitles);
-                                  strDate python:currentDate.Date();"
-                      tal:repeat="subby python:test(useportalcatalogvalues,container.portal_catalog.uniqueValuesFor('Subject'),sublist)">
+                                  strDate python:currentDate.Date();">
+                                  
+                    <ul tal:repeat="subby python:test(useportalcatalogvalues,container.portal_catalog.uniqueValuesFor('Subject'),sublist)">
+                       <li>
                   <input tal:attributes="type string:checkbox; 
                                          name string:xsub; 
                                          value string:$subby; 
@@ -523,6 +528,8 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
                             tal:content="python:subby"
                             tal:omit-tag="" /> 
                   </span>
+                     </li>
+                  </ul>
                 </span>
 
                 <span class="nowrap" 
@@ -606,11 +613,10 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
             </span>
           </form>
-          </td>
-        </tr>
-      </table>
-    </td>
-  </tr>
+          </span>
+        </td>
+    </tr>
+</table>
 </span>
 
 

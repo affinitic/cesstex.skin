@@ -462,6 +462,10 @@ font-size:1.2em;
 color:#444;
 }
 
-
+/*** CALENDARX ***/
+#calendarx-liste-categorie{
+border:solid 1px #B3CFD9;
+background-color:#eef;
+}
 
 
