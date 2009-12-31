@@ -151,7 +151,7 @@
 <table>
   <tr>
     <td valign="top">
-      <!-- table qui contient les différents types. Voir dans CX_propos_macros.pt LI426-->
+      <!-- table qui contient les differents types. Voir dans CX_propos_macros.pt LI426-->
       <metal:block metal:use-macro="python:here.getCXMacro('subjectlinks')"/>
     </td>
     <td>

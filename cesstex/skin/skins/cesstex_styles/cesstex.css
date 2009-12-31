@@ -469,3 +469,36 @@ background-color:#eef;
 }
 
 
+
+/*** ETAT DU WORKFLOW ***/
+/*publié externe*/
+.state-external {
+color:#000000 !important; /*#436976*/
+}
+
+/*Attente modération*/
+.state-pending {
+color:#ff8300 !important;
+}
+
+/*publié interne*/
+.state-internally_published {
+color:#0000FF !important;
+}
+
+/*Brouillon interne*/
+.state-internal {
+color:#ff00aa !important;
+}
+
+
+.state-visible {
+color:#0F741E !important;
+}
+
+
+.state-published {
+color:#000 !important;
+}
+
+
