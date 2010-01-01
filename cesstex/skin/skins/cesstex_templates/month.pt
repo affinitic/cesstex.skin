@@ -73,9 +73,7 @@
 
 
 <!-- the main table -->
-<table cellspacing="0" class="caltabs">
-
-
+<table cellspacing="0" class="calendarX-tabs">
 <!-- ROW: the tabs "month", "week", "week2", "day" -->
 <metal:block metal:use-macro="python:here.getCXMacro('caltabsforviews')"/>
 

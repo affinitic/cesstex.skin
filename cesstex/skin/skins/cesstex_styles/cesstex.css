@@ -463,24 +463,24 @@ color:#444;
 }
 
 /*** CALENDARX ***/
-.caltabs {
+.calendarX-tabs{
 font-family:"Lucida Grande",Verdana,Lucida,Helvetica,Arial,sans-serif;
 font-size:97%;
 width:100%;
 }
 
 table.calheader {
-border:1px solid #006;
+background-color:#d4ffff;
+border:1px solid #0487bd;
 font-family:Verdana,Helvetica,Arial,sans-serif;
 font-size:93%;
 margin-bottom:0;
 margin-top:0;
 width:100%;
-background-color:#EEF;
 }
 
 #calbody{
-border:1px solid #006;
+border:1px solid #0487bd;
 }
 
 #calenderX-left-column{
