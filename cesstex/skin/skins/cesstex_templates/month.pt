@@ -139,88 +139,86 @@
 </table>
 
 
-<table>
+<table id="calbody">
     <tr>
-        <td valign="top">
+        <td id="calenderX-left-column">
             <!-- table qui contient les differents types. Voir dans CX_props_macros.pt LI426-->
             <metal:block metal:use-macro="python:here.getCXMacro('subjectlinks')"/>
         </td>
 
-        <td>
-        <!-- the month-calendar-view. showing 4-6 weeks. -->
-        <table class="cal">
-          <tr>
-        <!--  Generate days of week <th> tags here  -->
-        <metal:block metal:use-macro="python:here.getCXMacro('monthdaysofweek')"/>
-          </tr>
-        <!-- iterate through the weeks (rows of the table) -->
-          <metal:block tal:repeat="weekMonth python:range(howManyWeeksToShow)">
-          <tr class="odd" tal:define="start python: startDateToShow + (weekMonth)*7">
-        <!-- iterate through the days of the week (columns of the table) -->
-            <metal:block tal:repeat="dayMonth python:range(7)">
-            <td id="cal#"
-                tal:define="
-                                dayID python: (weekMonth)*7 + dayMonth + 1;
-                                start python: here.getStartOfDay(startDateToShow + (weekMonth)*7 + dayMonth);
-                                end python: here.getEndOfDay(start);
-                                dayName python: start.Day();
-                                events python: [ev for ev in bigQ if (ev.start >= start and ev.start <= end)];
-                                COMMENT string: startForBefore is set to eliminate events ending ON the hour;
-                                COMMENT string: IGNORE if not showHighlightFullEvent;
-                                startForBefore python: DateTime(str(startDate.year())+'/'+str(start.month())+'/'+str(start.day())+' 00:01:00');
+        <td id="calendarX-main-column">
+            <!-- the month-calendar-view. showing 4-6 weeks. -->
+            <table class="cal">
+                <tr>
+                    <!--Generate days of week <th> tags here  -->
+                    <metal:block metal:use-macro="python:here.getCXMacro('monthdaysofweek')"/>
+                </tr>
+                    <!-- iterate through the weeks (rows of the table) -->
+                    <metal:block tal:repeat="weekMonth python:range(howManyWeeksToShow)">
+                        <tr class="odd" tal:define="start python: startDateToShow + (weekMonth)*7">
+                    <!-- iterate through the days of the week (columns of the table) -->
+                            <metal:block tal:repeat="dayMonth python:range(7)">
+                                <td id="cal#"
+                                    tal:define="dayID python: (weekMonth)*7 + dayMonth + 1;
+                                                start python: here.getStartOfDay(startDateToShow + (weekMonth)*7 + dayMonth);
+                                                end python: here.getEndOfDay(start);
+                                                dayName python: start.Day();
+                                                events python: [ev for ev in bigQ if (ev.start >= start and ev.start <= end)];
+                                                COMMENT string: startForBefore is set to eliminate events ending ON the hour;
+                                                COMMENT string: IGNORE if not showHighlightFullEvent;
+                                                startForBefore python: DateTime(str(startDate.year())+'/'+str(start.month())+'/'+str(start.day())+' 00:01:00');
 
-                                isInMonth python: test(start.month() == startDate.month(), 1, 0);
-                                eventsBefore python: test(showHighlightFullEvent,test(isInMonth,[ev for ev in bigQB if (ev.start < startForBefore and ev.end >= startForBefore)],[]),[ev for ev in bigQB if (ev.start < startForBefore and ev.end >= startForBefore)]);
-                                COMMENT string: 0.6.3 way - eventsBefore python: [ev for ev in bigQB if (ev.start < startForBefore and ev.end >= startForBefore)];
-                                COMMENT string: OLD way - eventsBefore   python: test(showHighlightFullEvent,here.getCXEventsBefore(startForBefore, xmy, xsub, xpub, xcrt),[]);
+                                                isInMonth python: test(start.month() == startDate.month(), 1, 0);
+                                                eventsBefore python: test(showHighlightFullEvent,test(isInMonth,[ev for ev in bigQB if (ev.start < startForBefore and ev.end >= startForBefore)],[]),[ev for ev in bigQB if (ev.start < startForBefore and ev.end >= startForBefore)]);
+                                                COMMENT string: 0.6.3 way - eventsBefore python: [ev for ev in bigQB if (ev.start < startForBefore and ev.end >= startForBefore)];
+                                                COMMENT string: OLD way - eventsBefore   python: test(showHighlightFullEvent,here.getCXEventsBefore(startForBefore, xmy, xsub, xpub, xcrt),[]);
 
-                                COMMENT string: test and use labelEventsOnlyAtStart (LEOAS) or not;
-                                events python: test(LEOAS,events,context.queriesUnique(eventsBefore+events)) ;
-                                COMMENT string: tester determines whether to highlight full extent of events on the calendar;
-                                tester python: test(showHighlightFullEvent,(events or eventsBefore),events);"
-                tal:attributes="class python:test(isInMonth, test(tester, 'event', 'noevent'), 'outOfMonth');
-                                id string:cal${dayID}">
-        <!-- the link to the day-view -->
-                <a href="#" tal:attributes="href string: ${url}/day?currentDate=${start}&xmy=${xmy}&xsub=${xsub}"><span class="day" tal:content="python: start.day()">daydate</span></a><br/>&nbsp;<br/>
-        <!-- iterate through the events of the day -->
-                <metal:block tal:repeat="event events">
-                    <span tal:omit-tag="" tal:define="eventID string:calinfo${dayID}event${repeat/event/number};
-                                      eDict python:here.getEventDictMonth(event,type='E',sDTS=startDateToShow,eDTS=endDateToShow,dayID=dayID,eWTS=howManyWeeksToShow);
-                                      eventstart eDict/eventstart;
-                                      eventend eDict/eventend;
-                                      jsStart eDict/jsStart;
-                                      jsEnd eDict/jsEnd;
-                                      eventurl eDict/eventurl;
-                                      eventState eDict/eventState;
-                                      eventtitle eDict/eventtitle;
-                                      portaltype eDict/portaltype;
-                                      syear eDict/syear ;
-                                      smonth eDict/smonth ;
-                                      sday eDict/sday ;
-                                      stime eDict/stime ;
-                                      eyear eDict/eyear ;
-                                      emonth eDict/emonth ;
-                                      eday eDict/eday ;
-                                      etime eDict/etime ;
-                                      eventstring string:${eDict/eventstring};
-                                      classstate python: test(eventState == 'private', 'eventPrivate', test(eventState == 'published', 'eventPublished', test(eventState == 'visible', 'eventVisible', 'eventPending')));
-                                      classsubject python:test(useSubjCSS,here.getSubjectCSSClasses(event),'eventPublished');
-                                      classeventtype python:test(useETCSS,here.getEventTypeCSSClasses(event,type=portaltype),'eventPublished'); ">
+                                                COMMENT string: test and use labelEventsOnlyAtStart (LEOAS) or not;
+                                                events python: test(LEOAS,events,context.queriesUnique(eventsBefore+events)) ;
+                                                COMMENT string: tester determines whether to highlight full extent of events on the calendar;
+                                                tester python: test(showHighlightFullEvent,(events or eventsBefore),events);"
+                                    tal:attributes="class python:test(isInMonth, test(tester, 'event', 'noevent'), 'outOfMonth');
+                                                    id string:cal${dayID}">
+                                    <!-- the link to the day-view -->
+                                    <a href="#" tal:attributes="href string: ${url}/day?currentDate=${start}&xmy=${xmy}&xsub=${xsub}"><span class="day" tal:content="python: start.day()">daydate</span></a><br/>&nbsp;<br/>
+                                    <!-- iterate through the events of the day -->
+                                    <metal:block tal:repeat="event events">
+                                        <span tal:omit-tag="" tal:define="eventID string:calinfo${dayID}event${repeat/event/number};
+                                                                          eDict python:here.getEventDictMonth(event,type='E',sDTS=startDateToShow,eDTS=endDateToShow,dayID=dayID,eWTS=howManyWeeksToShow);
+                                                                          eventstart eDict/eventstart;
+                                                                          eventend eDict/eventend;
+                                                                          jsStart eDict/jsStart;
+                                                                          jsEnd eDict/jsEnd;
+                                                                          eventurl eDict/eventurl;
+                                                                          eventState eDict/eventState;
+                                                                          eventtitle eDict/eventtitle;
+                                                                          portaltype eDict/portaltype;
+                                                                          syear eDict/syear ;
+                                                                          smonth eDict/smonth ;
+                                                                          sday eDict/sday ;
+                                                                          stime eDict/stime ;
+                                                                          eyear eDict/eyear ;
+                                                                          emonth eDict/emonth ;
+                                                                          eday eDict/eday ;
+                                                                          etime eDict/etime ;
+                                                                          eventstring string:${eDict/eventstring};
+                                                                          classstate python: test(eventState == 'private', 'eventPrivate', test(eventState == 'published', 'eventPublished', test(eventState == 'visible', 'eventVisible', 'eventPending')));
+                                                                          classsubject python:test(useSubjCSS,here.getSubjectCSSClasses(event),'eventPublished');
+                                                                          classeventtype python:test(useETCSS,here.getEventTypeCSSClasses(event,type=portaltype),'eventPublished'); ">
 
-        <!-- print the event text-->
-        <metal:block metal:use-macro="python:here.getCXMacro('eventlister')"/>
+                                            <!-- print the event text-->
+                                            <metal:block metal:use-macro="python:here.getCXMacro('eventlister')"/>
 
-        <!-- print the rollover popup text-->
-        <metal:block metal:use-macro="python:here.getCXMacro('popuptextbox')"/>
-
-                    </span>
-               </metal:block>&nbsp;
+                                            <!-- print the rollover popup text-->
+                                            <metal:block metal:use-macro="python:here.getCXMacro('popuptextbox')"/>
+                                        </span>
+                                    </metal:block>&nbsp;
+                                </td>
+                            </metal:block>
+                        </tr>
+                    </metal:block>
+                </table>
             </td>
-            </metal:block>
-          </tr>
-          </metal:block>
-        </table>
-        </td>
         </tr>
         </table>
 

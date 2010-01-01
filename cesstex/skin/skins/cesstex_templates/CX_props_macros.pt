@@ -269,7 +269,7 @@ bugfix: eventlister, mMeventlister - class: defaulted to "eventPublished" instea
                 tal:content="string:$year">&nbsp;
           </span>
       </span>
-      &nbsp;aaaaaaaaaaaaaaaaaaaaaa
+      &nbsp;
     </th>
     <th class="noshow"
         tal:attributes="colspan python:7"

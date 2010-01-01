@@ -463,6 +463,36 @@ color:#444;
 }
 
 /*** CALENDARX ***/
+.caltabs {
+font-family:"Lucida Grande",Verdana,Lucida,Helvetica,Arial,sans-serif;
+font-size:97%;
+width:100%;
+}
+
+table.calheader {
+border:1px solid #006;
+font-family:Verdana,Helvetica,Arial,sans-serif;
+font-size:93%;
+margin-bottom:0;
+margin-top:0;
+width:100%;
+background-color:#EEF;
+}
+
+#calbody{
+border:1px solid #006;
+}
+
+#calenderX-left-column{
+width:165px;
+vertical-align:top;
+text-align:left;
+}
+
+#calendarX-main-column{
+width:100%;
+}
+
 #calendarx-liste-categorie{
 border:solid 1px #B3CFD9;
 background-color:#eef;
