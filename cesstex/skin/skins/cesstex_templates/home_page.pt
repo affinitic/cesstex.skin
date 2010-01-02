@@ -48,6 +48,10 @@
          tal:attributes="href string: ${context/portal_url}/institut-sainte-therese">
          Institut Sainte-Therese</a>
     </div>
+    <div class="discreet" align="center">
+        Centre scolaire Saint-Exup&eacute;ry<br />
+        La Louvi&egrave;re - Manage
+    </div>
     
    </div>
   </body>

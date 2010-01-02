@@ -31,10 +31,11 @@ margin:auto;
 text-align:center;
 margin-top:10px;
 border:1px solid #ccc;
+background-color:#fff;
 }
 
 #liens-texte a{
-color:#bbb;
+color:#888;
 }
 
 #liens-texte a:hover{
