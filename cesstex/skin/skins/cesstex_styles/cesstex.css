@@ -532,3 +532,40 @@ color:#000 !important;
 }
 
 
+/*** Page Login ***/
+#login-form {
+margin:0 auto;
+width:30em;
+background-color:#fff;
+}
+
+/*** LISTING NEWS ***/
+.tileItem {
+height:122px;
+background-color:#ffffff;
+background-image:url(cesstex_news.png);
+background-repeat:no-repeat;
+border:0px solid #8CACBB;
+margin-top:0.5em;
+padding-top:20px;
+padding-left:80px;
+}
+
+.btn-news{
+float:left;
+width:26px;
+height:26px;
+background-image:url(btn_news_off.png);
+margin-top:10px;
+margin-right:10px;
+}
+
+.btn-news a{
+width:26px;
+height:26px;
+display:block;
+}
+
+.btn-news:hover {
+background-image:url(btn_news_on.png);
+}
