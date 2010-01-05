@@ -429,12 +429,12 @@ bugfix: eventlister, mMeventlister - class: defaulted to "eventPublished" instea
         <td>
             <span class="nowrap"
                   tal:condition="python:here.getCXAttribute('showPublicPrivateLink')">
-              <img tal:replace="structure here/calLinkOpaque.gif" />
+              <!--img tal:replace="structure here/calLinkOpaque.gif" /-->
               <a href="#" tal:attributes="href Dict/urlAllEventsChange"
                           tal:content="structure Dict/allEventsChangeString"
                           i18n:translate=""
                           tal:define="image here/calLinkOpaque.gif" >show all events</a>
-              <img tal:replace="structure here/calLinkOpaque.gif" />
+              <!--img tal:replace="structure here/calLinkOpaque.gif" /-->
             </span>
             <span class="nowrap"
                   tal:define="isAnon python:container.portal_membership.isAnonymousUser();"
@@ -444,27 +444,28 @@ bugfix: eventlister, mMeventlister - class: defaulted to "eventPublished" instea
                                 urlAddNewEvent string:${ANEUrl}${ANEnoticestring};
                                 urlAddNewEvent python:test(context.getCXAttribute('useCreateObjectOnClick'),ANEUrl, ANEUrl + ANEnoticestring);"
                     tal:condition="python:ANEUrl">
-                <img tal:replace="structure here/calLinkOpaque.gif" />
+                <!--img tal:replace="structure here/calLinkOpaque.gif" /-->
                 <a href="#" tal:attributes="href urlAddNewEvent"
                             i18n:translate="label_sublinks_addevent"
                             tal:define="image here/calLinkOpaque.gif" >Add a New Event here, eh?</a>
-                <img tal:replace="structure here/calLinkOpaque.gif" />
+                <!--img tal:replace="structure here/calLinkOpaque.gif" /-->
               </span>
             </span>
             <span class="nowrap"
                   tal:define="isCalMan python:context.isCalendarManager();"
                   tal:condition="python:context.getCXAttribute('showPendingLink') and isCalMan">
-                <img tal:replace="structure here/calLinkOpaque.gif" />
+                <!--img tal:replace="structure here/calLinkOpaque.gif" /-->
                 <a href="#" tal:attributes="href string:${Dict/urlThis}&xpub=pend"
                             i18n:translate="label_sublinks_show_pending"
                             tal:define="image here/calLinkOpaque.gif" >Show Pending</a>
-                <img tal:replace="structure here/calLinkOpaque.gif" />
+                <!--img tal:replace="structure here/calLinkOpaque.gif" /-->
             </span>
-      
+
           <span class="barright2" tal:define="std modules/Products.PythonScripts.standard;
                                             mstring modules/string;
                                             url_quote nocall: std/url_quote;
                                             count nocall: mstring/count;"> 
+
           <form tal:attributes="action Dict/urlThis; 
                                 method string:get; 
                                 name string:subjectform;">
@@ -478,18 +479,24 @@ bugfix: eventlister, mMeventlister - class: defaulted to "eventPublished" instea
                    tal:attributes="href string:$urlly"
                    i18n:translate="label_sublinks_backtoresources">
                    resource schedule link
-                </a>    
+                </a>
+                <div id="calendarX-titre-categorie">
+                    Categories
+                </div>
+                <!-->    
                 <span class="nowrap" tal:define="subcalname Dict/subcalname;
                                                  image here/calLinkOpaque.gif"
                                      tal:replace="structure string:&nbsp; $image &nbsp;$subcalname: ">
                   Resource Type:
                 </span>
+                
                 <span class="nowrap" 
                       tal:condition="python:not here.getCXAttribute('isSubCalendar')"
                       tal:content="python:test(here.getCXAttribute('useSubCalendarSubjectMenu'),'label_sublinks_subcalendars','label_sublinks_categories')"
                       i18n:translate="">
                   lead in:
                 </span>
+                -->
                 <ul class="calendarx-toute-categorie">
                   <li>
                   <input i18n:attributes="value" value="label_sublinks_viewall" 
@@ -553,9 +560,10 @@ bugfix: eventlister, mMeventlister - class: defaulted to "eventPublished" instea
                   </a>    
 
                 </span>
-                <span>
+                <hr />
+                <div align="center">
                   <input type="submit" i18n:attributes="value" value="label_sublinks_refresh"/>
-                </span>
+                </div>
             </span>
 
 

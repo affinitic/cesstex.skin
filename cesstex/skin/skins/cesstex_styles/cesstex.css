@@ -470,7 +470,7 @@ width:100%;
 }
 
 table.calheader {
-background-color:#d4ffff;
+background-color:#cde8fd;   /*#d4ffff;*/
 border:1px solid #0487bd;
 font-family:Verdana,Helvetica,Arial,sans-serif;
 font-size:93%;
@@ -490,7 +490,17 @@ text-align:left;
 }
 
 #calendarX-main-column{
-width:100%;
+width:83%;
+}
+
+#calendarX-titre-categorie{
+background-color:#839db0;
+text-align:center;
+font-variant:small-caps;
+font-weight:bold;
+font-size:1.3em;
+color:#fff;
+border-bottom:1px solid #000;
 }
 
 #calendarx-liste-categorie{
