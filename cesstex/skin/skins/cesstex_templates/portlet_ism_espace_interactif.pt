@@ -13,13 +13,14 @@
                     Professeurs et &eacute;l&egrave;ves communiquent
                 </div>
                 <hr />
-                <a href=""
-                   tal:attributes="href string:${context/portal_url}/institut-sainte-marie/espace-interactif/">
-                       Entrez dans l'espace interactif pour<br />
-                       les profs et les &eacute;tudiants <img src="puce.png" />
-                </a>
+                Entrez dans l'espace interactif pour<br />
+                       les professeurs et les &eacute;tudiants
             </div>
-            <div class="portletFooterEspaceInteractif">&nbsp;&nbsp;</div>
+            <div class="portletFooterEspaceInteractif">
+            <a href=""
+               tal:attributes="href string:${context/portal_url}/institut-sainte-marie/espace-interactif/">
+               <img src="btn_suivant.png" /></a>
+            </div>
          </div>
     </div>
 </body>
