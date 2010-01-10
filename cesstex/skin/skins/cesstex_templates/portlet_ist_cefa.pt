@@ -12,9 +12,9 @@
     <div id="portlet-ist">
         <div class="portlet-header-ist">ACTU CEFA</div>
         <div id="anim-cefa">
-            <!--a href="" tal:attributes="href string:${context/portal_url}/"-->
+            <a href="" tal:attributes="href string:${context/portal_url}/institut-sainte-therese/en/actu-cefa">
                 <img src="portlet_ist_cefa.gif">
-            <!--/a-->
+            </a>
         </div>
      </div>
 </div>
