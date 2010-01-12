@@ -23,7 +23,7 @@
               <div id="site">
                 <a href=""
                    tal:attributes="href string: ${context/portal_url}/site-de-la-louviere">La Louvière</a>
-                <img src="puce_bleue.gif" class="puce-bleue" />
+                <!--<img src="puce_bleue.gif" class="puce-bleue" />-->
                 <a href=""
                    tal:attributes="href string: ${context/portal_url}/site-de-manage">Manage</a>
               </div>

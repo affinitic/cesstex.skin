@@ -6,7 +6,7 @@
         <a href=""
            tal:attributes="href view/all_events_link"
            class="tile">
-            A l'agenda
+            L'agenda
         </a>
         <span class="portletTopRight"></span>
     </dt>
@@ -39,19 +39,10 @@
     </dd>
     </tal:events>
 
-    <dd class="portletFooterEvents"
-        tal:condition="view/prev_events_link">
-        <a href=""
-           tal:attributes="href view/prev_events_link"
-           class="tile">
-            <span i18n:translate="box_previous_events">
-                Previous events&hellip;
-            </span>
-        </a>
+    <dd class="portletFooterEvents">
         <a href=""
            class="tile"
-           tal:attributes="href view/all_events_link"
-           i18n:translate="box_upcoming_events">
+           tal:attributes="href view/all_events_link">
                 Upcoming events&hellip;
         </a>
         <span class="portletBottomLeft"></span>

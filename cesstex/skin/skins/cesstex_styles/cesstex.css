@@ -151,6 +151,11 @@ border:1px solid #8CACBB;
 color:#436976;
 }
 
+/***PORLET COLLECTION AGENDA***/
+.calendrier-footer{
+text-align:left;
+}
+
 /*** CALENDAR ***/
 .ploneCalendar {
 border-bottom:1px solid #0075d2;
@@ -555,27 +560,37 @@ height:122px;
 background-color:#ffffff;
 background-image:url(cesstex_news.png);
 background-repeat:no-repeat;
-border:0px solid #8CACBB;
+border:none;
 margin-top:0.5em;
-padding-top:20px;
-padding-left:80px;
+padding-top:10px;
+padding-left:40px;
+width:690px;
+margin-left:auto;
+margin-right:auto;
 }
+
+.tileHeadline {
+font-size:1.5em;
+font-weight:bold;
+color:#fff;
+}
+
 
 .btn-news{
 float:left;
-width:26px;
-height:26px;
-background-image:url(btn_news_off.png);
+width:32px;
+height:32px;
+background-image:url(btn_suivant.png);
 margin-top:10px;
 margin-right:10px;
 }
 
 .btn-news a{
-width:26px;
-height:26px;
+width:32px;
+height:32px;
 display:block;
 }
 
 .btn-news:hover {
-background-image:url(btn_news_on.png);
+background-image:url(btn_suivant.png);
 }
