@@ -2,4 +2,8 @@
 <portlets>
 
     <!-- Portlet type registrations -->
+    <portlet
+       addview="cesstex.agenda_porlet"
+       title="Agenda"
+       description="Portlet qui permetd'afficher les events" />
 </portlets>

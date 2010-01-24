@@ -6,13 +6,13 @@
     i18n_domain="cesstex.skin">
 
    <five:registerPackage package="." initialize=".initialize" />
-
    <include package=".browser" />
    <include package="z3c.jbot" file="meta.zcml" />
-   
-   <browser:templateOverrides directory="skins/cesstex_templates" />
-   
+   <include package=".portlets" />
    <include file="skins.zcml" />
    <include file="profiles.zcml" />
 
+   <browser:templateOverrides directory="skins/cesstex_templates" />
+   
+   
 </configure>
