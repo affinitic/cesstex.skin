@@ -1,3 +1,4 @@
+<div id="agenda-portlet">
 <dl class="portlet portletCollection"
     i18n:domain="plone"
     tal:define="collection_url view/collection_url;
@@ -58,3 +59,4 @@
     </dd>
 
 </dl>
+</div>

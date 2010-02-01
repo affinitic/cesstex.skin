@@ -7,14 +7,14 @@
 
 <!-- MISE A JOUR DES INFOS -->
     <plone:portlet
-        name="cesstex.agenda_portlet"
-        interface=".agenda_portlet.IAgendaPortlet"
-        assignment=".agenda_portlet.Assignment"
+        name="cesstex.agenda"
+        interface=".agenda.ICollectionPortlet"
+        assignment=".agenda.Assignment"
         view_permission="zope2.View"
         edit_permission="cmf.ManagePortal"
-        renderer=".agenda_portlet.Renderer"
-        addview=".agenda_portlet.AddForm"
-        editview=".agenda_portlet.EditForm"
+        renderer=".agenda.Renderer"
+        addview=".agenda.AddForm"
+        editview=".agenda.EditForm"
         />
 
 
