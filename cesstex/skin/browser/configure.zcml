@@ -116,13 +116,11 @@
         class=".ManageIST.ManageIST"
         allowed_interface=".interfaces.IManageIST" />
 
-
       <browser:page
           for="*"
           name="ism-gallerie"
           template="templates/gallery.pt"
           permission="zope.Public"
       />
-
 
 </configure>

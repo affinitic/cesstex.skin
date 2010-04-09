@@ -24,11 +24,11 @@
             Rich body for "Rich Topics" and Plone 3.0 Collections
         </div>
         
-        <!--
+        
         <div>
             <script src="http://clavius.affinitic.be/picsengine/cesstex/admin/?public&amp;action=gallery" type="text/javascript" charset="utf-8"></script>
         </div>
-        -->
+        
 
 </metal:main-macro>
 </div>
