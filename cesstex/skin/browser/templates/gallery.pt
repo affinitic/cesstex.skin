@@ -16,11 +16,19 @@
             Title or id
         </h1>
       galerie de photos ici
-        
-        <div>
-            <script src="http://clavius.affinitic.be/picsengine/cesstex/admin/?public&amp;action=gallery&amp;width=700&amp;height=700" type="text/javascript" charset="utf-8"></script>
+      
+       <div class="plain slideshow-rich-body"
+             tal:define="text context/getRichContent|context/getText|nothing"
+             tal:condition="text"
+             tal:content="structure text">
+            Rich body for "Rich Topics" and Plone 3.0 Collections
         </div>
-
+        
+        <!--
+        <div>
+            <script src="http://clavius.affinitic.be/picsengine/cesstex/admin/?public&amp;action=gallery" type="text/javascript" charset="utf-8"></script>
+        </div>
+        -->
 
 </metal:main-macro>
 </div>
