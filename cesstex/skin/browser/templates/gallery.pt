@@ -24,20 +24,12 @@
            i18n:translate="go_to_parent_url">
         Up one level
         </a>
-
-        <div class="plain slideshow-rich-body"
-             tal:define="text context/getRichContent|context/getText|nothing"
-             tal:condition="text"
-             tal:content="structure text">
-            Rich body for "Rich Topics" and Plone 3.0 Collections
-        </div>
+      galerie de photos ici
         
-        galerie de photos ici
-        <!--
         <div>
             <script src="http://clavius.affinitic.be/picsengine/cesstex/admin/?public&amp;action=gallery&amp;width=700&amp;height=700#page=albums" type="text/javascript" charset="utf-8"></script>
         </div>
-        -->
+
 
 </metal:main-macro>
 </div>
