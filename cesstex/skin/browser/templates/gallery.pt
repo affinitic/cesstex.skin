@@ -26,7 +26,9 @@
         
         
         <div>
-            <script src="http://clavius.affinitic.be/picsengine/cesstex/admin/?public&amp;action=gallery&amp;width=700&amp;height=700#page=albums/" type="text/javascript" charset="utf-8"></script>
+            <script src="http://clavius.affinitic.be/picsengine/cesstex/admin/?public&amp;action=gallery&amp;width=700&amp;height=900#page=albums/"
+                    type="text/javascript"
+                    charset="utf-8"></script>
         </div>
         
 
