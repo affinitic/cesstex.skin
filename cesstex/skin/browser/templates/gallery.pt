@@ -15,8 +15,6 @@
         <h1 tal:content="object_title" class="documentFirstHeading">
             Title or id
         </h1>
-      galerie de photos ici
-      
        <div class="plain slideshow-rich-body"
              tal:define="text context/getRichContent|context/getText|nothing"
              tal:condition="text"
