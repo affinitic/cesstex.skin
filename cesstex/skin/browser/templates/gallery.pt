@@ -23,18 +23,9 @@
              tal:content="structure text">
             Rich body for "Rich Topics" and Plone 3.0 Collections
         </div>
-        
-        
-        <div>
-            <!--
-            <script src="http://clavius.affinitic.be/picsengine/cesstex/admin/?public&amp;action=gallery&amp;width=700&amp;height=900#page=albums/"
-                    type="text/javascript"
-                    charset="utf-8"></script>
-            -->
-            <script src="http://clavius.affinitic.be/picsengine/cesstex/admin/?public&amp;action=gallery&amp;height=900" type="text/javascript" charset="utf-8"></script>
-        </div>
-        
-
+        <iframe src ="http://clavius.affinitic.be/picsengine/cesstex/" id="picsEngineGalerie">
+            <p>Your browser does not support iframes.</p>
+        </iframe>
 </metal:main-macro>
 </div>
 
