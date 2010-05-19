@@ -24,12 +24,15 @@ def setupcesstex(context):
     if not ISite.providedBy(portal):
         enableSite(portal)
     setupHomePortlets(portal)
+    sainteMarieFolder = getattr(portal, 'institut-sainte-marie')
+    galerieIsmFolder = getattr(sainteMarieFolder, 'galerie_ism')
+    changeFolderView(portal, galerieIsmFolder, 'ism-gallerie')
     createContent(portal)
 
 def publishObject(obj):
     portal_workflow = getToolByName(obj, 'portal_workflow')
-    if portal_workflow.getInfoFor(obj, 'review_state') in ['visible','private']:
-        portal_workflow.doActionFor(obj, 'publish')
+    if portal_workflow.getInfoFor(obj, 'review_state') in ['private']:
+        portal_workflow.doActionFor(obj, 'show_internally')
     return
 
 def getManager(folder, column):
