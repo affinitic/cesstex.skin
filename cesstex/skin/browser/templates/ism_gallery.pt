@@ -21,7 +21,7 @@
              tal:content="structure text">
             Rich body for "Rich Topics" and Plone 3.0 Collections
         </div>
-        <iframe src ="http://clavius.affinitic.be/picsengine/cesstex/" id="picsEngineGalerie">
+        <iframe src ="http://clavius.affinitic.be/picsengine/cesstex/ism/" id="picsEngineGalerie">
             <p>Your browser does not support iframes.</p>
         </iframe>
 </metal:main-macro>
