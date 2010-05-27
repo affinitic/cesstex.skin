@@ -24,9 +24,17 @@ def setupcesstex(context):
     if not ISite.providedBy(portal):
         enableSite(portal)
     setupHomePortlets(portal)
+    
+    #galerie ism
     sainteMarieFolder = getattr(portal, 'institut-sainte-marie')
     galerieIsmFolder = getattr(sainteMarieFolder, 'galerie_ism')
     changeFolderView(portal, galerieIsmFolder, 'ism-gallerie')
+    
+    #galerie ist
+    sainteThereseFolder = getattr(portal, 'institut-sainte-therese')
+    galerieIstFolder = getattr(sainteThereseFolder, 'galerie_ist')
+    changeFolderView(portal, galerieIstFolder, 'ist-gallerie')
+    
     createContent(portal)
 
 def publishObject(obj):

@@ -99,7 +99,7 @@
         permission="zope2.View"
         />
 
-      <!-- IST -->
+<!-- IST -->
       <browser:page
          for="*"
          name="manageIST"
@@ -115,11 +115,20 @@
         permission="zope.Public"
         class=".ManageIST.ManageIST"
         allowed_interface=".interfaces.IManageIST" />
+      
+      <browser:page
+          for="*"
+          name="ist-gallerie"
+          template="templates/ist_gallery.pt"
+          permission="zope.Public"
+      />
 
+
+<!-- ISM-->
       <browser:page
           for="*"
           name="ism-gallerie"
-          template="templates/gallery.pt"
+          template="templates/ism_gallery.pt"
           permission="zope.Public"
       />
 
