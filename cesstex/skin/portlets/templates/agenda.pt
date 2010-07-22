@@ -13,7 +13,7 @@
         </a>
         <span class="portletTopRight"></span>
     </dt>
-    
+
     <tal:events tal:repeat="obj view/results">
     <dd class="portletItem"
         tal:define="oddrow repeat/obj/odd;
@@ -35,10 +35,10 @@
         </a>
     </dd>
     </tal:events>
-    
+
     <dd class="portletFooter" tal:condition="view/data/show_more">
         <span class="portletBottomLeft"></span>
-        
+
         <table width="100%">
             <tr>
                 <td align="left">

@@ -2,7 +2,7 @@ from zope.component import adapts
 from zope.interface import implements
 from archetypes.schemaextender.interfaces import ISchemaExtender
 from archetypes.schemaextender.field import ExtensionField
-from Products.ATContentTypes.content.newsitem import ATNewsItem
+from Products.ATContentTypes.content.event import ATEvent
 from Products.Archetypes.public import TextField, StringField, TextAreaWidget, \
                                        StringWidget
 
@@ -36,7 +36,7 @@ class ProfsAccompagnateursField(ExtensionField, TextField):
 
 
 class ContentExtender(object):
-    adapts(ATNewsItem)
+    adapts(ATEvent)
     implements(ISchemaExtender)
 
     fields = [
