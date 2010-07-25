@@ -33,3 +33,13 @@ class IManageIST(Interface):
         """
         gère la demande et envoie mail selon implantation
         """
+
+    def getNews():
+        """
+        liste les news
+        """
+
+    def getNewsIconURL(newsBrain):
+        """
+        récupère l'icône d'une news (ou celle par défaut)
+        """                                                 

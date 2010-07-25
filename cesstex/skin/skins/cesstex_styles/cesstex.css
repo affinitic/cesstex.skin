@@ -555,6 +555,15 @@ background-color:#fff;
 }
 
 /*** LISTING NEWS ***/
+#ism-news-content{
+border:1px solid #444;
+margin:10px 0px;
+padding:3px;
+}
+
+
+
+/**
 .tileItem {
 height:122px;
 background-color:#ffffff;
@@ -594,6 +603,8 @@ display:block;
 .btn-news:hover {
 background-image:url(btn_suivant.png);
 }
+**/
+
 
 /*** galerie picsengine ***/
 #picsEngineGalerie{

@@ -131,5 +131,14 @@
           template="templates/ism_gallery.pt"
           permission="zope.Public"
       />
+      <browser:page
+        name="ism-listing-event"
+        for="*"
+        template="templates/ism_listing_event.pt"
+        class=".ManageIST.ManageIST"
+        allowed_interface=".interfaces.IManageIST"
+        permission="zope.Public"
+        />
+
 
 </configure>
