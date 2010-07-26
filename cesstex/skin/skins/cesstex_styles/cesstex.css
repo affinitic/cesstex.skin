@@ -561,7 +561,19 @@ margin:10px 0px;
 padding:3px;
 }
 
+.ism-news-title{
+font-size:1.4em;
+font-weight:bold;
+}
 
+.ism-news-subject{
+font-size:0.8em;
+color:#888;
+}
+
+.ism-news-description{
+font-weight:bold;
+}
 
 /**
 .tileItem {
