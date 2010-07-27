@@ -38,10 +38,10 @@
                                                    'text/x-rst', ), 'stx' + kss_class, 'plain' + kss_class)">
             <div metal:define-slot="inside" tal:replace="structure text">The body</div>
         </div>
-        <div tal:define="events nocall:view/getEvents;
+        <tal:ismnews tal:define="events nocall:view/getEvents;
                          convert nocall:context/@@plone/toLocalizedTime;
                          getEventsIconURL nocall:view/getEventsIconURL;">
-            <span tal:repeat="item events">
+            <tal:boucle tal:repeat="item events">
                 <div tal:define="event item/getObject"
                      class="clpsnews">
                     <!-- div id="clpsnews-image"
@@ -49,45 +49,75 @@
                         <img src="" tal:attributes="src string: ${item/getURL}/${imgURL}" />
                     </div-->
 
-                    <div id="ism-news-content">
-                     <a href=""
-                        tal:attributes="href item/getURL;
-                                        title item/Description">
-                         <span tal:content="item/pretty_title_or_id"
-                               class="ism-news-title" />
-                     </a>
-                     <br />
-                     (<span tal:content="python:modules['string'].join(item.Subject, ' ')"
-                           class="ism-news-subject" />)
-                     <br />
-                     <br />
-                     <span tal:content="item/Description"
-                           class="ism-news-description" />
-                     <br />
-                     <span tal:replace="structure event/getText"
-                           class="clpsnews-description" />
-
-                     <br />
-                     <span tal:content="item/location"
-                           class="ism-news-location" />
-                     <br />
-                     <span tal:content="python:modules['string'].join(event.attendees, ' ')"
-                           class="ism-news-attendees" />
-                     <br /> 
-                     <br />
-                     <span tal:content="event/contact_name"
-                           class="ism-news-contact" />
-                     <br /> 
-                     <br />
-                     Du <span tal:content="python:toLocalizedTime(item.start, long_format=1)"
-                            class="ism-news-date" />
-                     au <span tal:content="python:toLocalizedTime(item.end, long_format=1)"
-                            class="ism-news-date" />
-                    </div> 
-                </div>
-                <div id="separationNews"></div>
-            </span>    
-        </div>
+                    <div>
+                        <table class="ism-news">
+                            <tr>
+                                <td class="ism-news-left"></td>
+                                <td class="ism-news-center">
+                                    <div class="ism-news-title-content">
+                                        <div class="ism-news-title-link">
+                                            <a href="" 
+                                               title=""
+                                               tal:attributes="href item/getURL;
+                                                               title item/Description"
+                                               tal:content="item/pretty_title_or_id" />
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="ism-news-right"></td>
+                            </tr>
+                            <tr>
+                                <td class="ism-news-content"></td>
+                                <td class="ism-news-content">
+                                    <div class="ism-news-info">
+                                        <p class="ism-news-subject">
+                                            (<span tal:content="python:modules['string'].join(item.Subject, ' ')" />)
+                                        </p>
+                                    </div>
+                                    <div class="ism-news-info">
+                                        <span class="ism-news-rubrique">&equiv; Quand :</span>
+                                        Du <span tal:content="python:toLocalizedTime(item.start, long_format=1)"
+                                                 class="ism-news-date" />
+                                        au <span tal:content="python:toLocalizedTime(item.end, long_format=1)"
+                                                 class="ism-news-date" />
+                                    </div>
+                                    <div class="ism-news-info">
+                                        <span class="ism-news-rubrique">&equiv; Qui :</span>
+                                        <span tal:content="python:modules['string'].join(event.attendees, ' ')"
+                                              class="ism-news-attendees" />
+                                    </div>
+                                    <br />
+                                    <div class="ism-news-info">
+                                        <p class="ism-news-rubrique">&equiv; Résumé :</p>
+                                        <p tal:content="item/Description"
+                                           class="ism-news-entete"></p>
+                                        <p class="ism-news-rubrique">&equiv; Détail :</p>
+                                        <p class="ism-news-contenu">
+                                            <span tal:replace="structure event/getText" />
+                                        </p>
+                                    </div>
+                                    <div class="ism-news-info">
+                                        <span class="ism-news-rubrique">&equiv; Où :</span>
+                                        <span tal:content="item/location"
+                                              class="ism-news-location" />
+                                    </div>
+                                     
+                                    <div class="ism-news-info">
+                                        <span class="ism-news-rubrique">&equiv; Professeur organisateur :</span>
+                                        <span tal:content="event/contact_name"
+                                              class="ism-news-contact" />
+                                        <br />
+                                        <span class="ism-news-rubrique">&equiv; Professeurs accompagant :</span>
+                                    <div> 
+                                     
+                                </td><!--ism-news-center-->
+                                <td class="ism-news-content"></td>
+                            </tr>
+                        </table>
+                    </div><!--newscontent--> 
+                </div><!--define getobject-->
+            </tal:boucle>
+        </tal:ismnews>
         <metal:subtopics use-macro="here/atct_topic_view/macros/folderlisting_macro" />
 
         <div tal:replace="structure provider:plone.belowcontentbody" />

@@ -555,22 +555,81 @@ background-color:#fff;
 }
 
 /*** LISTING NEWS ***/
-#ism-news-content{
-border:1px solid #444;
+.ism-news{
 margin:10px 0px;
 padding:3px;
+border-spacing: 0px;
+border-collapse: collapse;
+width:100%;
 }
 
-.ism-news-title{
+.ism-news-left{
+background-color:#f5f6f5;
+background-image:url(ismnews_border_left.png);
+background-repeat:no-repeat;
+background-position:left top;
+width:22px;
+height:69px;
+}
+
+.ism-news-center{
+background-color:#f5f6f5;
+background-image:url(ismnews_border_center.png);
+background-repeat:repeat-x;
+height:69px;
+}
+
+.ism-news-right{
+background-color:#f5f6f5;
+background-image:url(ismnews_border_right.png);
+background-repeat:no-repeat;
+background-position:right top;
+width:48px;
+height:69px;
+}
+
+.ism-news-title-content{
+margin-top:-12px;
+padding-left:20px;
+}
+
+.ism-news-content{
+background-color:#f5f6f5;
+}
+
+.ism-news-title-link{
 font-size:1.4em;
 font-weight:bold;
+text-align:left;
+}
+.ism-news-title-link a{
+color:#7bcbc0;
+}
+.ism-news-title-link a:hover{
+color:#3b8e85;
+}
+
+.ism-news-entete{
+width:90%;
+margin-left: 2em;
+font-weight: bold;
+}
+
+.ism-news-info{
+margin:5px 0px 5px 0px;
 }
 
 .ism-news-subject{
+text-align:right;
 font-size:0.8em;
 color:#888;
 }
 
+.ism-news-rubrique{
+font-size:0.9em;
+font-variant:small-caps;
+color:#5fb1a6;
+}
 .ism-news-description{
 font-weight:bold;
 }
