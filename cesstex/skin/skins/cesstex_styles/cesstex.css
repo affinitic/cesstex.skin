@@ -152,6 +152,11 @@ color:#436976;
 }
 
 /***PORLET COLLECTION AGENDA***/
+#agenda-footer{
+width:187px;
+margin-top:-6px;
+margin-left:-8px;
+}
 .calendrier-footer{
 text-align:left;
 }

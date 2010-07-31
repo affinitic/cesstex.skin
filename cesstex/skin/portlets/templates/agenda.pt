@@ -39,7 +39,7 @@
     <dd class="portletFooter" tal:condition="view/data/show_more">
         <span class="portletBottomLeft"></span>
 
-        <table width="100%">
+        <table id="agenda-footer">
             <tr>
                 <td align="left">
                     <a href="lagenda">
