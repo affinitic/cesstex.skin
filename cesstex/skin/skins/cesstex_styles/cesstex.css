@@ -570,7 +570,7 @@ background-color:#f6f6f8;
 background-image:url(ismnews_fond.png);
 }
 
-.ism-event-left{
+.ism-event-header-left{
 background-image:url(ismnews_border_left.png);
 background-repeat:no-repeat;
 background-position:left top;
@@ -578,12 +578,12 @@ width:20px;
 height:60px;
 }
 
-.ism-event-center{
+.ism-event-header-center{
 background-image:url(ismnews_border_center.png);
 background-repeat:repeat-x;
 }
 
-.ism-event-right{
+.ism-event-header-right{
 background-image:url(ismnews_border_right.png);
 background-repeat:no-repeat;
 background-position:right top;
@@ -648,6 +648,18 @@ background-image:url(ismnews_border_inf_center.png);
 .ism-event-footer-right{
 background-image:url(ismnews_border_inf_right.png);
 }
+
+#ism-event-auteur{
+float:left;
+font-size:0.8em;
+color:#999;
+}
+#ism-event-add-calendar{
+float:right;
+font-size:0.8em;
+width:100px;
+}
+
 
 
 /**
