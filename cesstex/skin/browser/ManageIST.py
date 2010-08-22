@@ -15,10 +15,11 @@ class ManageIST(BrowserView):
     implements(IManageIST)
 
     @memoize
-    def getEvents(self):
+    def getEventsIsm(self):
         catalog = getToolByName(aq_inner(self.context), 'portal_catalog') 
         events = catalog(portal_type='Event',
-                         review_state=('external', 'internal', 'publish'), #path={'query': '/plone/institut-sainte-marie/', 'depth': 1},
+                         review_state=('external', 'internal', 'publish'), 
+                         path={'query': 'plone/institut-sainte-marie', 'depth': 1},
                          sort_on='Date',
                          sort_order='reverse',
                          sort_limit=LIMIT)[:LIMIT]
