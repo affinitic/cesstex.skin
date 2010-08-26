@@ -19,6 +19,21 @@ class ILogoView(Interface):
         """
 
 
+class IManageISM(Interface):
+    """
+    Gestion de Institut Sainte Marie
+    """
+    def getNewsIsm():
+        """
+        liste les news
+        """
+
+    def getNewsIconURL(newsBrain):
+        """
+        récupère l'icône d'une news (ou celle par défaut)
+        """
+
+
 class IManageIST(Interface):
     """
     Gestion de Institut Sainte Thérèse
@@ -34,7 +49,7 @@ class IManageIST(Interface):
         gère la demande et envoie mail selon implantation
         """
 
-    def getNews():
+    def getNewsIst():
         """
         liste les news
         """

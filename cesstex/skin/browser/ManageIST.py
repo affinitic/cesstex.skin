@@ -15,7 +15,7 @@ class ManageIST(BrowserView):
     implements(IManageIST)
 
     @memoize
-    def getEventsIsm(self):
+    def getEventsIst(self):
         catalog = getToolByName(aq_inner(self.context), 'portal_catalog') 
         events = catalog(portal_type='Event',
                          review_state=('external', 'internal', 'publish'), 

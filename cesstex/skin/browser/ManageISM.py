@@ -3,6 +3,7 @@
 from Acquisition import aq_inner
 from Products.Five import BrowserView
 from zope.interface import implements
+#from mailer import Mailer
 from cesstex.skin.browser.interfaces import IManageISM
 from Products.CMFCore.utils import getToolByName
 from plone.memoize.instance import memoize

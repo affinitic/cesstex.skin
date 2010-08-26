@@ -38,7 +38,7 @@
                                                    'text/x-rst', ), 'stx' + kss_class, 'plain' + kss_class)">
             <div metal:define-slot="inside" tal:replace="structure text">The body</div>
         </div>
-        <tal:ismnews tal:define="events nocall:view/getEventsIsm;
+        <tal:ismnews tal:define="events nocall:view/getEventsIst;
                                  convert nocall:context/@@plone/toLocalizedTime;
                                  getEventsIconURL nocall:view/getEventsIconURL;">
             <tal:boucle tal:repeat="item events">
@@ -49,84 +49,84 @@
                     </div-->
 
                     <div>
-                        <table class="ism-event">
+                        <table class="ist-event">
                             <tr>
-                                <td class="ism-event-header-left"></td>
-                                <td class="ism-event-header-center">
-                                    <div class="ism-event-title-content">
-                                        <div class="ism-event-title-link">
+                                <td class="ist-event-header-left"></td>
+                                <td class="ist-event-header-center">
+                                    <div class="ist-event-title-content">
+                                        <div class="ist-event-title-link">
                                             <a href="" 
                                                title=""
                                                tal:attributes="href item/getURL;
                                                                title item/Description"
                                                tal:content="item/pretty_title_or_id"
-                                               class="ism-event-titre">titre event</a>
+                                               class="ist-event-titre">titre event</a>
                                         </div>
                                     </div>
                                 </td>
-                                <td class="ism-event-header-right"></td>
+                                <td class="ist-event-header-right"></td>
                             </tr>
                             <tr>
-                                <td class="ism-event-content"></td>
-                                <td class="ism-event-content">
-                                    <div tal:condition="item/Subject" class="ism-event-info">
-                                        <p class="ism-event-subject">
+                                <td class="ist-event-content"></td>
+                                <td class="ist-event-content">
+                                    <div tal:condition="item/Subject" class="ist-event-info">
+                                        <p class="ist-event-subject">
                                             (<span tal:content="python:modules['string'].join(item.Subject, ' ')" />)
                                         </p>
                                     </div>
-                                    <div class="ism-event-info">
-                                        <span class="ism-event-rubrique">&equiv; Quand :</span>
+                                    <div class="ist-event-info">
+                                        <span class="ist-event-rubrique">&equiv; Quand :</span>
                                         Du <span tal:content="python:toLocalizedTime(item.start, long_format=1)"
-                                                 class="ism-event-date" />
+                                                 class="ist-event-date" />
                                         au <span tal:content="python:toLocalizedTime(item.end, long_format=1)"
-                                                 class="ism-event-date" />
+                                                 class="ist-event-date" />
                                     </div>
-                                    <div class="ism-event-info">
-                                        <span class="ism-event-rubrique">&equiv; Qui :</span>
+                                    <div class="ist-event-info">
+                                        <span class="ist-event-rubrique">&equiv; Qui :</span>
                                         <span tal:content="python:modules['string'].join(event.attendees, ' ')"
-                                              class="ism-event-attendees" />
+                                              class="ist-event-attendees" />
                                     </div>
-                                    <div class="ism-event-info">
+                                    <div class="ist-event-info">
                                         <p tal:condition="item/Description">
-                                            <span class="ism-event-rubrique">&equiv; Résumé :</span>
+                                            <span class="ist-event-rubrique">&equiv; Résumé :</span>
                                             <br />
                                             <span class="documentDescription"><span tal:content="item/Description" /></span>
                                         </p>
                                         <p tal:condition="event/getText">
-                                            <span class="ism-event-rubrique">&equiv; Détail :</span>
+                                            <span class="ist-event-rubrique">&equiv; Détail :</span>
                                             <br />
-                                            <span class="ism-event-contenu"><span tal:replace="structure event/getText" /></span>
+                                            <span class="ist-event-contenu"><span tal:replace="structure event/getText" /></span>
                                         </p>
                                     </div>
-                                    <div class="ism-event-info">
-                                        <span class="ism-event-rubrique">&equiv; Où :</span>
+                                    <div class="ist-event-info">
+                                        <span class="ist-event-rubrique">&equiv; Où :</span>
                                         <span tal:content="item/location | string:-"
-                                              class="ism-event-location" />
+                                              class="ist-event-location" />
                                     </div>
 
-                                    <div class="ism-event-info">
-                                        <span class="ism-event-rubrique">&equiv; Contact :</span>
+                                    <div class="ist-event-info">
+                                        <span class="ist-event-rubrique">&equiv; Contact :</span>
                                         <span tal:content="event/contact_name | string:-"
-                                              class="ism-event-contact" />
+                                              class="ist-event-contact" />
                                     </div>
-                                    <div class="ism-event-info">
-                                        <span class="ism-event-rubrique">&equiv; Professeur organisateur :</span>
+                                    <div class="ist-event-info">
+                                        <span class="ist-event-rubrique">&equiv; Professeur organisateur :</span>
                                         <span tal:content="event/profResponsable | string:-"
-                                              class="ism-event-contact" />
+                                              class="ist-event-contact" />
                                     </div>
-                                    <div class="ism-event-info">
-                                        <span class="ism-event-rubrique">&equiv; Professeurs accompagant :</span>
+                                    <div class="ist-event-info">
+                                        <span class="ist-event-rubrique">&equiv; Professeurs accompagant :</span>
                                         <span tal:content="event/profsAccompagnateurs | string:-"
-                                              class="ism-event-contact" />
+                                              class="ist-event-contact" />
                                     <div>
                                     <br />
                                 </td><!--ism-news-center-->
-                                <td class="ism-event-content"></td>
+                                <td class="ist-event-content"></td>
                             </tr>
                             <tr>
-                                <td class="ism-event-footer-left"></td>
-                                <td class="ism-event-footer-center">
-                                    <div id="ism-event-auteur">
+                                <td class="ist-event-footer-left"></td>
+                                <td class="ist-event-footer-center">
+                                    <div id="ist-event-auteur">
                                         <tal:name tal:condition="item/Creator"
                                                   tal:define="author python:mtool.getMemberInfo(item.Creator)">
                                             <span i18n:translate="label_by_author">
@@ -145,7 +145,7 @@
                                         August 16, 2001 at 23:35:59
                                         </span>    
                                     </div> 
-                                    <div id="ism-event-add-calendar">
+                                    <div id="ist-event-add-calendar">
                                         <a href="#"
                                            tal:attributes="href string:$here_url/vcs_view"
                                            title="Download this event in vCal format"
@@ -161,7 +161,7 @@
                                             <span i18n:translate="label_add_to_ical">iCal</span></a> 
                                     </div>
                                 </td>
-                                <td class="ism-event-footer-right"></td>
+                                <td class="ist-event-footer-right"></td>
                             </tr>
                         </table>
                     </div><!--newscontent--> 
