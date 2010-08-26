@@ -95,7 +95,7 @@ class Renderer(base.Renderer):
     of this class. Other methods can be added and referenced in the template.
     """
 
-    _template = ViewPageTemplateFile('templates/agenda.pt')
+    _template = ViewPageTemplateFile('templates/agenda_ism.pt')
 
     def __init__(self, *args):
         base.Renderer.__init__(self, *args)

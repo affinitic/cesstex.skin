@@ -3,7 +3,12 @@
 
     <!-- Portlet type registrations -->
     <portlet
-       addview="cesstex.agenda"
-       title="Agenda"
+       addview="cesstex.agendaIsm"
+       title="Agenda ISM"
+       description="Portlet qui permetd'afficher les events" />
+
+    <portlet
+       addview="cesstex.agendaIst"
+       title="Agenda IST"
        description="Portlet qui permetd'afficher les events" />
 </portlets>
