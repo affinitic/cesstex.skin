@@ -5,10 +5,10 @@
     <portlet
        addview="cesstex.agendaIsm"
        title="Agenda ISM"
-       description="Portlet qui permetd'afficher les events" />
+       description="Portlet qui permetd'afficher les events de institut sainte marie" />
 
-    <portlet
+   <portlet
        addview="cesstex.agendaIst"
        title="Agenda IST"
-       description="Portlet qui permetd'afficher les events" />
+       description="Portlet qui permetd'afficher les events de institut sainte therese" />
 </portlets>

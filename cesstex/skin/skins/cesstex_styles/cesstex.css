@@ -559,7 +559,7 @@ width:30em;
 background-color:#fff;
 }
 
-/*** LISTING NEWS ***/
+/*** LISTING NEWS ISM ***/
 .ism-event{
 margin:10px 0px;
 padding:3px;
@@ -712,3 +712,107 @@ height:625px;
 border:none;
 background-color:#000;
 }
+
+
+
+
+/*** LISTING NEWS IST ***/
+.ist-event{
+margin:10px 0px;
+padding:3px;
+border-spacing: 0px;
+border-collapse: collapse;
+width:100%;
+background-color:#f6f6f8;
+background-image:url(istnews_fond.png);
+}
+
+.ist-event-header-left{
+background-image:url(istnews_border_left.png);
+background-repeat:no-repeat;
+background-position:left top;
+width:20px;
+height:60px;
+}
+
+.ist-event-header-center{
+background-image:url(istnews_border_center.png);
+background-repeat:repeat-x;
+}
+
+.ist-event-header-right{
+background-image:url(istnews_border_right.png);
+background-repeat:no-repeat;
+background-position:right top;
+width:46px;
+}
+
+.ist-event-title-content{
+margin-top:-12px;
+padding-left:20px;
+}
+
+.ist-event-content{
+background-color:transparent;
+}
+
+.ist-event-title-link{
+font-size:1.4em;
+font-weight:bold;
+text-align:left;
+}
+.ist-event-title-link a{
+color:#7bcbc0;
+}
+.ist-event-title-link a:hover{
+color:#3b8e85;
+}
+
+.ist-event-entete{
+width:90%;
+margin-left: 2em;
+font-weight: bold;
+}
+
+.ist-event-info{
+margin:15px 0px 5px 0px;
+}
+
+.ist-event-subject{
+text-align:right;
+font-size:0.8em;
+color:#888;
+}
+
+.ist-event-rubrique{
+font-size:0.9em;
+font-variant:small-caps;
+color:#5fb1a6;
+}
+.ist-event-description{
+font-weight:bold;
+}
+
+.ist-event-footer-left{
+height:26px;
+background-image:url(istnews_border_inf_left.png);
+}
+
+.ist-event-footer-center{
+background-image:url(istnews_border_inf_center.png);
+}
+
+.ist-event-footer-right{
+background-image:url(istnews_border_inf_right.png);
+}
+
+#ist-event-auteur{
+float:left;
+font-size:0.8em;
+color:#999;
+}
+#ist-event-add-calendar{
+float:right;
+font-size:0.8em;
+width:100px;
+}                       

@@ -4,8 +4,6 @@
            xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
            xmlns:plone="http://namespaces.plone.org/plone"
            i18n_domain="plone">
-
-<!-- MISE A JOUR DES INFOS -->
     <plone:portlet
         name="cesstex.agendaIsm"
         interface=".agendaIsm.ICollectionPortlet"
@@ -16,7 +14,7 @@
         addview=".agendaIsm.AddForm"
         editview=".agendaIsm.EditForm"
         />
-     
+
      <plone:portlet
         name="cesstex.agendaIst"
         interface=".agendaIst.ICollectionPortlet"
@@ -27,6 +25,4 @@
         addview=".agendaIst.AddForm"
         editview=".agendaIst.EditForm"
         />
-
-
 </configure>
