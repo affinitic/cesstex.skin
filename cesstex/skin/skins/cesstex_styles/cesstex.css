@@ -1,4 +1,4 @@
-/*
+
 /* Centre scolaire Saint-Exupéry
 /* Made by Affinitic.be
 /*
@@ -19,6 +19,15 @@ text-decoration:none;
 a:hover{
 text-decoration:underline;
 color:#0085cd;
+}
+
+.grasrouge{
+color:#a31b1b;
+font-weight:bold;
+}
+
+.smallcaps{
+font-variant:small-caps;
 }
 
 
@@ -292,25 +301,29 @@ text-decoration:none;
 color:#fff;
 }
 
-
 #enseignement{
 font-weight:bold;
 font-variant:small-caps;
 font-size:1.2em;
 }
+
 #enseignement a{
 color:#ddd;
 }
+
 #enseignement a:hover{
 color:#fff;
 text-decoration:underline;
 }
+
 #type-maternelle{
 background-color:#0487bd;
 }
+
 #type-primaire{
 background-color:#2d83a6;
 }
+
 #type-secondaire{
 background-color:#0daff0;
 }
@@ -815,4 +828,30 @@ color:#999;
 float:right;
 font-size:0.8em;
 width:100px;
-}                       
+}
+
+
+/*** FORMULAIRE IST CONTACT ***/
+#ist-form-contact{
+margin-top:10px;
+margin-left:2em;
+}
+
+#ist-form-contact div{
+margin: 12px 0px;
+}
+
+#ist-form-contact label{
+background-image:url(puce_bleue.gif);
+background-repeat:no-repeat;
+background-position:left center;
+padding-left:10px;
+color:#567184;
+}
+
+
+
+
+
+
+

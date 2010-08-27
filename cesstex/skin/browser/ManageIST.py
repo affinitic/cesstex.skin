@@ -41,12 +41,12 @@ class ManageIST(BrowserView):
         envoi de mail à la direction
         """
         #yohannamazzeo@hotmail.com
-        direction="alain.meurant@affinitic.be, yohannamazzeo@hotmail.com"
+        #direction="alain.meurant@affinitic.be, yohannamazzeo@hotmail.com"
         mailer = Mailer("localhost", direction)
         #mailer = Mailer("relay.skynet.be", direction)
         mailer.setSubject(sujet)
-        mailer.setRecipients("alain.meurant@affinitic.be, yohannamazzeo@hotmail.com")
-        #mailer.setRecipients("alain.meurant@skynet.be")
+        #mailer.setRecipients("alain.meurant@affinitic.be, yohannamazzeo@hotmail.com")
+        mailer.setRecipients(direction)
         mail = message
         mailer.sendAllMail(mail)
 

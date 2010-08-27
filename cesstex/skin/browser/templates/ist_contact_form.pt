@@ -19,10 +19,13 @@
     au plus vite pour une réponse précise et personnalisée.
 
     Merci de compléter vos coordonnées complètes :
-
+    <br />
     <div>
         <form action="ist-formulaire-de-demande/traiterDemandeIst"
-              method="post">
+              method="post"
+              id="ist-form-contact">
+            <span class="smallcaps grasrouge">Vos coordonnées :</span>
+            <br />
             <div>
                 <label for="civilite">Civilité</label>
                 <br />
@@ -60,17 +63,17 @@
                        value=""
                        size="50" />
             </div>
-            <div>
-                <label for="num">N°</label>
+             <div>
+                <label for="numero">Numéro</label>
                 <br />
                 <input type="text"
                        name="numero"
-                       id="num"
+                       id="numero"
                        value=""
                        size="5" />
             </div>
             <div>
-                <label for="cp">CP</label>
+                <label for="cp">Code postal</label>
                 <br />
                 <input type="text"
                        name="cp"
@@ -105,9 +108,9 @@
                        value=""
                        size="50" />
             </div>
-            <p>
-            Votre demande concerne :
-            </p>
+            <br /><br />
+            <span class="smallcaps grasrouge">Votre demande concerne :</span>
+            <br />
             <div>
                 <label for="option">Option</label>
                 <br />
@@ -133,10 +136,11 @@
                 <br />
                 <textarea name="demande"
                           id="demande"
-                          rows="5"
+                          rows="8"
                           cols="80"></textarea>
             </div>
             <div>
+                <img src="ist_ligne_bleue.jpg" /><br /><br />
                 <input type="submit"
                        value="Envoyer ma demande" />
             </div>
