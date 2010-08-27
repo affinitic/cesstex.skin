@@ -40,12 +40,11 @@ class ManageIST(BrowserView):
         """
         envoi de mail à la direction
         """
-        #yohannamazzeo@hotmail.com
-        direction="alain.meurant@affinitic.be, yohannamazzeo@hotmail.com"
+        #direction="alain.meurant@affinitic.be"
         mailer = Mailer("localhost", direction)
         #mailer = Mailer("relay.skynet.be", direction)
         mailer.setSubject(sujet)
-        #mailer.setRecipients("alain.meurant@affinitic.be, yohannamazzeo@hotmail.com")
+        #mailer.setRecipients("alain.meurant@affinitic.be")
         mailer.setRecipients(direction)
         mail = message
         mailer.sendAllMail(mail)
@@ -69,10 +68,6 @@ class ManageIST(BrowserView):
         demande=fields.get('demande')
         direction=''
 
-        #pour MANAGE : Marie-Christine DELMOITIEZ, coordination@istmanage.be   IST MANAGE
-        #pour LA LOUVIERE :  christina.papadopoulos@gmail.com  IST LA LOUVIERE
-        #pour le CEFA : Dominique BERTRAND, dominiquewillaerts@hotmail.com  CEFA MANAGE
-
         if implantation=="IST MANAGE":
             direction="coordination@istmanage.be"
         elif implantation=="IST LA LOUVIERE":
@@ -80,9 +75,9 @@ class ManageIST(BrowserView):
         elif implantation=="CEFA MANAGE":
             direction="dominiquewillaerts@hotmail.com"
 
-        sujet="testmail %s"%(implantation)
+        sujet="%s :: Demande via le site web" % (implantation)
 
-        message="""DEMANDE D'INFORMATION VIA LE SITE<br>
+        message="""<font color="#ff0000">DEMANDE D'INFORMATION VIA LE SITE</font><br>
         <hr>
         %s %s %s<br>
         %s, %s<br>
@@ -100,3 +95,8 @@ class ManageIST(BrowserView):
         """%(civilite,prenom,nom,rue,numero,cp,localite,telephone,email,option,implantation,demande,direction)
 
         self.sendMailDemande(direction, sujet, message)
+
+        cible = "%s/institut-sainte-therese/ist-contact-merci" % self.context.portal_url()
+        return self.context.REQUEST.RESPONSE.redirect(cible)
+
+

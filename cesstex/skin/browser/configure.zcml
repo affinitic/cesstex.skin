@@ -117,6 +117,15 @@
         allowed_interface=".interfaces.IManageIST" />
 
       <browser:page
+        name="ist-contact-merci"
+        for="*"
+        template="templates/ist_contact_merci.pt"
+        permission="zope.Public"
+        class=".ManageIST.ManageIST"
+        allowed_interface=".interfaces.IManageIST" />
+
+
+      <browser:page
           for="*"
           name="ist-gallerie"
           template="templates/ist_gallery.pt"
