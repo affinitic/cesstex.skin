@@ -57,9 +57,9 @@ a:link, a:visited {
 }
 
 /* Page break class for use when printing */
-div.pageBreak {
+/*div.pageBreak {
     page-break-before: always;
-}
+} */
 
 /* Uncomment these to get link addresses inserted along with the link text
    when you print.
@@ -111,8 +111,20 @@ div.top,
 display:none;
 }
 
+#ism-event-add-calendar{
+display:none;
+}
+
+.bloc-event{  
+/*page-break-after:always;*/ 
+/*border:1px solid #0f0;*/
+page-break-inside:avoid;
+}
+
+
 .ism-event{
-margin:10px 0px;
+margin:10pt 0pt;
+page-break-inside:avoid;
 padding:3px;
 border-spacing: 0px;
 border-collapse: collapse;
@@ -121,11 +133,15 @@ width:100%;
 background-color:#f9f9f9;
 }
 
+.titre-incassable{
+page-break-after:avoid;
+border-bottom:1px dashed #888;
+}
+
 .ism-event-title-link a{
-font-size:1.4em;
+font-size:14pt;
 font-weight:bold;
 text-align:left;
-border-bottom:1px solid #555;
 color:#0000ff;
 padding-left:1.2em;
 }
@@ -145,8 +161,14 @@ color:#888;
 }
 
 .ism-event-rubrique{
-font-size:0.9em;
+font-size:12pt;
 font-variant:small-caps;
-color:#5fb1a6;
+color:#555;                    /*#5fb1a6;*/
+} 
+
+#ism-event-auteur{
+border-top:1px dashed #ccc;
+font-size:9pt;
+color:#888;
 }
 
