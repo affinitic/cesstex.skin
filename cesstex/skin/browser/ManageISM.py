@@ -20,7 +20,7 @@ class ManageISM(BrowserView):
         events = catalog(portal_type='Event',
                          review_state=('external', 'internal', 'publish'), 
                          path={'query': 'plone/institut-sainte-marie', 'depth': 1},
-                         sort_on='Date',
+                         sort_on='start',
                          sort_order='reverse',
                          sort_limit=LIMIT)[:LIMIT]
         return events
