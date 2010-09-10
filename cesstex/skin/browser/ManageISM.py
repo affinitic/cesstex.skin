@@ -21,7 +21,7 @@ class ManageISM(BrowserView):
                          review_state=('external', 'internal', 'publish'), 
                          path={'query': 'plone/institut-sainte-marie', 'depth': 1},
                          sort_on='start',
-                         sort_order='reverse',
+                         sort_order='ascending',
                          sort_limit=LIMIT)[:LIMIT]
         return events
 
