@@ -71,7 +71,7 @@ class ManageIST(BrowserView):
         if implantation=="IST MANAGE":
             direction="coordination@istmanage.be"
         elif implantation=="IST LA LOUVIERE":
-            direction="christina.papadopoulos@gmail.com"
+            direction="res.impl.ist.lalouviere@gmail.com"
         elif implantation=="CEFA MANAGE":
             direction="dominiquewillaerts@hotmail.com"
 
