@@ -5,7 +5,11 @@
 */
 
 body{
-background-color:#fff;                /*#e7eaf8;*/
+background-color:#00202b;  /*#e7eaf8;*/ 
+background-image:url(images/bg_body.jpg);
+background-repeat:repeat-y;
+background-position:center top;
+/*background-attachment:fixed;*/
 color:Black;
 font-family:"Lucida Grande",sans-serif;
 }
@@ -31,7 +35,30 @@ font-variant:small-caps;
 }
 
 
-/*** COLONNE ***/
+/*** VISUAL PORTER ***/
+#visual-portal-wrapper{
+background-color:#fff;    
+border:2px solid #ccc;
+border-radius:12px;
+box-shadow:8px 8px 8px rgba(0,0,0,0.5);
+margin: 15px auto;
+padding: 0;
+width: 990px;
+}
+
+/*** PORTAL HEADER ***/
+#portal-header{
+border-radius:10px 10px 0px 0px;
+padding-top:10px;
+background-color:#fff;
+}
+
+
+/*** COLONNE ***/ 
+#portal-columns{
+margin-bottom:10px;
+}
+
 #portal-column-one {
 background-image:url(background.png);
 border-collapse:collapse;
@@ -54,6 +81,10 @@ width:150px;
 
 #portal-column-two .visualPadding {
 padding:2em 5px 1em 0;
+}
+
+#portal-column-content{
+background-color:#fff;
 }
 
 /*** PORTLET ***/
