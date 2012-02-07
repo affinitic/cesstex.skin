@@ -140,7 +140,7 @@
 <table id="calbody">
     <tr>
         <td id="calenderX-left-column">
-            <!-- table qui contient les differents types. Voir dans CX_props_macros.pt LI426-->
+            <!-- table qui contient les differents types. Voir dans CX_props_macros.pt LI426 -->
             <metal:block metal:use-macro="python:here.getCXMacro('subjectlinks')"/>
         </td>
 
@@ -148,7 +148,7 @@
             <!-- the month-calendar-view. showing 4-6 weeks. -->
             <table class="cal">
                 <tr>
-                    <!--Generate days of week <th> tags here  -->
+                    <!-- Generate days of week <th> tags here  -->
                     <metal:block metal:use-macro="python:here.getCXMacro('monthdaysofweek')"/>
                 </tr>
                     <!-- iterate through the weeks (rows of the table) -->
@@ -204,10 +204,10 @@
                                                                           classsubject python:test(useSubjCSS,here.getSubjectCSSClasses(event),'eventPublished');
                                                                           classeventtype python:test(useETCSS,here.getEventTypeCSSClasses(event,type=portaltype),'eventPublished'); ">
 
-                                            <!-- print the event text-->
+                                            <!-- print the event text -->
                                             <metal:block metal:use-macro="python:here.getCXMacro('eventlister')"/>
 
-                                            <!-- print the rollover popup text-->
+                                            <!-- print the rollover popup text -->
                                             <metal:block metal:use-macro="python:here.getCXMacro('popuptextbox')"/>
                                         </span>
                                     </metal:block>&nbsp;
