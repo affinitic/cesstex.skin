@@ -78,7 +78,7 @@
     <!-- ROW: the tabs "month", "week", "week2", "day" -->
     <metal:block metal:use-macro="python:here.getCXMacro('caltabsforviews')"/>
     <!-- ROW: the "subject categories" options -->
-    <ì--metal:block metal:use-macro="python:here.getCXMacro('subjectlinks')"/-->
+    <!--metal:block metal:use-macro="python:here.getCXMacro('subjectlinks')"/-->
     <tr>
         <td class="body">
             <!-- "previous", "next" and current date string. -->
@@ -142,7 +142,7 @@
 <table>
   <tr>
     <td valign="top" width="160">
-      <!-- table qui contient les differents types. Voir dans CX_propos_macros.pt LI426-->
+      <!-- table qui contient les differents types. Voir dans CX_propos_macros.pt LI426 -->
       <metal:block metal:use-macro="python:here.getCXMacro('subjectlinks')"/>
     </td>
     <td valign="top">
