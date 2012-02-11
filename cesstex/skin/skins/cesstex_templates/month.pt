@@ -124,11 +124,11 @@
                               classsubject python:test(useSubjCSS,here.getSubjectCSSClasses(event),'eventPublished');
                               classeventtype python:test(useETCSS,here.getEventTypeCSSClasses(event,type=portaltype),'eventPublished'); ">
 
-<!-- print the event text -->
-<metal:block metal:use-macro="python:here.getCXMacro('eventlister')"/>
+                    <!-- print the event text -->
+                    <metal:block metal:use-macro="python:here.getCXMacro('eventlister')"/>
 
-<!-- print the rollover popup text -->
-<metal:block metal:use-macro="python:here.getCXMacro('popuptextbox')"/>
+                    <!-- print the rollover popup text -->
+                    <metal:block metal:use-macro="python:here.getCXMacro('popuptextbox')"/>
 
             </span>
        </metal:block>&nbsp;

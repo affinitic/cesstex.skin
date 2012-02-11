@@ -75,86 +75,77 @@
 
 <!-- the main table -->
 <table cellspacing="0" class="caltabs">
+    <!-- ROW: the tabs "month", "week", "week2", "day" -->
+    <metal:block metal:use-macro="python:here.getCXMacro('caltabsforviews')"/>
+    <!-- ROW: the "subject categories" options -->
+    <ì--metal:block metal:use-macro="python:here.getCXMacro('subjectlinks')"/-->
+    <tr>
+        <td class="body">
+            <!-- "previous", "next" and current date string. -->
+            <metal:block metal:use-macro="python:here.getCXMacro('prevnextcurrentlinks')"/>
+            <!-- showing all events that started before the time displayed, but are still running. -->
+            <table class="calall" tal:define="startForContinuing Dict/startForContinuing;
+                                              startForEarly Dict/startForEarly;
+                                              continuingEvents python:[ev for ev in bigQB if (ev.start < startForContinuing and ev.end >= startForContinuing)];
+                                              earlyEvents python:[ev for ev in bigQE if (ev.start >= startForEarly and ev.end < startForContinuing)];
+                                              continuingEvents python:here.listSortByStart(here.queriesUnique(continuingEvents+earlyEvents));"
+                                  tal:condition="continuingEvents">
+              <tr>
+                  <th i18n:translate="heading_continuing_events">
+                      Whole-Week-Events or Started-Already-And-Still-Running-Events
+                  </th>
+              </tr>
+              <tr class="noevent"
+                  tal:define="
+                              hourID python: 0;
+                              start python: startDate;"
+                  tal:attributes="class python: test(continuingEvents, 'event', 'noevent');
+                                  id python:'cal'+str(dayviewstarthour*periodFactor);">
+                <td>
+            <!-- iterate through the events -->
+                   <metal:block tal:repeat="event continuingEvents">
+                        <span tal:omit-tag="" tal:define="eventID string:calinfo${hourID}event${repeat/event/number};
+                                          eDict python:here.getEventDictDay(event,type='C',cDate=currentDate);
+                                          eventstart eDict/eventstart;
+                                          eventend eDict/eventend;
+                                          jsStart eDict/jsStart;
+                                          jsEnd eDict/jsEnd;
+                                          eventurl eDict/eventurl;
+                                          eventState eDict/eventState;
+                                          eventtitle eDict/eventtitle;
+                                          portaltype eDict/portaltype;
+                                          syear eDict/syear ;
+                                          smonth eDict/smonth ;
+                                          sday eDict/sday ;
+                                          stime eDict/stime ;
+                                          eyear eDict/eyear ;
+                                          emonth eDict/emonth ;
+                                          eday eDict/eday ;
+                                          etime eDict/etime ;
+                                          eventstring string:${eDict/eventstring};
+                                          classstate python: test(eventState == 'private', 'eventPrivate', test(eventState == 'published', 'eventPublished', test(eventState == 'visible', 'eventVisible', 'eventPending')));
+                                          classsubject python:test(useSubjCSS,context.getSubjectCSSClasses(event),'eventPrivate');
+                                          classeventtype python:test(useETCSS,here.getEventTypeCSSClasses(event,type=portaltype),'eventPublished'); ">
 
+                    <!-- print the event text-->
+                    <metal:block metal:use-macro="python:here.getCXMacro('eventlister')"/>
 
-<!-- ROW: the tabs "month", "week", "week2", "day" -->
-<metal:block metal:use-macro="python:here.getCXMacro('caltabsforviews')"/>
+                    <!-- print the rollover popup text-->
+                    <metal:block metal:use-macro="python:here.getCXMacro('popuptextbox')"/>
 
-
-<!-- ROW: the "subject categories" options -->
-<ì--metal:block metal:use-macro="python:here.getCXMacro('subjectlinks')"/-->
-
-
-  <tr>
-    <td class="body">
-
-
-<!-- "previous", "next" and current date string. -->
-<metal:block metal:use-macro="python:here.getCXMacro('prevnextcurrentlinks')"/>
-
-
-
-
-<!-- showing all events that started before the time displayed, but are still running. -->
-<table class="calall" tal:define="startForContinuing Dict/startForContinuing;
-                                  startForEarly Dict/startForEarly;
-                                  continuingEvents python:[ev for ev in bigQB if (ev.start < startForContinuing and ev.end >= startForContinuing)];
-                                  earlyEvents python:[ev for ev in bigQE if (ev.start >= startForEarly and ev.end < startForContinuing)];
-                                  continuingEvents python:here.listSortByStart(here.queriesUnique(continuingEvents+earlyEvents));"
-                      tal:condition="continuingEvents">
-  <tr><th i18n:translate="heading_continuing_events">Whole-Week-Events or Started-Already-And-Still-Running-Events</th></tr>
-  <tr class="noevent"
-      tal:define="
-                  hourID python: 0;
-                  start python: startDate;"
-      tal:attributes="class python: test(continuingEvents, 'event', 'noevent');
-                      id python:'cal'+str(dayviewstarthour*periodFactor);">
-    <td>
-<!-- iterate through the events -->
-       <metal:block tal:repeat="event continuingEvents">
-            <span tal:omit-tag="" tal:define="eventID string:calinfo${hourID}event${repeat/event/number};
-                              eDict python:here.getEventDictDay(event,type='C',cDate=currentDate);
-                              eventstart eDict/eventstart;
-                              eventend eDict/eventend;
-                              jsStart eDict/jsStart;
-                              jsEnd eDict/jsEnd;
-                              eventurl eDict/eventurl;
-                              eventState eDict/eventState;
-                              eventtitle eDict/eventtitle;
-                              portaltype eDict/portaltype;
-                              syear eDict/syear ;
-                              smonth eDict/smonth ;
-                              sday eDict/sday ;
-                              stime eDict/stime ;
-                              eyear eDict/eyear ;
-                              emonth eDict/emonth ;
-                              eday eDict/eday ;
-                              etime eDict/etime ;
-                              eventstring string:${eDict/eventstring};
-                              classstate python: test(eventState == 'private', 'eventPrivate', test(eventState == 'published', 'eventPublished', test(eventState == 'visible', 'eventVisible', 'eventPending')));
-                              classsubject python:test(useSubjCSS,context.getSubjectCSSClasses(event),'eventPrivate');
-                              classeventtype python:test(useETCSS,here.getEventTypeCSSClasses(event,type=portaltype),'eventPublished'); ">
-
-<!-- print the event text-->
-<metal:block metal:use-macro="python:here.getCXMacro('eventlister')"/>
-
-<!-- print the rollover popup text-->
-<metal:block metal:use-macro="python:here.getCXMacro('popuptextbox')"/>
-
-            </span>
-       </metal:block>&nbsp;
-    </td>
-  </tr>
-</table>
-
+                        </span>
+                   </metal:block>&nbsp;
+                </td>
+              </tr>
+            </table>
 
 <table>
   <tr>
-    <td valign="top">
+    <td valign="top" width="160">
       <!-- table qui contient les differents types. Voir dans CX_propos_macros.pt LI426-->
       <metal:block metal:use-macro="python:here.getCXMacro('subjectlinks')"/>
     </td>
-    <td>
+    <td valign="top">
 <!-- the day-calendar-view. -->
 <table class="cal">
     <tr>

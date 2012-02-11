@@ -124,8 +124,8 @@ metal:use-macro="python:here.getCXMacro('subjectlinks')"/-->
                               classsubject python:test(useSubjCSS,context.getSubjectCSSClasses(event),'eventPrivate'); 
                               classeventtype python:test(useETCSS,here.getEventTypeCSSClasses(event,type=portaltype),'eventPublished'); ">
 
-<metal:block metal:use-macro="python:here.getCXMacro('eventlister')"/>
-<metal:block metal:use-macro="python:here.getCXMacro('popuptextbox')"/>
+                <metal:block metal:use-macro="python:here.getCXMacro('eventlister')"/>
+                <metal:block metal:use-macro="python:here.getCXMacro('popuptextbox')"/>
             </span>
        </metal:block>&nbsp;
     </td>
@@ -134,83 +134,86 @@ metal:use-macro="python:here.getCXMacro('subjectlinks')"/-->
 
 
 <table>
-<tr>
-<td valign="top">
-<metal:block
-metal:use-macro="python:here.getCXMacro('subjectlinks')"/>
-</td>
-<td>
-<!-- the weekbyday-calendar-view. -->
-<table class="cal">
-<!-- iterate through the days (rows of the table) -->
-  <metal:block tal:repeat="weekDay python:range(7)">
-  <span tal:omit-tag="" 
-        tal:define="
-                  dayID python: weekDay + 1;
-                  start python: here.getStartOfDay(startDate) + weekDay;
-                  end python: here.getEndOfDay(start);
-                  COMMENT string: OLD Way - events python: here.getCXEventsBetween(start, end, xmy, xsub, xpub, xcrt);
-                  events python: [ev for ev in bigQ if (ev.start >= start and ev.start <= end)];
-                  COMMENT string: OLD Way - startForBefore python: DateTime(str(start.year())+'/'+str(start.month())+'/'+str(start.day())+' 00:01:00');
-                  startForBefore python: start + (1.0/24.0/60.0);
-                  COMMENT string: OLD Way - eventsBefore python: here.getCXEventsBefore(startForBefore, xmy, xsub, xpub, xcrt); 
-                  eventsBefore python: [ev for ev in bigQB if (ev.start < startForBefore and ev.end >= startForBefore)];
-                  COMMENT string: tester determines whether to highlight full extent of events on the calendar; 
-                  COMMENT string: test and use labelEventsOnlyAtStart (LEOAS) or not; 
-                  events python: test(LEOAS,events,context.queriesUnique(eventsBefore+events)) ; 
-                  tester python: test(showHighlightFullEvent,(events or eventsBefore),events);">
-    <tr><th><a href="#" tal:attributes="href string: ${url}/day?currentDate=${start}&xmy=${xmy}&xsub=${xsub}">
-          <span class="day">
-            <span i18n:translate="heading_fmt_day_weekbyday" tal:omit-tag="">
-                <span i18n:name="dayName"><span i18n:translate="" tal:content="python: start.Day()" tal:omit-tag="">dayName</span></span>
-                <span i18n:name="month"><span i18n:translate="" tal:content="python: start.Month()" tal:omit-tag="">month</span></span>
-                <span i18n:name="day" tal:content="python: start.day()" tal:omit-tag="">day</span>
-                <span i18n:name="year" tal:content="python: start.year()" tal:omit-tag="">year</span>
-            </span>
-          </span></a></th></tr>
-  <tr class="noevent" tal:attributes="class python:test(tester, 'event', 'noevent');
-		                              id string:cal${dayID}">
-    <td>
-<!-- iterate through the events of the day -->
-       <metal:block tal:repeat="event events"> 
-            <span tal:omit-tag="" tal:define="eventID string:calinfo${dayID}event${repeat/event/number};
-                              eDict python:here.getEventDictWeekbyday(event,type='E',dayID=dayID,cDate=currentDate);
-                              eventstart  eDict/eventstart;
-                              eventend  eDict/eventend;
-                              jsStart eDict/jsStart;
-                              jsEnd eDict/jsEnd; 
-                              eventurl eDict/eventurl;
-                              eventState eDict/eventState;
-                              eventtitle eDict/eventtitle;
-                              portaltype eDict/portaltype;
-                              syear eDict/syear ;
-                              smonth eDict/smonth ;
-                              sday eDict/sday ;
-                              stime eDict/stime ;
-                              eyear eDict/eyear ;
-                              emonth eDict/emonth ;
-                              eday eDict/eday ;
-                              etime eDict/etime ;
-                              eventstring string:${eDict/eventstring};
-                              classstate python: test(eventState == 'private', 'eventPrivate', test(eventState == 'published', 'eventPublished', test(eventState == 'visible', 'eventVisible', 'eventPending')));  
-                              classsubject python:test(useSubjCSS,context.getSubjectCSSClasses(event),'eventPrivate'); 
-                              classeventtype python:test(useETCSS,here.getEventTypeCSSClasses(event,type=portaltype),'eventPublished'); ">
+    <tr>
+        <td valign="top" width="160">
+            <metal:block metal:use-macro="python:here.getCXMacro('subjectlinks')"/>
+        </td>
+        <td valign="top">
+            <!-- the weekbyday-calendar-view. -->
+            <table class="cal">
+            <!-- iterate through the days (rows of the table) -->
+              <metal:block tal:repeat="weekDay python:range(7)">
+              <span tal:omit-tag="" 
+                    tal:define="
+                              dayID python: weekDay + 1;
+                              start python: here.getStartOfDay(startDate) + weekDay;
+                              end python: here.getEndOfDay(start);
+                              COMMENT string: OLD Way - events python: here.getCXEventsBetween(start, end, xmy, xsub, xpub, xcrt);
+                              events python: [ev for ev in bigQ if (ev.start >= start and ev.start <= end)];
+                              COMMENT string: OLD Way - startForBefore python: DateTime(str(start.year())+'/'+str(start.month())+'/'+str(start.day())+' 00:01:00');
+                              startForBefore python: start + (1.0/24.0/60.0);
+                              COMMENT string: OLD Way - eventsBefore python: here.getCXEventsBefore(startForBefore, xmy, xsub, xpub, xcrt); 
+                              eventsBefore python: [ev for ev in bigQB if (ev.start < startForBefore and ev.end >= startForBefore)];
+                              COMMENT string: tester determines whether to highlight full extent of events on the calendar; 
+                              COMMENT string: test and use labelEventsOnlyAtStart (LEOAS) or not; 
+                              events python: test(LEOAS,events,context.queriesUnique(eventsBefore+events)) ; 
+                              tester python: test(showHighlightFullEvent,(events or eventsBefore),events);">
+                <tr>
+                    <th>
+                        <a href="#" tal:attributes="href string: ${url}/day?currentDate=${start}&xmy=${xmy}&xsub=${xsub}">
+                            <span class="day">
+                                <span i18n:translate="heading_fmt_day_weekbyday" tal:omit-tag="">
+                                    <span i18n:name="dayName"><span i18n:translate="" tal:content="python: start.Day()" tal:omit-tag="">dayName</span></span>
+                                    <span i18n:name="month"><span i18n:translate="" tal:content="python: start.Month()" tal:omit-tag="">month</span></span>
+                                    <span i18n:name="day" tal:content="python: start.day()" tal:omit-tag="">day</span>
+                                    <span i18n:name="year" tal:content="python: start.year()" tal:omit-tag="">year</span>
+                                </span>
+                            </span>
+                        </a>
+                    </th>
+                </tr>
+                <tr class="noevent" tal:attributes="class python:test(tester, 'event', 'noevent');
+                                                    id string:cal${dayID}">
+                <td>
+                   <!-- iterate through the events of the day -->
+                   <metal:block tal:repeat="event events"> 
+                        <span tal:omit-tag="" tal:define="eventID string:calinfo${dayID}event${repeat/event/number};
+                                          eDict python:here.getEventDictWeekbyday(event,type='E',dayID=dayID,cDate=currentDate);
+                                          eventstart  eDict/eventstart;
+                                          eventend  eDict/eventend;
+                                          jsStart eDict/jsStart;
+                                          jsEnd eDict/jsEnd; 
+                                          eventurl eDict/eventurl;
+                                          eventState eDict/eventState;
+                                          eventtitle eDict/eventtitle;
+                                          portaltype eDict/portaltype;
+                                          syear eDict/syear ;
+                                          smonth eDict/smonth ;
+                                          sday eDict/sday ;
+                                          stime eDict/stime ;
+                                          eyear eDict/eyear ;
+                                          emonth eDict/emonth ;
+                                          eday eDict/eday ;
+                                          etime eDict/etime ;
+                                          eventstring string:${eDict/eventstring};
+                                          classstate python: test(eventState == 'private', 'eventPrivate', test(eventState == 'published', 'eventPublished', test(eventState == 'visible', 'eventVisible', 'eventPending')));  
+                                          classsubject python:test(useSubjCSS,context.getSubjectCSSClasses(event),'eventPrivate'); 
+                                          classeventtype python:test(useETCSS,here.getEventTypeCSSClasses(event,type=portaltype),'eventPublished'); ">
 
-<!-- print the event text-->
-<metal:block metal:use-macro="python:here.getCXMacro('eventlister')"/>
+                            <!-- print the event text-->
+                            <metal:block metal:use-macro="python:here.getCXMacro('eventlister')"/>
 
-<!-- print the rollover popup text-->
-<metal:block metal:use-macro="python:here.getCXMacro('popuptextbox')"/>
-
-            </span>
-       </metal:block>&nbsp;
-   </td>
-  </tr>
-  </span>
-  </metal:block>
-</table>
-</td>
-</tr>
+                            <!-- print the rollover popup text-->
+                            <metal:block metal:use-macro="python:here.getCXMacro('popuptextbox')"/>
+                        </span>
+                   </metal:block>&nbsp;
+                </td>
+              </tr>
+              </span>
+              </metal:block>
+            </table>
+        </td>
+    </tr>
 </table>
 
 

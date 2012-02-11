@@ -483,7 +483,7 @@ bugfix: eventlister, mMeventlister - class: defaulted to "eventPublished" instea
                 <div id="calendarX-titre-categorie">
                     Categories
                 </div>
-                <!-->    
+                <!--  
                 <span class="nowrap" tal:define="subcalname Dict/subcalname;
                                                  image here/calLinkOpaque.gif"
                                      tal:replace="structure string:&nbsp; $image &nbsp;$subcalname: ">
@@ -508,8 +508,7 @@ bugfix: eventlister, mMeventlister - class: defaulted to "eventPublished" instea
                   <span i18n:translate="label_sublinks_viewall">View All</span>
                   </li>
                 </ul>
-                <span class="nowrap" 
-                      tal:condition="python:not here.getCXAttribute('useSubCalendarSubjectMenu') or here.getCXAttribute('isSubCalendar')"
+                <span tal:condition="python:not here.getCXAttribute('useSubCalendarSubjectMenu') or here.getCXAttribute('isSubCalendar')"
                       tal:define="sublist python:here.getCXAttribute('listOfSubjects');
                                   hassublist python:len(sublist);
                                   useportalcatalogvalues python:test(hassublist,0,1);
@@ -520,27 +519,26 @@ bugfix: eventlister, mMeventlister - class: defaulted to "eventPublished" instea
                                   
                     <ul tal:repeat="subby python:test(useportalcatalogvalues,container.portal_catalog.uniqueValuesFor('Subject'),sublist)">
                        <li>
-                  <input tal:attributes="type string:checkbox; 
-                                         name string:xsub; 
-                                         value string:$subby; 
-                                         checked python:count(xsub,subby) or nothing;
-                                         onclick string:fixCategories();;"/>
-                  <span tal:define="n repeat/subby/number" 
-                        tal:attributes="class python: test(useSubjCSS,here.getSubjectCSSClasses(subject=subby),'eventPublished')"
-                        tal:omit-tag=""> 
-                      <span tal:condition="python:usesubtitles"
-                            tal:content="python:subtitles[n-1]"
-                            tal:omit-tag="" /> 
-                      <span tal:condition="python:not usesubtitles"
-                            tal:content="python:subby"
-                            tal:omit-tag="" /> 
-                  </span>
+                          <input tal:attributes="type string:checkbox; 
+                                                 name string:xsub; 
+                                                 value string:$subby; 
+                                                 checked python:count(xsub,subby) or nothing;
+                                                 onclick string:fixCategories();;"/>
+                          <span tal:define="n repeat/subby/number" 
+                                tal:attributes="class python: test(useSubjCSS,here.getSubjectCSSClasses(subject=subby),'eventPublished')"
+                                tal:omit-tag=""> 
+                              <span tal:condition="python:usesubtitles"
+                                    tal:content="python:subtitles[n-1]"
+                                    tal:omit-tag="" /> 
+                              <span tal:condition="python:not usesubtitles"
+                                    tal:content="python:subby"
+                                    tal:omit-tag="" />
+                          </span>
                      </li>
                   </ul>
                 </span>
 
-                <span class="nowrap" 
-                      tal:condition="python:here.getCXAttribute('useSubCalendarSubjectMenu') and not here.getCXAttribute('isSubCalendar')"
+                <span tal:condition="python:here.getCXAttribute('useSubCalendarSubjectMenu') and not here.getCXAttribute('isSubCalendar')"
                       tal:define="subcalendarnames python:here.getCXAttribute('listOfSubCalendars');
                                   subcalendarids python:here.getCXAttribute('listOfSubCalendarIDs');
                                   strDate python:currentDate.Date();"
