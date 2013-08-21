@@ -34,6 +34,21 @@ class IManageISM(Interface):
         """
 
 
+class IManageDossierDisciplinaire(Interface):
+    """
+    Gestion des dossiers disciplinaires
+    """
+    def getAllDossier():
+        """
+        recuperation de tous les dossiers disciplinaires
+        """
+
+    def insertDossierDisciplinaire():
+        """
+        insère un nouveau dossier disciplinaire
+        """
+
+
 class IManageIST(Interface):
     """
     Gestion de Institut Sainte Thérèse
@@ -57,4 +72,4 @@ class IManageIST(Interface):
     def getNewsIconURL(newsBrain):
         """
         récupère l'icône d'une news (ou celle par défaut)
-        """                                                 
+        """

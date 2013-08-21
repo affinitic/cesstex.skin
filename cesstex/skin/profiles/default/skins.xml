@@ -1,24 +1,27 @@
 <?xml version="1.0"?>
-<object name="portal_skins" allow_any="False" cookie_persistence="False"
-   default_skin="cesstex skin">
+<object name="portal_skins"
+        allow_any="False"
+        cookie_persistence="False"
+        default_skin="cesstex skin">
 
- <object name="cesstex_images"
-    meta_type="Filesystem Directory View"
-    directory="cesstex.skin:skins/cesstex_images"/>
- <object name="cesstex_templates"
-    meta_type="Filesystem Directory View"
-    directory="cesstex.skin:skins/cesstex_templates"/>
- <object name="cesstex_styles"
-    meta_type="Filesystem Directory View"
-    directory="cesstex.skin:skins/cesstex_styles"/>
+     <object name="cesstex_images"
+             meta_type="Filesystem Directory View"
+             directory="cesstex.skin:skins/cesstex_images"/>
+     <object name="cesstex_templates"
+             meta_type="Filesystem Directory View"
+             directory="cesstex.skin:skins/cesstex_templates"/>
+     <object name="cesstex_styles"
+             meta_type="Filesystem Directory View"
+             directory="cesstex.skin:skins/cesstex_styles"/>
 
- <skin-path name="cesstex skin" based-on="Plone Default">
-  <layer name="cesstex_images"
-     insert-after="custom"/>
-  <layer name="cesstex_templates"
-     insert-after="cesstex_images"/>
-  <layer name="cesstex_styles"
-     insert-after="cesstex_templates"/>
- </skin-path>
+     <skin-path name="cesstex skin"
+                based-on="Plone Default">
+          <layer name="cesstex_images"
+                 insert-after="custom"/>
+          <layer name="cesstex_templates"
+                 insert-after="cesstex_images"/>
+          <layer name="cesstex_styles"
+                 insert-after="cesstex_templates"/>
+     </skin-path>
 
 </object>

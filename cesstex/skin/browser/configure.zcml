@@ -99,6 +99,8 @@
         permission="zope2.View"
         />
 
+
+
 <!-- IST -->
       <browser:page
          for="*"
@@ -133,30 +135,45 @@
       />
 
       <browser:page
-        name="ist-listing-event"
-        for="*"
-        template="templates/ist_listing_event.pt"
-        class=".ManageIST.ManageIST"
-        allowed_interface=".interfaces.IManageIST"
-        permission="zope.Public"
-        />
+          name="ist-listing-event"
+          for="*"
+          template="templates/ist_listing_event.pt"
+          class=".ManageIST.ManageIST"
+          allowed_interface=".interfaces.IManageIST"
+          permission="zope.Public" />
 
-
-<!-- ISM-->
+<!-- ISM -->
       <browser:page
           for="*"
           name="ism-gallerie"
           template="templates/ism_gallery.pt"
-          permission="zope.Public"
-      />
+          permission="zope.Public" />
+
       <browser:page
-        name="ism-listing-event"
+          name="ism-listing-event"
+          for="*"
+          template="templates/ism_listing_event.pt"
+          class=".ManageISM.ManageISM"
+          allowed_interface=".interfaces.IManageISM"
+          permission="zope.Public" />
+
+
+<!-- DOSSIER DISCIPLINAIRE -->
+    <browser:page
+        name="ajouter-un-dossier-disciplinaire"
         for="*"
-        template="templates/ism_listing_event.pt"
-        class=".ManageISM.ManageISM"
-        allowed_interface=".interfaces.IManageISM"
+        template="templates/ism/dossier_disciplinaire/dossier_disciplinaire.pt"
         permission="zope.Public"
-        />
+        class=".ManageDossierDisciplinaire.ManageDossierDisciplinaire"
+        allowed_interface=".interfaces.IManageDossierDisciplinaire" />
+
+    <browser:page
+        name="insertEleve"
+        for="*"
+        class=".ManageDossierDisciplinaire.ManageDossierDisciplinaire"
+        permission="zope.Public"
+        attribute="insertEleve"
+        allowed_interface=".interfaces.IManageDossierDisciplinaire" />
 
 
 </configure>
