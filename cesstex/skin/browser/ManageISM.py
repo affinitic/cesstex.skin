@@ -7,6 +7,8 @@ from zope.interface import implements
 from cesstex.skin.browser.interfaces import IManageISM
 from Products.CMFCore.utils import getToolByName
 from plone.memoize.instance import memoize
+from datetime import date, datetime
+
 
 LIMIT = 10
 
@@ -16,9 +18,9 @@ class ManageISM(BrowserView):
 
     @memoize
     def getEventsIsm(self):
-        catalog = getToolByName(aq_inner(self.context), 'portal_catalog') 
+        catalog = getToolByName(aq_inner(self.context), 'portal_catalog')
         events = catalog(portal_type='Event',
-                         review_state=('external', 'internal', 'publish'), 
+                         review_state=('external', 'internal', 'publish'),
                          path={'query': 'plone/institut-sainte-marie', 'depth': 1},
                          sort_on='start',
                          sort_order='ascending',
@@ -35,3 +37,32 @@ class ManageISM(BrowserView):
         else:
             # image par défaut
             return 'events.gif'
+
+    def getUserAuthenticated(self):
+        """
+        retourne le nom du user loggué
+        """
+        pm = getToolByName(self.context, 'portal_membership')
+        user = pm.getAuthenticatedMember()
+        user = user.getUserName()
+        return user
+
+    def getRoleUserAuthenticated(self):
+        """
+        retourne le nom du user loggué
+        """
+        pm = getToolByName(self.context, 'portal_membership')
+        user = pm.getAuthenticatedMember()
+        userRole = user.getRoles()
+        return userRole
+
+    def getAnneeCourante(self):
+        """
+        recupere l'annee courante
+        """
+        today = date.today()
+        return today.year
+
+    def getTimeStamp(self):
+        timeStamp = datetime.now()
+        return timeStamp

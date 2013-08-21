@@ -145,6 +145,14 @@
 <!-- ISM -->
       <browser:page
           for="*"
+          name="manageISM"
+          class=".ManageISM.ManageISM"
+          allowed_interface=".interfaces.IManageISM"
+          permission="zope.Public"
+          />
+
+      <browser:page
+          for="*"
           name="ism-gallerie"
           template="templates/ism_gallery.pt"
           permission="zope.Public" />

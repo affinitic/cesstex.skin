@@ -29,7 +29,7 @@
     <div class="formulaire">
         <div class="table-donne-db"
              tal:define="eleves python: view.getAllEleves()">
-            <h2 class="formulaire-titre">Liste des dossiers actuellement ouvert</h2>
+            <h2 class="formulaire-titre">Liste des dossiers actuellement ouverts</h2>
             <table width="0%"
                    class="listing"
                    align="center">
@@ -57,9 +57,13 @@
                                 </td>
                                 <td align="center">
                                     <span tal:content="eleve/titulaire01/prof_nom">titulaire 1</span>
+                                    <span tal:content="eleve/titulaire01/prof_prenom">titulaire 1</span>
                                 </td>
                                 <td align="center">
-                                    <span tal:content="eleve/eleve_prof_titulaire_02_fk">titulaire 1</span>
+                                    <span tal:condition="exists:eleve/titulaire02/prof_nom">
+                                            <span tal:content="eleve/titulaire02/prof_nom">titulaire 1</span>
+                                            <span tal:content="eleve/titulaire02/prof_prenom">titulaire 1</span>
+                                    </span>
                                 </td>
                             </tr>
                         </span>
