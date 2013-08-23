@@ -160,3 +160,10 @@ background-color:#eee;
 .table-donne-db .odd {
 background-color:#ddd;
 }
+
+.evenement-acte{
+border:1px solid #172d54;
+border-radius:8px;
+padding:1em;
+margin:1em;
+}

@@ -23,8 +23,6 @@
 
 <body>
 <div metal:fill-slot="main">
-    <br />
-    
     <h1>Gestion des dossiers disciplinaires</h1>
     <div class="formulaire">
         <div class="table-donne-db"
@@ -47,7 +45,10 @@
                         <span tal:define="odd repeat/eleve/odd">
                             <tr tal:attributes="class python:odd and 'odd' or 'even'">
                                 <td align="center">
-                                    <span tal:content="eleve/eleve_nom">nom eleve</span>
+                                    <a href=""
+                                       tal:attributes="href string:${context/portal_url}/institut-sainte-marie/espace-interactif/ajouter-un-evenement-au-dossier?elevePk=${eleve/eleve_pk}">
+                                       <span tal:content="eleve/eleve_nom">nom eleve</span>
+                                    </a>
                                 </td>
                                 <td align="center">
                                     <span tal:content="eleve/eleve_prenom">prenom eleve</span>

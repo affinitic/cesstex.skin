@@ -48,6 +48,11 @@ class IManageDossierDisciplinaire(Interface):
         insère un nouveau dossier disciplinaire
         """
 
+    def insertEvenementActe():
+        """
+        insère un nouvel événement acté dans un dossier disciplinaire
+        """
+
 
 class IManageIST(Interface):
     """
