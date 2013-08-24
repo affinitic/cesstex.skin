@@ -150,7 +150,7 @@ background:none repeat scroll 0 0 #aaa;
 border-style:none;
 border-width:0.1em;
 color:#fff;
-text-align:left;
+text-align:center;
 }
 
 .table-donne-db .even {
@@ -162,8 +162,31 @@ background-color:#ddd;
 }
 
 .evenement-acte{
-border:1px solid #172d54;
-border-radius:8px;
+border:1px solid #aaa;
+border-radius:9px;
 padding:1em;
 margin:1em;
+}
+
+.etiquette-db{
+font-style:italic;
+}
+
+.donnee-db{
+font-weight:bold;
+}
+
+div#info-eleve,
+div#info-dossier{
+width:250px;
+border:1px solid #aaa;
+border-radius:9px;
+}
+
+div#info-eleve{
+float:left;
+}
+
+div#info-dossier{
+float:right;
 }

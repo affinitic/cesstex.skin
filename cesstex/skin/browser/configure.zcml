@@ -170,19 +170,10 @@
     <browser:page
         name="ajouter-un-dossier-disciplinaire"
         for="*"
-        template="templates/ism/dossier_disciplinaire/dossier_disciplinaire.pt"
+        template="templates/ism/dossier_disciplinaire/dossier_disciplinaire_ajouter.pt"
         permission="zope.Public"
         class=".ManageDossierDisciplinaire.ManageDossierDisciplinaire"
         allowed_interface=".interfaces.IManageDossierDisciplinaire" />
-
-    <browser:page
-        name="ajouter-un-evenement-au-dossier"
-        for="*"
-        template="templates/ism/dossier_disciplinaire/evenement_acte.pt"
-        permission="zope.Public"
-        class=".ManageDossierDisciplinaire.ManageDossierDisciplinaire"
-        allowed_interface=".interfaces.IManageDossierDisciplinaire" />
-
 
     <browser:page
         name="insertEleve"
@@ -194,6 +185,13 @@
 
 
 <!-- EVENEMENT ACTE -->
+    <browser:page
+        name="ajouter-un-evenement-au-dossier"
+        for="*"
+        template="templates/ism/dossier_disciplinaire/evenement_acte_ajouter.pt"
+        permission="zope.Public"
+        class=".ManageDossierDisciplinaire.ManageDossierDisciplinaire"
+        allowed_interface=".interfaces.IManageDossierDisciplinaire" />
 
     <browser:page
         name="insertEvenementActe"

@@ -31,51 +31,61 @@
 
     <h1>Gestion des dossiers disciplinaires</h1>
     <div class="formulaire">
-        <div class="table-donne-db">
-            <h2 class="formulaire-titre">Informations sur l'élève'</h2>
+        <h2 class="formulaire-titre">
+            Dossier disciplianire de
+            <span tal:content="eleve/eleve_nom">nom eleve</span>
+            <span tal:content="eleve/eleve_prenom">prenom eleve</span>
+        </h2>
+        <div id="info-eleve">
             <ul>
                 <li>
-                    Elève :
-                    <span tal:content="eleve/eleve_nom">nom eleve</span>
-                    <span tal:content="eleve/eleve_prenom">prenom eleve</span>
+                    <span class="etiquette-db">Elève :</span><br />
+                    <span tal:content="eleve/eleve_nom" class="donnee-db">nom eleve</span>
+                    <span tal:content="eleve/eleve_prenom" class="donnee-db">prenom eleve</span>
                 </li>
                 <li>
-                    Classe :
-                    <span tal:content="eleve/eleve_classe">classe eleve</span>
+                    <span class="etiquette-db">Classe :</span><br />
+                    <span tal:content="eleve/eleve_classe" class="donnee-db">classe eleve</span>
                 </li>
                 <li>
-                    Titulaire 1 :
-                    <span tal:content="eleve/titulaire01/prof_nom">titulaire 1</span>
-                    <span tal:content="eleve/titulaire01/prof_prenom">titulaire 1</span>
+                    <span class="etiquette-db">Titulaire 1 :</span><br />
+                    <span tal:content="eleve/titulaire01/prof_nom" class="donnee-db">titulaire 1</span>
+                    <span tal:content="eleve/titulaire01/prof_prenom" class="donnee-db">titulaire 1</span>
                 </li>
                 <li>
-                    Titulaire 2 :
-                    <span tal:content="eleve/titulaire02/prof_nom">titulaire 1</span>
-                    <span tal:content="eleve/titulaire02/prof_prenom">titulaire 1</span>
+                    <span class="etiquette-db">Titulaire 2 :</span><br />
+                    <span tal:content="eleve/titulaire02/prof_nom" class="donnee-db">titulaire 1</span>
+                    <span tal:content="eleve/titulaire02/prof_prenom" class="donnee-db">titulaire 1</span>
                 </li>
             </ul>
-        </div>
+        </div><!--table-donne-db-->
         <div id="info-dossier">
             <ul>
                 <li>
-                    Date de création :
-                    <span tal:content="dossier/dosdis_date_creation">date creation</span>
+                    <span class="etiquette-db">Date de création :</span><br />
+                    <span tal:content="python: dossier.dosdis_date_creation.strftime('%d/%m/%Y - %H:%M')"
+                          class="donnee-db">date creation</span>
                 </li>
                 <li>
-                    Année scolaire :
-                    <span tal:content="dossier/dosdis_annee_scolaire">annee scolaire</span>
+                    <span class="etiquette-db">Année scolaire :</span><br />
+                    <span tal:content="dossier/dosdis_annee_scolaire"
+                          class="donnee-db">annee scolaire</span>
                 </li>
                 <li>
-                    Etat du dossier :
-                    <span tal:content="dossier/dosdis_actif">etat dossier</span>
+                    <span class="etiquette-db">Etat du dossier :</span><br />
+                    <span tal:content="dossier/dosdis_actif"
+                          class="donnee-db">etat dossier</span>
                 </li>
                 <li>
-                    Auteur :
-                    <span tal:content="dossier/auteur/prof_nom">auteur</span>
-                    <span tal:content="dossier/auteur/prof_prenom">auteur</span>
+                    <span class="etiquette-db">Auteur :</span><br />
+                    <span tal:content="dossier/auteur/prof_nom"
+                          class="donnee-db">auteur</span>
+                    <span tal:content="dossier/auteur/prof_prenom"
+                          class="donnee-db">auteur</span>
                 </li>
             </ul>
-        </div>
+        </div><!--info-dossier-->
+        <div class="visualClear"></div>
     </div>
     
     <div class="formulaire">        
@@ -84,24 +94,29 @@
             <div class="evenement-acte">
                 <ul>
                     <li>
-                        Date : <br />
-                        <span tal:content="evenement/eventact_date_creation">date creation</span>
+                        <span class="etiquette-db">Date :</span> <br />
+                        <span tal:content="python: evenement.eventact_date_creation.strftime('%d/%m/%Y - %H:%M')"
+                              class="donnee-db">date creation</span>
                     </li>
                     <li>
-                        Evénement : <br />
-                        <span tal:content="evenement/eventact_evenement">evenement</span>
+                        <span class="etiquette-db">Evénement :</span> <br />
+                        <span tal:content="evenement/eventact_evenement"
+                              class="donnee-db">evenement</span>
                     </li>
                     <li>
-                        Sanction : <br />
-                        <span tal:content="evenement/eventact_sanction">sanction</span>
+                        <span class="etiquette-db">Sanction :</span> <br />
+                        <span tal:content="evenement/eventact_sanction"
+                              class="donnee-db">sanction</span>
                     </li>
                     <li>
-                        Intervenant : <br />
-                        <span tal:content="evenement/eventact_intervenant">intervenant</span>
+                        <span class="etiquette-db">Intervenant :</span> <br />
+                        <span tal:content="evenement/eventact_intervenant"
+                              class="donnee-db">intervenant</span>
                     </li>
                     <li>
-                        Etat : <br />
-                        <span tal:content="evenement/etat/etat_titre">etat</span>
+                        <span class="etiquette-db">Etat :</span> <br />
+                        <span tal:content="evenement/etat/etat_titre"
+                              class="donnee-db">etat</span>
                     </li>
                 </ul>
             </div>
