@@ -57,8 +57,10 @@
                                     <span tal:content="eleve/eleve_classe">classe eleve</span>
                                 </td>
                                 <td align="center">
+                                    <span tal:condition="exists:eleve/titulaire01/prof_nom">
                                     <span tal:content="eleve/titulaire01/prof_nom">titulaire 1</span>
                                     <span tal:content="eleve/titulaire01/prof_prenom">titulaire 1</span>
+                                    </span>
                                 </td>
                                 <td align="center">
                                     <span tal:condition="exists:eleve/titulaire02/prof_nom">

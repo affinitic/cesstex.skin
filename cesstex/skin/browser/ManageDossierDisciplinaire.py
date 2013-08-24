@@ -196,7 +196,7 @@ class ManageDossierDisciplinaire(BrowserView):
         AllEvenements = query.all()
         return AllEvenements
 
-    def insertEvenementActe(self, elevePk, eleveNom, eleveClasse):
+    def insertEvenementActe(self):
         """
         insère un nouveau dossier disciplinaire
         """
@@ -210,7 +210,7 @@ class ManageDossierDisciplinaire(BrowserView):
         sanction = fields.get('sanction', None)
         intervenant = fields.get('intervenant', None)
         etatPublication = fields.get('etatPublication', None)
-        dossierDisciplinairePk = fields.get('titulaire02Pk', None)
+        dossierDisciplinairePk = fields.get('dossierDisciplinairePk', None)
 
         
         wrapper = getSAWrapper('cesstex')
