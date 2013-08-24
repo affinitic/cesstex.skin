@@ -73,8 +73,12 @@
                 </li>
                 <li>
                     <span class="etiquette-db">Etat du dossier :</span><br />
-                    <span tal:content="dossier/dosdis_actif"
-                          class="donnee-db">etat dossier</span>
+                    <span tal:condition="python: dossier.dosdis_actif==True">
+                        <span class="vert-actif ">Dossier actif</span>
+                    </span>
+                    <span tal:condition="python: dossier.dosdis_actif==False">
+                        <span class="rouge-non-actif">Dossier désactivé</span>
+                    </span>
                 </li>
                 <li>
                     <span class="etiquette-db">Auteur :</span><br />
@@ -115,8 +119,12 @@
                     </li>
                     <li>
                         <span class="etiquette-db">Etat :</span> <br />
-                        <span tal:content="evenement/etat/etat_titre"
-                              class="donnee-db">etat</span>
+                        <span tal:condition="python: evenement.eventact_etat_publication_fk==2">
+                            <span class="vert-actif">Visible Membre</span>
+                        </span>
+                        <span tal:condition="python: evenement.eventact_etat_publication_fk==1">
+                            <span class="rouge-non-actif">Privé</span>
+                        </span>
                     </li>
                 </ul>
             </div>

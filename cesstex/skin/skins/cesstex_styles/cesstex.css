@@ -35,6 +35,16 @@ font-variant:small-caps;
 }
 
 
+.vert-actif{
+color:#00ff00;
+text-shadow:1px 1px 1px rgba(0,50,0,0.5);
+}
+
+.rouge-non-actif{
+color:#ff0000;
+text-shadow:1px 1px 1px rgba(100,0,0,0.5);
+}
+
 /*** VISUAL PORTER ***/
 #visual-portal-wrapper{
 background-color:#fff;    
