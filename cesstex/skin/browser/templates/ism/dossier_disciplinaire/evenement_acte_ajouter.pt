@@ -128,7 +128,19 @@
                     </li>
                 </ul>
                 <div class="menu-gestion-dossier">
-                    <a href="#">Modifier cet événement</a>
+                    <form action="modifier-un-evenement-du-dossier"
+                          method="post">
+                          <input type="hidden"
+                                 name="evenementActePk"
+                                 value=""
+                                 tal:attributes="value evenement/eventact_pk" />
+                          <input type="hidden"
+                                 name="elevePk"
+                                 value=""
+                                 tal:attributes="value elevePk" />
+                          <input type="submit"
+                                 value="Modifier cet événement" />
+                    </form>
                 </div>
             </div>
             

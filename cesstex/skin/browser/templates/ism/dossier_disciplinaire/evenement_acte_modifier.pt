@@ -27,7 +27,8 @@
                  eleve python: view.getElevesByPk(elevePk);
                  dossier python: view.getDossierByEleve(elevePk);
                  dossierDisciplinairePk dossier/dosdis_pk;
-                 evenements python: view.getAllEvenementByDossier(dossierDisciplinairePk)">
+                 evenementActePk request/evenementActePk;
+                 evenement python: view.getEvenementByPk(evenementActePk)">
 
     <h1>Gestion des dossiers disciplinaires</h1>
     <div class="formulaire">
@@ -93,72 +94,32 @@
     </div>
     
     <div class="formulaire">        
-        <h2 class="formulaire-titre">Evénements liés au dossier</h2>
-        <tal:block tal:repeat="evenement evenements">
-            <div class="evenement-acte">
-                <ul>
-                    <li>
-                        <span class="etiquette-db">Date :</span> <br />
-                        <span tal:content="python: evenement.eventact_date_creation.strftime('%d/%m/%Y - %H:%M')"
-                              class="donnee-db">date creation</span>
-                    </li>
-                    <li>
-                        <span class="etiquette-db">Evénement :</span> <br />
-                        <span tal:content="evenement/eventact_evenement"
-                              class="donnee-db">evenement</span>
-                    </li>
-                    <li>
-                        <span class="etiquette-db">Sanction :</span> <br />
-                        <span tal:content="evenement/eventact_sanction"
-                              class="donnee-db">sanction</span>
-                    </li>
-                    <li>
-                        <span class="etiquette-db">Intervenant :</span> <br />
-                        <span tal:content="evenement/eventact_intervenant"
-                              class="donnee-db">intervenant</span>
-                    </li>
-                    <li>
-                        <span class="etiquette-db">Etat :</span> <br />
-                        <span tal:condition="python: evenement.eventact_etat_publication_fk==2">
-                            <span class="vert-actif">Visible Membre</span>
-                        </span>
-                        <span tal:condition="python: evenement.eventact_etat_publication_fk==1">
-                            <span class="rouge-non-actif">Privé</span>
-                        </span>
-                    </li>
-                </ul>
-                <div class="menu-gestion-dossier">
-                    <a href="#">Modifier cet événement</a>
-                </div>
-            </div>
-            
-        </tal:block>
-    </div>
-    
-    <div class="formulaire">        
-        <h2 class="formulaire-titre">Ajouter un nouvel événement au dossier</h2>
-        <form action="insertEvenementActe"
+        <h2 class="formulaire-titre">Modifier cet événement</h2>
+        <form action="updateEvenementActe"
               method="post">
             <div class="formulaire-input">
                 <label for="evenement">Evénement</label>
                 <textarea name="evenement"
                           id="evenement"
                           rows="6"
-                          cols="70"><span tal:content="evenement/eventact_evenement" /></textarea>
+                          cols="70"
+                          tal:content="evenement/eventact_evenement"></textarea>
             </div>
             <div class="formulaire-input">
                 <label for="sanction">Sanction</label>
                 <textarea name="sanction"
                           id="sanction"
                           rows="6"
-                          cols="70"><span tal:content="evenement/eventact_sanction" /></textarea>
+                          cols="70"
+                          tal:content="evenement/eventact_sanction"></textarea>
             </div>
             <div class="formulaire-input">
                 <label for="intervenant">Intervenant</label>
                 <textarea name="intervenant"
                           id="intervenant"
                           rows="6"
-                          cols="70"><span tal:content="evenement/eventact_intervenant" /></textarea>
+                          cols="70"
+                          tal:content="evenement/eventact_intervenant"></textarea>
             </div>
             <div class="formulaire-input">
                 <label for="fichierAttache">Joindre un document</label>
@@ -176,7 +137,9 @@
                         <option value="">...</option>
                         <tal:boucle tal:repeat="etat etats">
                             <option value=""
-                                    tal:attributes="value etat/etat_pk">
+                                    selected=""
+                                    tal:attributes="value etat/etat_pk;
+                                                    selected python: evenement.eventact_etat_publication_fk==etat.etat_pk and 'selected' or None;">
                                 <span tal:content="etat/etat_titre" />
                             </option>
                         </tal:boucle>
@@ -188,11 +151,15 @@
                        name="operation"
                        value="insert" />
                 <input type="hidden"
-                       name="dossierDisciplinairePk"
+                       name="evenementActePk"
                        value=""
-                       tal:attributes="value dossierDisciplinairePk" />
+                       tal:attributes="value evenementActePk" />
+                <input type="hidden"
+                       name="elevePk"
+                       value=""
+                       tal:attributes="value elevePk" />
                 <input type="submit"
-                       value="Ajouter un événement" />
+                       value="Modofier cet événement" />
             </div>
         </form>
     </div>

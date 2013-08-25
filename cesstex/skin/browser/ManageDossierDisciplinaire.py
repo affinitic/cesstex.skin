@@ -196,6 +196,17 @@ class ManageDossierDisciplinaire(BrowserView):
         AllEvenements = query.all()
         return AllEvenements
 
+    def getEvenementByPk(self, evenementActePk):
+        """
+        recuperation d'un événement acté szlon sa pk
+        """
+        wrapper = getSAWrapper('cesstex')
+        session = wrapper.session
+        query = session.query(EvenementActe)
+        query = query.filter(EvenementActe.eventact_pk == evenementActePk)
+        evenementActe = query.one()
+        return evenementActe
+
     def insertEvenementActe(self):
         """
         insère un nouveau dossier disciplinaire
@@ -206,6 +217,7 @@ class ManageDossierDisciplinaire(BrowserView):
 
         fields = self.request.form
 
+        elevePk  = fields.get('elevePk')
         evenement = fields.get('evenement', None)
         sanction = fields.get('sanction', None)
         intervenant = fields.get('intervenant', None)
@@ -228,7 +240,40 @@ class ManageDossierDisciplinaire(BrowserView):
         ploneUtils = getToolByName(self.context, 'plone_utils')
         message = u"Le nouvel événement a bien été ajouté !"
         ploneUtils.addPortalMessage(message, 'info')
-        url = "%s/institut-sainte-marie/espace-interactif/ajouter-un-evenement-au-dossier?elevePk=1" % (portalUrl)
+        url = "%s/institut-sainte-marie/espace-interactif/ajouter-un-evenement-au-dossier?elevePk=%s" % (portalUrl, elevePk)
         self.request.response.redirect(url)
-
         return ''
+
+    def updateEvenementActe(self):
+        """
+        Updates un événement acté lié à un dossier
+        """
+        fields = self.request.form
+        
+        elevePk = fields.get('elevePk') 
+        evenementActePk = fields.get('evenementActePk', None)
+        evenement = fields.get('evenement', None)
+        sanction = fields.get('sanction', None)
+        intervenant = fields.get('intervenant', None)
+        etatPublication = fields.get('etatPublication', None)
+
+        wrapper = getSAWrapper('cesstex')
+        session = wrapper.session
+        query = session.query(EvenementActe)
+        query = query.filter(EvenementActe.eventact_pk == evenementActePk)
+        evenementActe = query.one()
+        evenementActe.eventact_evenement = unicode(evenement, 'utf-8')
+        evenementActe.eventact_sanction = unicode(sanction, 'utf-8')
+        evenementActe.eventact_intervenant = unicode(intervenant, 'utf-8')
+        evenementActe.eventact_etat_publication_fk = etatPublication
+        session.flush()
+
+        portalUrl = getToolByName(self.context, 'portal_url')()
+        ploneUtils = getToolByName(self.context, 'plone_utils')
+        message = u"L'événement a bien été modifié !"
+        ploneUtils.addPortalMessage(message, 'info')
+        url = "%s/institut-sainte-marie/espace-interactif/ajouter-un-evenement-au-dossier?elevePk=%s" % (portalUrl, elevePk)
+        self.request.response.redirect(url)
+        return ''
+        
+        

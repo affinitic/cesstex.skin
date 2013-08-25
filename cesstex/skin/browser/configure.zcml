@@ -194,11 +194,27 @@
         allowed_interface=".interfaces.IManageDossierDisciplinaire" />
 
     <browser:page
+        name="modifier-un-evenement-du-dossier"
+        for="*"
+        template="templates/ism/dossier_disciplinaire/evenement_acte_modifier.pt"
+        permission="zope.Public"
+        class=".ManageDossierDisciplinaire.ManageDossierDisciplinaire"
+        allowed_interface=".interfaces.IManageDossierDisciplinaire" />
+
+    <browser:page
         name="insertEvenementActe"
         for="*"
         class=".ManageDossierDisciplinaire.ManageDossierDisciplinaire"
         permission="zope.Public"
         attribute="insertEvenementActe"
+        allowed_interface=".interfaces.IManageDossierDisciplinaire" />
+
+    <browser:page
+        name="updateEvenementActe"
+        for="*"
+        class=".ManageDossierDisciplinaire.ManageDossierDisciplinaire"
+        permission="zope.Public"
+        attribute="updateEvenementActe"
         allowed_interface=".interfaces.IManageDossierDisciplinaire" />
 
 
