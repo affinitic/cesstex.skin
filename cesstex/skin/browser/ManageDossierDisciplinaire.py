@@ -20,7 +20,7 @@ from Products.CMFCore.utils import getToolByName
 #from Products.Archetypes.atapi import BaseContent
 from interfaces import IManageDossierDisciplinaire
 #from collective.captcha.browser.captcha import Captcha
-from cesstex.db.pgsql.baseTypes import Etudiant, Professeur, DossierDisciplinaire, EvenementActe, StatutMembre, EtatPublication
+from cesstex.db.pgsql.baseTypes import Etudiant, Professeur, DossierDisciplinaire, EvenementActe, StatutMembre, EtatPublication, EvenementActeLogModification
 
 
 class ManageDossierDisciplinaire(BrowserView):
@@ -217,7 +217,7 @@ class ManageDossierDisciplinaire(BrowserView):
 
         fields = self.request.form
 
-        elevePk  = fields.get('elevePk')
+        elevePk = fields.get('elevePk')
         evenement = fields.get('evenement', None)
         sanction = fields.get('sanction', None)
         intervenant = fields.get('intervenant', None)
@@ -267,6 +267,8 @@ class ManageDossierDisciplinaire(BrowserView):
         evenementActe.eventact_intervenant = unicode(intervenant, 'utf-8')
         evenementActe.eventact_etat_publication_fk = etatPublication
         session.flush()
+        
+        self.insertLogModificationEvenementActe(evenementActePk)
 
         portalUrl = getToolByName(self.context, 'portal_url')()
         ploneUtils = getToolByName(self.context, 'plone_utils')
@@ -276,4 +278,34 @@ class ManageDossierDisciplinaire(BrowserView):
         self.request.response.redirect(url)
         return ''
         
+ #### LOG MODIFICATION EVENEMENTS ACTES POUR UN DOSSIER ####
+    def getAllLogModificationForEvenementActe(self, evenementActePk):
+        """
+        recuperation de tous les logs de modifications pour une événement acté
+        pour un dossier disciplinaire d'un élève
+        """
+        wrapper = getSAWrapper('cesstex')
+        session = wrapper.session
+        query = session.query(EvenementActeLogModification)
+        query = query.filter(EvenementActeLogModification.eventactlogmodif_evenement_acte_fk == evenementActePk)
+        query = query.order_by(EvenementActe.eventact_date_creation)
+        AllLogForEvenement = query.all()
+        return AllLogForEvenement
+
+    def insertLogModificationEvenementActe(self, evenementActePk):
+        """
+        insère un nouveau log pour une modification d'un événement acté
+        """
+
+        ismTools = getMultiAdapter((self.context, self.request), name="manageISM")
+        auteurConnecte = ismTools.getUserAuthenticated()
+
+        wrapper = getSAWrapper('cesstex')
+        session = wrapper.session
+        newEntry = EvenementActeLogModification(eventactlogmodif_auteur=auteurConnecte,
+                                                eventactlogmodif_evenement_acte_fk=evenementActePk)
+        session.add(newEntry)
+        session.flush()
+        session.refresh(newEntry)
         
+        return ''
