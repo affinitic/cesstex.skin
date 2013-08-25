@@ -144,21 +144,21 @@
                 <textarea name="evenement"
                           id="evenement"
                           rows="6"
-                          cols="70"></textarea>
+                          cols="70"><span tal:content="evenement/eventact_evenement" /></textarea>
             </div>
             <div class="formulaire-input">
                 <label for="sanction">Sanction</label>
                 <textarea name="sanction"
                           id="sanction"
                           rows="6"
-                          cols="70"></textarea>
+                          cols="70"><span tal:content="evenement/eventact_sanction" /></textarea>
             </div>
             <div class="formulaire-input">
                 <label for="intervenant">Intervenant</label>
                 <textarea name="intervenant"
                           id="intervenant"
                           rows="6"
-                          cols="70"></textarea>
+                          cols="70"><span tal:content="evenement/eventact_intervenant" /></textarea>
             </div>
             <div class="formulaire-input">
                 <label for="fichierAttache">Joindre un document</label>
