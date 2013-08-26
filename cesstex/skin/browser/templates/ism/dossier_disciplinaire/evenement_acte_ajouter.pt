@@ -93,7 +93,10 @@
     </div>
     
     <div class="formulaire">        
-        <h2 class="formulaire-titre">Evénements liés au dossier</h2>
+        <h2 class="formulaire-titre">Evénements liés au dossiers</h2>
+        <tal:if tal:condition="python: len(evenements)<1">
+                Aucun événément dans le dossier de <span tal:content="eleve/eleve_prenom">prenom eleve</span>.
+        </tal:if>
         <tal:block tal:repeat="evenement evenements">
             <div class="evenement-acte">
                 <ul>
@@ -142,6 +145,35 @@
                                  value="Modifier cet événement" />
                     </form>
                 </div>
+
+                <span id="declencheur">Historique &darr;</span>
+                <div class="evenement-historique"
+                     tal:condition="python: len(evenements)>0">
+                    <p>
+                        &oplus; Création par :<br />
+                        <span class="decalle">
+                            &bull;
+                            <span tal:content="evenement/eventact_auteur_creation" /> -
+                            <span tal:content="python: evenement.eventact_date_creation.strftime('%d/%m/%Y - %H:%M')" />
+                        </span>
+                    </p>
+                    
+                    <tal:block tal:define="logs python: view.getAllLogModificationForEvenementActe(evenement.eventact_pk)">
+                        <tal:if tal:condition="python: len(logs)>0">
+                            <p>
+                                &oplus; Modification par :<br />
+                                <tal:boucle tal:repeat="log logs">
+                                    <span class="decalle">
+                                        &bull;
+                                        <span tal:content="log/eventactlogmodif_auteur_modification" /> -
+                                        <span tal:content="python: log.eventactlogmodif_date_modification.strftime('%d/%m/%Y - %H:%M')" />
+                                        <br />
+                                    </span>
+                                </tal:boucle>
+                            </p>
+                        </tal:if>
+                    </tal:block>
+                </div>
             </div>
             
         </tal:block>
@@ -185,10 +217,11 @@
                 <tal:block tal:define="etats python: view.getAllEtatPublication()">
                     <select name="etatPublication"
                             id="etatPublication">
-                        <option value="">...</option>
                         <tal:boucle tal:repeat="etat etats">
                             <option value=""
-                                    tal:attributes="value etat/etat_pk">
+                                    selected=""
+                                    tal:attributes="value etat/etat_pk;
+                                                    selected python:etat.etat_pk=='1' and 'selected' or None;">
                                 <span tal:content="etat/etat_titre" />
                             </option>
                         </tal:boucle>
@@ -199,6 +232,10 @@
                 <input type="hidden"
                        name="operation"
                        value="insert" />
+                <input type="hidden"
+                       name="elevePk"
+                       value=""
+                       tal:attributes="value elevePk" />
                 <input type="hidden"
                        name="dossierDisciplinairePk"
                        value=""

@@ -50,11 +50,11 @@
         />
 
     <browser:page
-      for="*"
-      name="ces-stex"
-      template="templates/home_page.pt"
-      permission="zope.Public"
-      />
+        for="*"
+        name="ces-stex"
+        template="templates/home_page.pt"
+        permission="zope.Public"
+        />
 
     <browser:page
       class=".pageCheck.PageCheckView"
@@ -143,6 +143,12 @@
           permission="zope.Public" />
 
 <!-- ISM -->
+<!-- js -->
+    <browser:resource
+        name="ism.js"
+        file="js/ism.js"
+        />
+
       <browser:page
           for="*"
           name="manageISM"

@@ -73,10 +73,14 @@ class ManageDossierDisciplinaire(BrowserView):
         allEleves = query.all()
         return allEleves
 
-    def getElevesByPk(self, elevePk):
+    def getElevesByPk(self, elevePk=None):
         """
         recuperation d'un élève selon sa pk
         """
+        if not elevePk:
+            fields = self.request.form
+            elevePk = fields.get('elevePk', None)
+        
         wrapper = getSAWrapper('cesstex')
         session = wrapper.session
         query = session.query(Etudiant)
@@ -227,7 +231,8 @@ class ManageDossierDisciplinaire(BrowserView):
         
         wrapper = getSAWrapper('cesstex')
         session = wrapper.session
-        newEntry = EvenementActe(eventact_evenement=evenement,
+        newEntry = EvenementActe(eventact_auteur_creation=auteurConnecte,
+                                 eventact_evenement=evenement,
                                  eventact_sanction=sanction,
                                  eventact_intervenant=intervenant,
                                  eventact_etat_publication_fk=etatPublication,
@@ -288,7 +293,7 @@ class ManageDossierDisciplinaire(BrowserView):
         session = wrapper.session
         query = session.query(EvenementActeLogModification)
         query = query.filter(EvenementActeLogModification.eventactlogmodif_evenement_acte_fk == evenementActePk)
-        query = query.order_by(EvenementActe.eventact_date_creation)
+        query = query.order_by(EvenementActeLogModification.eventactlogmodif_date_modification)
         AllLogForEvenement = query.all()
         return AllLogForEvenement
 
@@ -299,10 +304,11 @@ class ManageDossierDisciplinaire(BrowserView):
 
         ismTools = getMultiAdapter((self.context, self.request), name="manageISM")
         auteurConnecte = ismTools.getUserAuthenticated()
-
+        
+        import pdb; pdb.set_trace()
         wrapper = getSAWrapper('cesstex')
         session = wrapper.session
-        newEntry = EvenementActeLogModification(eventactlogmodif_auteur=auteurConnecte,
+        newEntry = EvenementActeLogModification(eventactlogmodif_auteur_modification=auteurConnecte,
                                                 eventactlogmodif_evenement_acte_fk=evenementActePk)
         session.add(newEntry)
         session.flush()
