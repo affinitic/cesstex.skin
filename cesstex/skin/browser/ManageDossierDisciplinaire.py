@@ -305,7 +305,6 @@ class ManageDossierDisciplinaire(BrowserView):
         ismTools = getMultiAdapter((self.context, self.request), name="manageISM")
         auteurConnecte = ismTools.getUserAuthenticated()
         
-        import pdb; pdb.set_trace()
         wrapper = getSAWrapper('cesstex')
         session = wrapper.session
         newEntry = EvenementActeLogModification(eventactlogmodif_auteur_modification=auteurConnecte,
