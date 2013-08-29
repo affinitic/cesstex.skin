@@ -48,6 +48,11 @@
                     <span tal:content="eleve/eleve_classe" class="donnee-db">classe eleve</span>
                 </li>
                 <li>
+                    <span class="etiquette-db">Educateur référent :</span><br />
+                    <span tal:content="eleve/educateurReferent/prof_nom" class="donnee-db">titulaire 1</span>
+                    <span tal:content="eleve/educateurReferent/prof_prenom" class="donnee-db">titulaire 1</span>
+                </li>
+                <li>
                     <span class="etiquette-db">Titulaire 1 :</span><br />
                     <span tal:content="eleve/titulaire01/prof_nom" class="donnee-db">titulaire 1</span>
                     <span tal:content="eleve/titulaire01/prof_prenom" class="donnee-db">titulaire 1</span>
@@ -116,7 +121,7 @@
                               class="donnee-db">sanction</span>
                     </li>
                     <li>
-                        <span class="etiquette-db">Intervenant :</span> <br />
+                        <span class="etiquette-db">Suivi - Intervenant(s) - Ressources</span> <br />
                         <span tal:content="evenement/eventact_intervenant"
                               class="donnee-db">intervenant</span>
                     </li>
