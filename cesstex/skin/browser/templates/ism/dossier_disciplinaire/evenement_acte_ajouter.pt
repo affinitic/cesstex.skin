@@ -203,7 +203,7 @@
                           cols="70"></textarea>
             </div>
             <div class="formulaire-input">
-                <label for="intervenant">Intervenant</label>
+                <label for="intervenant">Suivi - Intervenant(s) - Ressources</label>
                 <textarea name="intervenant"
                           id="intervenant"
                           rows="6"
