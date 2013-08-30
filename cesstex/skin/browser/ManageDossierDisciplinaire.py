@@ -124,7 +124,7 @@ class ManageDossierDisciplinaire(BrowserView):
         ploneUtils = getToolByName(self.context, 'plone_utils')
         message = u"Le nouveau dossier concernant l'élève %s  a bien été créé !" % (eleveNom)
         ploneUtils.addPortalMessage(message, 'info')
-        url = "%s/institut-sainte-marie/espace-interactif/ajouter-un-dossier-disciplinaire" % (portalUrl)
+        url = "%s/institut-sainte-marie/la-salle-des-profs/ajouter-un-dossier-disciplinaire" % (portalUrl)
         self.request.response.redirect(url)
         return ''
 
@@ -247,7 +247,7 @@ class ManageDossierDisciplinaire(BrowserView):
         ploneUtils = getToolByName(self.context, 'plone_utils')
         message = u"Le nouvel événement a bien été ajouté !"
         ploneUtils.addPortalMessage(message, 'info')
-        url = "%s/institut-sainte-marie/espace-interactif/ajouter-un-evenement-au-dossier?elevePk=%s" % (portalUrl, elevePk)
+        url = "%s/institut-sainte-marie/la-salle-des-profs/ajouter-un-evenement-au-dossier?elevePk=%s" % (portalUrl, elevePk)
         self.request.response.redirect(url)
         return ''
 
@@ -281,7 +281,7 @@ class ManageDossierDisciplinaire(BrowserView):
         ploneUtils = getToolByName(self.context, 'plone_utils')
         message = u"L'événement a bien été modifié !"
         ploneUtils.addPortalMessage(message, 'info')
-        url = "%s/institut-sainte-marie/espace-interactif/ajouter-un-evenement-au-dossier?elevePk=%s" % (portalUrl, elevePk)
+        url = "%s/institut-sainte-marie/la-salle-des-profs/ajouter-un-evenement-au-dossier?elevePk=%s" % (portalUrl, elevePk)
         self.request.response.redirect(url)
         return ''
         
