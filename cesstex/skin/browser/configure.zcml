@@ -182,11 +182,43 @@
         allowed_interface=".interfaces.IManageDossierDisciplinaire" />
 
     <browser:page
+        name="modifier-un-dossier-disciplinaire"
+        for="*"
+        template="templates/ism/dossier_disciplinaire/dossier_disciplinaire_modifier.pt"
+        permission="zope.Public"
+        class=".ManageDossierDisciplinaire.ManageDossierDisciplinaire"
+        allowed_interface=".interfaces.IManageDossierDisciplinaire" />
+
+    <browser:page
+        name="supprimer-un-dossier-disciplinaire"
+        for="*"
+        template="templates/ism/dossier_disciplinaire/dossier_disciplinaire_supprimer.pt"
+        permission="zope.Public"
+        class=".ManageDossierDisciplinaire.ManageDossierDisciplinaire"
+        allowed_interface=".interfaces.IManageDossierDisciplinaire" />
+
+    <browser:page
         name="insertEleve"
         for="*"
         class=".ManageDossierDisciplinaire.ManageDossierDisciplinaire"
         permission="zope.Public"
         attribute="insertEleve"
+        allowed_interface=".interfaces.IManageDossierDisciplinaire" />
+
+    <browser:page
+        name="updateEleve"
+        for="*"
+        class=".ManageDossierDisciplinaire.ManageDossierDisciplinaire"
+        permission="zope.Public"
+        attribute="updateEleve"
+        allowed_interface=".interfaces.IManageDossierDisciplinaire" />
+
+    <browser:page
+        name="deleteEleve"
+        for="*"
+        class=".ManageDossierDisciplinaire.ManageDossierDisciplinaire"
+        permission="zope.Public"
+        attribute="deleteEleve"
         allowed_interface=".interfaces.IManageDossierDisciplinaire" />
 
 

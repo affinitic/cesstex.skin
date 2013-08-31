@@ -3,7 +3,7 @@
 #import datetime
 #import time
 #import random
-#from sqlalchemy import select, func, distinct
+from sqlalchemy import desc
 #from mailer import Mailer
 #from LocalFS import LocalFS
 from Products.Five import BrowserView
@@ -128,6 +128,52 @@ class ManageDossierDisciplinaire(BrowserView):
         self.request.response.redirect(url)
         return ''
 
+    def updateEleve(self):
+        """
+        mise à jour des données d'un élève dans la table etudaint
+        """
+        fields = self.request.form
+
+        elevePk =  fields.get('elevePk', None)
+        eleveNom = fields.get('nomEleve', None)
+        elevePrenom = fields.get('prenomEleve', None)
+        eleveClasse = fields.get('classeEleve', None)
+        titulaire01Pk = fields.get('titulaire01Pk', None)
+        titulaire02Pk = fields.get('titulaire02Pk', None)
+        educateurReferent = fields.get('educateurReferent', None)
+
+        if not titulaire02Pk:
+            titulaire02Pk = None
+
+        wrapper = getSAWrapper('cesstex')
+        session = wrapper.session
+        query = session.query(Etudiant)
+        query = query.filter(Etudiant.eleve_pk==elevePk)
+        eleve = query.one()
+        eleve.eleve_nom = unicode(eleveNom, 'utf-8')
+        eleve.eleve_prenom = unicode(elevePrenom, 'utf-8')
+        eleve.eleve_classe = unicode(eleveClasse, 'utf-8')
+        eleve.eleve_prof_titulaire_01_fk = titulaire01Pk
+        eleve.eleve_prof_titulaire_02_fk = titulaire02Pk
+        eleve.eleve_educateur_referent_fk = educateurReferent
+        
+        session.flush()
+
+        portalUrl = getToolByName(self.context, 'portal_url')()
+        ploneUtils = getToolByName(self.context, 'plone_utils')
+        message = u"Le dossier concernant l'élève %s  a bien été modifié !" % (eleveNom)
+        ploneUtils.addPortalMessage(message, 'info')
+        url = "%s/institut-sainte-marie/la-salle-des-profs/gestion-des-dossiers-disciplinaires/ajouter-un-dossier-disciplinaire" % (portalUrl)
+        self.request.response.redirect(url)
+        return ''
+
+    def deleteEleve(self):
+        """
+        mise à jour des données d'un élève dans la table etudaint
+        """
+        pass
+
+
 #### DOSSIERS DISCIPLINAIRES ####
     def getDossierId(self, elevePk, eleveNom, eleveClasse):
         """
@@ -198,7 +244,7 @@ class ManageDossierDisciplinaire(BrowserView):
         session = wrapper.session
         query = session.query(EvenementActe)
         query = query.filter(EvenementActe.eventact_dossier_diciplinaire_fk == dossierDisciplinairePk)
-        query = query.order_by(EvenementActe.eventact_date_creation)
+        query = query.order_by(desc(EvenementActe.eventact_date_creation))
         AllEvenements = query.all()
         return AllEvenements
 

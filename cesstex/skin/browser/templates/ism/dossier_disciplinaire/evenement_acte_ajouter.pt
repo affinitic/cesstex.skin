@@ -95,6 +95,24 @@
             </ul>
         </div><!--info-dossier-->
         <div class="visualClear"></div>
+        <br />
+        <div class="menu-gestion-dossier">
+            <form action="modifier-un-dossier-disciplinaire"
+                  method="post">
+                  <input type="hidden"
+                         name="dossierDisciplinairePk"
+                         value=""
+                         tal:attributes="value dossierDisciplinairePk" />
+                  <input type="hidden"
+                         name="elevePk"
+                         value=""
+                         tal:attributes="value elevePk" />
+                  <input type="submit"
+                         value="Modifier ce dossier" />
+            </form>
+        </div>
+
+        <div class="visualClear"></div>
     </div>
     
     <div class="formulaire">        
@@ -104,9 +122,11 @@
         </tal:if>
         <tal:block tal:repeat="evenement evenements">
             <div class="evenement-acte">
+                <div class="numero-evenement-acte"><span tal:content="repeat/evenement/number"></span></div>
+                <div class="visualClear"></div>
                 <ul>
                     <li>
-                        <span class="etiquette-db">Date :</span> <br />
+                        <span class="etiquette-db">Date de l'encodage :</span> <br />
                         <span tal:content="python: evenement.eventact_date_creation.strftime('%d/%m/%Y - %H:%M')"
                               class="donnee-db">date creation</span>
                     </li>
@@ -189,7 +209,7 @@
         <form action="insertEvenementActe"
               method="post">
             <div class="formulaire-input">
-                <label for="evenement">Evénement</label>
+                <label for="evenement">Evénement et sa date</label>
                 <textarea name="evenement"
                           id="evenement"
                           rows="6"
