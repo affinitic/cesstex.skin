@@ -340,6 +340,8 @@ class ManageDossierDisciplinaire(BrowserView):
         elevePk = fields.get('elevePk') 
         evenementActePk = fields.get('evenementActePk', None)
 
+        self.deleteLogModificationEvenementActe()
+
         wrapper = getSAWrapper('cesstex')
         session = wrapper.session
         query = session.query(EvenementActe)
@@ -387,4 +389,25 @@ class ManageDossierDisciplinaire(BrowserView):
         session.flush()
         session.refresh(newEntry)
         
+        return ''
+
+    def deleteLogModificationEvenementActe(self):
+        """
+        Supprimer les log de modifications d'un événement acté lors
+        de la suppression de cet événement.
+        """
+        fields = self.request.form
+
+        elevePk = fields.get('elevePk') 
+        evenementActePk = fields.get('evenementActePk', None)
+
+        wrapper = getSAWrapper('cesstex')
+        session = wrapper.session
+        query = session.query(EvenementActeLogModification)
+        query = query.filter(EvenementActeLogModification.eventactlogmodif_evenement_acte_fk == evenementActePk)
+        evenementActeLog = query.all()
+        for pk in evenementActeLog:
+            session.delete(pk)
+        session.flush()
+
         return ''

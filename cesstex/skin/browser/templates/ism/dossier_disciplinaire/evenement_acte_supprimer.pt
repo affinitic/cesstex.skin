@@ -119,7 +119,12 @@
             </div>
             <div class="formulaire-input">
                 <label for="titulaire02Pk">Etat</label>
-                <span tal:content="evenement/eventact_etat_publication_fk"></span>
+                <span tal:condition="python: evenement.eventact_etat_publication_fk==2">
+                    <span class="vert-actif">Visible Membre</span>
+                </span>
+                <span tal:condition="python: evenement.eventact_etat_publication_fk==1">
+                    <span class="rouge-non-actif">Privé</span>
+                </span>
             </div>
             <div class="formulaire-submit">
                 <input type="hidden"
