@@ -330,7 +330,33 @@ class ManageDossierDisciplinaire(BrowserView):
         url = "%s/institut-sainte-marie/la-salle-des-profs/gestion-des-dossiers-disciplinaires/ajouter-un-evenement-au-dossier?elevePk=%s" % (portalUrl, elevePk)
         self.request.response.redirect(url)
         return ''
-        
+
+    def deleteEvenementActe(self):
+        """
+        Supprimer un événement acté lié à un dossier
+        """
+        fields = self.request.form
+
+        elevePk = fields.get('elevePk') 
+        evenementActePk = fields.get('evenementActePk', None)
+
+        wrapper = getSAWrapper('cesstex')
+        session = wrapper.session
+        query = session.query(EvenementActe)
+        query = query.filter(EvenementActe.eventact_pk == evenementActePk)
+        evenementActe = query.one()
+        session.delete(evenementActe)
+        session.flush()
+
+        portalUrl = getToolByName(self.context, 'portal_url')()
+        ploneUtils = getToolByName(self.context, 'plone_utils')
+        message = u"L'événement a bien été supprimé !"
+        ploneUtils.addPortalMessage(message, 'info')
+        url = "%s/institut-sainte-marie/la-salle-des-profs/gestion-des-dossiers-disciplinaires/ajouter-un-evenement-au-dossier?elevePk=%s" % (portalUrl, elevePk)
+        self.request.response.redirect(url)
+        return ''
+
+
  #### LOG MODIFICATION EVENEMENTS ACTES POUR UN DOSSIER ####
     def getAllLogModificationForEvenementActe(self, evenementActePk):
         """

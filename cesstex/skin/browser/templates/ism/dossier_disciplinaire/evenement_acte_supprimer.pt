@@ -99,57 +99,27 @@
     </div>
     
     <div class="formulaire">        
-        <h2 class="formulaire-titre">Modifier cet événement</h2>
-        <form action="updateEvenementActe"
+        <h2 class="formulaire-titre">
+            <img src="images/alerte.png" />
+            Supprimer cet événement
+        </h2>
+        <form action="deleteEvenementActe"
               method="post">
             <div class="formulaire-input">
                 <label for="evenement">Evénement</label>
-                <textarea name="evenement"
-                          id="evenement"
-                          rows="6"
-                          cols="70"
-                          tal:content="evenement/eventact_evenement"></textarea>
+                <span tal:content="evenement/eventact_evenement"></span>
             </div>
             <div class="formulaire-input">
                 <label for="sanction">Sanction</label>
-                <textarea name="sanction"
-                          id="sanction"
-                          rows="6"
-                          cols="70"
-                          tal:content="evenement/eventact_sanction"></textarea>
+                <span tal:content="evenement/eventact_sanction"></span>
             </div>
             <div class="formulaire-input">
                 <label for="intervenant">Suivi - Intervenant(s) - Ressources</label>
-                <textarea name="intervenant"
-                          id="intervenant"
-                          rows="6"
-                          cols="70"
-                          tal:content="evenement/eventact_intervenant"></textarea>
-            </div>
-            <div class="formulaire-input">
-                <label for="fichierAttache">Joindre un document</label>
-                <input type="file"
-                       name="fichierAttache"
-                       id="fichierAttache"
-                       value=""
-                       size="50" />
+                <span tal:content="evenement/eventact_intervenant"></span>
             </div>
             <div class="formulaire-input">
                 <label for="titulaire02Pk">Etat</label>
-                <tal:block tal:define="etats python: view.getAllEtatPublication()">
-                    <select name="etatPublication"
-                            id="etatPublication">
-                        <option value="">...</option>
-                        <tal:boucle tal:repeat="etat etats">
-                            <option value=""
-                                    selected=""
-                                    tal:attributes="value etat/etat_pk;
-                                                    selected python: evenement.eventact_etat_publication_fk==etat.etat_pk and 'selected' or None;">
-                                <span tal:content="etat/etat_titre" />
-                            </option>
-                        </tal:boucle>
-                    </select>
-                </tal:block>
+                <span tal:content="evenement/eventact_etat_publication_fk"></span>
             </div>
             <div class="formulaire-submit">
                 <input type="hidden"
@@ -164,7 +134,7 @@
                        value=""
                        tal:attributes="value elevePk" />
                 <input type="submit"
-                       value="Modifier cet événement" />
+                       value="Supprimer cet événement" />
             </div>
         </form>
     </div>

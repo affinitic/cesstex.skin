@@ -240,6 +240,15 @@
         allowed_interface=".interfaces.IManageDossierDisciplinaire" />
 
     <browser:page
+        name="supprimer-un-evenement-du-dossier"
+        for="*"
+        template="templates/ism/dossier_disciplinaire/evenement_acte_supprimer.pt"
+        permission="zope.Public"
+        class=".ManageDossierDisciplinaire.ManageDossierDisciplinaire"
+        allowed_interface=".interfaces.IManageDossierDisciplinaire" />
+
+
+    <browser:page
         name="insertEvenementActe"
         for="*"
         class=".ManageDossierDisciplinaire.ManageDossierDisciplinaire"
@@ -255,5 +264,12 @@
         attribute="updateEvenementActe"
         allowed_interface=".interfaces.IManageDossierDisciplinaire" />
 
+    <browser:page
+        name="deleteEvenementActe"
+        for="*"
+        class=".ManageDossierDisciplinaire.ManageDossierDisciplinaire"
+        permission="zope.Public"
+        attribute="deleteEvenementActe"
+        allowed_interface=".interfaces.IManageDossierDisciplinaire" />
 
 </configure>

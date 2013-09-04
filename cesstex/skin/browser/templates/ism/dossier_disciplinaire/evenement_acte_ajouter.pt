@@ -97,19 +97,38 @@
         <div class="visualClear"></div>
         <br />
         <div class="menu-gestion-dossier">
-            <form action="modifier-un-dossier-disciplinaire"
-                  method="post">
-                  <input type="hidden"
-                         name="dossierDisciplinairePk"
-                         value=""
-                         tal:attributes="value dossierDisciplinairePk" />
-                  <input type="hidden"
-                         name="elevePk"
-                         value=""
-                         tal:attributes="value elevePk" />
-                  <input type="submit"
-                         value="Modifier ce dossier" />
-            </form>
+            <div class="bouton-modifier">
+                <form action="modifier-un-dossier-disciplinaire"
+                      method="post">
+                      <input type="hidden"
+                             name="dossierDisciplinairePk"
+                             value=""
+                             tal:attributes="value dossierDisciplinairePk" />
+                      <input type="hidden"
+                             name="elevePk"
+                             value=""
+                             tal:attributes="value elevePk" />
+                      <input type="submit"
+                             value="Modifier ce dossier" />
+                </form>
+            </div>
+
+            <div class="bouton-supprimer">
+                <form action="supprimer-un-dossier-disciplinaire"
+                      method="post">
+                      <input type="hidden"
+                             name="dossierDisciplinairePk"
+                             value=""
+                             tal:attributes="value dossierDisciplinairePk" />
+                      <input type="hidden"
+                             name="elevePk"
+                             value=""
+                             tal:attributes="value elevePk" />
+                      <input type="submit"
+                             value="Supprimer ce dossier" />
+                </form>
+            </div>
+            <div class="visualClear"></div>
         </div>
 
         <div class="visualClear"></div>
@@ -156,19 +175,38 @@
                     </li>
                 </ul>
                 <div class="menu-gestion-dossier">
-                    <form action="modifier-un-evenement-du-dossier"
-                          method="post">
-                          <input type="hidden"
-                                 name="evenementActePk"
-                                 value=""
-                                 tal:attributes="value evenement/eventact_pk" />
-                          <input type="hidden"
-                                 name="elevePk"
-                                 value=""
-                                 tal:attributes="value elevePk" />
-                          <input type="submit"
-                                 value="Modifier cet événement" />
-                    </form>
+                    <div class="bouton-modifier">
+                        <form action="modifier-un-evenement-du-dossier"
+                              method="post">
+                              <input type="hidden"
+                                     name="evenementActePk"
+                                     value=""
+                                     tal:attributes="value evenement/eventact_pk" />
+                              <input type="hidden"
+                                     name="elevePk"
+                                     value=""
+                                     tal:attributes="value elevePk" />
+                              <input type="submit"
+                                     value="Modifier cet événement" />
+                        </form>
+                    </div>
+
+                    <div class="bouton-supprimer">
+                        <form action="supprimer-un-evenement-du-dossier"
+                              method="post">
+                              <input type="hidden"
+                                     name="evenementActePk"
+                                     value=""
+                                     tal:attributes="value evenement/eventact_pk" />
+                              <input type="hidden"
+                                     name="elevePk"
+                                     value=""
+                                     tal:attributes="value elevePk" />
+                              <input type="submit"
+                                     value="Supprimer cet événement" />
+                        </form>
+                    </div>
+                    <div class="visualClear"></div>
                 </div>
 
                 <span id="declencheur">Historique &darr;</span>
