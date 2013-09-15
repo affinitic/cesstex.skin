@@ -32,6 +32,25 @@ class IManageISM(Interface):
         """
         récupère l'icône d'une news (ou celle par défaut)
         """
+    def getAllProfesseurs():
+        """
+        récupère tous les professeurs ISM
+        """
+
+    def insertProfesseur():
+        """
+        insère un nouveau prof dans dbPg et dans aclUser
+        """
+
+    def updateProfesseur():
+        """
+        update un professeur dans dbPg et dans aclUser
+        """
+
+    def deleteProfesseur():
+        """
+        delete un professeur dans dbPg et dans aclUser
+        """
 
 
 class IManageDossierDisciplinaire(Interface):

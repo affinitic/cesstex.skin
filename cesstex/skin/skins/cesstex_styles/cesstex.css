@@ -5,7 +5,7 @@
 */
 
 body{
-background-color:#00202b;  /*#e7eaf8;*/ 
+background-color:#00202b;  /*#e7eaf8;*/
 background-image:url(bg_body.jpg);
 background-repeat:repeat-y;
 background-position:center top;
@@ -47,7 +47,7 @@ text-shadow:1px 1px 1px rgba(100,0,0,0.5);
 
 /*** VISUAL PORTER ***/
 #visual-portal-wrapper{
-background-color:#fff;    
+background-color:#fff;
 border:2px solid #ccc;
 border-radius:12px;
 box-shadow:8px 8px 8px rgba(0,0,0,0.5);
@@ -64,7 +64,7 @@ background-color:#fff;
 }
 
 
-/*** COLONNE ***/ 
+/*** COLONNE ***/
 #portal-columns{
 margin-bottom:10px;
 }
@@ -477,7 +477,6 @@ margin-bottom:1.2em;
 font-weight:bold;
 font-size:1.1em;
 text-align:center;
-
 }
 
 
@@ -524,6 +523,38 @@ text-align:right;
 .texte-interactif{
 font-size:1.2em;
 color:#444;
+}
+
+div#portletHeaderGestionMembre{
+height:31px;
+color:#fff;
+text-align:right;
+line-height:2.6em;
+padding-right:5px;
+font-variant:small-caps;
+font-weight:bold;
+border-radius:12px 12px 0px 0px;
+background: rgb(180,227,145); /* Old browsers */
+background: -moz-linear-gradient(top,  rgba(180,227,145,1) 0%, rgba(97,196,25,1) 50%, rgba(180,227,145,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(180,227,145,1)), color-stop(50%,rgba(97,196,25,1)), color-stop(100%,rgba(180,227,145,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  rgba(180,227,145,1) 0%,rgba(97,196,25,1) 50%,rgba(180,227,145,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  rgba(180,227,145,1) 0%,rgba(97,196,25,1) 50%,rgba(180,227,145,1) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  rgba(180,227,145,1) 0%,rgba(97,196,25,1) 50%,rgba(180,227,145,1) 100%); /* IE10+ */
+background: linear-gradient(to bottom,  rgba(180,227,145,1) 0%,rgba(97,196,25,1) 50%,rgba(180,227,145,1) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b4e391', endColorstr='#b4e391',GradientType=0 ); /* IE6-9 */
+}
+
+div#portletItemGestionMembre{
+background-color:rgba(232,255,225,0.5);
+border-left:1px solid #b2d1ac;
+border-right:1px solid #b2d1ac;
+border-bottom:1px solid #b2d1ac;
+border-radius:0px 0px 12px 12px;
+padding:1em;
+}
+
+div#portletItemGestionMembre ul{
+margin:0px;
 }
 
 /*** CALENDARX ***/

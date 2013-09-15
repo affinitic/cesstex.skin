@@ -1,0 +1,20 @@
+<html xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      i18n:domain="plone">
+
+<body>
+    <div metal:define-macro="portlet"
+         tal:condition="python:user.has_role(['Manager'], here)">
+        <div class="portlet">
+            <div id="portletHeaderGestionMembre">Gestion des membres</div>
+            <div id="portletItemGestionMembre">
+                <a href=""
+                   tal:attributes="href string: ${context/portal_url}/institut-sainte-marie/ajouter-un-professeur">G&eacute;rer les membres</a>
+                <br />
+                Chercher un membre
+            </div>
+         </div>
+    </div>
+</body>
+</html>
+

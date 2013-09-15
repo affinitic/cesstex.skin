@@ -26,17 +26,6 @@ from cesstex.db.pgsql.baseTypes import Etudiant, Professeur, DossierDisciplinair
 class ManageDossierDisciplinaire(BrowserView):
     implements(IManageDossierDisciplinaire)
 
-    def getAllStatutMembre(self):
-        """
-        recuperation de tous les status des membres (prof, direction, educateur)
-        """
-        wrapper = getSAWrapper('cesstex')
-        session = wrapper.session
-        query = session.query(StatutMembre)
-        query = query.order_by(StatutMembre.statmembre_statut)
-        allStatutMembre = query.all()
-        return allStatutMembre
-
 #### ETAT PUBLICATION ####
     def getAllEtatPublication(self):
         """
@@ -80,7 +69,7 @@ class ManageDossierDisciplinaire(BrowserView):
         if not elevePk:
             fields = self.request.form
             elevePk = fields.get('elevePk', None)
-        
+
         wrapper = getSAWrapper('cesstex')
         session = wrapper.session
         query = session.query(Etudiant)

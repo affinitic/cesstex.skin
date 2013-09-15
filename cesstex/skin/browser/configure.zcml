@@ -272,4 +272,63 @@
         attribute="deleteEvenementActe"
         allowed_interface=".interfaces.IManageDossierDisciplinaire" />
 
+
+<!-- GESTION DES PROFS -->
+    <browser:page
+        name="chercher-un-professeur"
+        for="*"
+        template="templates/ism/gestion_profs/admin_professeur_chercher.pt"
+        permission="zope.Public"
+        class=".ManageISM.ManageISM"
+        allowed_interface=".interfaces.IManageISM" />
+
+    <browser:page
+        name="ajouter-un-professeur"
+        for="*"
+        template="templates/ism/gestion_profs/admin_professeur_ajouter.pt"
+        permission="zope.Public"
+        class=".ManageISM.ManageISM"
+        allowed_interface=".interfaces.IManageISM" />
+
+    <browser:page
+        name="modifier-un-professeur"
+        for="*"
+        template="templates/ism/gestion_profs/admin_professeur_modifier.pt"
+        permission="zope.Public"
+        class=".ManageISM.ManageISM"
+        allowed_interface=".interfaces.IManageISM" />
+
+    <browser:page
+        name="supprimer-un-professeur"
+        for="*"
+        template="templates/ism/gestion_profs/admin_professeur_supprimer.pt"
+        permission="zope.Public"
+        class=".ManageISM.ManageISM"
+        allowed_interface=".interfaces.IManageISM" />
+
+
+    <browser:page
+        name="insertProfesseur"
+        for="*"
+        class=".ManageISM.ManageISM"
+        permission="zope.Public"
+        attribute="insertProfesseur"
+        allowed_interface=".interfaces.IManageISM" />
+
+    <browser:page
+        name="updateProfesseur"
+        for="*"
+        class=".ManageISM.ManageISM"
+        permission="zope.Public"
+        attribute="updateProfesseur"
+        allowed_interface=".interfaces.IManageISM" />
+
+    <browser:page
+        name="deleteProfesseur"
+        for="*"
+        class=".ManageISM.ManageISM"
+        permission="zope.Public"
+        attribute="deleteProfesseur"
+        allowed_interface=".interfaces.IManageISM" />
+
 </configure>
