@@ -76,13 +76,6 @@
                      size="50"/>
           </div>
           <div class="formulaire-input">
-              <label for="profEmail">Email :</label>
-              <input type="text"
-                     name="profEmail"
-                     id="profEmail"
-                     size="50"/>
-          </div>
-          <div class="formulaire-input">
               <label for="profLogin">Login :</label>
               <input type="text"
                      name="profLogin"
@@ -94,6 +87,13 @@
               <input type="text"
                      name="profPass"
                      id="profPass"
+                     size="50"/>
+          </div>
+          <div class="formulaire-input">
+              <label for="profEmail">Email :</label>
+              <input type="text"
+                     name="profEmail"
+                     id="profEmail"
                      size="50"/>
           </div>
           <div class="formulaire-input">
