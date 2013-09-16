@@ -39,16 +39,18 @@ class ManageDossierDisciplinaire(BrowserView):
         return allEtatPublication
 
 #### PROFESSEURS ####
-    def getAllProfesseurs(self):
+    def getAllProfesseurs(self, statutProf):
         """
         recuperation de tous les professseurs
         """
         wrapper = getSAWrapper('cesstex')
         session = wrapper.session
         query = session.query(Professeur)
+        query = query.filter(Professeur.prof_statut_fk == statutProf)
         query = query.order_by(Professeur.prof_nom)
         allProfesseurs = query.all()
         return allProfesseurs
+
 
 #### ELEVES ####
     def getAllEleves(self):

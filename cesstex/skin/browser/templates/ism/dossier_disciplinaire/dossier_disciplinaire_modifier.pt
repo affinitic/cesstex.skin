@@ -62,7 +62,7 @@
             </div>
             <div class="formulaire-input">
                 <label for="titulaire01Pk">Titulaire 1</label>
-                <tal:block tal:define="professeurs python: view.getAllProfesseurs()">
+                <tal:block tal:define="professeurs python: view.getAllProfesseurs(statutProf=3)">
                     <select name="titulaire01Pk"
                             id="titulaire01Pk">
                         <option value="">...</option>
@@ -80,7 +80,7 @@
             </div>
             <div class="formulaire-input">
                 <label for="titulaire02Pk">Titulaire 2</label>
-                <tal:block tal:define="professeurs python: view.getAllProfesseurs()">
+                <tal:block tal:define="professeurs python: view.getAllProfesseurs(statutProf=3)">
                     <select name="titulaire02Pk"
                             id="titulaire02Pk">
                         <option value="">...</option>
@@ -98,7 +98,7 @@
             </div>
             <div class="formulaire-input">
                 <label for="educateurReferent">Educateur référent</label>
-                <tal:block tal:define="professeurs python: view.getAllProfesseurs()">
+                <tal:block tal:define="professeurs python: view.getAllProfesseurs(statutProf=2)">
                     <select name="educateurReferent"
                             id="educateurReferent">
                         <option value="">...</option>
@@ -122,7 +122,6 @@
                        name="elevePk"
                        value=""
                        tal:attributes="value elevePk" />
-                -<span tal:content="elevePk"></span>-
                 <input type="submit"
                        value="Modifier le dossier disciplinaire" />
             </div>
