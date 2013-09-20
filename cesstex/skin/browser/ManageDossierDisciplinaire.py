@@ -249,6 +249,18 @@ class ManageDossierDisciplinaire(BrowserView):
         query = query.filter(EvenementActe.eventact_pk == evenementActePk)
         evenementActe = query.one()
         return evenementActe
+    
+    def getNombreEvenementActeByDossier(self, dossierDisciplinairePk):
+        """
+        recuperation d'un événement acté szlon sa pk
+        """
+        wrapper = getSAWrapper('cesstex')
+        session = wrapper.session
+        query = session.query(EvenementActe)
+        query = query.filter(EvenementActe.eventact_dossier_diciplinaire_fk == dossierDisciplinairePk)
+        evenementActe = query.all()
+        nombreEvenementActe = len(evenementActe)
+        return nombreEvenementActe
 
     def insertEvenementActe(self):
         """
@@ -267,7 +279,9 @@ class ManageDossierDisciplinaire(BrowserView):
         etatPublication = fields.get('etatPublication', None)
         dossierDisciplinairePk = fields.get('dossierDisciplinairePk', None)
 
-        
+        nombreEvenementActeDossier = self.getNombreEvenementActeByDossier(dossierDisciplinairePk)
+        evenementNumeroOrdre = nombreEvenementActeDossier +1
+
         wrapper = getSAWrapper('cesstex')
         session = wrapper.session
         newEntry = EvenementActe(eventact_auteur_creation=auteurConnecte,
@@ -275,6 +289,7 @@ class ManageDossierDisciplinaire(BrowserView):
                                  eventact_sanction=sanction,
                                  eventact_intervenant=intervenant,
                                  eventact_etat_publication_fk=etatPublication,
+                                 eventact_numero_ordre=evenementNumeroOrdre,
                                  eventact_dossier_diciplinaire_fk=dossierDisciplinairePk)
         session.add(newEntry)
         session.flush()

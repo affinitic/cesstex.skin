@@ -141,7 +141,7 @@
         </tal:if>
         <tal:block tal:repeat="evenement evenements">
             <div class="evenement-acte">
-                <div class="numero-evenement-acte"><span tal:content="repeat/evenement/number"></span></div>
+                <div class="numero-evenement-acte"><span tal:content="evenement/eventact_numero_ordre"></span></div>
                 <div class="visualClear"></div>
                 <ul>
                     <li>
