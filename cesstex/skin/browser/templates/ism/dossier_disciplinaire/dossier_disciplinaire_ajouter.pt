@@ -43,6 +43,7 @@
                         <th> Educateur </th>
                         <th> Titulaire 1</th>
                         <th> Titulaire 2</th>
+                        <th> Nbre Event </th>
                     </tr> 
                 </thead>
                 <tbody>
@@ -78,6 +79,9 @@
                                             <span tal:content="eleve/titulaire02/prof_nom">titulaire 1</span>
                                             <span tal:content="eleve/titulaire02/prof_prenom">titulaire 1</span>
                                     </tal:if>
+                                </td>
+                                <td align="center">
+                                    <span tal:content="python: view.getNombreEvenementActeByDossier(eleve.eleve_pk)">Nbre EventActe</span>
                                 </td>
                             </tr>
                         </span>

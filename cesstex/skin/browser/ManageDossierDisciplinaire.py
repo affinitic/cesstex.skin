@@ -252,7 +252,7 @@ class ManageDossierDisciplinaire(BrowserView):
     
     def getNombreEvenementActeByDossier(self, dossierDisciplinairePk):
         """
-        recuperation d'un événement acté szlon sa pk
+        Somme de tous les evenements actes pour un dossier
         """
         wrapper = getSAWrapper('cesstex')
         session = wrapper.session
@@ -261,6 +261,19 @@ class ManageDossierDisciplinaire(BrowserView):
         evenementActe = query.all()
         nombreEvenementActe = len(evenementActe)
         return nombreEvenementActe
+
+    def getNombreEvenementActeByEleve(self, elevePk):
+        """
+        Somme de tous les evenements actes pour un élève
+        """
+        wrapper = getSAWrapper('cesstex')
+        session = wrapper.session
+        query = session.query(EvenementActe)
+        query = query.filter(EvenementActe.eventact_dossier_diciplinaire_fk == dossierDisciplinairePk)
+        evenementActe = query.all()
+        nombreEvenementActe = len(evenementActe)
+        return nombreEvenementActe
+
 
     def insertEvenementActe(self):
         """
