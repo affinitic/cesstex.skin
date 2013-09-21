@@ -22,152 +22,182 @@
 </head>
 
 <body>
-<div metal:fill-slot="main">
+<div metal:fill-slot="main"
+     tal:define="elevePk request/elevePk;
+                 eleve python: view.getElevesByPk(elevePk);
+                 dossier python: view.getDossierByEleve(elevePk);
+                 dossierDisciplinairePk dossier/dosdis_pk;
+                 evenements python: view.getAllEvenementByDossier(dossierDisciplinairePk)">
+
     <h1>Gestion des dossiers disciplinaires</h1>
     <div class="formulaire">
-        <div class="table-donne-db"
-             tal:define="eleves python: view.getAllEleves()">
-            <h2 class="formulaire-titre">Liste des dossiers actuellement ouverts</h2>
-            <table width="0%"
-                   class="listing"
-                   align="center">
-                <thead>
-                    <tr>
-                        <th> Nom de l'élève </th>
-                        <th> Prénom de l'élève </th>
-                        <th> Classe </th>
-                        <th> Educateur </th>
-                        <th> Titulaire 1</th>
-                        <th> Titulaire 2</th>
-                    </tr> 
-                </thead>
-                <tbody>
-                    <tal:boucle tal:repeat="eleve eleves">
-                        <span tal:define="odd repeat/eleve/odd">
-                            <tr tal:attributes="class python:odd and 'odd' or 'even'">
-                                <td align="center">
-                                    <a href=""
-                                       tal:attributes="href string:${context/portal_url}/institut-sainte-marie/la-salle-des-profs/gestion-des-dossiers-disciplinaires/ajouter-un-evenement-au-dossier?elevePk=${eleve/eleve_pk}">
-                                       <span tal:content="eleve/eleve_nom">nom eleve</span>
-                                    </a>
-                                </td>
-                                <td align="center">
-                                    <span tal:content="eleve/eleve_prenom">prenom eleve</span>
-                                </td>
-                                <td align="center">
-                                    <span tal:content="eleve/eleve_classe">classe eleve</span>
-                                </td>
-                                <td align="center">
-                                    <tal:if tal:condition="exists:eleve/educateurReferent/prof_nom">
-                                        <span tal:content="eleve/educateurReferent/prof_nom">educateur-nom</span>
-                                        <span tal:content="eleve/educateurReferent/prof_prenom">educateur-prenom</span>
-                                    </tal:if>
-                                </td>
-                                <td align="center">
-                                    <tal:if tal:condition="exists:eleve/titulaire01/prof_nom">
-                                        <span tal:content="eleve/titulaire01/prof_nom">titulaire 1</span>
-                                        <span tal:content="eleve/titulaire01/prof_prenom">titulaire 1</span>
-                                    </tal:if>
-                                </td>
-                                <td align="center">
-                                    <tal:if tal:condition="exists:eleve/titulaire02/prof_nom">
-                                            <span tal:content="eleve/titulaire02/prof_nom">titulaire 1</span>
-                                            <span tal:content="eleve/titulaire02/prof_prenom">titulaire 1</span>
-                                    </tal:if>
-                                </td>
-                            </tr>
-                        </span>
-                    </tal:boucle>
-                </tbody>
-            </table>
+        <h2 class="formulaire-titre">
+            <img src="images/alerte.png" />
+            Supprimer le dossier disciplianire de
+            <span tal:content="eleve/eleve_nom">nom eleve</span>
+            <span tal:content="eleve/eleve_prenom">prenom eleve</span>
+        </h2>
+        <div id="info-eleve">
+            <ul>
+                <li>
+                    <span class="etiquette-db">Elève :</span><br />
+                    <span tal:content="eleve/eleve_nom" class="donnee-db">nom eleve</span>
+                    <span tal:content="eleve/eleve_prenom" class="donnee-db">prenom eleve</span>
+                </li>
+                <li>
+                    <span class="etiquette-db">Classe :</span><br />
+                    <span tal:content="eleve/eleve_classe" class="donnee-db">classe eleve</span>
+                </li>
+                <li>
+                    <span class="etiquette-db">Educateur référent :</span><br />
+                    <span tal:content="eleve/educateurReferent/prof_nom" class="donnee-db">titulaire 1</span>
+                    <span tal:content="eleve/educateurReferent/prof_prenom" class="donnee-db">titulaire 1</span>
+                </li>
+                <li>
+                    <span class="etiquette-db">Titulaire 1 :</span><br />
+                    <span tal:content="eleve/titulaire01/prof_nom" class="donnee-db">titulaire 1</span>
+                    <span tal:content="eleve/titulaire01/prof_prenom" class="donnee-db">titulaire 1</span>
+                </li>
+                <li tal:condition="exists: eleve/titulaire02/prof_nom">
+                    <span class="etiquette-db">Titulaire 2 :</span><br />
+                    <span tal:content="eleve/titulaire02/prof_nom" class="donnee-db">titulaire 1</span>
+                    <span tal:content="eleve/titulaire02/prof_prenom" class="donnee-db">titulaire 1</span>
+                </li>
+            </ul>
+        </div><!--table-donne-db-->
+        <div id="info-dossier">
+            <ul>
+                <li>
+                    <span class="etiquette-db">Date de création :</span><br />
+                    <span tal:content="python: dossier.dosdis_date_creation.strftime('%d/%m/%Y - %H:%M')"
+                          class="donnee-db">date creation</span>
+                </li>
+                <li>
+                    <span class="etiquette-db">Année scolaire :</span><br />
+                    <span tal:content="dossier/dosdis_annee_scolaire"
+                          class="donnee-db">annee scolaire</span>
+                </li>
+                <li>
+                    <span class="etiquette-db">Etat du dossier :</span><br />
+                    <span tal:condition="python: dossier.dosdis_actif==True">
+                        <span class="vert-actif ">Dossier actif</span>
+                    </span>
+                    <span tal:condition="python: dossier.dosdis_actif==False">
+                        <span class="rouge-non-actif">Dossier désactivé</span>
+                    </span>
+                </li>
+                <li>
+                    <span class="etiquette-db">Auteur :</span><br />
+                    <span tal:content="dossier/auteur/prof_nom"
+                          class="donnee-db">auteur</span>
+                    <span tal:content="dossier/auteur/prof_prenom"
+                          class="donnee-db">auteur</span>
+                </li>
+            </ul>
+        </div><!--info-dossier-->
+        <div class="visualClear"></div>
+        <div id="alerte-suppression">
+            <img src="images/alerte.png" /> 
+            La suppresion d'un dossier disciplinaire entraine
+            la suppression de tous les événements actés qui lui sont liès,
+            sans possibilité de les récupérer.
         </div>
+        <div class="formulaire-submit">
+            <div class="bouton-supprimer">
+                <form action="deleteDossierDisciplinaire"
+                      method="post">
+                      <input type="hidden"
+                             name="dossierDisciplinairePk"
+                             value=""
+                             tal:attributes="value dossierDisciplinairePk" />
+                      <input type="hidden"
+                             name="elevePk"
+                             value=""
+                             tal:attributes="value elevePk" />
+                      <input type="submit"
+                             value="Supprimer cet événement" />
+                </form>
+            </div>
+        </div>
+        <br />
     </div>
-    
+
+
     <div class="formulaire">        
-        <h2 class="formulaire-titre">Créer un dossier disciplinaire</h2>
-        <form action="insertEleve"
-              method="post">
-            <div class="formulaire-input">
-                <label for="nomEleve">Nom de l'élève</label>
-                <input type="text"
-                       name="nomEleve"
-                       id="nomEleve"
-                       value=""
-                       size="50" />
+        <h2 class="formulaire-titre">Evénements liés au dossiers</h2>
+        <tal:if tal:condition="python: len(evenements)<1">
+                Aucun événément dans le dossier de <span tal:content="eleve/eleve_prenom">prenom eleve</span>.
+        </tal:if>
+        <tal:block tal:repeat="evenement evenements">
+            <div class="evenement-acte">
+                <div class="numero-evenement-acte"><span tal:content="evenement/eventact_numero_ordre"></span></div>
+                <div class="visualClear"></div>
+                <ul>
+                    <li>
+                        <span class="etiquette-db">Date de l'encodage :</span> <br />
+                        <span tal:content="python: evenement.eventact_date_creation.strftime('%d/%m/%Y - %H:%M')"
+                              class="donnee-db">date creation</span>
+                    </li>
+                    <li>
+                        <span class="etiquette-db">Evénement :</span> <br />
+                        <span tal:content="evenement/eventact_evenement"
+                              class="donnee-db">evenement</span>
+                    </li>
+                    <li>
+                        <span class="etiquette-db">Sanction :</span> <br />
+                        <span tal:content="evenement/eventact_sanction"
+                              class="donnee-db">sanction</span>
+                    </li>
+                    <li>
+                        <span class="etiquette-db">Suivi - Intervenant(s) - Ressources</span> <br />
+                        <span tal:content="evenement/eventact_intervenant"
+                              class="donnee-db">intervenant</span>
+                    </li>
+                    <li>
+                        <span class="etiquette-db">Etat :</span> <br />
+                        <span tal:condition="python: evenement.eventact_etat_publication_fk==2">
+                            <span class="vert-actif">Visible Membre</span>
+                        </span>
+                        <span tal:condition="python: evenement.eventact_etat_publication_fk==1">
+                            <span class="rouge-non-actif">Privé</span>
+                        </span>
+                    </li>
+                </ul>
+
+
+                <span id="declencheur">Historique &darr;</span>
+                <div class="evenement-historique"
+                     tal:condition="python: len(evenements)>0">
+                    <p>
+                        &oplus; Création par :<br />
+                        <span class="decalle">
+                            &bull;
+                            <span tal:content="evenement/eventact_auteur_creation" /> -
+                            <span tal:content="python: evenement.eventact_date_creation.strftime('%d/%m/%Y - %H:%M')" />
+                        </span>
+                    </p>
+                    
+                    <tal:block tal:define="logs python: view.getAllLogModificationForEvenementActe(evenement.eventact_pk)">
+                        <tal:if tal:condition="python: len(logs)>0">
+                            <p>
+                                &oplus; Modification par :<br />
+                                <tal:boucle tal:repeat="log logs">
+                                    <span class="decalle">
+                                        &bull;
+                                        <span tal:content="log/eventactlogmodif_auteur_modification" /> -
+                                        <span tal:content="python: log.eventactlogmodif_date_modification.strftime('%d/%m/%Y - %H:%M')" />
+                                        <br />
+                                    </span>
+                                </tal:boucle>
+                            </p>
+                        </tal:if>
+                    </tal:block>
+                </div>
             </div>
-            <div class="formulaire-input">
-                <label for="prenomEleve">Prénom de l'élève</label>
-                <input type="text"
-                       name="prenomEleve"
-                       id="prenomEleve"
-                       value=""
-                       size="50" />
-            </div>
-            <div class="formulaire-input">
-                <label for="classeEleve">Classe de l'élève</label>
-                <input type="text"
-                       name="classeEleve"
-                       id="classeEleve"
-                       value=""
-                       size="5" />
-            </div>
-            <div class="formulaire-input">
-                <label for="titulaire01Pk">Titulaire 1</label>
-                <tal:block tal:define="professeurs python: view.getAllProfesseurs(statutProf=3)">
-                    <select name="titulaire01Pk"
-                            id="titulaire01Pk">
-                        <option value="">...</option>
-                        <tal:boucle tal:repeat="professeur professeurs">
-                            <option value=""
-                                    tal:attributes="value professeur/prof_pk">
-                                <span tal:content="professeur/prof_nom" />
-                                <span tal:content="professeur/prof_prenom" />
-                            </option>
-                        </tal:boucle>
-                    </select>
-                </tal:block>
-            </div>
-            <div class="formulaire-input">
-                <label for="titulaire02Pk">Titulaire 2</label>
-                <tal:block tal:define="professeurs python: view.getAllProfesseurs(statutProf=3)">
-                    <select name="titulaire02Pk"
-                            id="titulaire02Pk">
-                        <option value="">...</option>
-                        <tal:boucle tal:repeat="professeur professeurs">
-                            <option value=""
-                                    tal:attributes="value professeur/prof_pk">
-                                <span tal:content="professeur/prof_nom" />
-                                <span tal:content="professeur/prof_prenom" />
-                            </option>
-                        </tal:boucle>
-                    </select>
-                </tal:block>
-            </div>
-            <div class="formulaire-input">
-                <label for="educateurReferent">Educateur référent</label>
-                <tal:block tal:define="professeurs python: view.getAllProfesseurs(statutProf=2)">
-                    <select name="educateurReferent"
-                            id="educateurReferent">
-                        <option value="">...</option>
-                        <tal:boucle tal:repeat="professeur professeurs">
-                            <option value=""
-                                    tal:attributes="value professeur/prof_pk">
-                                <span tal:content="professeur/prof_nom" />
-                                <span tal:content="professeur/prof_prenom" />
-                            </option>
-                        </tal:boucle>
-                    </select>
-                </tal:block>
-            </div>
-            <div class="formulaire-submit">
-                <input type="hidden"
-                       name="operation"
-                       value="insert" />
-                <input type="submit"
-                       value="Créer le dossier disciplinaire" />
-            </div>
-        </form>
+            
+        </tal:block>
     </div>
+
 </div><!-- div metal-->
 </body>
 </html>

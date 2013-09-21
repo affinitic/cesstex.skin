@@ -198,6 +198,15 @@
         allowed_interface=".interfaces.IManageDossierDisciplinaire" />
 
     <browser:page
+        name="deleteDossierDisciplinaire"
+        for="*"
+        class=".ManageDossierDisciplinaire.ManageDossierDisciplinaire"
+        permission="zope.Public"
+        attribute="deleteDossierDisciplinaire"
+        allowed_interface=".interfaces.IManageDossierDisciplinaire" />
+
+<!-- ELEVE -->
+    <browser:page
         name="insertEleve"
         for="*"
         class=".ManageDossierDisciplinaire.ManageDossierDisciplinaire"

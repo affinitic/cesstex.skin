@@ -158,11 +158,23 @@ class ManageDossierDisciplinaire(BrowserView):
         self.request.response.redirect(url)
         return ''
 
-    def deleteEleve(self):
+    def deleteEleve(self, elevePk=None):
         """
-        mise à jour des données d'un élève dans la table etudaint
+        suppression d'un eleve dans la table etudiant
         """
-        pass
+        if not elevePk:
+            fields = self.request.form
+            elevePk = fields.get('elevePk') 
+
+        wrapper = getSAWrapper('cesstex')
+        session = wrapper.session
+        query = session.query(Etudiant)
+        query = query.filter(Etudiant.eleve_pk == elevePk)
+        eleve = query.one()
+        session.delete(eleve)
+        session.flush()
+        return ''
+
 
 
 #### DOSSIERS DISCIPLINAIRES ####
@@ -224,6 +236,33 @@ class ManageDossierDisciplinaire(BrowserView):
 
         return ''
 
+    def deleteDossierDisciplinaire(self):
+        """
+        Supprimer un dossier disciplinaire et ses event actés
+        """
+        fields = self.request.form
+
+        dossierDisciplinairePk = fields.get('dossierDisciplinairePk')
+        elevePk = fields.get('elevePk') 
+        evenementActePk = fields.get('evenementActePk', None)
+        self.deleteEvenementActeByDossierDisciplinaire(dossierDisciplinairePk)
+        wrapper = getSAWrapper('cesstex')
+        session = wrapper.session
+        query = session.query(DossierDisciplinaire)
+        query = query.filter(DossierDisciplinaire.dosdis_pk == dossierDisciplinairePk)
+        dossierDisciplinaire = query.one()
+        session.delete(dossierDisciplinaire)
+        session.flush()
+        self.deleteEleve(elevePk)
+
+        portalUrl = getToolByName(self.context, 'portal_url')()
+        ploneUtils = getToolByName(self.context, 'plone_utils')
+        message = u"Le dossier disciplinaire et les événements qui lui sont liés ont bien été supprimés !"
+        ploneUtils.addPortalMessage(message, 'info')
+        url = "%s/institut-sainte-marie/la-salle-des-profs/gestion-des-dossiers-disciplinaires/ajouter-un-dossier-disciplinaire" % (portalUrl)
+        self.request.response.redirect(url)
+        return ''
+
 #### EVENEMENTS ACTES POUR UN DOSSIER ####
 
     def getAllEvenementByDossier(self, dossierDisciplinairePk):
@@ -262,14 +301,14 @@ class ManageDossierDisciplinaire(BrowserView):
         nombreEvenementActe = len(evenementActe)
         return nombreEvenementActe
 
-    def getNombreEvenementActeByEleve(self, elevePk):
+    def getNombreEvenementActeByEleve(self, eleveDossierPk):
         """
         Somme de tous les evenements actes pour un élève
         """
         wrapper = getSAWrapper('cesstex')
         session = wrapper.session
         query = session.query(EvenementActe)
-        query = query.filter(EvenementActe.eventact_dossier_diciplinaire_fk == dossierDisciplinairePk)
+        query = query.filter(EvenementActe.eventact_dossier_diciplinaire_fk == eleveDossierPk)
         evenementActe = query.all()
         nombreEvenementActe = len(evenementActe)
         return nombreEvenementActe
@@ -377,6 +416,22 @@ class ManageDossierDisciplinaire(BrowserView):
         self.request.response.redirect(url)
         return ''
 
+    def deleteEvenementActeByDossierDisciplinaire(self, dossierDisciplinairePk):
+        """
+        Supprimer les événements actés lié à un dossier
+        """
+        wrapper = getSAWrapper('cesstex')
+        session = wrapper.session
+        query = session.query(EvenementActe)
+        query = query.filter(EvenementActe.eventact_dossier_diciplinaire_fk == dossierDisciplinairePk)
+        allEvenementsActes = query.all()
+        for evenementActe in allEvenementsActes:
+            evenementActePk = evenementActe.eventact_pk
+            self.deleteLogModificationEvenementActe(evenementActePk)
+            session.delete(evenementActe)
+        session.flush()
+        return ''
+
 
  #### LOG MODIFICATION EVENEMENTS ACTES POUR UN DOSSIER ####
     def getAllLogModificationForEvenementActe(self, evenementActePk):
@@ -410,15 +465,15 @@ class ManageDossierDisciplinaire(BrowserView):
         
         return ''
 
-    def deleteLogModificationEvenementActe(self):
+    def deleteLogModificationEvenementActe(self, evenementActePk=None):
         """
         Supprimer les log de modifications d'un événement acté lors
         de la suppression de cet événement.
         """
-        fields = self.request.form
-
-        elevePk = fields.get('elevePk') 
-        evenementActePk = fields.get('evenementActePk', None)
+        #elevePk = fields.get('elevePk') 
+        if not evenementActePk:
+            fields = self.request.form
+            evenementActePk = fields.get('evenementActePk', None)
 
         wrapper = getSAWrapper('cesstex')
         session = wrapper.session
