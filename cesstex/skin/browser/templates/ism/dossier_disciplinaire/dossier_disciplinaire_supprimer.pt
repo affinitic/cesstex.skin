@@ -115,7 +115,7 @@
                              value=""
                              tal:attributes="value elevePk" />
                       <input type="submit"
-                             value="Supprimer cet événement" />
+                             value="Supprimer ce dossier" />
                 </form>
             </div>
         </div>
