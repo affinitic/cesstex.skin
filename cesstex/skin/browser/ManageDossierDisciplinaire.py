@@ -4,7 +4,7 @@
 #import time
 #import random
 from sqlalchemy import desc
-#from mailer import Mailer
+from mailer import Mailer
 #from LocalFS import LocalFS
 from Products.Five import BrowserView
 from zope.interface import implements
@@ -20,11 +20,126 @@ from Products.CMFCore.utils import getToolByName
 #from Products.Archetypes.atapi import BaseContent
 from interfaces import IManageDossierDisciplinaire
 #from collective.captcha.browser.captcha import Captcha
-from cesstex.db.pgsql.baseTypes import Etudiant, Professeur, DossierDisciplinaire, EvenementActe, StatutMembre, EtatPublication, EvenementActeLogModification
+from cesstex.db.pgsql.baseTypes import Etudiant, Professeur, DossierDisciplinaire, EvenementActe, EtatPublication, EvenementActeLogModification
 
 
 class ManageDossierDisciplinaire(BrowserView):
     implements(IManageDossierDisciplinaire)
+
+#### ENVOI DES MAILS ####
+    def sendMail(self, sujet, message):
+        """
+        envoi de mail à clpsbw admin
+        """
+        mailer = Mailer("localhost", "alain.meurant@affinitic.be")
+        #mailer = Mailer("relay.skynet.be", "alain.meurant@affinitic.be, houtain@clps-bw.be" )
+        mailer.setSubject(sujet)
+        mailer.setRecipients("alain.meurant@affinitic.be")
+        mail = message
+        mailer.sendAllMail(mail)
+
+    def sendMailForNewDossier(self, elevePk):
+        """
+        envoi d'un mail lors de la création d'un nouveau dossier disciplinaire
+        """
+        eleve = self.getElevesByPk(elevePk)
+        portalUrl = getToolByName(self.context, 'portal_url')()
+        urlDossier = "%s/institut-sainte-marie/la-salle-des-profs/gestion-des-dossiers-disciplinaires/ajouter-un-evenement-au-dossier?elevePk=%s" % (portalUrl, elevePk)
+        sujet = "[ISM  :: dossier disciplinaire]"
+        message = u"""<font color='#FF0000'><b>:: Ajout d'un nouveau dossier disciplinaire ::</b></font><br /><br />
+                      Bonjour, <br />
+                      Un nouveau dossier disciplinaire vient d'être créé.<br />
+                      Il s'agit de l'étudiant:<br />
+                      <ul>
+                        <li>Nom : <font color='#ff9c1b'><b>%s</b></font></li>
+                        <li>Prénom : <font color='#ff9c1b'><b>%s</b></font></li>
+                        <li>Classe :  <font color='#ff9c1b'><b>%s</b></font></li>
+                        <li>Titutlaire 1 : <font color='#ff9c1b'><b>%s %s</b></font></li>
+                        <li>Titutlaire 2 : <font color='#ff9c1b'><b>%s %s</b></font></li>
+                        <li>Edicateur : <font color='#ff9c1b'><b>%s %s</b></font></li>
+                      </ul>
+                      <hr />
+                      Le dossier est accessible en cliquant <a href="%s">ici</a>
+                   """ % (eleve.eleve_nom, \
+                          eleve.eleve_prenom, \
+                          eleve.eleve_classe, \
+                          eleve.titulaire01.prof_prenom, \
+                          eleve.titulaire01.prof_nom, \
+                          eleve.titulaire02.prof_prenom, \
+                          eleve.titulaire02.prof_nom, \
+                          eleve.educateurReferent.prof_prenom, \
+                          eleve.educateurReferent.prof_nom, \
+                          urlDossier)
+        self.sendMail(sujet, message.encode('utf-8'))
+
+    def sendMailForNewEvenementActe(self, elevePk):
+        """
+        envoi d'un mail lors de la création d'un nouvel événement acté
+        """
+        eleve = self.getElevesByPk(elevePk)
+        portalUrl = getToolByName(self.context, 'portal_url')()
+        urlDossier = "%s/institut-sainte-marie/la-salle-des-profs/gestion-des-dossiers-disciplinaires/ajouter-un-evenement-au-dossier?elevePk=%s" % (portalUrl, elevePk)
+        sujet = "[ISM  :: dossier disciplinaire]"
+        message = u"""<font color='#FF0000'><b>:: Ajout d'un nouvel événement acté ::</b></font><br /><br />
+                      Bonjour, <br />
+                      Un nouvel événement acté vient d'être créé.<br />
+                      Il s'agit de l'étudiant:<br />
+                      <ul>
+                        <li>Nom : <font color='#ff9c1b'><b>%s</b></font></li>
+                        <li>Prénom : <font color='#ff9c1b'><b>%s</b></font></li>
+                        <li>Classe :  <font color='#ff9c1b'><b>%s</b></font></li>
+                        <li>Titutlaire 1 : <font color='#ff9c1b'><b>%s %s</b></font></li>
+                        <li>Titutlaire 2 : <font color='#ff9c1b'><b>%s %s</b></font></li>
+                        <li>Edicateur : <font color='#ff9c1b'><b>%s %s</b></font></li>
+                      </ul>
+                      <hr />
+                      Le dossier est accessible en cliquant <a href="%s">ici</a>
+                   """ % (eleve.eleve_nom, \
+                          eleve.eleve_prenom, \
+                          eleve.eleve_classe, \
+                          eleve.titulaire01.prof_prenom, \
+                          eleve.titulaire01.prof_nom, \
+                          eleve.titulaire02.prof_prenom, \
+                          eleve.titulaire02.prof_nom, \
+                          eleve.educateurReferent.prof_prenom, \
+                          eleve.educateurReferent.prof_nom, \
+                          urlDossier)
+        self.sendMail(sujet, message.encode('utf-8'))
+
+    def sendMailForModyfingEvenementActe(self, elevePk):
+        """
+        envoi d'un mail lors de la création d'un nouvel événement acté
+        """
+        eleve = self.getElevesByPk(elevePk)
+        portalUrl = getToolByName(self.context, 'portal_url')()
+        urlDossier = "%s/institut-sainte-marie/la-salle-des-profs/gestion-des-dossiers-disciplinaires/ajouter-un-evenement-au-dossier?elevePk=%s" % (portalUrl, elevePk)
+        sujet = "[ISM  :: dossier disciplinaire]"
+        message = u"""<font color='#FF0000'><b>:: Modification d'un événement acté ::</b></font><br /><br />
+                      Bonjour, <br />
+                      Un événement acté vient d'être modifié.<br />
+                      Il s'agit de l'étudiant:<br />
+                      <ul>
+                        <li>Nom : <font color='#ff9c1b'><b>%s</b></font></li>
+                        <li>Prénom : <font color='#ff9c1b'><b>%s</b></font></li>
+                        <li>Classe :  <font color='#ff9c1b'><b>%s</b></font></li>
+                        <li>Titutlaire 1 : <font color='#ff9c1b'><b>%s %s</b></font></li>
+                        <li>Titutlaire 2 : <font color='#ff9c1b'><b>%s %s</b></font></li>
+                        <li>Edicateur : <font color='#ff9c1b'><b>%s %s</b></font></li>
+                      </ul>
+                      <hr />
+                      Le dossier est accessible en cliquant <a href="%s">ici</a>
+                   """ % (eleve.eleve_nom, \
+                          eleve.eleve_prenom, \
+                          eleve.eleve_classe, \
+                          eleve.titulaire01.prof_prenom, \
+                          eleve.titulaire01.prof_nom, \
+                          eleve.titulaire02.prof_prenom, \
+                          eleve.titulaire02.prof_nom, \
+                          eleve.educateurReferent.prof_prenom, \
+                          eleve.educateurReferent.prof_nom, \
+                          urlDossier)
+        self.sendMail(sujet, message.encode('utf-8'))
+
 
 #### ETAT PUBLICATION ####
     def getAllEtatPublication(self):
@@ -37,6 +152,7 @@ class ManageDossierDisciplinaire(BrowserView):
         query = query.order_by(EtatPublication.etat_titre)
         allEtatPublication = query.all()
         return allEtatPublication
+
 
 #### PROFESSEURS ####
     def getAllProfesseurs(self, statutProf):
@@ -125,7 +241,7 @@ class ManageDossierDisciplinaire(BrowserView):
         """
         fields = self.request.form
 
-        elevePk =  fields.get('elevePk', None)
+        elevePk = fields.get('elevePk', None)
         eleveNom = fields.get('nomEleve', None)
         elevePrenom = fields.get('prenomEleve', None)
         eleveClasse = fields.get('classeEleve', None)
@@ -139,7 +255,7 @@ class ManageDossierDisciplinaire(BrowserView):
         wrapper = getSAWrapper('cesstex')
         session = wrapper.session
         query = session.query(Etudiant)
-        query = query.filter(Etudiant.eleve_pk==elevePk)
+        query = query.filter(Etudiant.eleve_pk == elevePk)
         eleve = query.one()
         eleve.eleve_nom = unicode(eleveNom, 'utf-8')
         eleve.eleve_prenom = unicode(elevePrenom, 'utf-8')
@@ -147,7 +263,7 @@ class ManageDossierDisciplinaire(BrowserView):
         eleve.eleve_prof_titulaire_01_fk = titulaire01Pk
         eleve.eleve_prof_titulaire_02_fk = titulaire02Pk
         eleve.eleve_educateur_referent_fk = educateurReferent
-        
+
         session.flush()
 
         portalUrl = getToolByName(self.context, 'portal_url')()
@@ -164,7 +280,7 @@ class ManageDossierDisciplinaire(BrowserView):
         """
         if not elevePk:
             fields = self.request.form
-            elevePk = fields.get('elevePk') 
+            elevePk = fields.get('elevePk')
 
         wrapper = getSAWrapper('cesstex')
         session = wrapper.session
@@ -215,7 +331,7 @@ class ManageDossierDisciplinaire(BrowserView):
         """
 
         ismTools = getMultiAdapter((self.context, self.request), name="manageISM")
-        auteurConnecte = ismTools.getUserAuthenticated()
+        #auteurConnecte = ismTools.getUserAuthenticated()
 
         dossierDisciplianireID = self.getDossierId(elevePk, eleveNom, eleveClasse)
         dossierDisciplianireAnneeScolaire = ismTools.getAnneeCourante()
@@ -234,6 +350,8 @@ class ManageDossierDisciplinaire(BrowserView):
         session.flush()
         session.refresh(newEntry)
 
+        self.sendMailForNewDossier(elevePk)
+
         return ''
 
     def deleteDossierDisciplinaire(self):
@@ -243,8 +361,8 @@ class ManageDossierDisciplinaire(BrowserView):
         fields = self.request.form
 
         dossierDisciplinairePk = fields.get('dossierDisciplinairePk')
-        elevePk = fields.get('elevePk') 
-        evenementActePk = fields.get('evenementActePk', None)
+        elevePk = fields.get('elevePk')
+        #evenementActePk = fields.get('evenementActePk', None)
         self.deleteEvenementActeByDossierDisciplinaire(dossierDisciplinairePk)
         wrapper = getSAWrapper('cesstex')
         session = wrapper.session
@@ -288,7 +406,7 @@ class ManageDossierDisciplinaire(BrowserView):
         query = query.filter(EvenementActe.eventact_pk == evenementActePk)
         evenementActe = query.one()
         return evenementActe
-    
+
     def getNombreEvenementActeByDossier(self, dossierDisciplinairePk):
         """
         Somme de tous les evenements actes pour un dossier
@@ -332,7 +450,7 @@ class ManageDossierDisciplinaire(BrowserView):
         dossierDisciplinairePk = fields.get('dossierDisciplinairePk', None)
 
         nombreEvenementActeDossier = self.getNombreEvenementActeByDossier(dossierDisciplinairePk)
-        evenementNumeroOrdre = nombreEvenementActeDossier +1
+        evenementNumeroOrdre = nombreEvenementActeDossier + 1
 
         wrapper = getSAWrapper('cesstex')
         session = wrapper.session
@@ -347,6 +465,8 @@ class ManageDossierDisciplinaire(BrowserView):
         session.flush()
         session.refresh(newEntry)
         
+        self.sendMailForNewEvenementActe(elevePk)
+
         portalUrl = getToolByName(self.context, 'portal_url')()
         ploneUtils = getToolByName(self.context, 'plone_utils')
         message = u"Le nouvel événement a bien été ajouté !"
@@ -360,8 +480,8 @@ class ManageDossierDisciplinaire(BrowserView):
         Updates un événement acté lié à un dossier
         """
         fields = self.request.form
-        
-        elevePk = fields.get('elevePk') 
+
+        elevePk = fields.get('elevePk')
         evenementActePk = fields.get('evenementActePk', None)
         evenement = fields.get('evenement', None)
         sanction = fields.get('sanction', None)
@@ -378,8 +498,9 @@ class ManageDossierDisciplinaire(BrowserView):
         evenementActe.eventact_intervenant = unicode(intervenant, 'utf-8')
         evenementActe.eventact_etat_publication_fk = etatPublication
         session.flush()
-        
+
         self.insertLogModificationEvenementActe(evenementActePk)
+        self.sendMailForModyfingEvenementActe(elevePk)
 
         portalUrl = getToolByName(self.context, 'portal_url')()
         ploneUtils = getToolByName(self.context, 'plone_utils')
@@ -395,7 +516,7 @@ class ManageDossierDisciplinaire(BrowserView):
         """
         fields = self.request.form
 
-        elevePk = fields.get('elevePk') 
+        elevePk = fields.get('elevePk')
         evenementActePk = fields.get('evenementActePk', None)
 
         self.deleteLogModificationEvenementActe()
@@ -454,7 +575,7 @@ class ManageDossierDisciplinaire(BrowserView):
 
         ismTools = getMultiAdapter((self.context, self.request), name="manageISM")
         auteurConnecte = ismTools.getUserAuthenticated()
-        
+
         wrapper = getSAWrapper('cesstex')
         session = wrapper.session
         newEntry = EvenementActeLogModification(eventactlogmodif_auteur_modification=auteurConnecte,
@@ -462,7 +583,7 @@ class ManageDossierDisciplinaire(BrowserView):
         session.add(newEntry)
         session.flush()
         session.refresh(newEntry)
-        
+
         return ''
 
     def deleteLogModificationEvenementActe(self, evenementActePk=None):
