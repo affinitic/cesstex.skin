@@ -27,14 +27,13 @@ class ManageDossierDisciplinaire(BrowserView):
     implements(IManageDossierDisciplinaire)
 
 #### ENVOI DES MAILS ####
-    def sendMail(self, sujet, message):
+    def sendMail(self, sujet, message, destinataires):
         """
         envoi de mail à clpsbw admin
         """
         mailer = Mailer("localhost", "alain.meurant@affinitic.be")
-        #mailer = Mailer("relay.skynet.be", "alain.meurant@affinitic.be, houtain@clps-bw.be" )
         mailer.setSubject(sujet)
-        mailer.setRecipients("alain.meurant@affinitic.be")
+        mailer.setRecipients(destinataires)
         mail = message
         mailer.sendAllMail(mail)
 
@@ -43,8 +42,29 @@ class ManageDossierDisciplinaire(BrowserView):
         envoi d'un mail lors de la création d'un nouveau dossier disciplinaire
         """
         eleve = self.getElevesByPk(elevePk)
+        destinataires = ''
+
+        if eleve.titulaire01:
+            destinataires = eleve.titulaire01.prof_email + ','
+            titulaire01 = '%s %s' % (eleve.titulaire01.prof_prenom, eleve.titulaire01.prof_nom)
+        else :
+            titulaire01 = ' - '
+        if eleve.titulaire02:
+            destinataires = destinataires + eleve.titulaire02.prof_email + ','
+            titulaire02 = '%s %s' % (eleve.titulaire02.prof_prenom, eleve.titulaire02.prof_nom)
+        else:
+            titulaire02 = ' - '
+        if eleve.educateurReferent:
+            destinataires = destinataires + eleve.educateurReferent.prof_email +','
+            educateurReferent = '%s %s' % (eleve.educateurReferent.prof_prenom, eleve.educateurReferent.prof_nom)
+        else:
+            educateurReferent = ' - '
+        destinataires = destinataires + 'j.montero@saintemarielalouviere.be' + ','
+        destinataires = destinataires + 'alain.meurant@affinitic.be'
+
         portalUrl = getToolByName(self.context, 'portal_url')()
         urlDossier = "%s/institut-sainte-marie/la-salle-des-profs/gestion-des-dossiers-disciplinaires/ajouter-un-evenement-au-dossier?elevePk=%s" % (portalUrl, elevePk)
+
         sujet = "[ISM  :: dossier disciplinaire]"
         message = u"""<font color='#FF0000'><b>:: Ajout d'un nouveau dossier disciplinaire ::</b></font><br /><br />
                       Bonjour, <br />
@@ -54,91 +74,121 @@ class ManageDossierDisciplinaire(BrowserView):
                         <li>Nom : <font color='#ff9c1b'><b>%s</b></font></li>
                         <li>Prénom : <font color='#ff9c1b'><b>%s</b></font></li>
                         <li>Classe :  <font color='#ff9c1b'><b>%s</b></font></li>
-                        <li>Titutlaire 1 : <font color='#ff9c1b'><b>%s %s</b></font></li>
-                        <li>Titutlaire 2 : <font color='#ff9c1b'><b>%s %s</b></font></li>
-                        <li>Edicateur : <font color='#ff9c1b'><b>%s %s</b></font></li>
+                        <li>Titutlaire 1 : <font color='#ff9c1b'><b>%s </b></font></li>
+                        <li>Titutlaire 2 : <font color='#ff9c1b'><b>%s </b></font></li>
+                        <li>Educateur : <font color='#ff9c1b'><b>%s </b></font></li>
                       </ul>
                       <hr />
                       Le dossier est accessible en cliquant <a href="%s">ici</a>
                    """ % (eleve.eleve_nom, \
                           eleve.eleve_prenom, \
                           eleve.eleve_classe, \
-                          eleve.titulaire01.prof_prenom, \
-                          eleve.titulaire01.prof_nom, \
-                          eleve.titulaire02.prof_prenom, \
-                          eleve.titulaire02.prof_nom, \
-                          eleve.educateurReferent.prof_prenom, \
-                          eleve.educateurReferent.prof_nom, \
+                          titulaire01, \
+                          titulaire02, \
+                          educateurReferent, \
                           urlDossier)
-        self.sendMail(sujet, message.encode('utf-8'))
+        self.sendMail(sujet, message.encode('utf-8'), destinataires)
 
     def sendMailForNewEvenementActe(self, elevePk):
         """
         envoi d'un mail lors de la création d'un nouvel événement acté
         """
         eleve = self.getElevesByPk(elevePk)
+        destinataires = ''
+
+        if eleve.titulaire01:
+            destinataires = eleve.titulaire01.prof_email + ','
+            titulaire01 = '%s %s' % (eleve.titulaire01.prof_prenom, eleve.titulaire01.prof_nom)
+        else :
+            titulaire01 = ' - '
+        if eleve.titulaire02:
+            destinataires = destinataires + eleve.titulaire02.prof_email + ','
+            titulaire02 = '%s %s' % (eleve.titulaire02.prof_prenom, eleve.titulaire02.prof_nom)
+        else:
+            titulaire02 = ' - '
+        if eleve.educateurReferent:
+            destinataires = destinataires + eleve.educateurReferent.prof_email +','
+            educateurReferent = '%s %s' % (eleve.educateurReferent.prof_prenom, eleve.educateurReferent.prof_nom)
+        else:
+            educateurReferent = ' - '
+        destinataires = destinataires + 'j.montero@saintemarielalouviere.be' + ','
+        destinataires = destinataires + 'alain.meurant@affinitic.be'
+
         portalUrl = getToolByName(self.context, 'portal_url')()
         urlDossier = "%s/institut-sainte-marie/la-salle-des-profs/gestion-des-dossiers-disciplinaires/ajouter-un-evenement-au-dossier?elevePk=%s" % (portalUrl, elevePk)
         sujet = "[ISM  :: dossier disciplinaire]"
         message = u"""<font color='#FF0000'><b>:: Ajout d'un nouvel événement acté ::</b></font><br /><br />
                       Bonjour, <br />
-                      Un nouvel événement acté vient d'être créé.<br />
-                      Il s'agit de l'étudiant:<br />
+                      Un nouvel événement acté vient d'être ajouté au dossier de
+                      l'étudiant:<br />
                       <ul>
                         <li>Nom : <font color='#ff9c1b'><b>%s</b></font></li>
                         <li>Prénom : <font color='#ff9c1b'><b>%s</b></font></li>
                         <li>Classe :  <font color='#ff9c1b'><b>%s</b></font></li>
-                        <li>Titutlaire 1 : <font color='#ff9c1b'><b>%s %s</b></font></li>
-                        <li>Titutlaire 2 : <font color='#ff9c1b'><b>%s %s</b></font></li>
-                        <li>Edicateur : <font color='#ff9c1b'><b>%s %s</b></font></li>
+                        <li>Titutlaire 1 : <font color='#ff9c1b'><b>%s </b></font></li>
+                        <li>Titutlaire 2 : <font color='#ff9c1b'><b>%s </b></font></li>
+                        <li>Edicateur : <font color='#ff9c1b'><b>%s </b></font></li>
                       </ul>
                       <hr />
                       Le dossier est accessible en cliquant <a href="%s">ici</a>
                    """ % (eleve.eleve_nom, \
                           eleve.eleve_prenom, \
                           eleve.eleve_classe, \
-                          eleve.titulaire01.prof_prenom, \
-                          eleve.titulaire01.prof_nom, \
-                          eleve.titulaire02.prof_prenom, \
-                          eleve.titulaire02.prof_nom, \
-                          eleve.educateurReferent.prof_prenom, \
-                          eleve.educateurReferent.prof_nom, \
+                          titulaire01, \
+                          titulaire02, \
+                          educateurReferent, \
                           urlDossier)
-        self.sendMail(sujet, message.encode('utf-8'))
+        self.sendMail(sujet, message.encode('utf-8'), destinataires)
 
     def sendMailForModyfingEvenementActe(self, elevePk):
         """
         envoi d'un mail lors de la création d'un nouvel événement acté
         """
         eleve = self.getElevesByPk(elevePk)
+        destinataires = ''
+        if eleve.titulaire01:
+            destinataires = eleve.titulaire01.prof_email + ','
+            titulaire01 = '%s %s' % (eleve.titulaire01.prof_prenom, eleve.titulaire01.prof_nom)
+        else :
+            titulaire01 = ' - '
+        if eleve.titulaire02:
+            destinataires = destinataires + eleve.titulaire02.prof_email + ','
+            titulaire02 = '%s %s' % (eleve.titulaire02.prof_prenom, eleve.titulaire02.prof_nom)
+        else:
+            titulaire02 = ' - '
+        if eleve.educateurReferent:
+            destinataires = destinataires + eleve.educateurReferent.prof_email +','
+            educateurReferent = '%s %s' % (eleve.educateurReferent.prof_prenom, eleve.educateurReferent.prof_nom)
+        else:
+            educateurReferent = ' - '
+        destinataires = destinataires + 'j.montero@saintemarielalouviere.be' + ','
+        destinataires = destinataires + 'alain.meurant@affinitic.be'
+
         portalUrl = getToolByName(self.context, 'portal_url')()
         urlDossier = "%s/institut-sainte-marie/la-salle-des-profs/gestion-des-dossiers-disciplinaires/ajouter-un-evenement-au-dossier?elevePk=%s" % (portalUrl, elevePk)
         sujet = "[ISM  :: dossier disciplinaire]"
         message = u"""<font color='#FF0000'><b>:: Modification d'un événement acté ::</b></font><br /><br />
                       Bonjour, <br />
-                      Un événement acté vient d'être modifié.<br />
-                      Il s'agit de l'étudiant:<br />
+                      Un événement acté vient d'être modifié dans le dossier de
+                      l'étudiant:<br />
                       <ul>
                         <li>Nom : <font color='#ff9c1b'><b>%s</b></font></li>
                         <li>Prénom : <font color='#ff9c1b'><b>%s</b></font></li>
                         <li>Classe :  <font color='#ff9c1b'><b>%s</b></font></li>
-                        <li>Titutlaire 1 : <font color='#ff9c1b'><b>%s %s</b></font></li>
-                        <li>Titutlaire 2 : <font color='#ff9c1b'><b>%s %s</b></font></li>
-                        <li>Edicateur : <font color='#ff9c1b'><b>%s %s</b></font></li>
+                        <li>Titutlaire 1 : <font color='#ff9c1b'><b>%s </b></font></li>
+                        <li>Titutlaire 2 : <font color='#ff9c1b'><b>%s </b></font></li>
+                        <li>Edicateur : <font color='#ff9c1b'><b>%s </b></font></li>
                       </ul>
                       <hr />
                       Le dossier est accessible en cliquant <a href="%s">ici</a>
                    """ % (eleve.eleve_nom, \
                           eleve.eleve_prenom, \
                           eleve.eleve_classe, \
-                          eleve.titulaire01.prof_prenom, \
-                          eleve.titulaire01.prof_nom, \
-                          eleve.titulaire02.prof_prenom, \
-                          eleve.titulaire02.prof_nom, \
-                          eleve.educateurReferent.prof_prenom, \
-                          eleve.educateurReferent.prof_nom, \
+                          titulaire01, \
+                          titulaire02, \
+                          educateurReferent, \
                           urlDossier)
-        self.sendMail(sujet, message.encode('utf-8'))
+        self.sendMail(sujet, message.encode('utf-8'), destinataires)
 
 
 #### ETAT PUBLICATION ####
