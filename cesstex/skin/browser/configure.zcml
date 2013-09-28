@@ -177,7 +177,7 @@
         name="ajouter-un-dossier-disciplinaire"
         for="*"
         template="templates/ism/dossier_disciplinaire/dossier_disciplinaire_ajouter.pt"
-        permission="zope.Public"
+        permission="cesstex.ProfISM"
         class=".ManageDossierDisciplinaire.ManageDossierDisciplinaire"
         allowed_interface=".interfaces.IManageDossierDisciplinaire" />
 
@@ -185,7 +185,7 @@
         name="modifier-un-dossier-disciplinaire"
         for="*"
         template="templates/ism/dossier_disciplinaire/dossier_disciplinaire_modifier.pt"
-        permission="zope.Public"
+        permission="cesstex.ProfISM"
         class=".ManageDossierDisciplinaire.ManageDossierDisciplinaire"
         allowed_interface=".interfaces.IManageDossierDisciplinaire" />
 
@@ -193,7 +193,7 @@
         name="supprimer-un-dossier-disciplinaire"
         for="*"
         template="templates/ism/dossier_disciplinaire/dossier_disciplinaire_supprimer.pt"
-        permission="zope.Public"
+        permission="cesstex.ProfISM"
         class=".ManageDossierDisciplinaire.ManageDossierDisciplinaire"
         allowed_interface=".interfaces.IManageDossierDisciplinaire" />
 
@@ -201,7 +201,7 @@
         name="deleteDossierDisciplinaire"
         for="*"
         class=".ManageDossierDisciplinaire.ManageDossierDisciplinaire"
-        permission="zope.Public"
+        permission="cesstex.ProfISM"
         attribute="deleteDossierDisciplinaire"
         allowed_interface=".interfaces.IManageDossierDisciplinaire" />
 
@@ -210,7 +210,7 @@
         name="insertEleve"
         for="*"
         class=".ManageDossierDisciplinaire.ManageDossierDisciplinaire"
-        permission="zope.Public"
+        permission="cesstex.ProfISM"
         attribute="insertEleve"
         allowed_interface=".interfaces.IManageDossierDisciplinaire" />
 
@@ -218,7 +218,7 @@
         name="updateEleve"
         for="*"
         class=".ManageDossierDisciplinaire.ManageDossierDisciplinaire"
-        permission="zope.Public"
+        permission="cesstex.ProfISM"
         attribute="updateEleve"
         allowed_interface=".interfaces.IManageDossierDisciplinaire" />
 
@@ -226,7 +226,7 @@
         name="deleteEleve"
         for="*"
         class=".ManageDossierDisciplinaire.ManageDossierDisciplinaire"
-        permission="zope.Public"
+        permission="cesstex.ProfISM"
         attribute="deleteEleve"
         allowed_interface=".interfaces.IManageDossierDisciplinaire" />
 
@@ -236,7 +236,7 @@
         name="ajouter-un-evenement-au-dossier"
         for="*"
         template="templates/ism/dossier_disciplinaire/evenement_acte_ajouter.pt"
-        permission="zope.Public"
+        permission="cesstex.ProfISM"
         class=".ManageDossierDisciplinaire.ManageDossierDisciplinaire"
         allowed_interface=".interfaces.IManageDossierDisciplinaire" />
 
@@ -244,7 +244,7 @@
         name="modifier-un-evenement-du-dossier"
         for="*"
         template="templates/ism/dossier_disciplinaire/evenement_acte_modifier.pt"
-        permission="zope.Public"
+        permission="cesstex.ProfISM"
         class=".ManageDossierDisciplinaire.ManageDossierDisciplinaire"
         allowed_interface=".interfaces.IManageDossierDisciplinaire" />
 
@@ -252,7 +252,7 @@
         name="supprimer-un-evenement-du-dossier"
         for="*"
         template="templates/ism/dossier_disciplinaire/evenement_acte_supprimer.pt"
-        permission="zope.Public"
+        permission="cesstex.ProfISM"
         class=".ManageDossierDisciplinaire.ManageDossierDisciplinaire"
         allowed_interface=".interfaces.IManageDossierDisciplinaire" />
 
@@ -261,7 +261,7 @@
         name="insertEvenementActe"
         for="*"
         class=".ManageDossierDisciplinaire.ManageDossierDisciplinaire"
-        permission="zope.Public"
+        permission="cesstex.ProfISM"
         attribute="insertEvenementActe"
         allowed_interface=".interfaces.IManageDossierDisciplinaire" />
 
@@ -269,7 +269,7 @@
         name="updateEvenementActe"
         for="*"
         class=".ManageDossierDisciplinaire.ManageDossierDisciplinaire"
-        permission="zope.Public"
+        permission="cesstex.ProfISM"
         attribute="updateEvenementActe"
         allowed_interface=".interfaces.IManageDossierDisciplinaire" />
 
@@ -277,7 +277,7 @@
         name="deleteEvenementActe"
         for="*"
         class=".ManageDossierDisciplinaire.ManageDossierDisciplinaire"
-        permission="zope.Public"
+        permission="cesstex.ProfISM"
         attribute="deleteEvenementActe"
         allowed_interface=".interfaces.IManageDossierDisciplinaire" />
 
@@ -287,7 +287,7 @@
         name="chercher-un-professeur"
         for="*"
         template="templates/ism/gestion_profs/admin_professeur_chercher.pt"
-        permission="zope.Public"
+        permission="cesstex.ProfISM"
         class=".ManageISM.ManageISM"
         allowed_interface=".interfaces.IManageISM" />
 
@@ -295,7 +295,7 @@
         name="ajouter-un-professeur"
         for="*"
         template="templates/ism/gestion_profs/admin_professeur_ajouter.pt"
-        permission="zope.Public"
+        permission="cesstex.ProfISM"
         class=".ManageISM.ManageISM"
         allowed_interface=".interfaces.IManageISM" />
 
@@ -303,7 +303,7 @@
         name="modifier-un-professeur"
         for="*"
         template="templates/ism/gestion_profs/admin_professeur_modifier.pt"
-        permission="zope.Public"
+        permission="cesstex.ProfISM"
         class=".ManageISM.ManageISM"
         allowed_interface=".interfaces.IManageISM" />
 
@@ -311,7 +311,7 @@
         name="supprimer-un-professeur"
         for="*"
         template="templates/ism/gestion_profs/admin_professeur_supprimer.pt"
-        permission="zope.Public"
+        permission="cesstex.ProfISM"
         class=".ManageISM.ManageISM"
         allowed_interface=".interfaces.IManageISM" />
 
@@ -320,7 +320,7 @@
         name="insertProfesseur"
         for="*"
         class=".ManageISM.ManageISM"
-        permission="zope.Public"
+        permission="cesstex.ProfISM"
         attribute="insertProfesseur"
         allowed_interface=".interfaces.IManageISM" />
 
@@ -328,7 +328,7 @@
         name="updateProfesseur"
         for="*"
         class=".ManageISM.ManageISM"
-        permission="zope.Public"
+        permission="cesstex.ProfISM"
         attribute="updateProfesseur"
         allowed_interface=".interfaces.IManageISM" />
 
@@ -336,7 +336,7 @@
         name="deleteProfesseur"
         for="*"
         class=".ManageISM.ManageISM"
-        permission="zope.Public"
+        permission="cesstex.ProfISM"
         attribute="deleteProfesseur"
         allowed_interface=".interfaces.IManageISM" />
 

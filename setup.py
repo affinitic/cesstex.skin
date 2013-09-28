@@ -25,6 +25,7 @@ setup(name='cesstex.skin',
       zip_safe=False,
       install_requires=[
           'setuptools',
+          'collective.autopermission',
           # -*- Extra requirements: -*-
       ],
       entry_points="""
