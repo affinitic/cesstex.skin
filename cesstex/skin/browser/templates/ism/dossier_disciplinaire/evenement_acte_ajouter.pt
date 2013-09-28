@@ -151,8 +151,11 @@
                 <div class="visualClear"></div>
                 <ul>
                     <li>
-                        <span class="etiquette-db">Date de l'encodage :</span> <br />
+                        <span class="etiquette-db">Date de l'encodage et auteur :</span> <br />
                         <span tal:content="python: evenement.eventact_date_creation.strftime('%d/%m/%Y - %H:%M')"
+                              class="donnee-db">date creation</span>
+                        par
+                        <span tal:content="python: evenement.eventact_auteur_creation"
                               class="donnee-db">date creation</span>
                     </li>
                     <li>
