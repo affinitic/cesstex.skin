@@ -36,6 +36,7 @@
                  evenements python: view.getAllEvenementByDossier(dossierDisciplinairePk)">
 
     <h1>Gestion des dossiers disciplinaires</h1>
+    <a href="ajouter-un-dossier-disciplinaire" class="discreet">&larr; Liste des dossier</a>
     <div class="formulaire">
         <h2 class="formulaire-titre">
             Dossier disciplianire de
@@ -321,6 +322,7 @@
             </div>
         </form>
     </div>
+    <a href="ajouter-un-dossier-disciplinaire" class="discreet">&larr; Liste des dossier</a>
 </div><!-- div metal-->
 </body>
 </html>
