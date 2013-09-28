@@ -156,7 +156,7 @@
                               class="donnee-db">date creation</span>
                     </li>
                     <li>
-                        <span class="etiquette-db">Evénement :</span> <br />
+                        <span class="etiquette-db">Evénement et sa date :</span> <br />
                         <span tal:content="evenement/eventact_evenement"
                               class="donnee-db">evenement</span>
                     </li>
