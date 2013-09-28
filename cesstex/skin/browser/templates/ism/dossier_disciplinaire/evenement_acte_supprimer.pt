@@ -9,11 +9,15 @@
                  tal:define="dummy python:request.set('disable_border',1)" />
 
     <metal:js fill-slot="javascript_head_slot">
-        <script src="++resource++collective.javascript.jqueryui/js/jquery-1.4.2.min.js" type="text/javascript"></script>
-        <script src="++resource++collective.javascript.jqueryui/js/jquery-ui.min.js" type="text/javascript"></script>
+        <script src="++resource++collective.javascript.jqueryui/js/jquery-1.4.2.min.js"
+                type="text/javascript"></script>
+        <script src="++resource++collective.javascript.jqueryui/js/jquery-ui.min.js"
+                type="text/javascript"></script>
 
-        <script src="validate_forms.js" type="text/javascript"></script>
-        <script src="++resource++ism.js" type="text/javascript"></script>
+        <script src="validate_forms.js"
+                type="text/javascript"></script>
+        <script src="++resource++ism.js"
+                type="text/javascript"></script>
     </metal:js>
     <metal:css fill-slot="style_slot">
         <link href="++resource++collective.javascript.jqueryui/css/ui-lightness/jquery-ui.css" type="text/css" rel="stylesheet" />
@@ -97,8 +101,8 @@
         </div><!--info-dossier-->
         <div class="visualClear"></div>
     </div>
-    
-    <div class="formulaire">        
+
+    <div class="formulaire">
         <h2 class="formulaire-titre">
             <img src="images/alerte.png" />
             Supprimer cet événement
@@ -106,7 +110,7 @@
         <form action="deleteEvenementActe"
               method="post">
             <div class="formulaire-input">
-                <label for="evenement">Evénement</label>
+                <label for="evenement">Evénement et sa date</label>
                 <span tal:content="evenement/eventact_evenement"></span>
             </div>
             <div class="formulaire-input">
