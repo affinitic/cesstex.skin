@@ -155,8 +155,12 @@
                         <span tal:content="python: evenement.eventact_date_creation.strftime('%d/%m/%Y - %H:%M')"
                               class="donnee-db">date creation</span>
                         par
-                        <span tal:content="python: evenement.eventact_auteur_creation"
-                              class="donnee-db">date creation</span>
+                        <tal:block tal:define="professeurAuteur python: view.getProfesseursByLogin( evenement.eventact_auteur_creation)">
+                              <span tal:content="professeurAuteur/prof_prenom"
+                                    class="donnee-db" />
+                               <span tal:content="professeurAuteur/prof_nom"
+                                    class="donnee-db" />
+                        </tal:block>
                     </li>
                     <li>
                         <span class="etiquette-db">Evénement et sa date :</span> <br />

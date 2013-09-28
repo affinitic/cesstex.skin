@@ -217,6 +217,17 @@ class ManageDossierDisciplinaire(BrowserView):
         allProfesseurs = query.all()
         return allProfesseurs
 
+    def getProfesseursByLogin(self, loginProf):
+        """
+        recuperation de tous les professseurs
+        """
+        wrapper = getSAWrapper('cesstex')
+        session = wrapper.session
+        query = session.query(Professeur)
+        query = query.filter(Professeur.prof_login == loginProf)
+        professeur = query.one()
+        return professeur
+
 
 #### ELEVES ####
     def getAllEleves(self):
@@ -514,7 +525,7 @@ class ManageDossierDisciplinaire(BrowserView):
         session.add(newEntry)
         session.flush()
         session.refresh(newEntry)
-        
+
         self.sendMailForNewEvenementActe(elevePk)
 
         portalUrl = getToolByName(self.context, 'portal_url')()
