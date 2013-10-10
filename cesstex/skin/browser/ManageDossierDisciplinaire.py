@@ -35,7 +35,7 @@ class ManageDossierDisciplinaire(BrowserView):
         mailer.setSubject(sujet)
         mailer.setRecipients(destinataires)
         mail = message
-        mailer.sendAllMail(mail)
+        #mailer.sendAllMail(mail)
 
     def sendMailForNewDossier(self, elevePk):
         """
@@ -47,7 +47,7 @@ class ManageDossierDisciplinaire(BrowserView):
         if eleve.titulaire01:
             destinataires = eleve.titulaire01.prof_email + ','
             titulaire01 = '%s %s' % (eleve.titulaire01.prof_prenom, eleve.titulaire01.prof_nom)
-        else :
+        else:
             titulaire01 = ' - '
         if eleve.titulaire02:
             destinataires = destinataires + eleve.titulaire02.prof_email + ','
@@ -61,7 +61,7 @@ class ManageDossierDisciplinaire(BrowserView):
             educateurReferent = ' - '
         destinataires = destinataires + 'j.montero@saintemarielalouviere.be' + ',' + 'c.bocquet@saintemarielalouviere.be' + ','
         destinataires = destinataires + 'alain.meurant@affinitic.be'
-        
+
         portalUrl = getToolByName(self.context, 'portal_url')()
         urlDossier = "%s/institut-sainte-marie/la-salle-des-profs/gestion-des-dossiers-disciplinaires/ajouter-un-evenement-au-dossier?elevePk=%s" % (portalUrl, elevePk)
 
@@ -384,7 +384,7 @@ class ManageDossierDisciplinaire(BrowserView):
         wrapper = getSAWrapper('cesstex')
         session = wrapper.session
         query = session.query(DossierDisciplinaire)
-        query = query.filter(DossierDisciplinaire.dosdis_pk == elevePk)
+        query = query.filter(DossierDisciplinaire.dosdis_eleve_fk == elevePk)
         dossierEleve = query.one()
         return dossierEleve
 
@@ -394,13 +394,15 @@ class ManageDossierDisciplinaire(BrowserView):
         """
 
         ismTools = getMultiAdapter((self.context, self.request), name="manageISM")
-        #auteurConnecte = ismTools.getUserAuthenticated()
+        loginProf = ismTools.getUserAuthenticated()
+        profAuteur = self.getProfesseursByLogin(loginProf)
 
         dossierDisciplianireID = self.getDossierId(elevePk, eleveNom, eleveClasse)
         dossierDisciplianireAnneeScolaire = ismTools.getAnneeCourante()
         dossierDisciplianireElevePk = elevePk
-# XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-        dossierDisciplianireAuteurPk = 2
+        dossierDisciplianireAuteurPk = profAuteur.prof_pk
+
+        import pdb ; pdb.set_trace()
 
         wrapper = getSAWrapper('cesstex')
         session = wrapper.session
