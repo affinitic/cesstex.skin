@@ -35,8 +35,24 @@
                  dossierDisciplinairePk dossier/dosdis_pk;
                  evenements python: view.getAllEvenementByDossier(dossierDisciplinairePk)">
 
+    <div class="btn-print-listing">
+        <div class="btn-retour-listing-dossier">
+            <a href="ajouter-un-dossier-disciplinaire"
+               class="discreet">&larr; Liste des dossiers</a>
+        </div>
+        <div class="print-this-button">
+            <a href="javascript:this.print();"
+               title="Print this"
+               i18n:attributes="title print_this">
+                <img alt="Print this"
+                     src="icon_print.gif"
+                     i18n:attributes="alt print_this">
+            </a>
+        </div>
+        <div class="visualClear"></div>
+    </div>
+
     <h1>Gestion des dossiers disciplinaires</h1>
-    <a href="ajouter-un-dossier-disciplinaire" class="discreet">&larr; Liste des dossiers</a>
     <div class="formulaire">
         <h2 class="formulaire-titre">
             Dossier disciplianire de
@@ -222,8 +238,8 @@
                     </div>
                     <div class="visualClear"></div>
                 </div>
-
-                <span id="declencheur">Historique &darr;</span>
+                
+                <div id="declencheur">Historique &darr;</div>
                 <div class="evenement-historique"
                      tal:condition="python: len(evenements)>0">
                     <p>
@@ -256,7 +272,8 @@
         </tal:block>
     </div>
 
-    <div class="formulaire">
+    <div id="insertEvenementActeForm"
+         class="formulaire">
         <h2 class="formulaire-titre">Ajouter un nouvel événement au dossier</h2>
         <form action="insertEvenementActe"
               method="post">
@@ -322,7 +339,24 @@
             </div>
         </form>
     </div>
-    <a href="ajouter-un-dossier-disciplinaire" class="discreet">&larr; Liste des dossiers</a>
+
+    <div class="btn-print-listing">
+        <div class="btn-retour-listing-dossier">
+            <a href="ajouter-un-dossier-disciplinaire"
+               class="discreet">&larr; Liste des dossiers</a>
+        </div>
+        <div class="print-this-button">
+            <a href="javascript:this.print();"
+               title="Print this"
+               i18n:attributes="title print_this">
+                <img alt="Print this"
+                     src="icon_print.gif"
+                     i18n:attributes="alt print_this">
+            </a>
+        </div>
+        <div class="visualClear"></div>
+    </div>
+
 </div><!-- div metal-->
 </body>
 </html>

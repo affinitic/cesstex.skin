@@ -26,9 +26,9 @@ div, p, ul, dl, ol {
     width: auto;
 }
 ul, ol, dl {
-    padding-right: 0.5em;	
+    padding-right: 0.5em;
 }
-ul { 
+ul {
     list-style-type: square;
 }
 .documentDescription {
@@ -115,7 +115,7 @@ display:none;
 display:none;
 }
 
-.bloc-event{  
+.bloc-event{
 /*page-break-after:always;*/ 
 /*border:1px solid #0f0;*/
 page-break-inside:avoid;
@@ -152,7 +152,7 @@ color:#0000ff;
 
 .ism-event-info{
 margin:15px 0px 5px 0px;
-}  
+}
 
 .ism-event-subject{
 text-align:right;
@@ -164,7 +164,7 @@ color:#888;
 font-size:12pt;
 font-variant:small-caps;
 color:#555;                    /*#5fb1a6;*/
-} 
+}
 
 #ism-event-auteur{
 border-top:1px dashed #ccc;
@@ -172,3 +172,45 @@ font-size:9pt;
 color:#888;
 }
 
+
+/**** ISM DOSSIER DISCIPLINAIRE ****/
+.menu-gestion-dossier,
+#print-this-button,
+#insertEvenementActeForm,
+.btn-print-listing{
+display:none;
+}
+
+#info-eleve,
+#info-dossier,
+.evenement-acte{
+margin:1em 0;
+border:1px dotted #777;
+border-radius:12px;
+}
+
+div.evenement-acte li{
+margin-top:15px;
+}
+
+div.numero-evenement-acte{
+margin:6px 0px 0px 10px;
+font-weight:bold;
+}
+
+.etiquette-db{
+font-style:italic;
+color:#888;
+}
+
+div#declencheur{
+width:85%;
+border-top:1px dotted #999;
+margin:auto;
+color:#999;
+}
+
+.evenement-historique{
+margin-left:70px;
+color:#999;
+}
