@@ -33,120 +33,121 @@
                  dossierDisciplinairePk dossier/dosdis_pk;
                  evenementActePk request/evenementActePk;
                  evenement python: view.getEvenementByPk(evenementActePk)">
+    <div tal:condition="python:user.has_role(['Manager'], here)">
+        <h1>Gestion des dossiers disciplinaires</h1>
+        <div class="formulaire">
+            <h2 class="formulaire-titre">
+                Dossier disciplianire de
+                <span tal:content="eleve/eleve_nom">nom eleve</span>
+                <span tal:content="eleve/eleve_prenom">prenom eleve</span>
+            </h2>
+            <div id="info-eleve">
+                <ul>
+                    <li>
+                        <span class="etiquette-db">Elève :</span><br />
+                        <span tal:content="eleve/eleve_nom" class="donnee-db">nom eleve</span>
+                        <span tal:content="eleve/eleve_prenom" class="donnee-db">prenom eleve</span>
+                    </li>
+                    <li>
+                        <span class="etiquette-db">Classe :</span><br />
+                        <span tal:content="eleve/eleve_classe" class="donnee-db">classe eleve</span>
+                    </li>
+                    <li>
+                        <span class="etiquette-db">Educateur référent :</span><br />
+                        <span tal:content="eleve/educateurReferent/prof_nom" class="donnee-db">titulaire 1</span>
+                        <span tal:content="eleve/educateurReferent/prof_prenom" class="donnee-db">titulaire 1</span>
+                    </li>
+                    <li>
+                        <span class="etiquette-db">Titulaire 1 :</span><br />
+                        <span tal:content="eleve/titulaire01/prof_nom" class="donnee-db">titulaire 1</span>
+                        <span tal:content="eleve/titulaire01/prof_prenom" class="donnee-db">titulaire 1</span>
+                    </li>
+                    <li>
+                        <span class="etiquette-db">Titulaire 2 :</span><br />
+                        <span tal:content="eleve/titulaire02/prof_nom" class="donnee-db">titulaire 1</span>
+                        <span tal:content="eleve/titulaire02/prof_prenom" class="donnee-db">titulaire 1</span>
+                    </li>
+                </ul>
+            </div><!--table-donne-db-->
+            <div id="info-dossier">
+                <ul>
+                    <li>
+                        <span class="etiquette-db">Date de création :</span><br />
+                        <span tal:content="python: dossier.dosdis_date_creation.strftime('%d/%m/%Y - %H:%M')"
+                              class="donnee-db">date creation</span>
+                    </li>
+                    <li>
+                        <span class="etiquette-db">Année scolaire :</span><br />
+                        <span tal:content="dossier/dosdis_annee_scolaire"
+                              class="donnee-db">annee scolaire</span>
+                    </li>
+                    <li>
+                        <span class="etiquette-db">Etat du dossier :</span><br />
+                        <span tal:condition="python: dossier.dosdis_actif==True">
+                            <span class="vert-actif ">Dossier actif</span>
+                        </span>
+                        <span tal:condition="python: dossier.dosdis_actif==False">
+                            <span class="rouge-non-actif">Dossier désactivé</span>
+                        </span>
+                    </li>
+                    <li>
+                        <span class="etiquette-db">Auteur :</span><br />
+                        <span tal:content="dossier/auteur/prof_nom"
+                              class="donnee-db">auteur</span>
+                        <span tal:content="dossier/auteur/prof_prenom"
+                              class="donnee-db">auteur</span>
+                    </li>
+                </ul>
+            </div><!--info-dossier-->
+            <div class="visualClear"></div>
+        </div>
 
-    <h1>Gestion des dossiers disciplinaires</h1>
-    <div class="formulaire">
-        <h2 class="formulaire-titre">
-            Dossier disciplianire de
-            <span tal:content="eleve/eleve_nom">nom eleve</span>
-            <span tal:content="eleve/eleve_prenom">prenom eleve</span>
-        </h2>
-        <div id="info-eleve">
-            <ul>
-                <li>
-                    <span class="etiquette-db">Elève :</span><br />
-                    <span tal:content="eleve/eleve_nom" class="donnee-db">nom eleve</span>
-                    <span tal:content="eleve/eleve_prenom" class="donnee-db">prenom eleve</span>
-                </li>
-                <li>
-                    <span class="etiquette-db">Classe :</span><br />
-                    <span tal:content="eleve/eleve_classe" class="donnee-db">classe eleve</span>
-                </li>
-                <li>
-                    <span class="etiquette-db">Educateur référent :</span><br />
-                    <span tal:content="eleve/educateurReferent/prof_nom" class="donnee-db">titulaire 1</span>
-                    <span tal:content="eleve/educateurReferent/prof_prenom" class="donnee-db">titulaire 1</span>
-                </li>
-                <li>
-                    <span class="etiquette-db">Titulaire 1 :</span><br />
-                    <span tal:content="eleve/titulaire01/prof_nom" class="donnee-db">titulaire 1</span>
-                    <span tal:content="eleve/titulaire01/prof_prenom" class="donnee-db">titulaire 1</span>
-                </li>
-                <li>
-                    <span class="etiquette-db">Titulaire 2 :</span><br />
-                    <span tal:content="eleve/titulaire02/prof_nom" class="donnee-db">titulaire 1</span>
-                    <span tal:content="eleve/titulaire02/prof_prenom" class="donnee-db">titulaire 1</span>
-                </li>
-            </ul>
-        </div><!--table-donne-db-->
-        <div id="info-dossier">
-            <ul>
-                <li>
-                    <span class="etiquette-db">Date de création :</span><br />
-                    <span tal:content="python: dossier.dosdis_date_creation.strftime('%d/%m/%Y - %H:%M')"
-                          class="donnee-db">date creation</span>
-                </li>
-                <li>
-                    <span class="etiquette-db">Année scolaire :</span><br />
-                    <span tal:content="dossier/dosdis_annee_scolaire"
-                          class="donnee-db">annee scolaire</span>
-                </li>
-                <li>
-                    <span class="etiquette-db">Etat du dossier :</span><br />
-                    <span tal:condition="python: dossier.dosdis_actif==True">
-                        <span class="vert-actif ">Dossier actif</span>
+        <div class="formulaire">
+            <h2 class="formulaire-titre">
+                <img src="images/alerte.png" />
+                Supprimer cet événement
+            </h2>
+            <form action="deleteEvenementActe"
+                  method="post">
+                <div class="formulaire-input">
+                    <label for="evenement">Evénement et sa date</label>
+                    <span tal:content="evenement/eventact_evenement"></span>
+                </div>
+                <div class="formulaire-input">
+                    <label for="sanction">Sanction</label>
+                    <span tal:content="evenement/eventact_sanction"></span>
+                </div>
+                <div class="formulaire-input">
+                    <label for="intervenant">Suivi - Intervenant(s) - Ressources</label>
+                    <span tal:content="evenement/eventact_intervenant"></span>
+                </div>
+                <div class="formulaire-input">
+                    <label for="titulaire02Pk">Etat</label>
+                    <span tal:condition="python: evenement.eventact_etat_publication_fk==2">
+                        <span class="vert-actif">Visible Membre</span>
                     </span>
-                    <span tal:condition="python: dossier.dosdis_actif==False">
-                        <span class="rouge-non-actif">Dossier désactivé</span>
+                    <span tal:condition="python: evenement.eventact_etat_publication_fk==1">
+                        <span class="rouge-non-actif">Privé</span>
                     </span>
-                </li>
-                <li>
-                    <span class="etiquette-db">Auteur :</span><br />
-                    <span tal:content="dossier/auteur/prof_nom"
-                          class="donnee-db">auteur</span>
-                    <span tal:content="dossier/auteur/prof_prenom"
-                          class="donnee-db">auteur</span>
-                </li>
-            </ul>
-        </div><!--info-dossier-->
-        <div class="visualClear"></div>
-    </div>
-
-    <div class="formulaire">
-        <h2 class="formulaire-titre">
-            <img src="images/alerte.png" />
-            Supprimer cet événement
-        </h2>
-        <form action="deleteEvenementActe"
-              method="post">
-            <div class="formulaire-input">
-                <label for="evenement">Evénement et sa date</label>
-                <span tal:content="evenement/eventact_evenement"></span>
-            </div>
-            <div class="formulaire-input">
-                <label for="sanction">Sanction</label>
-                <span tal:content="evenement/eventact_sanction"></span>
-            </div>
-            <div class="formulaire-input">
-                <label for="intervenant">Suivi - Intervenant(s) - Ressources</label>
-                <span tal:content="evenement/eventact_intervenant"></span>
-            </div>
-            <div class="formulaire-input">
-                <label for="titulaire02Pk">Etat</label>
-                <span tal:condition="python: evenement.eventact_etat_publication_fk==2">
-                    <span class="vert-actif">Visible Membre</span>
-                </span>
-                <span tal:condition="python: evenement.eventact_etat_publication_fk==1">
-                    <span class="rouge-non-actif">Privé</span>
-                </span>
-            </div>
-            <div class="formulaire-submit">
-                <input type="hidden"
-                       name="operation"
-                       value="insert" />
-                <input type="hidden"
-                       name="evenementActePk"
-                       value=""
-                       tal:attributes="value evenementActePk" />
-                <input type="hidden"
-                       name="elevePk"
-                       value=""
-                       tal:attributes="value elevePk" />
-                <input type="submit"
-                       value="Supprimer cet événement" />
-            </div>
-        </form>
-    </div>
+                </div>
+                <div class="formulaire-submit">
+                    <input type="hidden"
+                           name="operation"
+                           value="insert" />
+                    <input type="hidden"
+                           name="evenementActePk"
+                           value=""
+                           tal:attributes="value evenementActePk" />
+                    <input type="hidden"
+                           name="elevePk"
+                           value=""
+                           tal:attributes="value elevePk" />
+                    <input type="submit"
+                           value="Supprimer cet événement" />
+                </div>
+            </form>
+        </div>
+    </div><!-- tal condition -->
 </div><!-- div metal-->
 </body>
 </html>

@@ -402,8 +402,6 @@ class ManageDossierDisciplinaire(BrowserView):
         dossierDisciplianireElevePk = elevePk
         dossierDisciplianireAuteurPk = profAuteur.prof_pk
 
-        import pdb ; pdb.set_trace()
-
         wrapper = getSAWrapper('cesstex')
         session = wrapper.session
         newEntry = DossierDisciplinaire(dosdis_id=dossierDisciplianireID,
