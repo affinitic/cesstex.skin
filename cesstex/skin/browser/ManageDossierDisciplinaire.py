@@ -34,8 +34,8 @@ class ManageDossierDisciplinaire(BrowserView):
         mailer = Mailer("localhost", "alain.meurant@affinitic.be")
         mailer.setSubject(sujet)
         mailer.setRecipients(destinataires)
-        mail = message
-        #mailer.sendAllMail(mail)
+        imail = message
+        mailer.sendAllMail(mail)
 
     def sendMailForNewDossier(self, elevePk):
         """
