@@ -136,7 +136,8 @@
                 </form>
             </div>
 
-            <div class="bouton-supprimer">
+            <div class="bouton-supprimer"
+                 tal:condition="python:user.has_role(['Manager'], here)">
                 <form action="supprimer-un-dossier-disciplinaire"
                       method="post">
                       <input type="hidden"
