@@ -177,7 +177,9 @@ color:#888;
 .menu-gestion-dossier,
 #print-this-button,
 #insertEvenementActeForm,
-.btn-print-listing{
+.btn-print-listing,
+#declencheur,
+.evenement-historique{
 display:none;
 }
 
@@ -203,14 +205,3 @@ font-style:italic;
 color:#888;
 }
 
-div#declencheur{
-width:85%;
-border-top:1px dotted #999;
-margin:auto;
-color:#999;
-}
-
-.evenement-historique{
-margin-left:70px;
-color:#999;
-}

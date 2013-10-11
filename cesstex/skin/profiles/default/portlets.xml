@@ -2,11 +2,13 @@
 <portlets>
 
     <!-- Portlet type registrations -->
+    <!--
     <portlet
        addview="cesstex.agendaIsm"
        title="Agenda ISM"
        description="Portlet qui permetd'afficher les events de institut sainte marie" />
-
+     -->
+    
    <portlet
        addview="cesstex.agendaIst"
        title="Agenda IST"

@@ -26,6 +26,7 @@
 </head>
 
 <body>
+<div tal:condition="python:user.has_role(['Manager'], here)">
 <div metal:fill-slot="main"
      tal:define="elevePk request/elevePk;
                  eleve python: view.getElevesByPk(elevePk);
@@ -33,7 +34,7 @@
                  dossierDisciplinairePk dossier/dosdis_pk;
                  evenementActePk request/evenementActePk;
                  evenement python: view.getEvenementByPk(evenementActePk)">
-    <div tal:condition="python:user.has_role(['Manager'], here)">
+
         <h1>Gestion des dossiers disciplinaires</h1>
         <div class="formulaire">
             <h2 class="formulaire-titre">
@@ -147,8 +148,8 @@
                 </div>
             </form>
         </div>
-    </div><!-- tal condition -->
 </div><!-- div metal-->
+</div><!-- tal condition -->
 </body>
 </html>
 

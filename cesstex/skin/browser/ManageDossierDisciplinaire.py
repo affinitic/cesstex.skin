@@ -35,7 +35,8 @@ class ManageDossierDisciplinaire(BrowserView):
         mailer.setSubject(sujet)
         mailer.setRecipients(destinataires)
         mail = message
-        mailer.sendAllMail(mail)
+        print "XXX > MAIL PARTI < XXX"
+        #mailer.sendAllMail(mail)
 
     def sendMailForNewDossier(self, elevePk):
         """
@@ -55,7 +56,7 @@ class ManageDossierDisciplinaire(BrowserView):
         else:
             titulaire02 = ' - '
         if eleve.educateurReferent:
-            destinataires = destinataires + eleve.educateurReferent.prof_email +','
+            destinataires = destinataires + eleve.educateurReferent.prof_email + ','
             educateurReferent = '%s %s' % (eleve.educateurReferent.prof_prenom, eleve.educateurReferent.prof_nom)
         else:
             educateurReferent = ' - '
@@ -528,7 +529,8 @@ class ManageDossierDisciplinaire(BrowserView):
         session.flush()
         session.refresh(newEntry)
 
-        self.sendMailForNewEvenementActe(elevePk)
+        if int(etatPublication) == 2:
+            self.sendMailForNewEvenementActe(elevePk)
 
         portalUrl = getToolByName(self.context, 'portal_url')()
         ploneUtils = getToolByName(self.context, 'plone_utils')
@@ -563,7 +565,9 @@ class ManageDossierDisciplinaire(BrowserView):
         session.flush()
 
         self.insertLogModificationEvenementActe(evenementActePk)
-        self.sendMailForModyfingEvenementActe(elevePk)
+        
+        if int(etatPublication) == 2:
+            self.sendMailForModyfingEvenementActe(elevePk)
 
         portalUrl = getToolByName(self.context, 'portal_url')()
         ploneUtils = getToolByName(self.context, 'plone_utils')

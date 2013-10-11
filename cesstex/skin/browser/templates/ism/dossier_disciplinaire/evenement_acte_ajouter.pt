@@ -55,7 +55,7 @@
     <h1>Gestion des dossiers disciplinaires</h1>
     <div class="formulaire">
         <h2 class="formulaire-titre">
-            Dossier disciplianire de
+            Dossier disciplinaire de
             <span tal:content="eleve/eleve_nom">nom eleve</span>
             <span tal:content="eleve/eleve_prenom">prenom eleve</span>
         </h2>
@@ -222,7 +222,8 @@
                         </form>
                     </div>
 
-                    <div class="bouton-supprimer">
+                    <div class="bouton-supprimer"
+                         tal:condition="python:user.has_role(['Manager'], here)">
                         <form action="supprimer-un-evenement-du-dossier"
                               method="post">
                               <input type="hidden"
