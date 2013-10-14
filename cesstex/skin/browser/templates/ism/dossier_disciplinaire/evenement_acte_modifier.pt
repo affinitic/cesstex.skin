@@ -64,7 +64,7 @@
                     <span tal:content="eleve/titulaire01/prof_nom" class="donnee-db">titulaire 1</span>
                     <span tal:content="eleve/titulaire01/prof_prenom" class="donnee-db">titulaire 1</span>
                 </li>
-                <li>
+                <li tal:condition="exists: eleve/titulaire02/prof_nom">
                     <span class="etiquette-db">Titulaire 2 :</span><br />
                     <span tal:content="eleve/titulaire02/prof_nom" class="donnee-db">titulaire 1</span>
                     <span tal:content="eleve/titulaire02/prof_prenom" class="donnee-db">titulaire 1</span>

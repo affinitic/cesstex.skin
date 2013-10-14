@@ -35,8 +35,8 @@ class ManageDossierDisciplinaire(BrowserView):
         mailer.setSubject(sujet)
         mailer.setRecipients(destinataires)
         mail = message
-        print "XXX > MAIL PARTI < XXX"
-        #mailer.sendAllMail(mail)
+        #print "XXX > MAIL PARTI < XXX"
+        mailer.sendAllMail(mail)
 
     def sendMailForNewDossier(self, elevePk):
         """
@@ -164,8 +164,6 @@ class ManageDossierDisciplinaire(BrowserView):
             educateurReferent = ' - '
         destinataires = destinataires + 'j.montero@saintemarielalouviere.be' + ',' + 'c.bocquet@saintemarielalouviere.be' + ','
         destinataires = destinataires + 'alain.meurant@affinitic.be'
-
-        import pdb; pdb.set_trace()
 
         portalUrl = getToolByName(self.context, 'portal_url')()
         urlDossier = "%s/institut-sainte-marie/la-salle-des-profs/gestion-des-dossiers-disciplinaires/ajouter-un-evenement-au-dossier?elevePk=%s" % (portalUrl, elevePk)
