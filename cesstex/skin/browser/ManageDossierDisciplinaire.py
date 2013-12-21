@@ -20,7 +20,13 @@ from Products.CMFCore.utils import getToolByName
 #from Products.Archetypes.atapi import BaseContent
 from interfaces import IManageDossierDisciplinaire
 #from collective.captcha.browser.captcha import Captcha
-from cesstex.db.pgsql.baseTypes import Etudiant, Professeur, DossierDisciplinaire, EvenementActe, EtatPublication, EvenementActeLogModification
+from cesstex.db.pgsql.baseTypes import Etudiant, \
+                                       Professeur, \
+                                       DossierDisciplinaire, \
+                                       EvenementActe, \
+                                       EvenementActeDocument, \
+                                       EtatPublication, \
+                                       EvenementActeLogModification
 
 
 class ManageDossierDisciplinaire(BrowserView):
@@ -510,9 +516,16 @@ class ManageDossierDisciplinaire(BrowserView):
         intervenant = fields.get('intervenant', None)
         etatPublication = fields.get('etatPublication', None)
         dossierDisciplinairePk = fields.get('dossierDisciplinairePk', None)
+        evenementActeDocument = fields.get('fichierAttache', None)
 
+        #donne un numero d'ordre d'affichage a l'event
         nombreEvenementActeDossier = self.getNombreEvenementActeByDossier(dossierDisciplinairePk)
         evenementNumeroOrdre = nombreEvenementActeDossier + 1
+
+        if evenementActeDocument
+            eventactDocumentAttache = True
+        else: 
+            eventactDocumentAttache = False
 
         wrapper = getSAWrapper('cesstex')
         session = wrapper.session
@@ -521,11 +534,16 @@ class ManageDossierDisciplinaire(BrowserView):
                                  eventact_sanction=sanction,
                                  eventact_intervenant=intervenant,
                                  eventact_etat_publication_fk=etatPublication,
+                                 eventact_document_attache=eventactDocumentAttache,
                                  eventact_numero_ordre=evenementNumeroOrdre,
                                  eventact_dossier_diciplinaire_fk=dossierDisciplinairePk)
         session.add(newEntry)
         session.flush()
         session.refresh(newEntry)
+        evenementActePk = newEntry.eventact_pk
+
+        self.addEventActDocument(evenementActePk, dossierDisciplinairePk)
+        
 
         if int(etatPublication) == 2:
             self.sendMailForNewEvenementActe(elevePk)
@@ -563,7 +581,7 @@ class ManageDossierDisciplinaire(BrowserView):
         session.flush()
 
         self.insertLogModificationEvenementActe(evenementActePk)
-        
+
         if int(etatPublication) == 2:
             self.sendMailForModyfingEvenementActe(elevePk)
 
@@ -619,7 +637,93 @@ class ManageDossierDisciplinaire(BrowserView):
         return ''
 
 
- #### LOG MODIFICATION EVENEMENTS ACTES POUR UN DOSSIER ####
+#### GESTION DES DOCUMENTS ATTACHES ####
+    def getAllEventActDocument(self):
+        """
+        table pg evenement_acte_document
+        recuperation de tous les document d'un evenement acte
+        """
+        wrapper = getSAWrapper('cesstex')
+        session = wrapper.session
+        query = session.query(EvenementActeDocument)
+        return query.all()
+
+    def getEventActDocumentByEventAct(self, evenementPk):
+        """
+        table pg evenement_acte_document
+        recuperation des catalogues PDF d'un operateur
+        """
+        wrapper = getSAWrapper('cesstex')
+        session = wrapper.session
+        query = session.query(EvenementActeDocument)
+        query = query.filter(EvenementActeDocument.eventactdoc_eventact_fk == evenementPk)
+        return query.all()
+
+    def addEventActDocument(self, evenementActePk, dossierDisciplinairePk):
+        """
+        ajout d'un fichier dans le localfs 'localfs_ism_event_act'
+        comme document lié à une eventment acte
+        """
+        rof = getattr(self.context, 'localfs_ism_event_act')
+        lfs = getattr(lfsEventActe, 'localfs_ism_event_act')
+        filename, ext = os.path.splitext(fileUpload.filename)
+        normalizedFilename = normalizeString(filename, encoding='utf-8')
+        nomFichier = '%s%s' % (normalizedFilename, ext)
+        lfs.manage_upload(fileUpload, id=nomFichier)
+
+        ismTools = getMultiAdapter((self.context, self.request), name="manageISM")
+        auteurCreation = ismTools.getUserAuthenticated()
+        dateCreation = ismTools.getTimeStamp()
+        
+        
+        wrapper = getSAWrapper('cesstex')
+        session = wrapper.session
+        newEntry = EvenementActeDocument(eventactdoc_date_creation=dateCreation, 
+                                         eventactdoc_auteur_creation=auteurCreation,
+                                         eventactdoc_nom_fichier=nomFichier,
+                                         eventactdoc_eventact_fk=eventActPk,
+                                         eventactdoc_dossier_diciplinaire_fk=dossierDisciplianirePk)
+        session.add(newEntry)
+        session.flush()
+
+        return''
+
+
+    def delEventActDocument(self, fileName, for_id=None):
+        """
+        suppression du fichier dans le localfs
+        comme  catalogue pdf de l'operateur
+        suppression dans la table link_organisme_formation
+        """
+        #suppression dans le localfs
+        rof = getattr(self.context, 'rof-questionnaire')
+        lfs = getattr(rof, 'rof_pdf')
+        lfs.manage_delObjects(ids=fileName)
+
+        #suppression dans la table link_organisme_catalogue
+        wrapper = getSAWrapper('apef')
+        session = wrapper.session
+        query = session.query(LinkOrganismeCataloguePdf)
+        query = query.filter(LinkOrganismeCataloguePdf.for_catalogue == fileName)
+        newEntries = query.all()
+        for newEntry in newEntries:
+            session.delete(newEntry)
+        session.flush()
+
+        portalUrl = getToolByName(self.context, 'portal_url')()
+        ploneUtils = getToolByName(self.context, 'plone_utils')
+        message = u"Le pdf a bien été suprimé !"
+        ploneUtils.addPortalMessage(message, 'info')
+
+        if for_id:  # effacement depuis page operateur-gerer-catalogue-pdf par operateur rof
+            url = "%s/rof-questionnaire/operateur-gerer-catalogue-pdf" % (portalUrl)
+        else:  # effacement depuis page accueil-rof par gestionnaire rof
+            url = "%s/rof-questionnaire/accueil" % (portalUrl)
+        self.request.response.redirect(url)
+        return ''
+
+
+#### LOG MODIFICATION EVENEMENTS ACTES POUR UN DOSSIER ####
     def getAllLogModificationForEvenementActe(self, evenementActePk):
         """
         recuperation de tous les logs de modifications pour une événement acté
