@@ -278,6 +278,7 @@
          class="formulaire">
         <h2 class="formulaire-titre">Ajouter un nouvel événement au dossier</h2>
         <form action="insertEvenementActe"
+              enctype="multipart/form-data"
               method="post">
             <div class="formulaire-input">
                 <label for="evenement">Evénement et sa date</label>

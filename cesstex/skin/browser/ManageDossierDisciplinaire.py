@@ -3,6 +3,7 @@
 #import datetime
 #import time
 #import random
+import os
 from sqlalchemy import desc
 from mailer import Mailer
 #from LocalFS import LocalFS
@@ -400,7 +401,8 @@ class ManageDossierDisciplinaire(BrowserView):
 
         ismTools = getMultiAdapter((self.context, self.request), name="manageISM")
         loginProf = ismTools.getUserAuthenticated()
-        profAuteur = self.getProfesseursByLogin(loginProf)
+        profAuteur = 'Alain'
+
 
         dossierDisciplianireID = self.getDossierId(elevePk, eleveNom, eleveClasse)
         dossierDisciplianireAnneeScolaire = ismTools.getAnneeCourante()
@@ -522,7 +524,7 @@ class ManageDossierDisciplinaire(BrowserView):
         nombreEvenementActeDossier = self.getNombreEvenementActeByDossier(dossierDisciplinairePk)
         evenementNumeroOrdre = nombreEvenementActeDossier + 1
 
-        if evenementActeDocument
+        if evenementActeDocument:
             eventactDocumentAttache = True
         else: 
             eventactDocumentAttache = False
@@ -542,7 +544,8 @@ class ManageDossierDisciplinaire(BrowserView):
         session.refresh(newEntry)
         evenementActePk = newEntry.eventact_pk
 
-        self.addEventActDocument(evenementActePk, dossierDisciplinairePk)
+        if evenementActeDocument:
+            self.addEventActDocument(evenementActePk, dossierDisciplinairePk)
         
 
         if int(etatPublication) == 2:
@@ -664,15 +667,19 @@ class ManageDossierDisciplinaire(BrowserView):
         ajout d'un fichier dans le localfs 'localfs_ism_event_act'
         comme document lié à une eventment acte
         """
-        rof = getattr(self.context, 'localfs_ism_event_act')
+        fields = self.context.REQUEST
+        evenementActeDocument = getattr(fields, 'fichierAttache')
+        import pdb; pdb.set_trace()
+
+        lfsEventActe = getattr(self.context, 'localfs_ism_event_act')
         lfs = getattr(lfsEventActe, 'localfs_ism_event_act')
-        filename, ext = os.path.splitext(fileUpload.filename)
+        filename, ext = os.path.splitext(evenementActeDocument.filename)
         normalizedFilename = normalizeString(filename, encoding='utf-8')
         nomFichier = '%s%s' % (normalizedFilename, ext)
         lfs.manage_upload(fileUpload, id=nomFichier)
 
         ismTools = getMultiAdapter((self.context, self.request), name="manageISM")
-        auteurCreation = ismTools.getUserAuthenticated()
+        auteurCreation = 'Alain'
         dateCreation = ismTools.getTimeStamp()
         
         
