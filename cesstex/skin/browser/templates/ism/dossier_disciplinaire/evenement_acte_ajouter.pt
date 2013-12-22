@@ -115,6 +115,15 @@
                     <span tal:content="dossier/auteur/prof_prenom"
                           class="donnee-db">auteur</span>
                 </li>
+                <li>
+                    <span class="etiquette-db">DossierPk :</span>
+                    <span tal:content="dossier/dosdis_pk"
+                          class="donnee-db">auteur</span>
+                    <br />
+                    <span class="etiquette-db">ElevePk :</span>
+                    <span tal:content="eleve/eleve_pk"
+                          class="donnee-db">auteur</span>
+                </li>
             </ul>
         </div><!--info-dossier-->
         <div class="visualClear"></div>
@@ -164,7 +173,8 @@
                 Aucun événément dans le dossier de <span tal:content="eleve/eleve_prenom">prenom eleve</span>.
         </tal:if>
         <tal:block tal:repeat="evenement evenements">
-            <div class="evenement-acte">
+            <div tal:define="evenementActePk evenement/eventact_pk"
+                 class="evenement-acte">
                 <div class="numero-evenement-acte"><span tal:content="evenement/eventact_numero_ordre"></span></div>
                 <div class="visualClear"></div>
                 <ul>
@@ -204,6 +214,22 @@
                             <span class="rouge-non-actif">Privé</span>
                         </span>
                     </li>
+                    <li tal:condition="python: evenement.eventact_document_attache==True">
+                        <tal:block tal:define="documentsAttaches python: view.getEventActDocumentByEventActPk(evenementActePk)">
+                            <tal:if tal:condition="python: len(documentsAttaches)==1">
+                              <span class="etiquette-db">Document :</span>
+                            </tal:if>
+                            <tal:if tal:condition="python: len(documentsAttaches)>1">
+                              <span class="etiquette-db">Documents :</span>
+                            </tal:if>
+                            <br />
+                            <tal:boucle tal:repeat="document documentsAttaches">
+                                <a href=""
+                                   tal:attributes="href string: localfs_ism_event_act/${document/eventactdoc_nom_fichier}">
+                                <span tal:content="document/eventactdoc_nom_fichier" /></a>
+                            </tal:boucle>
+                        </tal:block>
+                    </li>
                 </ul>
                 <div class="menu-gestion-dossier">
                     <div class="bouton-modifier">
@@ -220,6 +246,7 @@
                               <input type="submit"
                                      value="Modifier cet événement" />
                         </form>
+                        <span tal:content="evenement/eventact_pk" />
                     </div>
 
                     <div class="bouton-supprimer"
@@ -229,7 +256,7 @@
                               <input type="hidden"
                                      name="evenementActePk"
                                      value=""
-                                     tal:attributes="value evenement/eventact_pk" />
+                                     tal:attributes="value evenementActePk" />
                               <input type="hidden"
                                      name="elevePk"
                                      value=""
@@ -253,7 +280,7 @@
                         </span>
                     </p>
 
-                    <tal:block tal:define="logs python: view.getAllLogModificationForEvenementActe(evenement.eventact_pk)">
+                    <tal:block tal:define="logs python: view.getAllLogModificationForEvenementActe(evenementActePk)">
                         <tal:if tal:condition="python: len(logs)>0">
                             <p>
                                 &oplus; Modification par :<br />
@@ -270,7 +297,6 @@
                     </tal:block>
                 </div>
             </div>
-
         </tal:block>
     </div>
 

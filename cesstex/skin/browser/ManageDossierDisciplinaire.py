@@ -12,7 +12,7 @@ from zope.interface import implements
 from zope.component import getMultiAdapter
 from z3c.sqlalchemy import getSAWrapper
 #from plone.app.form.widgets.wysiwygwidget import WYSIWYGWidget
-#from Products.CMFPlone.utils import normalizeString
+from Products.CMFPlone.utils import normalizeString
 from Products.CMFCore.utils import getToolByName
 #from Products.CMFPlone import PloneMessageFactory as _
 #from Products.AddRemoveWidget.AddRemoveWidget import AddRemoveWidget
@@ -43,7 +43,7 @@ class ManageDossierDisciplinaire(BrowserView):
         mailer.setRecipients(destinataires)
         mail = message
         #print "XXX > MAIL PARTI < XXX"
-        mailer.sendAllMail(mail)
+        #mailer.sendAllMail(mail)
 
     def sendMailForNewDossier(self, elevePk):
         """
@@ -525,6 +525,7 @@ class ManageDossierDisciplinaire(BrowserView):
         evenementNumeroOrdre = nombreEvenementActeDossier + 1
 
         if evenementActeDocument:
+            import pdb;pdb.set_trace()
             eventactDocumentAttache = True
         else: 
             eventactDocumentAttache = False
@@ -651,7 +652,7 @@ class ManageDossierDisciplinaire(BrowserView):
         query = session.query(EvenementActeDocument)
         return query.all()
 
-    def getEventActDocumentByEventAct(self, evenementPk):
+    def getEventActDocumentByEventActPk(self, evenementPk):
         """
         table pg evenement_acte_document
         recuperation des catalogues PDF d'un operateur
@@ -667,34 +668,29 @@ class ManageDossierDisciplinaire(BrowserView):
         ajout d'un fichier dans le localfs 'localfs_ism_event_act'
         comme document lié à une eventment acte
         """
+        ismTools = getMultiAdapter((self.context, self.request), name="manageISM")
+        auteurCreation = 'Alain'
+        dateCreation = ismTools.getTimeStamp()
+
         fields = self.context.REQUEST
         evenementActeDocument = getattr(fields, 'fichierAttache')
-        import pdb; pdb.set_trace()
-
+        
         lfsEventActe = getattr(self.context, 'localfs_ism_event_act')
         lfs = getattr(lfsEventActe, 'localfs_ism_event_act')
         filename, ext = os.path.splitext(evenementActeDocument.filename)
         normalizedFilename = normalizeString(filename, encoding='utf-8')
-        nomFichier = '%s%s' % (normalizedFilename, ext)
-        lfs.manage_upload(fileUpload, id=nomFichier)
-
-        ismTools = getMultiAdapter((self.context, self.request), name="manageISM")
-        auteurCreation = 'Alain'
-        dateCreation = ismTools.getTimeStamp()
-        
+        nomFichier = '%s_dd%s_ev%s%s' % (normalizedFilename, dossierDisciplinairePk, evenementActePk, ext)
+        lfs.manage_upload(evenementActeDocument, id=nomFichier)
         
         wrapper = getSAWrapper('cesstex')
         session = wrapper.session
         newEntry = EvenementActeDocument(eventactdoc_date_creation=dateCreation, 
                                          eventactdoc_auteur_creation=auteurCreation,
                                          eventactdoc_nom_fichier=nomFichier,
-                                         eventactdoc_eventact_fk=eventActPk,
-                                         eventactdoc_dossier_diciplinaire_fk=dossierDisciplianirePk)
+                                         eventactdoc_eventact_fk=evenementActePk,
+                                         eventactdoc_dossier_diciplinaire_fk=dossierDisciplinairePk)
         session.add(newEntry)
         session.flush()
-
-        return''
-
 
     def delEventActDocument(self, fileName, for_id=None):
         """
