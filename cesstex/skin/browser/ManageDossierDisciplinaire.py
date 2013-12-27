@@ -27,7 +27,8 @@ from cesstex.db.pgsql.baseTypes import Etudiant, \
                                        EvenementActe, \
                                        EvenementActeDocument, \
                                        EtatPublication, \
-                                       EvenementActeLogModification
+                                       EvenementActeLogModification, \
+                                       LogOperation
 
 
 class ManageDossierDisciplinaire(BrowserView):
@@ -296,6 +297,8 @@ class ManageDossierDisciplinaire(BrowserView):
 
         self.insertDossier(elevePk, eleveNom, eleveClasse)
 
+        self.insertLogOperation('insertEleve')
+
         portalUrl = getToolByName(self.context, 'portal_url')()
         ploneUtils = getToolByName(self.context, 'plone_utils')
         message = u"Le nouveau dossier concernant l'élève %s  a bien été créé !" % (eleveNom)
@@ -335,6 +338,8 @@ class ManageDossierDisciplinaire(BrowserView):
 
         session.flush()
 
+        self.insertLogOperation('updateEleve')
+
         portalUrl = getToolByName(self.context, 'portal_url')()
         ploneUtils = getToolByName(self.context, 'plone_utils')
         message = u"Le dossier concernant l'élève %s  a bien été modifié !" % (eleveNom)
@@ -358,6 +363,9 @@ class ManageDossierDisciplinaire(BrowserView):
         eleve = query.one()
         session.delete(eleve)
         session.flush()
+
+        self.insertLogOperation('deleteEleve')
+
         return ''
 
 
@@ -401,7 +409,7 @@ class ManageDossierDisciplinaire(BrowserView):
 
         ismTools = getMultiAdapter((self.context, self.request), name="manageISM")
         loginProf = ismTools.getUserAuthenticated()
-        profAuteur = 'Alain'
+        profAuteur = self.getProfesseursByLogin(loginProf)
 
 
         dossierDisciplianireID = self.getDossierId(elevePk, eleveNom, eleveClasse)
@@ -419,6 +427,9 @@ class ManageDossierDisciplinaire(BrowserView):
         session.add(newEntry)
         session.flush()
         session.refresh(newEntry)
+        dossierDisciplinairePk = newEntry.dosdis_pk
+
+        self.insertLogOperation('insertDossier', dossierDisciplinairePk)
 
         self.sendMailForNewDossier(elevePk)
 
@@ -442,6 +453,8 @@ class ManageDossierDisciplinaire(BrowserView):
         session.delete(dossierDisciplinaire)
         session.flush()
         self.deleteEleve(elevePk)
+
+        self.insertLogOperation('deleteDossierDisciplinaire', dossierDisciplinairePk)
 
         portalUrl = getToolByName(self.context, 'portal_url')()
         ploneUtils = getToolByName(self.context, 'plone_utils')
@@ -525,7 +538,6 @@ class ManageDossierDisciplinaire(BrowserView):
         evenementNumeroOrdre = nombreEvenementActeDossier + 1
 
         if evenementActeDocument:
-            import pdb;pdb.set_trace()
             eventactDocumentAttache = True
         else: 
             eventactDocumentAttache = False
@@ -546,11 +558,12 @@ class ManageDossierDisciplinaire(BrowserView):
         evenementActePk = newEntry.eventact_pk
 
         if evenementActeDocument:
-            self.addEventActDocument(evenementActePk, dossierDisciplinairePk)
+            self.addEvenementActeDocument(evenementActePk, dossierDisciplinairePk)
         
-
         if int(etatPublication) == 2:
             self.sendMailForNewEvenementActe(elevePk)
+
+        self.insertLogOperation('insertEvenementActe', dossierDisciplinairePk, evenementActePk)
 
         portalUrl = getToolByName(self.context, 'portal_url')()
         ploneUtils = getToolByName(self.context, 'plone_utils')
@@ -565,14 +578,26 @@ class ManageDossierDisciplinaire(BrowserView):
         Updates un événement acté lié à un dossier
         """
         fields = self.request.form
-
         elevePk = fields.get('elevePk')
         evenementActePk = fields.get('evenementActePk', None)
         evenement = fields.get('evenement', None)
         sanction = fields.get('sanction', None)
         intervenant = fields.get('intervenant', None)
+        dossierDisciplinairePk = fields.get('dossierDisciplinairePk', None)
         etatPublication = fields.get('etatPublication', None)
 
+        fields = self.context.REQUEST
+        evenementActeDocument = getattr(fields, 'fichierAttache', None)
+        if evenementActeDocument:
+            eventactDocumentAttache = True
+            self.addEvenementActeDocument(evenementActePk, dossierDisciplinairePk)
+        else:
+            nombreEvenementActeDocument = self.getEvenementActeDocumentByEventActPk(evenementActePk) 
+            if nombreEvenementActeDocument > 1:
+                eventactDocumentAttache = True
+            else:
+                eventactDocumentAttache = False
+        
         wrapper = getSAWrapper('cesstex')
         session = wrapper.session
         query = session.query(EvenementActe)
@@ -581,9 +606,13 @@ class ManageDossierDisciplinaire(BrowserView):
         evenementActe.eventact_evenement = unicode(evenement, 'utf-8')
         evenementActe.eventact_sanction = unicode(sanction, 'utf-8')
         evenementActe.eventact_intervenant = unicode(intervenant, 'utf-8')
+        evenementActe.eventact_document_attache=eventactDocumentAttache,
         evenementActe.eventact_etat_publication_fk = etatPublication
         session.flush()
 
+        self.insertLogOperation('updateEvenementActe', dossierDisciplinairePk, evenementActePk)
+
+        
         self.insertLogModificationEvenementActe(evenementActePk)
 
         if int(etatPublication) == 2:
@@ -616,6 +645,9 @@ class ManageDossierDisciplinaire(BrowserView):
         session.delete(evenementActe)
         session.flush()
 
+        dossierDisciplinairePk = self.getDossierByEleve(elevePk)
+        self.insertLogOperation('deleteEvenementActe', dossierDisciplinairePk, evenementActePk)
+
         portalUrl = getToolByName(self.context, 'portal_url')()
         ploneUtils = getToolByName(self.context, 'plone_utils')
         message = u"L'événement a bien été supprimé !"
@@ -638,11 +670,12 @@ class ManageDossierDisciplinaire(BrowserView):
             self.deleteLogModificationEvenementActe(evenementActePk)
             session.delete(evenementActe)
         session.flush()
+        self.insertLogOperation('deleteEvenementActeByDossierDisciplinaire', dossierDisciplinairePk)
         return ''
 
 
 #### GESTION DES DOCUMENTS ATTACHES ####
-    def getAllEventActDocument(self):
+    def getAllEvenementActeDocument(self):
         """
         table pg evenement_acte_document
         recuperation de tous les document d'un evenement acte
@@ -652,7 +685,7 @@ class ManageDossierDisciplinaire(BrowserView):
         query = session.query(EvenementActeDocument)
         return query.all()
 
-    def getEventActDocumentByEventActPk(self, evenementPk):
+    def getEvenementActeDocumentByEventActPk(self, evenementPk):
         """
         table pg evenement_acte_document
         recuperation des catalogues PDF d'un operateur
@@ -663,13 +696,14 @@ class ManageDossierDisciplinaire(BrowserView):
         query = query.filter(EvenementActeDocument.eventactdoc_eventact_fk == evenementPk)
         return query.all()
 
-    def addEventActDocument(self, evenementActePk, dossierDisciplinairePk):
+    def addEvenementActeDocument(self, evenementActePk, dossierDisciplinairePk):
         """
         ajout d'un fichier dans le localfs 'localfs_ism_event_act'
         comme document lié à une eventment acte
         """
         ismTools = getMultiAdapter((self.context, self.request), name="manageISM")
-        auteurCreation = 'Alain'
+        loginProf = ismTools.getUserAuthenticated()
+        auteurCreation = self.getProfesseursByLogin(loginProf)
         dateCreation = ismTools.getTimeStamp()
 
         fields = self.context.REQUEST
@@ -691,37 +725,42 @@ class ManageDossierDisciplinaire(BrowserView):
                                          eventactdoc_dossier_diciplinaire_fk=dossierDisciplinairePk)
         session.add(newEntry)
         session.flush()
+        self.insertLogOperation('addEvenementActeDocument', dossierDisciplinairePk, evenementActePk)
 
-    def delEventActDocument(self, fileName, for_id=None):
+    def deleteEvenementActeDocument(self):
         """
-        suppression du fichier dans le localfs
-        comme  catalogue pdf de l'operateur
-        suppression dans la table link_organisme_formation
+        suppression d'un fichier attache a un evenement acte dans le localfs 'localfs_ism_event_act'
+        suppression dans la table EvenementActeDocument
         """
+        fields = self.context.REQUEST
+        fichierNom = getattr(fields, 'fichierNom', None)
+        evenementActePk = getattr(fields, 'evenementActePk', None)
+        documentPk = getattr(fields, 'documentPk', None)
+        elevePk = getattr(fields, 'elevePk', None)
+        dossierDisciplinaire = self.getDossierByEleve(elevePk)
+        dossierDisciplinairePk = dossierDisciplinaire.dosdis_pk
+        
         #suppression dans le localfs
-        rof = getattr(self.context, 'rof-questionnaire')
-        lfs = getattr(rof, 'rof_pdf')
-        lfs.manage_delObjects(ids=fileName)
+        lfsEventActe = getattr(self.context, 'localfs_ism_event_act')
+        lfs = getattr(lfsEventActe, 'localfs_ism_event_act')
+        lfs.manage_delObjects(ids=fichierNom)
 
-        #suppression dans la table link_organisme_catalogue
-        wrapper = getSAWrapper('apef')
+        #suppression dans la table evenement_acte_document
+        wrapper = getSAWrapper('cesstex')
         session = wrapper.session
-        query = session.query(LinkOrganismeCataloguePdf)
-        query = query.filter(LinkOrganismeCataloguePdf.for_catalogue == fileName)
+        query = session.query(EvenementActeDocument)
+        query = query.filter(EvenementActeDocument.eventactdoc_pk == documentPk)
         newEntries = query.all()
         for newEntry in newEntries:
             session.delete(newEntry)
         session.flush()
+        self.insertLogOperation('deleteEvenementActeDocument', dossierDisciplinairePk, evenementActePk)
 
         portalUrl = getToolByName(self.context, 'portal_url')()
         ploneUtils = getToolByName(self.context, 'plone_utils')
         message = u"Le pdf a bien été suprimé !"
         ploneUtils.addPortalMessage(message, 'info')
-
-        if for_id:  # effacement depuis page operateur-gerer-catalogue-pdf par operateur rof
-            url = "%s/rof-questionnaire/operateur-gerer-catalogue-pdf" % (portalUrl)
-        else:  # effacement depuis page accueil-rof par gestionnaire rof
-            url = "%s/rof-questionnaire/accueil" % (portalUrl)
+        url = "%s/institut-sainte-marie/la-salle-des-profs/gestion-des-dossiers-disciplinaires/ajouter-un-evenement-au-dossier?elevePk=%s" % (portalUrl, elevePk)
         self.request.response.redirect(url)
         return ''
 
@@ -777,4 +816,34 @@ class ManageDossierDisciplinaire(BrowserView):
             session.delete(pk)
         session.flush()
 
+        return ''
+
+
+#### LOG OPERATION SUR DOSSIER ET EVENEMENT ####
+    def getAllLogOperation(self):
+        """
+        recuperation de tous les logs d'operation
+        """
+        wrapper = getSAWrapper('cesstex')
+        session = wrapper.session
+        query = session.query(LogOperation)
+        AllLogOperation = query.all()
+        return AllOperation
+
+    def insertLogOperation(self, logOperationType, dossierDisciplinairePk=None, evenementActePk=None):
+        """
+        insère un nouveau log pour une operation
+        """
+
+        ismTools = getMultiAdapter((self.context, self.request), name="manageISM")
+        auteurConnecte = ismTools.getUserAuthenticated()
+
+        wrapper = getSAWrapper('cesstex')
+        session = wrapper.session
+        newEntry = LogOperation(logoperation_auteur=auteurConnecte,
+                                logoperation_type_operation=logOperationType,
+                                logoperation_dosdis_fk=dossierDisciplinairePk,
+                                logoperation_evenement_acte_fk=evenementActePk)
+        session.add(newEntry)
+        session.flush()
         return ''

@@ -215,7 +215,7 @@
                         </span>
                     </li>
                     <li tal:condition="python: evenement.eventact_document_attache==True">
-                        <tal:block tal:define="documentsAttaches python: view.getEventActDocumentByEventActPk(evenementActePk)">
+                        <tal:block tal:define="documentsAttaches python: view.getEvenementActeDocumentByEventActPk(evenementActePk)">
                             <tal:if tal:condition="python: len(documentsAttaches)==1">
                               <span class="etiquette-db">Document :</span>
                             </tal:if>
@@ -224,9 +224,11 @@
                             </tal:if>
                             <br />
                             <tal:boucle tal:repeat="document documentsAttaches">
+                                <img src="icone_flch_grise.png" />
                                 <a href=""
                                    tal:attributes="href string: localfs_ism_event_act/${document/eventactdoc_nom_fichier}">
                                 <span tal:content="document/eventactdoc_nom_fichier" /></a>
+                                <br />
                             </tal:boucle>
                         </tal:block>
                     </li>

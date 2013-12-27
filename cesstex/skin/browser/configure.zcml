@@ -142,6 +142,8 @@
           allowed_interface=".interfaces.IManageIST"
           permission="zope.Public" />
 
+
+
 <!-- ISM -->
 <!-- js -->
     <browser:resource
@@ -170,6 +172,7 @@
           class=".ManageISM.ManageISM"
           allowed_interface=".interfaces.IManageISM"
           permission="zope.Public" />
+
 
 
 <!-- DOSSIER DISCIPLINAIRE -->
@@ -205,6 +208,8 @@
         attribute="deleteDossierDisciplinaire"
         allowed_interface=".interfaces.IManageDossierDisciplinaire" />
 
+
+
 <!-- ELEVE -->
     <browser:page
         name="insertEleve"
@@ -229,6 +234,7 @@
         permission="cesstex.ProfISM"
         attribute="deleteEleve"
         allowed_interface=".interfaces.IManageDossierDisciplinaire" />
+
 
 
 <!-- EVENEMENT ACTE -->
@@ -280,6 +286,24 @@
         permission="cesstex.ProfISM"
         attribute="deleteEvenementActe"
         allowed_interface=".interfaces.IManageDossierDisciplinaire" />
+
+<!-- EVENEMENT ACTE FICHIER ATTACHE -->
+    <browser:page
+        name="addEvenementActeDocument"
+        for="*"
+        class=".ManageDossierDisciplinaire.ManageDossierDisciplinaire"
+        permission="cesstex.ProfISM"
+        attribute="addEvenementActeDocument"
+        allowed_interface=".interfaces.IManageDossierDisciplinaire" />
+
+    <browser:page
+        name="deleteEvenementActeDocument"
+        for="*"
+        class=".ManageDossierDisciplinaire.ManageDossierDisciplinaire"
+        permission="cesstex.ProfISM"
+        attribute="deleteEvenementActeDocument"
+        allowed_interface=".interfaces.IManageDossierDisciplinaire" />
+
 
 
 <!-- GESTION DES PROFS -->

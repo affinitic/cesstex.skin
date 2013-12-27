@@ -107,6 +107,7 @@
     <div class="formulaire">
         <h2 class="formulaire-titre">Modifier cet événement</h2>
         <form action="updateEvenementActe"
+              enctype="multipart/form-data"
               method="post">
             <div class="formulaire-input">
                 <label for="evenement">Evénement et sa date</label>
@@ -131,6 +132,38 @@
                           rows="6"
                           cols="70"
                           tal:content="evenement/eventact_intervenant"></textarea>
+            </div>
+            <div id="suppression-document-attache"
+                 tal:condition="python: evenement.eventact_document_attache==True">
+                <tal:block tal:define="documentsAttaches python: view.getEvenementActeDocumentByEventActPk(evenementActePk)">
+                    <tal:if tal:condition="python: len(documentsAttaches)==1">
+                      <span class="etiquette-db">Document :</span>
+                    </tal:if>
+                    <tal:if tal:condition="python: len(documentsAttaches)>1">
+                      <span class="etiquette-db">Documents :</span>
+                    </tal:if>
+                    <br />
+                    <tal:boucle tal:repeat="document documentsAttaches">
+                        <table>
+                            <tr>
+                                <td class="aligner-gauche">
+                                    <img src="icone_flch_grise.png" />
+                                    <a href=""
+                                       tal:attributes="href string: localfs_ism_event_act/${document/eventactdoc_nom_fichier}">
+                                    <span tal:content="document/eventactdoc_nom_fichier" /></a>
+                                </td>
+                                <td class="aligner-droite">
+                                    <a href=""
+                                       tal:attributes="href string:deleteEvenementActeDocument?documentPk=${document/eventactdoc_pk}&evenementActePk=${evenementActePk}&fileName=${document/eventactdoc_nom_fichier}&elevePk=${elevePk}">
+                                    <input type="button"
+                                           value="Supprimer"
+                                           class="bouton-supprimer" /></a>
+                                </td>
+                            </tr>
+                        </table>
+                        <br />
+                    </tal:boucle>
+                </tal:block>
             </div>
             <div class="formulaire-input">
                 <label for="fichierAttache">Joindre un document</label>
@@ -165,6 +198,10 @@
                        name="evenementActePk"
                        value=""
                        tal:attributes="value evenementActePk" />
+                <input type="hidden"
+                       name="dossierDisciplinairePk"
+                       value=""
+                       tal:attributes="value dossierDisciplinairePk" />
                 <input type="hidden"
                        name="elevePk"
                        value=""
