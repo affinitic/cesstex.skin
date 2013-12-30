@@ -158,7 +158,7 @@ class ManageDossierDisciplinaire(BrowserView):
         if eleve.titulaire01:
             destinataires = eleve.titulaire01.prof_email + ','
             titulaire01 = '%s %s' % (eleve.titulaire01.prof_prenom, eleve.titulaire01.prof_nom)
-        else :
+        else:
             titulaire01 = ' - '
         if eleve.titulaire02:
             destinataires = destinataires + eleve.titulaire02.prof_email + ','
@@ -680,7 +680,7 @@ class ManageDossierDisciplinaire(BrowserView):
         """
         self.deleteLogModificationEvenementActe()
         self.deleteAllEvenementActeDocumentByDossierDisciplinairePk()
-        
+
         wrapper = getSAWrapper('cesstex')
         session = wrapper.session
         query = session.query(EvenementActe)
@@ -790,7 +790,6 @@ class ManageDossierDisciplinaire(BrowserView):
         """
         fields = self.context.REQUEST
         evenementActePk = getattr(fields, 'evenementActePk', None)
-        documentPk = getattr(fields, 'documentPk', None)
         elevePk = getattr(fields, 'elevePk', None)
         dossierDisciplinaire = self.getDossierByEleve(elevePk)
         dossierDisciplinairePk = dossierDisciplinaire.dosdis_pk
@@ -816,7 +815,6 @@ class ManageDossierDisciplinaire(BrowserView):
         """
         fields = self.context.REQUEST
         evenementActePk = getattr(fields, 'evenementActePk', None)
-        documentPk = getattr(fields, 'documentPk', None)
         elevePk = getattr(fields, 'elevePk', None)
         dossierDisciplinaire = self.getDossierByEleve(elevePk)
         dossierDisciplinairePk = dossierDisciplinaire.dosdis_pk
@@ -834,7 +832,7 @@ class ManageDossierDisciplinaire(BrowserView):
             fichierNom = doc.eventactdoc_nom_fichier
             self.deleteEvenementActeDocumentFromLfs(fichierNom, auteurPk, dossierDisciplinairePk, evenementActePk)
         session.flush()
-        return ''    
+        return ''
 
     def deleteEvenementActeDocumentFromLfs(self, fichierNom, auteurPk, dossierDisciplinairePk, evenementActePk):
         """
@@ -842,7 +840,7 @@ class ManageDossierDisciplinaire(BrowserView):
         """
         lfsEventActe = getattr(self.context, 'localfs_ism_event_act')
         lfs = getattr(lfsEventActe, 'localfs_ism_event_act')
-        lfs.manage_delObjects(ids=[fichierNom,])
+        lfs.manage_delObjects(ids=[fichierNom, ])
         self.insertLogOperation('deleteEvenementActeDocumentFromLfs', auteurPk, dossierDisciplinairePk, evenementActePk)
 
 
@@ -909,7 +907,7 @@ class ManageDossierDisciplinaire(BrowserView):
         session = wrapper.session
         query = session.query(LogOperation)
         AllLogOperation = query.all()
-        return AllOperation
+        return AllLogOperation
 
     def insertLogOperation(self, logOperationType, auteurPk=None, dossierDisciplinairePk=None, evenementActePk=None):
         """
