@@ -297,11 +297,11 @@
         allowed_interface=".interfaces.IManageDossierDisciplinaire" />
 
     <browser:page
-        name="deleteEvenementActeDocument"
+        name="deleteEvenementActeDocumentByDocumentPk"
         for="*"
         class=".ManageDossierDisciplinaire.ManageDossierDisciplinaire"
         permission="cesstex.ProfISM"
-        attribute="deleteEvenementActeDocument"
+        attribute="deleteEvenementActeDocumentByDocumentPk"
         allowed_interface=".interfaces.IManageDossierDisciplinaire" />
 
 

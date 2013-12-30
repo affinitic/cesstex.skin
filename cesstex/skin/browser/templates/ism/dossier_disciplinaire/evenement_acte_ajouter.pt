@@ -183,11 +183,11 @@
                         <span tal:content="python: evenement.eventact_date_creation.strftime('%d/%m/%Y - %H:%M')"
                               class="donnee-db">date creation</span>
                         par
-                        <tal:block tal:define="professeurAuteur python: view.getProfesseursByLogin(evenement.eventact_auteur_creation)">
+                        <tal:block tal:define="professeurAuteur python: view.getProfesseurByPk(evenement.eventact_auteur_creation_fk)">
                               <span tal:content="professeurAuteur/prof_prenom"
                                     class="donnee-db" />
                                <span tal:content="professeurAuteur/prof_nom"
-                                    class="donnee-db" />
+                                     class="donnee-db" />
                         </tal:block>
                     </li>
                     <li>
@@ -277,8 +277,12 @@
                         &oplus; Création par :<br />
                         <span class="decalle">
                             &bull;
-                            <span tal:content="evenement/eventact_auteur_creation" /> -
-                            <span tal:content="python: evenement.eventact_date_creation.strftime('%d/%m/%Y - %H:%M')" />
+                            <tal:block tal:define="professeurAuteur python: view.getProfesseurByPk(evenement.eventact_auteur_creation_fk)">
+                              <span tal:content="professeurAuteur/prof_prenom" />
+                               <span tal:content="professeurAuteur/prof_nom" />
+                            </tal:block>
+                            le
+                            <span tal:content="python: evenement.eventact_date_creation.strftime('%d/%m/%Y à %H:%M')" />
                         </span>
                     </p>
 
@@ -289,8 +293,12 @@
                                 <tal:boucle tal:repeat="log logs">
                                     <span class="decalle">
                                         &bull;
-                                        <span tal:content="log/eventactlogmodif_auteur_modification" /> -
-                                        <span tal:content="python: log.eventactlogmodif_date_modification.strftime('%d/%m/%Y - %H:%M')" />
+                                        <tal:block tal:define="professeurAuteur python: view.getProfesseurByPk(evenement.eventact_auteur_creation_fk)">
+                                            <span tal:content="professeurAuteur/prof_prenom" />
+                                            <span tal:content="professeurAuteur/prof_nom" />
+                                        </tal:block>
+                                        le
+                                        <span tal:content="python: log.eventactlogmodif_date_modification.strftime('%d-%m-%Y à %H:%M')" />
                                         <br />
                                     </span>
                                 </tal:boucle>

@@ -154,7 +154,7 @@
                                 </td>
                                 <td class="aligner-droite">
                                     <a href=""
-                                       tal:attributes="href string:deleteEvenementActeDocument?documentPk=${document/eventactdoc_pk}&evenementActePk=${evenementActePk}&fileName=${document/eventactdoc_nom_fichier}&elevePk=${elevePk}">
+                                       tal:attributes="href string:deleteEvenementActeDocumentByDocumentPk?documentPk=${document/eventactdoc_pk}&evenementActePk=${evenementActePk}&fichierNom=${document/eventactdoc_nom_fichier}&elevePk=${elevePk}">
                                     <input type="button"
                                            value="Supprimer"
                                            class="bouton-supprimer" /></a>

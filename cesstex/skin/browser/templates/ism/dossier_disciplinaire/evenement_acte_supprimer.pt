@@ -110,41 +110,88 @@
             </h2>
             <form action="deleteEvenementActe"
                   method="post">
-                <div class="formulaire-input">
-                    <label for="evenement">Evénement et sa date</label>
-                    <span tal:content="evenement/eventact_evenement"></span>
-                </div>
-                <div class="formulaire-input">
-                    <label for="sanction">Sanction</label>
-                    <span tal:content="evenement/eventact_sanction"></span>
-                </div>
-                <div class="formulaire-input">
-                    <label for="intervenant">Suivi - Intervenant(s) - Ressources</label>
-                    <span tal:content="evenement/eventact_intervenant"></span>
-                </div>
-                <div class="formulaire-input">
-                    <label for="titulaire02Pk">Etat</label>
-                    <span tal:condition="python: evenement.eventact_etat_publication_fk==2">
-                        <span class="vert-actif">Visible Membre</span>
-                    </span>
-                    <span tal:condition="python: evenement.eventact_etat_publication_fk==1">
-                        <span class="rouge-non-actif">Privé</span>
-                    </span>
+                  
+                <div tal:define="evenementActePk evenement/eventact_pk"
+                     class="evenement-acte">
+                    <div class="numero-evenement-acte"><span tal:content="evenement/eventact_numero_ordre"></span></div>
+                    <div class="visualClear"></div>
+                    <ul>
+                        <li>
+                            <span class="etiquette-db">Date de l'encodage et auteur :</span> <br />
+                            <span tal:content="python: evenement.eventact_date_creation.strftime('%d/%m/%Y - %H:%M')"
+                                  class="donnee-db">date creation</span>
+                            par
+                            <tal:block tal:define="professeurAuteur python: view.getProfesseurByPk(evenement.eventact_auteur_creation_fk)">
+                                  <span tal:content="professeurAuteur/prof_prenom"
+                                        class="donnee-db" />
+                                   <span tal:content="professeurAuteur/prof_nom"
+                                         class="donnee-db" />
+                            </tal:block>
+                        </li>
+                        <li>
+                            <span class="etiquette-db">Evénement et sa date :</span> <br />
+                            <span tal:content="evenement/eventact_evenement"
+                                  class="donnee-db">evenement</span>
+                        </li>
+                        <li>
+                            <span class="etiquette-db">Sanction :</span> <br />
+                            <span tal:content="evenement/eventact_sanction"
+                                  class="donnee-db">sanction</span>
+                        </li>
+                        <li>
+                            <span class="etiquette-db">Suivi - Intervenant(s) - Ressources</span> <br />
+                            <span tal:content="evenement/eventact_intervenant"
+                                  class="donnee-db">intervenant</span>
+                        </li>
+                        <li>
+                            <span class="etiquette-db">Etat :</span> <br />
+                            <span tal:condition="python: evenement.eventact_etat_publication_fk==2">
+                                <span class="vert-actif">Visible Membre</span>
+                            </span>
+                            <span tal:condition="python: evenement.eventact_etat_publication_fk==1">
+                                <span class="rouge-non-actif">Privé</span>
+                            </span>
+                        </li>
+                        <li tal:condition="python: evenement.eventact_document_attache==True">
+                            <tal:block tal:define="documentsAttaches python: view.getEvenementActeDocumentByEventActPk(evenementActePk)">
+                                <tal:if tal:condition="python: len(documentsAttaches)==1">
+                                  <span class="etiquette-db">Document :</span>
+                                </tal:if>
+                                <tal:if tal:condition="python: len(documentsAttaches)>1">
+                                  <span class="etiquette-db">Documents :</span>
+                                </tal:if>
+                                <br />
+                                <tal:boucle tal:repeat="document documentsAttaches">
+                                    <img src="icone_flch_grise.png" />
+                                    <a href=""
+                                       tal:attributes="href string: localfs_ism_event_act/${document/eventactdoc_nom_fichier}">
+                                    <span tal:content="document/eventactdoc_nom_fichier" /></a>
+                                    <br />
+                                </tal:boucle>
+                            </tal:block>
+                        </li>
+                    </ul>
                 </div>
                 <div class="formulaire-submit">
-                    <input type="hidden"
-                           name="operation"
-                           value="insert" />
-                    <input type="hidden"
-                           name="evenementActePk"
-                           value=""
-                           tal:attributes="value evenementActePk" />
-                    <input type="hidden"
-                           name="elevePk"
-                           value=""
-                           tal:attributes="value elevePk" />
-                    <input type="submit"
-                           value="Supprimer cet événement" />
+                    <div class="bouton-supprimer">
+                        <input type="hidden"
+                               name="operation"
+                               value="insert" />
+                        <input type="hidden"
+                               name="dossierDisciplinairePk"
+                               value=""
+                               tal:attributes="value dossierDisciplinairePk" />
+                        <input type="hidden"
+                               name="evenementActePk"
+                               value=""
+                               tal:attributes="value evenementActePk" />
+                        <input type="hidden"
+                               name="elevePk"
+                               value=""
+                               tal:attributes="value elevePk" />
+                        <input type="submit"
+                               value="Supprimer cet événement" />
+                    </div>
                 </div>
             </form>
         </div>
