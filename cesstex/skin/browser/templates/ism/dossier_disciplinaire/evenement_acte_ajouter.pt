@@ -239,7 +239,6 @@
                               <input type="submit"
                                      value="Modifier cet événement" />
                         </form>
-                        <span tal:content="evenement/eventact_pk" />
                     </div>
 
                     <div class="bouton-supprimer"
