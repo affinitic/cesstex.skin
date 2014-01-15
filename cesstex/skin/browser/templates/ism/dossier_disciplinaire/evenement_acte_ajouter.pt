@@ -115,15 +115,6 @@
                     <span tal:content="dossier/auteur/prof_prenom"
                           class="donnee-db">auteur</span>
                 </li>
-                <li>
-                    <span class="etiquette-db">DossierPk :</span>
-                    <span tal:content="dossier/dosdis_pk"
-                          class="donnee-db">auteur</span>
-                    <br />
-                    <span class="etiquette-db">ElevePk :</span>
-                    <span tal:content="eleve/eleve_pk"
-                          class="donnee-db">auteur</span>
-                </li>
             </ul>
         </div><!--info-dossier-->
         <div class="visualClear"></div>
