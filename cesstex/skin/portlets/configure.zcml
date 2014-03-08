@@ -4,25 +4,4 @@
            xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
            xmlns:plone="http://namespaces.plone.org/plone"
            i18n_domain="plone">
-    <plone:portlet
-        name="cesstex.agendaIsm"
-        interface=".agendaIsm.ICollectionPortlet"
-        assignment=".agendaIsm.Assignment"
-        view_permission="zope2.View"
-        edit_permission="cmf.ManagePortal"
-        renderer=".agendaIsm.Renderer"
-        addview=".agendaIsm.AddForm"
-        editview=".agendaIsm.EditForm"
-        />
-
-     <plone:portlet
-        name="cesstex.agendaIst"
-        interface=".agendaIst.ICollectionPortlet"
-        assignment=".agendaIst.Assignment"
-        view_permission="zope2.View"
-        edit_permission="cmf.ManagePortal"
-        renderer=".agendaIst.Renderer"
-        addview=".agendaIst.AddForm"
-        editview=".agendaIst.EditForm"
-        />
 </configure>

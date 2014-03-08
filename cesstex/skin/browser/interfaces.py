@@ -23,23 +23,14 @@ class IManageISM(Interface):
     """
     Gestion de Institut Sainte Marie
     """
-    def getNewsIsm():
-        """
-        liste les news
-        """
-
-    def getNewsIconURL(newsBrain):
-        """
-        récupère l'icône d'une news (ou celle par défaut)
-        """
     def getAllProfesseurs():
         """
-        récupère tous les professeurs ISM
+        recupere tous les professeurs ISM
         """
 
     def insertProfesseur():
         """
-        insère un nouveau prof dans dbPg et dans aclUser
+        insere un nouveau prof dans dbPg et dans aclUser
         """
 
     def updateProfesseur():
@@ -57,30 +48,20 @@ class IManageDossierDisciplinaire(Interface):
     """
     Gestion des dossiers disciplinaires
     """
-    def getAllDossier():
-        """
-        recuperation de tous les dossiers disciplinaires
-        """
-
-    def insertDossierDisciplinaire():
-        """
-        insère un nouveau dossier disciplinaire
-        """
-
     def insertEvenementActe():
         """
-        insère un nouvel événement acté dans un dossier disciplinaire
+        insere un nouvel evenement acte dans un dossier disciplinaire
         """
 
     def updateEvenementActe():
         """
-        update un événement acté dans un dossier disciplinaire
+        update un evenement acte dans un dossier disciplinaire
         """
 
 
 class IManageIST(Interface):
     """
-    Gestion de Institut Sainte Thérèse
+    Gestion de Institut Sainte Therese
     """
 
     def sendMailDemande():
@@ -90,7 +71,7 @@ class IManageIST(Interface):
 
     def traiterDemandeIst():
         """
-        gère la demande et envoie mail selon implantation
+        gere la demande et envoie mail selon implantation
         """
 
     def getNewsIst():
@@ -100,5 +81,5 @@ class IManageIST(Interface):
 
     def getNewsIconURL(newsBrain):
         """
-        récupère l'icône d'une news (ou celle par défaut)
+        recupere l'icone d'une news (ou celle par defaut)
         """
