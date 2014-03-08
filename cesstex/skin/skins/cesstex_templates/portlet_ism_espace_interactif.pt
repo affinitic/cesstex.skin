@@ -3,25 +3,37 @@
       i18n:domain="plone">
 
 <body>
-    <div metal:define-macro="portlet">
-        <div class="portlet">
-            <div class="portletHeaderEspaceInteractif">ESPACE INTERACTIF</div>
-            <div id="espace-interactif-ism">
-                <div class="texte-interactif">
-                    Documents - Exercices - Travaux - Projets
-                    <br /><br />
-                    Professeurs et &eacute;l&egrave;ves communiquent
-                </div>
+<!--
+    Portlet qui liste toutes les exépriences pour la plate-forme assuetude
+-->
+<div metal:define-macro="portlet">
+    <div class="portlet-left-column">
+        <dl id="portlet-espace-interactif-ism">
+            <dt class="portletHeaderEspaceInteractif">
+                <span class="portletTopLeft"></span>
+                <span class="portletTopRight"></span>
+                Espace interactif
+            </dt>
+            <dt id="espace-interactif-ism">
+                Documents - Exercices - Travaux - Projets
+                <br /><br />
+                Professeurs et &eacute;l&egrave;ves communiquent
                 <hr />
                 Entrez dans l'espace interactif pour<br />
                        les professeurs et les &eacute;tudiants
-            </div>
-            <div class="portletFooterEspaceInteractif">
-            <a href=""
-               tal:attributes="href string:${context/portal_url}/institut-sainte-marie/espace-interactif/">
-               <img src="btn_suivant.png" /></a>
-            </div>
-         </div>
+            </dt>
+            <dt class="portletFooterEspaceInteractif">
+                <div>
+                    <a href=""
+                       tal:attributes="href string:${context/portal_url}/institut-sainte-marie/espace-interactif/">
+                        <img src="btn_suivant.png" /></a>
+                </div>
+                <span class="portletBottomLeft"></span>
+                <span class="portletBottomRight"></span>
+            </dt>
+        </dl>
+    
     </div>
+</div>
 </body>
 </html>

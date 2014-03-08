@@ -499,6 +499,7 @@ text-align:center;
 
 .portletHeaderEspaceInteractif{
 background-image:url(portlet_ism_interactif.png);
+background-repeat:no-repeat;
 height:31px;
 color:#fff;
 text-align:right;
@@ -509,9 +510,10 @@ font-weight:bold;
 }
 
 #espace-interactif-ism{
+width:184px;
 border-left:1px solid #ff8900;
 border-right:1px solid #ff8900;
-padding:8px 5px 12px 5px;
+padding:8px 3px 12px 3px;
 text-align:center;
 background-color:#fff0df;
 }
