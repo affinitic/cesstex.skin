@@ -7,7 +7,7 @@
     Portlet qui liste toutes les exépriences pour la plate-forme assuetude
 -->
 <div metal:define-macro="portlet">
-    <div class="portlet-left-column">
+    <div class="portlet">
         <dl id="portlet-espace-interactif-ism">
             <dt class="portletHeaderEspaceInteractif">
                 <span class="portletTopLeft"></span>
