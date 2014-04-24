@@ -62,6 +62,55 @@ padding-top:10px;
 background-color:#fff;
 }
 
+#portal-personaltools{
+border-radius:18px;
+background-color:transparent;
+}
+
+#portal-personaltools a{
+color:rgba(250,250,250, 0.6) !important;
+}
+
+#portal-personaltools a:hover{
+color:rgba(250,250,250, 1) !important;
+}
+
+#portal-personaltools.actionMenu .actionMenuContent {
+position:absolute;
+right:14px;
+top:18px;
+z-index:5;
+display:none;
+height:auto;
+margin:0;
+padding:0;
+}
+
+#portal-personaltools.actionMenu .actionMenuContent ul {
+-moz-border-bottom-colors: none;
+-moz-border-left-colors: none;
+-moz-border-right-colors: none;
+-moz-border-top-colors: none;
+background: none repeat scroll 0 0 #DEE7EC;
+border-color: #8CACBB;
+border-image: none;
+border-width:0px 1px 1px 1px;
+border-style:solid;
+border-color:#8CACBB;
+border-radius:0px 0px 8px 8px;
+display: block;
+margin:0;
+padding: 0px 4px 0px 4px;
+}
+
+#portal-personaltools.actionMenu .actionMenuContent ul li a{
+color:#557583 !important;
+}
+
+#portal-personaltools.actionMenu .actionMenuContent ul li a:hover{
+background-color:#8CACBB;
+color:#fff !important;
+}
 
 /*** COLONNE ***/
 #portal-columns{
@@ -108,7 +157,7 @@ margin-bottom:1em;
 .portletHeader {
 height:31px;
 line-height:31px;
-border:1px solid #0075d2 !important;
+border:1px solid #C8EAF7 !important;
 border-radius:8px 8px 0px 0px;
 font-weight:normal;
 padding:5px 10px 0px 5px;
@@ -132,26 +181,26 @@ background-color:transparent;
 }
 
 .portletHeader a {
-color:#fff;
+color:#333;
 font-weight:bold;
 font-variant:small-caps;
 }
 
 .portletHeader a:hover {
-color:#bbe4ff;
+color:#000;
 }
 
 .portletItem {
 background-color:#fff;
-border-left:1px solid #0075d2;
-border-right:1px solid #0075d2;
+border-left:1px solid #C8EAF7;
+border-right:1px solid #C8EAF7;
 margin:0;
 padding:5px 5px;
 }
 
 .portletFooter {
 background-color:#BAD0EF;
-border:1px solid #0075d2 !important;
+border:1px solid #C8EAF7 !important;
 border-radius:0px 0px 8px 8px;
 margin:0;
 padding:0.25em 1em;
