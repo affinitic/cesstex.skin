@@ -162,16 +162,26 @@
       <browser:page
           for="*"
           name="ism-gallerie"
-          template="templates/ism_gallery.pt"
+          template="templates/ism/ism_gallery.pt"
           permission="zope.Public" />
 
       <browser:page
           name="ism-listing-event"
           for="*"
-          template="templates/ism_listing_event.pt"
+          template="templates/ism/ism_listing_event.pt"
           class=".ManageISM.ManageISM"
           allowed_interface=".interfaces.IManageISM"
           permission="zope.Public" />
+
+
+<!-- ISM FOLDER VIEW SOUS-SITE -->
+    <browser:page
+        name="infos-generales"
+        for="*"
+        template="templates/ism/ism_folder_view.pt"
+        class=".ManageISM.ManageISM"
+        allowed_interface=".interfaces.IManageISM"
+        permission="zope.Public" />
 
 
 

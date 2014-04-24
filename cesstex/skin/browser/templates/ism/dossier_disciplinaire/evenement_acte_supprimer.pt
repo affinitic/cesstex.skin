@@ -26,8 +26,8 @@
 </head>
 
 <body>
-<div tal:condition="python:user.has_role(['Manager'], here)">
 <div metal:fill-slot="main"
+     tal:condition="python:user.has_role(['Manager'], here)"
      tal:define="elevePk request/elevePk;
                  eleve python: view.getElevesByPk(elevePk);
                  dossier python: view.getDossierByEleve(elevePk);
@@ -196,7 +196,6 @@
             </form>
         </div>
 </div><!-- div metal-->
-</div><!-- tal condition -->
 </body>
 </html>
 

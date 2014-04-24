@@ -6,7 +6,8 @@
 
 <body>
 
-<div metal:fill-slot="main">
+<div metal:fill-slot="main"
+     tal:condition="python:user.has_role(['Manager', 'Site Administrator'], here)">
 
     <h1>:: Gestion des professseurs ::</h1>
     <div>

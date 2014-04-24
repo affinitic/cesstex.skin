@@ -29,12 +29,13 @@
 
 <body>
 <div metal:fill-slot="main"
+     tal:condition="python:user.has_role(['Manager'], here)"
      tal:define="elevePk request/elevePk;
                  eleve python: view.getElevesByPk(elevePk);
                  dossier python: view.getDossierByEleve(elevePk);
                  dossierDisciplinairePk dossier/dosdis_pk;
                  evenements python: view.getAllEvenementByDossier(dossierDisciplinairePk)">
-    <div tal:condition="python:user.has_role(['Manager'], here)">
+    <div>
         <h1>Gestion des dossiers disciplinaires</h1>
         <div class="formulaire">
             <h2 class="formulaire-titre">

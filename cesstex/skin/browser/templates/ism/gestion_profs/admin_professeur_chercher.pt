@@ -26,7 +26,8 @@
 </head>
 
 <body>
-<div metal:fill-slot="main">
+<div metal:fill-slot="main"
+     tal:condition="python:user.has_role(['Manager', 'Site Administrator'], here)">
     <div id="zone-titre-moteur-recherche">
         <h1>Rechercher un auteur</h1>
         <div class="search-text-intro">Plusieurs types de recherche sont possibles.</div>

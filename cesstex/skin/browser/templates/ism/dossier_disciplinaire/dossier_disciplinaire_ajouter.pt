@@ -26,7 +26,8 @@
 </head>
 
 <body>
-<div metal:fill-slot="main">
+<div metal:fill-slot="main"
+     tal:condition="python:user.has_role(['Manager', 'Site Administrator', 'ProfISM'], here)">
     <h1>Gestion des dossiers disciplinaires</h1>
     <div class="formulaire">
         <div class="table-donne-db"

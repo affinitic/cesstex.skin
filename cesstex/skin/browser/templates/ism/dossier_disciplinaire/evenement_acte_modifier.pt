@@ -29,6 +29,7 @@
 
 <body>
 <div metal:fill-slot="main"
+     tal:condition="python:user.has_role(['Manager', 'Site Administrator', 'ProfISM'], here)"
      tal:define="elevePk request/elevePk;
                  eleve python: view.getElevesByPk(elevePk);
                  dossier python: view.getDossierByEleve(elevePk);
