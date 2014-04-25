@@ -20,7 +20,7 @@ class ILogoView(Interface):
 
 class IIsmInfoSemaine(Interface):
     """
-    Gestion des news sur la folder view ism
+    Gestion des news infos semaine sur la folder view ism
     """
 
     def getNews():
@@ -32,6 +32,17 @@ class IIsmInfoSemaine(Interface):
         """
         recupere l'icone d'une news (ou celle par defaut)
         """
+
+class IIsmEventAgenda(Interface):
+    """
+    Gestion des events agenda sur la folder view ism
+    """
+
+    def getEvents():
+        """
+        liste les events
+        """
+
 
 class IManageISM(Interface):
     """

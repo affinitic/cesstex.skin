@@ -316,7 +316,7 @@ background-color:#e4edf7
 #info-generale-bloc-sup,
 #info-generale-bloc-inf{
 width:820px;
-height:350px;
+height:380px;
 margin:20px auto;
 }
 
@@ -325,7 +325,7 @@ margin:20px auto;
 #agenda,
 #espace-interactif{
 width:360px;
-height:310px;
+height:330px;
 margin:5px 10px;
 border-radius:18px;
 box-shadow:8px 8px 16px rgba(50,50,50,0.5);
@@ -383,24 +383,35 @@ border:1px solid #61a6f9;
 background-color:#e3edf7;
 }
 
-article.ismnews-content{
+article.ismnews-content,
+article.ismevents-content{
 font-size:0.6em;
 }
 
-article.ismnews-content a{
+article.ismnews-content a,
+article.ismevents-content a{
 display:block;
 border-radius:6px;
 }
 
-article.ismnews-content a:hover{
+article.ismnews-content a:hover,
+article.ismevents-content a:hover{
 text-decoration:none;
 background-color:rgba(250,250,250, 0.5);
 }
 
-article.ismnews-content h3.ismnews-title{
+article.ismnews-content h3.ismnews-title,
+article.ismevents-content h3.ismevents-title{
 margin:0;
-color:#005c00;
 padding-left:3px;
+}
+
+article.ismnews-content h3.ismnews-title{
+color:#005c00;
+}
+
+article.ismevents-content h3.ismevents-title{
+color:#bc7a30;
 }
 
 article.ismnews-content p{
@@ -409,10 +420,18 @@ height:27px;
 overflow:hidden;
 }
 
-.ismnews-date{
-color:#20a3af;
+article.ismevents-content p{
+padding:3px 5px 0px 9px;
+height:17px;
+overflow:hidden;
 }
 
+
+article.ismnews-content .ismnews-date,
+article.ismevents-content .ismevents-date{
+color:#20a3af;
+padding-left:9px;
+}
 
 
 

@@ -27,3 +27,16 @@ class IsmInfoSemaine(BrowserView):
         else:
             # image par défaut
             return 'news.png'
+
+
+class IsmEventAgenda(BrowserView):
+
+    @memoize
+    def getEvents(self, nombre):
+        catalog = getToolByName(aq_inner(self.context), 'portal_catalog')
+        return catalog(portal_type='Event',
+                       review_state=('external', 'internal'),
+                       isGlobal=1,
+                       sort_on='Date',
+                       sort_order='reverse',
+                       sort_limit=nombre)

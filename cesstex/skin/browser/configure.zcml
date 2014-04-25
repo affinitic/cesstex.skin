@@ -159,6 +159,14 @@
         permission="zope.Public"
         />
 
+    <browser:view
+        name="ismEventAgendaView"
+        class=".ism_info_semaine.IsmEventAgenda"
+        allowed_interface=".interfaces.IIsmEventAgenda"
+        for="*"
+        permission="zope.Public"
+        />
+
     <browser:page
       for="*"
       name="manageISM"
