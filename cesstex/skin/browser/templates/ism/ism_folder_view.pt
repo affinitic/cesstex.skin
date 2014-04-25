@@ -12,17 +12,57 @@
 <div metal:fill-slot="main">
     <h1>Informations générales</h1>
     <section id="info-generale-bloc-sup">
-    	<div id="a-la-une" class="laterals">
+    	<div id="a-la-une">
+    		<h2>A la une</h2>
     	</div>
     	<div id="info-de-la-semaine">
+    		<h2>Info de la semaine</h2>
+    		<div tal:define="view nocall:context/@@ismInfoSemaineView;
+                             news view/getNews;
+                             convert nocall:context/@@plone/toLocalizedTime;
+                             getNewsIconURL nocall:view/getNewsIconURL;"
+                 tal:condition="news">
+		        <tal:if tal:condition="news">
+		            <tal:boucle tal:repeat="item news">
+		                <article class="ismnews-content">
+	                        <a href=""
+	                           tal:attributes="href item/getURL;
+	                                           title item/Description">
+	                            <h3 tal:content="item/pretty_title_or_id"
+	                                class="ismnews-title" />
+		                        <p tal:content="item/Description"
+		                           class="ismnews-description"></p>
+		                    </a>
+	                        <!--<span tal:content="python: convert(item.Date)"
+	                              class="ismnews-date" />-->
+		                </article>
+		            </tal:boucle>
+		        </tal:if>
+		     </div>
     	</div>
     	<div class="visualClear"></div>
     </section>
 
     <section id="info-generale-bloc-inf">
     	<div id="agenda">
+    		<h2>Agenda</h2>
+    		
     	</div>
+
+
     	<div id="espace-interactif">
+		    <h2>Espace interactif</h2>
+            Documents - Exercices - Travaux - Projets
+            <br /><br />
+            Professeurs et &eacute;l&egrave;ves communiquent
+            <hr />
+            Entrez dans l'espace interactif pour<br />
+                   les professeurs et les &eacute;tudiants
+            <div>
+                <a href=""
+                   tal:attributes="href string:${context/portal_url}/institut-sainte-marie/espace-interactif/">
+                    <img src="btn_suivant.png" /></a>
+            </div>            
     	</div>
     	<div class="visualClear"></div>
     </section>

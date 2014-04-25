@@ -18,6 +18,20 @@ class ILogoView(Interface):
         return the logo regarding folder
         """
 
+class IIsmInfoSemaine(Interface):
+    """
+    Gestion des news sur la folder view ism
+    """
+
+    def getNews():
+        """
+        liste les news
+        """
+
+    def getNewsIconURL(newsBrain):
+        """
+        recupere l'icone d'une news (ou celle par defaut)
+        """
 
 class IManageISM(Interface):
     """

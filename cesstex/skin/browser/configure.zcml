@@ -151,27 +151,35 @@
         file="js/ism.js"
         />
 
-      <browser:page
-          for="*"
-          name="manageISM"
-          class=".ManageISM.ManageISM"
-          allowed_interface=".interfaces.IManageISM"
-          permission="zope.Public"
-          />
+    <browser:view
+        name="ismInfoSemaineView"
+        class=".ism_info_semaine.IsmInfoSemaine"
+        allowed_interface=".interfaces.IIsmInfoSemaine"
+        for="*"
+        permission="zope.Public"
+        />
 
-      <browser:page
-          for="*"
-          name="ism-gallerie"
-          template="templates/ism/ism_gallery.pt"
-          permission="zope.Public" />
+    <browser:page
+      for="*"
+      name="manageISM"
+      class=".ManageISM.ManageISM"
+      allowed_interface=".interfaces.IManageISM"
+      permission="zope.Public"
+      />
 
-      <browser:page
-          name="ism-listing-event"
-          for="*"
-          template="templates/ism/ism_listing_event.pt"
-          class=".ManageISM.ManageISM"
-          allowed_interface=".interfaces.IManageISM"
-          permission="zope.Public" />
+    <browser:page
+      for="*"
+      name="ism-gallerie"
+      template="templates/ism/ism_gallery.pt"
+      permission="zope.Public" />
+
+    <browser:page
+      name="ism-listing-event"
+      for="*"
+      template="templates/ism/ism_listing_event.pt"
+      class=".ManageISM.ManageISM"
+      allowed_interface=".interfaces.IManageISM"
+      permission="zope.Public" />
 
 
 <!-- ISM FOLDER VIEW SOUS-SITE -->
