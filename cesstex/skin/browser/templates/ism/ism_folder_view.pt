@@ -18,7 +18,7 @@
     	<div id="info-de-la-semaine">
     		<h2>Info de la semaine</h2>
     		<div tal:define="view nocall:context/@@ismInfoSemaineView;
-                             news view/getNews;
+                             news python:view.getNews(5);
                              convert nocall:context/@@plone/toLocalizedTime;
                              getNewsIconURL nocall:view/getNewsIconURL;"
                  tal:condition="news">
