@@ -47,26 +47,25 @@
     	<div id="agenda">
     		<h2>Agenda</h2>
     		<div tal:define="view nocall:context/@@ismEventAgendaView;
-    			             toLocalizedTime nocall:context/@@plone/toLocalizedTime;
-                             events python:view.getEvents(5);
-                             convert nocall:context/@@plone/toLocalizedTime"
+    			             events python:view.getEvents(5);
+    			             toLocalizedTime nocall:context/@@plone/toLocalizedTime"
                  tal:condition="events">
 		        <tal:if tal:condition="events">
 		            <tal:boucle tal:repeat="item events">
-		                <article tal:define="item_startdate python:toLocalizedTime(item.start);
-                                             item_starttime python:toLocalizedTime(item.start,time_only=1);
-                                             item_enddate python:toLocalizedTime(item.end);
-                                             item_endtime python:toLocalizedTime(item.end,time_only=1);"
+		                <article tal:define="item_startdate python:toLocalizedTime(item.start());
+                                             item_starttime python:toLocalizedTime(item.start(),time_only=1);
+                                             item_enddate python:toLocalizedTime(item.end());
+                                             item_endtime python:toLocalizedTime(item.end(),time_only=1);"
 		                	     class="ismevents-content">
 	                        <a href=""
-	                           tal:attributes="href item/getURL;
+	                           tal:attributes="href item/absolute_url;
 	                                           title item/Description">
 	                            <h3 tal:content="item/pretty_title_or_id"
 	                                class="ismevents-title" />
-                    			<span tal:content="string:${item_startdate} ${item_starttime} - ${item_endtime}"
-				                      class="ismevents-date" /> --
-				                <!--<span tal:content="item/profResponsable"
-				                      class="ismevents-date" />-->
+                    			<span tal:content="string:${item_startdate} ${item_startdate} ${item_starttime} - ${item_endtime}"
+				                      class="ismevents-date" />
+				                <span tal:content="item/profResponsable"
+				                      class="ismevents-date" />
 				                <p tal:content="item/Description"
 		                           class="ismevents-description"></p>
 	                        </a>
