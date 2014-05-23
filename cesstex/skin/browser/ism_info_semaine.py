@@ -41,7 +41,7 @@ class IsmEventAgenda(BrowserView):
         """
         catalog = getToolByName(aq_inner(self.context), 'portal_catalog')
         events = catalog(portal_type='Event',
-                         review_state=('external', 'internal'),
+                         review_state=('external', 'internal'),Ï
                          isGlobal=1,
                          sort_on='Date',
                          sort_order='reverse',

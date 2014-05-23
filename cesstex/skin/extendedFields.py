@@ -3,8 +3,7 @@ from zope.interface import implements
 from archetypes.schemaextender.interfaces import ISchemaExtender
 from archetypes.schemaextender.field import ExtensionField
 from Products.ATContentTypes.content.event import ATEvent
-from Products.Archetypes.public import TextField, StringField, TextAreaWidget, \
-                                       StringWidget
+from Products.Archetypes.public import TextField, StringField, TextAreaWidget, StringWidget
 
 
 class ProfResponsableField(ExtensionField, StringField):

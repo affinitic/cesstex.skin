@@ -50,7 +50,6 @@ class ManageISM(BrowserView):
         timeStamp = datetime.now()
         return timeStamp
 
-
 ### GESTION DES PROFS ###
     def addLoginProfesseur(self, login, passw, role):
         """
@@ -154,9 +153,8 @@ class ManageISM(BrowserView):
         session.add(newEntry)
         session.flush()
         session.refresh(newEntry)
-        profPk = newEntry.prof_pk
 
-        userProf = ('%s %s')%(profPrenom, profNom)
+        userProf = ('%s %s') % (profPrenom, profNom)
         userRole = 'ProfISM'
         self.addLoginProfesseur(profLogin, profPass, userRole)
         self.addInfoProfesseur(profLogin, profEmail, userProf)
@@ -173,6 +171,7 @@ class ManageISM(BrowserView):
         """
         Updates un événement acté lié à un dossier
         """
+
         fields = self.request.form
 
         profPk = fields.get('profPk')
@@ -196,7 +195,7 @@ class ManageISM(BrowserView):
         professeur.prof_status_fk = profStatusFk
         session.flush()
 
-        userProf = ('%s %s')%(profPrenom, profNom)
+        userProf = ('%s %s') % (profPrenom, profNom)
         userRole = 'ProfISM'
         self.addLoginProfesseur(profLogin, profPass, userRole)
         self.addInfoProfesseur(profLogin, profEmail, userProf)
@@ -235,4 +234,3 @@ class ManageISM(BrowserView):
         url = "%s/institut-sainte-marie/ajouter-un-professeur?profPk=%s" % (portalUrl, profPk)
         self.request.response.redirect(url)
         return ''
-
