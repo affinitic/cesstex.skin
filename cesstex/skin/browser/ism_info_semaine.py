@@ -5,6 +5,7 @@ from Products.Five import BrowserView
 from Products.CMFCore.utils import getToolByName
 from plone.memoize.instance import memoize
 
+
 class IsmInfoSemaine(BrowserView):
 
     @memoize
@@ -41,7 +42,7 @@ class IsmEventAgenda(BrowserView):
         """
         catalog = getToolByName(aq_inner(self.context), 'portal_catalog')
         events = catalog(portal_type='Event',
-                         review_state=('external', 'internal'),Ï
+                         review_state=('external', 'internal'),
                          isGlobal=1,
                          sort_on='Date',
                          sort_order='reverse',
