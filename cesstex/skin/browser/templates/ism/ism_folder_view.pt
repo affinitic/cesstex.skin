@@ -14,7 +14,34 @@
     <section id="info-generale-bloc-sup">
         <div id="a-la-une">
             <h2>A la une</h2>
-            <div class="info-generale-content">
+            <div tal:define="view nocall:context/@@ismInfoSemaineView;
+                             news python:view.getNews(5, 1);
+                             convert nocall:context/@@plone/toLocalizedTime;
+                             getNewsIconURL nocall:view/getNewsIconURL;"
+                tal:condition="news"
+                class="info-generale-content">
+                <tal:boucle tal:repeat="item news">
+                    <tal:block tal:define="infoUne python:item.getObject()"
+                               tal:condition="infoUne/isALaUneNews | nothing">
+                        <article class="ismnews-content">
+                            <div class="news-image"
+                                 tal:define="imgURL python:getNewsIconURL(item);">
+                                <img src=""
+                                     tal:attributes="src string: ${item/getURL}/${imgURL}" />
+                            </div>
+                            <a href=""
+                                 tal:attributes="href item/getURL;
+                                                 title item/Description">
+                                <h3 tal:content="item/pretty_title_or_id"
+                                    class="ismnews-title" />
+                                <p tal:content="item/Description"
+                                   class="ismnews-description"></p>
+                            </a>
+                              <!--<span tal:content="python: convert(item.Date)"
+                                    class="ismnews-date" />-->
+                        </article>
+                    </tal:block>
+                </tal:boucle>
             </div>
             <footer class="footer-info-generale">
                 <div class="bouton-suite">
@@ -69,23 +96,24 @@
                  class="info-generale-content">
                 <tal:if tal:condition="events">
                     <tal:boucle tal:repeat="item events">
+
                         <article tal:define="item_startdate python:toLocalizedTime(item.start());
-                                                 item_starttime python:toLocalizedTime(item.start(),time_only=1);
-                                                 item_enddate python:toLocalizedTime(item.end());
-                                                 item_endtime python:toLocalizedTime(item.end(),time_only=1);"
+                                             item_starttime python:toLocalizedTime(item.start(),time_only=1);
+                                             item_enddate python:toLocalizedTime(item.end());
+                                             item_endtime python:toLocalizedTime(item.end(),time_only=1);"
                                class="ismevents-content">
-                              <a href=""
-                                 tal:attributes="href item/absolute_url;
-                                                 title item/Description">
-                                  <h3 tal:content="item/pretty_title_or_id"
-                                      class="ismevents-title" />
-                              <span tal:content="string:${item_startdate} ${item_startdate} ${item_starttime} - ${item_endtime}"
-                                  class="ismevents-date" />
-                            <span tal:content="item/profResponsable"
-                                  class="ismevents-date" />
-                            <p tal:content="item/Description"
+                            <a href=""
+                               tal:attributes="href item/absolute_url;
+                                               title item/Description">
+                                <h3 tal:content="item/pretty_title_or_id"
+                                    class="ismevents-title" />
+                                <span tal:content="string:${item_startdate} ${item_startdate} ${item_starttime} - ${item_endtime}"
+                                      class="ismevents-date" />
+                                <span tal:content="item/profResponsable"
+                                      class="ismevents-date" />
+                                <p tal:content="item/Description"
                                    class="ismevents-description"></p>
-                              </a>
+                            </a>
                         </article>
                     </tal:boucle>
                 </tal:if>

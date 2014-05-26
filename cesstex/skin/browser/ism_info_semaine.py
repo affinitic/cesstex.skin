@@ -9,17 +9,26 @@ from plone.memoize.instance import memoize
 class IsmInfoSemaine(BrowserView):
 
     @memoize
-    def getNews(self, nombre):
+    def getNews(self, nombre, isALaUneNews=None):
         """
         récupère les actualités (news)
         """
         catalog = getToolByName(aq_inner(self.context), 'portal_catalog')
-        return catalog(portal_type='News Item',
-                       review_state=('external', 'internal'),
-                       isGlobal=1,
-                       sort_on='Date',
-                       sort_order='reverse',
-                       sort_limit=nombre)
+        if isALaUneNews:
+            ismInfo = catalog(portal_type='News Item',
+                              review_state=('external', 'internal'),
+                              isALaUneNews=1,
+                              sort_on='Date',
+                              sort_order='reverse',
+                              sort_limit=nombre)
+        else:
+            ismInfo = catalog(portal_type='News Item',
+                              review_state=('external', 'internal'),
+                              isALaUneNews=0,
+                              sort_on='Date',
+                              sort_order='reverse',
+                              sort_limit=nombre)
+        return ismInfo
 
     def getNewsIconURL(self, newsBrain):
         """
