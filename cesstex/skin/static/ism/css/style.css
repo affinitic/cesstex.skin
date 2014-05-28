@@ -405,17 +405,18 @@ height:280px;
 
 article.ismnews-content,
 article.ismevents-content{
-
 }
 
 article.ismnews-content a,
-article.ismevents-content a{
+article.ismevents-content a,
+div.info-generale-content a,{
 display:block;
 border-radius:6px;
 }
 
 article.ismnews-content a:hover,
-article.ismevents-content a:hover{
+article.ismevents-content a:hover,
+div.info-generale-content a:hover{
 text-decoration:none;
 background-color:rgba(250,250,250, 0.5);
 }
@@ -424,6 +425,12 @@ article.ismnews-content h3.ismnews-title,
 article.ismevents-content h3.ismevents-title{
 margin:0;
 padding-left:3px;
+}
+
+article.ismnews-content h3.ismnews-title-a-la-une{
+text-align:center;
+margin-bottom:4px;
+color:#d60014 !important;
 }
 
 article.ismnews-content h3.ismnews-title{
@@ -450,6 +457,28 @@ article.ismnews-content .ismnews-date,
 article.ismevents-content .ismevents-date{
 color:#20a3af;
 padding-left:9px;
+}
+
+.ismnews-image-a-la-une{
+float:left;
+margin:0px 8px 8px 0px;
+box-shadow: 0px 3px 6px rgba(50,50,50,0.5);
+}
+
+
+
+
+article p.ismnews-description-a-la-une{
+font-weight:bold;
+font-size:1em;
+padding:0px;
+}
+
+.ismnews-contenu-a-la-une{
+height:240px;
+overflow:hidden;
+text-align:justify;
+margin-bottom:11px;
 }
 
 

@@ -15,40 +15,40 @@
         <div id="a-la-une">
             <h2>A la une</h2>
             <div tal:define="view nocall:context/@@ismInfoSemaineView;
-                             news python:view.getNews(5, 1);
+                             news python:view.getNews(1, True);
                              convert nocall:context/@@plone/toLocalizedTime;
                              getNewsIconURL nocall:view/getNewsIconURL;"
-                tal:condition="news"
-                class="info-generale-content">
+                 tal:condition="news"
+                 class="info-generale-content">
                 <tal:boucle tal:repeat="item news">
                     <tal:block tal:define="infoUne python:item.getObject()"
                                tal:condition="infoUne/isALaUneNews | nothing">
                         <article class="ismnews-content">
-                            <div class="news-image"
-                                 tal:define="imgURL python:getNewsIconURL(item);">
-                                <img src=""
-                                     tal:attributes="src string: ${item/getURL}/${imgURL}" />
-                            </div>
                             <a href=""
-                                 tal:attributes="href item/getURL;
-                                                 title item/Description">
+                                   tal:attributes="href item/getURL;
+                                                   title item/Description">
                                 <h3 tal:content="item/pretty_title_or_id"
-                                    class="ismnews-title" />
-                                <p tal:content="item/Description"
-                                   class="ismnews-description"></p>
+                                    class="ismnews-title-a-la-une" />
+                                <div class="ismnews-contenu-a-la-une">
+                                    <img tal:replace="structure python: infoUne.tag(scale='mini', css_class='ismnews-image-a-la-une')" />
+                                    <p tal:content="item/Description"
+                                       class="ismnews-description-a-la-une"></p>
+                                    <span tal:define="text python:infoUne.CookedBody(stx_level=2);"
+                                          tal:content="text"
+                                          class=""></span>
+                                </div>
                             </a>
-                              <!--<span tal:content="python: convert(item.Date)"
-                                    class="ismnews-date" />-->
                         </article>
                     </tal:block>
+                    <footer class="footer-info-generale">
+                        <div class="bouton-suite">
+                            <a href=""
+                               tal:attributes="href item/getURL;
+                                               title item/Description"></a>
+                        </div>
+                    </footer>
                 </tal:boucle>
             </div>
-            <footer class="footer-info-generale">
-                <div class="bouton-suite">
-                    <a href=""
-                       tal:attributes="href string:${context/portal_url}/institut-sainte-marie/"></a>
-                </div>
-            </footer>
         </div>
 
         <div id="info-de-la-semaine">
@@ -130,15 +130,17 @@
         <div id="espace-interactif">
             <h2>Espace interactif</h2>
             <div class="info-generale-content">
-                Professeurs et &eacute;l&egrave;ves communiquent et échangent à propos de
-                <ul>
-                    <li>documents,</li>
-                    <li>exercices,</li>
-                    <li>travaux,</li>
-                    <li>projets.</li>
-                </ul>
-
-                <img src="ism_espace_interactif.png" />
+                <a href=""
+                   tal:attributes="href string:${context/portal_url}/institut-sainte-marie/espace-interactif/">
+                    &nbsp;&nbsp;&nbsp;Professeurs et &eacute;l&egrave;ves communiquent et échangent à propos de
+                    <ul>
+                        <li>documents,</li>
+                        <li>exercices,</li>
+                        <li>travaux,</li>
+                        <li>projets.</li>
+                    </ul>
+                    <img src="ism_espace_interactif.png" />
+                </a>
             </div>
             <footer class="footer-info-generale">
                 <div class="bouton-suite">

@@ -17,14 +17,13 @@ class IsmInfoSemaine(BrowserView):
         if isALaUneNews:
             ismInfo = catalog(portal_type='News Item',
                               review_state=('external', 'internal'),
-                              isALaUneNews=1,
+                              isALaUneNews=isALaUneNews,
                               sort_on='Date',
                               sort_order='reverse',
                               sort_limit=nombre)
         else:
             ismInfo = catalog(portal_type='News Item',
                               review_state=('external', 'internal'),
-                              isALaUneNews=0,
                               sort_on='Date',
                               sort_order='reverse',
                               sort_limit=nombre)
