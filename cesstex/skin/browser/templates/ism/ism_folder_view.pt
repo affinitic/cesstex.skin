@@ -33,9 +33,9 @@
                                     <img tal:replace="structure python: infoUne.tag(scale='mini', css_class='ismnews-image-a-la-une')" />
                                     <p tal:content="item/Description"
                                        class="ismnews-description-a-la-une"></p>
-                                    <span tal:define="text python:infoUne.CookedBody(stx_level=2);"
-                                          tal:content="text"
-                                          class=""></span>
+                                    <span tal:define="text python:infoUne.CookedBody(stx_level=2);">
+                                        <span tal:replace="structure text" />
+                                    </span>
                                 </div>
                             </a>
                         </article>
