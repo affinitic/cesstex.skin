@@ -14,6 +14,41 @@
     <section id="ism-valve-prof">
         <div id="ism-valve-prof-content">
             <h2>Valves</h2>
+            <div tal:define="view nocall:context/@@ismInfoSemaineView;
+                             news python:view.getNews(1, False, True);
+                             convert nocall:context/@@plone/toLocalizedTime;
+                             getNewsIconURL nocall:view/getNewsIconURL;"
+                 tal:condition="news"
+                 class="info-prof-content">
+                <tal:boucle tal:repeat="item news">
+                    <tal:block tal:define="infoProf python:item.getObject()"
+                               tal:condition="infoProf/isValveProfNews | nothing">
+                        <article class="ismnews-content">
+                            <a href=""
+                                   tal:attributes="href item/getURL;
+                                                   title item/Description">
+                                <h3 tal:content="item/pretty_title_or_id"
+                                    class="ismnews-title-valve-prof" />
+                                <div class="ismnews-valve-prof">
+                                    <!--<img tal:replace="structure python: infoProf.tag(scale='mini', css_class='ismnews-image-a-la-une')" />-->
+                                    <p tal:content="item/Description"
+                                       class="ismnews-description-a-la-une"></p>
+                                    <span tal:define="text python:infoProf.CookedBody(stx_level=2);">
+                                        <span tal:replace="structure text" />
+                                    </span>
+                                </div>
+                            </a>
+                        </article>
+                    </tal:block>
+                    <footer class="footer-valve-prof">
+                        <div class="bouton-suite">
+                            <a href=""
+                               tal:attributes="href item/getURL;
+                                               title item/Description"></a>
+                        </div>
+                    </footer>
+                </tal:boucle>
+            </div>
         </div>
     </section>
 

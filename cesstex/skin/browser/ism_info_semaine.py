@@ -9,7 +9,7 @@ from plone.memoize.instance import memoize
 class IsmInfoSemaine(BrowserView):
 
     @memoize
-    def getNews(self, nombre, isALaUneNews=None):
+    def getNews(self, nombre, isALaUneNews=None, isValveProfNews=None):
         """
         récupère les actualités (news)
         """
@@ -18,6 +18,13 @@ class IsmInfoSemaine(BrowserView):
             ismInfo = catalog(portal_type='News Item',
                               review_state=('external', 'internal'),
                               isALaUneNews=isALaUneNews,
+                              sort_on='Date',
+                              sort_order='reverse',
+                              sort_limit=nombre)
+        elif isValveProfNews:
+            ismInfo = catalog(portal_type='News Item',
+                              review_state=('external', 'internal'),
+                              isValveProfNews=isValveProfNews,
                               sort_on='Date',
                               sort_order='reverse',
                               sort_limit=nombre)

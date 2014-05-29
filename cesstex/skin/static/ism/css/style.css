@@ -398,7 +398,7 @@ display:block;
 margin:auto;
 }
 
- .info-generale-content{
+.info-generale-content{
 height:280px;
 }
 
@@ -464,9 +464,6 @@ margin:0px 8px 8px 0px;
 box-shadow: 0px 3px 6px rgba(50,50,50,0.5);
 }
 
-
-
-
 article p.ismnews-description-a-la-une{
 font-weight:bold;
 font-size:1em;
@@ -531,7 +528,7 @@ text-decoration:none;
 /*** VALVE PROF -Dossier Salle des profs ***/
 #ism-valve-prof{
 width:500px;
-height:300px;
+height:345px;
 margin:auto;
 margin-bottom:15px;
 border-radius: 1.5em;
@@ -550,32 +547,75 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#40a65f', end
 #ism-valve-prof-content{
 position:absolute;
 z-index:10;
-}
-
-#ism-valve-prof-content h2{
-color:#fff;
-}
-
-
-.borderbox {
-height:98%;
-width: 98%;
-margin:auto;
-border:1px dashed #FFF;
-border-radius:18px;
+height: 345px;
+width: 500px;
 }
 
 #ism-valve-prof:before{
 content: "";
-opacity: 0.3;
+opacity: 0.5;
 border-radius:18px;
 float:left;
 width:500px;
-height:300px;
+height:345px;
 margin: auto;
 position:absolute;
 z-index: 1;
 background-image:url(../images/brush.jpg);
+}
+
+#ism-valve-prof-content h2{
+position:relative;
+left:-30px;
+top:150px;
+-webkit-transform: rotate(-90deg);
+-moz-transform: rotate(-90deg);
+-ms-transform: rotate(-90deg);
+-o-transform: rotate(-90deg);
+width:100px;
+border-bottom:none;
+font-size:2em;
+font-weight:bold;
+letter-spacing:8px;
+color:#060;
+text-shadow:1px 1px 1px rgba(255,255,255,0.8);
+}
+
+.info-prof-content{
+position:relative;
+left:40px;
+top:-40px;
+width:440px;
+height:285px;
+}
+
+article.ismnews-content h3.ismnews-title-valve-prof{
+text-align:center;
+margin-bottom:8px;
+color:#fff !important;
+}
+
+article p.ismnews-description-valve-prof{
+font-weight:bold;
+font-size:1em;
+padding:0px;
+}
+
+.ismnews-valve-prof{
+width:410px;
+height:290px;
+overflow:hidden;
+text-align:justify;
+margin:auto;
+margin-bottom:-35px;
+color:#fff;
+}
+
+footer.footer-valve-prof{
+position:relative;
+top:2px;
+border-top:1px solid #ccc;
+padding:2px;
 }
 
 #ism-dossier-salle-prof{
@@ -603,6 +643,9 @@ width:100%;
 #ism-dossier-salle-prof table td{
 text-align:center;
 }
+
+
+
 
 /*** FOOTER ***/
 footer#footer-ism{

@@ -40,7 +40,7 @@ class NewsExtender(object):
             default=False,
             widget=BooleanWidget(description=u"""Cochez cette case s'il s'agit
                                                  d'une actualite a destination des valves prof.""",
-                                 label=u"Actualite Prof"))]
+                                 label=u"Actualite 'Valve Prof'"))]
 
     def __init__(self, context):
         self.context = context
