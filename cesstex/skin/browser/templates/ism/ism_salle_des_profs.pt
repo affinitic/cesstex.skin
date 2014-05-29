@@ -1,0 +1,103 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="plone">
+
+<head>
+    <metal:noborder fill-slot="top_slot"
+                    tal:define="dummy python:request.set('disable_border',1)" />
+</head>
+
+<body>
+<div metal:fill-slot="main">
+    <h1>Salle des profs</h1>
+    <div id="ism-valve-prof">
+
+    </div>
+
+    <table id="ism-dossier-salle-prof"
+           class="invisible">
+        <tr>
+            <td style="text-align: center;">
+                <a title="Organisation générale et agenda"
+                   class="internal-link"
+                   href="organisation-generale">
+                    <img class="image-inline"
+                         src="icone_dossier/dossier_organisation.png/image_mini"
+                         alt="dossier_organisation.png" /></a>
+            </td>
+            <td style="text-align: center;">
+                <a title="Documents généraux de référence"
+                   class="internal-link"
+                   href="documents-generaux-de-reference">
+                    <img class="image-inline"
+                         src="icone_dossier/dossier_doc_gen.png/image_mini"
+                         alt="dossier_doc_gen.png" /></a>
+            </td>
+            <td>
+                <a title="Documents pédagogiques"
+                   class="internal-link"
+                   href="documents-pedagogiques">
+                    <img class="image-inline"
+                         src="icone_dossier/dossier_doc_peda.png/image_mini"
+                         alt="dossier_doc_peda.png" /></a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <a title="Conseils de classe"
+                   class="internal-link"
+                   href="conseils-de-classe">
+                    <img class="image-inline"
+                         src="icone_dossier/dossier_conseil_classe.png/image_mini"
+                         alt="dossier_conseil_classe.png" /></a>
+            </td>
+            <td>
+                <a title="Assemblées générales"
+                   class="internal-link"
+                   href="assemblees-generales">
+                    <img class="image-inline"
+                         src="icone_dossier/dossier_assemb_gen.png/image_preview"
+                         alt="dossier_assemb_gen.png" /></a>
+            </td>
+            <td>
+                <a title="Rapports des instances"
+                   class="internal-link"
+                   href="rapports-des-instances">
+                    <img class="image-inline"
+                         src="icone_dossier/dossier_rapport_instance.png/image_preview"
+                         alt="dossier_rapport_instance.png" /></a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <a title="Groupes et équipes de travail"
+                   class="internal-link"
+                   href="groupes-et-equipes-de-travail">
+                    <img class="image-inline"
+                         src="icone_dossier/dossier_groupe_equipe_travail.png/image_mini"
+                         alt="dossier_groupe_equipe_travail.png" /></a><br />
+            </td>
+            <td>
+                <a title="VADE MECUM DU PROF ISM"
+                   class="internal-link"
+                   href="vade-mecum-du-prof-ism">
+                    <img class="image-inline"
+                         src="icone_dossier/dossier_vade_mecum.png/image_mini"
+                         alt="dossier_vade_mecum.png" /></a>
+            </td>
+            <td>
+                <a title="Gestion des dossiers disciplinaires"
+                   class="internal-link"
+                   href="gestion-des-dossiers-disciplinaires">
+                    <img class="image-inline"
+                         src="icone_dossier/dossier_gestion_discipline.png/image_mini"
+                         alt="dossier_gestion_discipline.png" /></a>
+            </td>
+        </tr>
+    </table>
+
+</div><!-- div metal-->
+</body>
+</html>
+

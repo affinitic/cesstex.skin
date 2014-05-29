@@ -199,6 +199,14 @@
         allowed_interface=".interfaces.IManageISM"
         permission="zope.Public" />
 
+<!-- ISM SALLE DES PROFS FOLDER VIEW -->
+    <browser:page
+        name="salle-des-profs"
+        for="*"
+        template="templates/ism/ism_salle_des_profs.pt"
+        class=".ManageISM.ManageISM"
+        allowed_interface=".interfaces.IManageISM"
+        permission="cesstex.ProfISM" />
 
 
 <!-- DOSSIER DISCIPLINAIRE -->
