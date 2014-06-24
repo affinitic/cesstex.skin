@@ -13,24 +13,24 @@
 
     <!-- Customize the navigation portlet -->
     <plone:portletRenderer
-           portlet="plone.app.portlets.portlets.navigation.INavigationPortlet"
-           layer=".interfaces.ICesstexTheme"
-           class=".navigation.MyNavRenderer"
-           />
+        portlet="plone.app.portlets.portlets.navigation.INavigationPortlet"
+        layer=".interfaces.ICesstexTheme"
+        class=".navigation.MyNavRenderer"
+        />
 
     <!-- Customize the events portlet -->
     <plone:portletRenderer
-           portlet="plone.app.portlets.portlets.events.IEventsPortlet"
-           layer=".interfaces.ICesstexTheme"
-           class=".events.MyEventRenderer"
-           />
+        portlet="plone.app.portlets.portlets.events.IEventsPortlet"
+        layer=".interfaces.ICesstexTheme"
+        class=".events.MyEventRenderer"
+        />
 
      <!-- Customize the news portlet -->
      <plone:portletRenderer
-            portlet="plone.app.portlets.portlets.news.INewsPortlet"
-            layer=".interfaces.ICesstexTheme"
-            class=".news.MyNewsRenderer"
-            />
+        portlet="plone.app.portlets.portlets.news.INewsPortlet"
+        layer=".interfaces.ICesstexTheme"
+        class=".news.MyNewsRenderer"
+        />
 
     <!-- formulaire contact-info -->
     <!--
@@ -57,12 +57,12 @@
         />
 
     <browser:page
-      class=".pageCheck.PageCheckView"
-      for="*"
-      name="isHomePage"
-      attribute="isHomePage"
-      permission="zope2.View"
-      />
+        class=".pageCheck.PageCheckView"
+        for="*"
+        name="isHomePage"
+        attribute="isHomePage"
+        permission="zope2.View"
+        />
 
     <browser:page
         for="*"
@@ -128,19 +128,19 @@
 
 
       <browser:page
-          for="*"
-          name="ist-gallerie"
-          template="templates/ist_gallery.pt"
-          permission="zope.Public"
+        for="*"
+        name="ist-gallerie"
+        template="templates/ist_gallery.pt"
+        permission="zope.Public"
       />
 
       <browser:page
-          name="ist-listing-event"
-          for="*"
-          template="templates/ist_listing_event.pt"
-          class=".ManageIST.ManageIST"
-          allowed_interface=".interfaces.IManageIST"
-          permission="zope.Public" />
+        name="ist-listing-event"
+        for="*"
+        template="templates/ist_listing_event.pt"
+        class=".ManageIST.ManageIST"
+        allowed_interface=".interfaces.IManageIST"
+        permission="zope.Public" />
 
 
 
@@ -168,26 +168,26 @@
         />
 
     <browser:page
-      for="*"
-      name="manageISM"
-      class=".ManageISM.ManageISM"
-      allowed_interface=".interfaces.IManageISM"
-      permission="zope.Public"
-      />
+        for="*"
+        name="manageISM"
+        class=".ManageISM.ManageISM"
+        allowed_interface=".interfaces.IManageISM"
+        permission="zope.Public"
+        />
 
     <browser:page
-      for="*"
-      name="ism-gallerie"
-      template="templates/ism/ism_gallery.pt"
-      permission="zope.Public" />
+        for="*"
+        name="ism-gallerie"
+        template="templates/ism/ism_gallery.pt"
+        permission="zope.Public" />
 
     <browser:page
-      name="ism-listing-event"
-      for="*"
-      template="templates/ism/ism_listing_event.pt"
-      class=".ManageISM.ManageISM"
-      allowed_interface=".interfaces.IManageISM"
-      permission="zope.Public" />
+        name="ism-listing-event"
+        for="*"
+        template="templates/ism/ism_listing_event.pt"
+        class=".ManageISM.ManageISM"
+        allowed_interface=".interfaces.IManageISM"
+        permission="zope.Public" />
 
 
 <!-- ISM FOLDER VIEW SOUS-SITE -->

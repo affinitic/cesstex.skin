@@ -32,7 +32,7 @@
                                 <div class="ismnews-valve-prof">
                                     <!--<img tal:replace="structure python: infoProf.tag(scale='mini', css_class='ismnews-image-a-la-une')" />-->
                                     <p tal:content="item/Description"
-                                       class="ismnews-description-a-la-une"></p>
+                                       class="ismnews-description-valve-prof"></p>
                                     <span tal:define="text python:infoProf.CookedBody(stx_level=2);">
                                         <span tal:replace="structure text" />
                                     </span>
