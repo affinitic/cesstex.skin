@@ -23,16 +23,16 @@
                        les professeurs et les &eacute;tudiants
             </dt>
             <dt class="portletFooterEspaceInteractif">
-                <div>
+                <div class="bouton-suite">
                     <a href=""
-                       tal:attributes="href string:${context/portal_url}/institut-sainte-marie/espace-interactif/">
-                        <img src="btn_suivant.png" /></a>
+                       tal:attributes="href string:${context/portal_url}/institut-sainte-marie/espace-interactif/"></a>
                 </div>
+                <div class="visualClear"></div>
                 <span class="portletBottomLeft"></span>
                 <span class="portletBottomRight"></span>
             </dt>
         </dl>
-    
+
     </div>
 </div>
 </body>
