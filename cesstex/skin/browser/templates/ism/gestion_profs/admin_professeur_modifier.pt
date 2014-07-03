@@ -42,13 +42,22 @@
                         </div>
 
                         <div class="formulaire-input">
-                            <label for="profEmail">Email</label>
+                            <label for="profEmail">Email privé</label>
                             <input type="text"
                                    name="profEmail"
                                    id="profEmail"
                                    value=""
                                    size="50"
                                    tal:attributes="value professeur/prof_email" />
+                        </div>
+                        <div class="formulaire-input">
+                            <label for="profEmailCesstex">Email CESSTEX</label>
+                            <input type="text"
+                                   name="profEmailCesstex"
+                                   id="profEmailCesstex"
+                                   value=""
+                                   size="50"
+                                   tal:attributes="value professeur/prof_email_id" />
                         </div>
                         <div class="formulaire-input">
                             <label for="profLogin">Login</label>

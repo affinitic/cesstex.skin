@@ -109,12 +109,15 @@ class ManageISM(BrowserView):
 
     def getAllProfesseurs(self):
         """
-        recuperation de tous les professseurs
+        recuperation de tous les professseurs selon ecole
+        table ecole ism=1
         """
+        ecole = 1
         wrapper = getSAWrapper('cesstex')
         session = wrapper.session
         query = session.query(Professeur)
         query = query.order_by(Professeur.prof_nom)
+        query = query.filter(Professeur.prof_ecole_fk == ecole)
         allProfesseurs = query.all()
         return allProfesseurs
 
@@ -138,18 +141,22 @@ class ManageISM(BrowserView):
         profNom = fields.get('profNom')
         profPrenom = fields.get('profPrenom', None)
         profEmail = fields.get('profEmail', None)
+        profEmailCesstex = fields.get('profEmailCesstex', None)
         profLogin = fields.get('profLogin', None)
         profPass = fields.get('profPass', None)
         profStatutFk = fields.get('profStatutFk', None)
+        profEcoleFk = fields.get('profEcoleFk', None)
 
         wrapper = getSAWrapper('cesstex')
         session = wrapper.session
         newEntry = Professeur(prof_nom=profNom,
                               prof_prenom=profPrenom,
                               prof_email=profEmail,
+                              prof_email_id=profEmailCesstex,
                               prof_login=profLogin,
                               prof_pass=profPass,
-                              prof_statut_fk=profStatutFk)
+                              prof_statut_fk=profStatutFk,
+                              prof_ecole_fk=profEcoleFk)
         session.add(newEntry)
         session.flush()
         session.refresh(newEntry)
@@ -178,6 +185,7 @@ class ManageISM(BrowserView):
         profNom = fields.get('profNom')
         profPrenom = fields.get('profPrenom', None)
         profEmail = fields.get('profEmail', None)
+        profEmailCesstex = fields.get('profEmailCesstex', None)
         profLogin = fields.get('profLogin', None)
         profPass = fields.get('profPass', None)
         profStatusFk = fields.get('profStatusFk', None)
@@ -190,6 +198,7 @@ class ManageISM(BrowserView):
         professeur.prof_nom = unicode(profNom, 'utf-8')
         professeur.prof_prenom = unicode(profPrenom, 'utf-8')
         professeur.prof_email = unicode(profEmail, 'utf-8')
+        professeur.prof_email_id = unicode(profEmailCesstex, 'utf-8')
         professeur.prof_login = unicode(profLogin, 'utf-8')
         professeur.prof_pass = unicode(profPass, 'utf-8')
         professeur.prof_status_fk = profStatusFk

@@ -36,7 +36,13 @@
                                 <td><span tal:content="professeur/prof_prenom" /></td>
                                 <td><span tal:content="professeur/prof_login" /></td>
                                 <td><span tal:content="professeur/prof_pass" /></td>
-                                <td><span tal:content="professeur/prof_email" /></td>
+                                <td>
+                                  &rsaquo; Perso :
+                                  <span tal:content="professeur/prof_email" />
+                                  <br />
+                                  &rsaquo; Cesstex :
+                                  <span tal:content="professeur/prof_email_id" />
+                                </td>
                                 <td><span tal:content="professeur/statut/statmembre_statut" /></td>
                                 <td>
                                     <a href=""
@@ -67,35 +73,43 @@
               <input type="text"
                      name="profNom"
                      id="profNom"
-                     size="50"/>
+                     size="80"/>
           </div>
           <div class="formulaire-input">
               <label for="profPrenom">Prenom :</label>
               <input type="text"
                      name="profPrenom"
                      id="profPrenom"
-                     size="50"/>
+                     size="80"/>
           </div>
           <div class="formulaire-input">
               <label for="profLogin">Login :</label>
               <input type="text"
                      name="profLogin"
                      id="profLogin"
-                     size="50"/>
+                     size="80"/>
           </div>
           <div class="formulaire-input">
               <label for="profPass">Pass :</label>
               <input type="text"
                      name="profPass"
                      id="profPass"
-                     size="50"/>
+                     size="80"/>
           </div>
           <div class="formulaire-input">
-              <label for="profEmail">Email :</label>
+              <label for="profEmail">Email privé:</label>
               <input type="text"
                      name="profEmail"
                      id="profEmail"
-                     size="50"/>
+                     size="80"/>
+          </div>
+          <div class="formulaire-input">
+              <label for="profEmailCesstex">Email Cesstex :</label>
+              <input type="text"
+                     name="profEmailCesstex"
+                     id="profEmail"
+                     size="80"/>
+              @cesstex.be
           </div>
           <div class="formulaire-input">
               <label for="profStatut">Statut :</label>
@@ -113,6 +127,9 @@
               <input type="hidden"
                      name="operation"
                      value="insert" />
+              <input type="hidden"
+                     name="profEcoleFk"
+                     value="1" />
               <input class="context"
                      type="submit"
                      value="Enregister ce membre" />
