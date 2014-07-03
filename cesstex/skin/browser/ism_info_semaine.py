@@ -14,23 +14,27 @@ class IsmInfoSemaine(BrowserView):
         récupère les actualités (news)
         """
         catalog = getToolByName(aq_inner(self.context), 'portal_catalog')
+        path = '/'.join(self.context.getPhysicalPath())
         if isALaUneNews:
             ismInfo = catalog(portal_type='News Item',
                               review_state=('external', 'internal'),
                               isALaUneNews=isALaUneNews,
+                              path={'query': path},
                               sort_on='Date',
                               sort_order='reverse',
                               sort_limit=nombre)
         elif isValveProfNews:
             ismInfo = catalog(portal_type='News Item',
-                              review_state=('external', 'internal'),
+                              review_state=('external','internal'),
                               isValveProfNews=isValveProfNews,
+                              path={'query': path},
                               sort_on='Date',
                               sort_order='reverse',
                               sort_limit=nombre)
         else:
             ismInfo = catalog(portal_type='News Item',
                               review_state=('external', 'internal'),
+                              path={'query': path},
                               sort_on='Date',
                               sort_order='reverse',
                               sort_limit=nombre)
@@ -56,9 +60,11 @@ class IsmEventAgenda(BrowserView):
         reécupère les événements-calendriers (events)
         """
         catalog = getToolByName(aq_inner(self.context), 'portal_catalog')
+        path = '/'.join(self.context.getPhysicalPath())
         events = catalog(portal_type='Event',
                          review_state=('external', 'internal'),
                          isGlobal=1,
+                         path={'query': path},
                          sort_on='Date',
                          sort_order='reverse',
                          sort_limit=nombre)
