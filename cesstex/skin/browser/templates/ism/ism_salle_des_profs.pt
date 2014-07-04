@@ -30,9 +30,12 @@
                                 <h3 tal:content="item/pretty_title_or_id"
                                     class="ismnews-title-valve-prof" />
                                 <div class="ismnews-valve-prof">
-                                    <!--<img tal:replace="structure python: infoProf.tag(scale='mini', css_class='ismnews-image-a-la-une')" />-->
+                                    <!--
+                                    <img tal:replace="structure python: infoProf.tag(scale='mini', css_class='ismnews-image-a-la-une')" />
+                                  -->
                                     <p tal:content="item/Description"
                                        class="ismnews-description-valve-prof"></p>
+                                    <br />
                                     <span tal:define="text python:infoProf.CookedBody(stx_level=2);">
                                         <span tal:replace="structure text" />
                                     </span>
@@ -41,6 +44,10 @@
                         </article>
                     </tal:block>
                     <footer class="footer-valve-prof">
+                        <div tal:condition="python:user.has_role(['Manager', 'Site Administrator'], here)"
+                             class="bouton-ajouter">
+                            <a href="createObject?type_name=News+Item">ajouter</a>
+                        </div>
                         <div class="bouton-suite">
                             <a href=""
                                tal:attributes="href item/getURL;

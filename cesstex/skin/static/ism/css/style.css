@@ -509,14 +509,6 @@ float:right;
 width:30px;
 }
 
-div.bouton-ajouter{
-float:left;
-width:80px;
-font-size:1em;
-text-align:center;
-}
-
-
 div.bouton-suite a:after {
 content: "➜";
 }
@@ -534,6 +526,14 @@ div.bouton-suite a:hover{
 color:#ff64ff !important;
 text-decoration:none;
 }
+
+div.bouton-ajouter{
+float:left;
+width:80px;
+font-size:1em;
+text-align:center;
+}
+
 
 
 
@@ -602,15 +602,15 @@ text-shadow:1px 1px 1px rgba(255,255,255,0.8);
 position:relative;
 left:40px;
 top:-40px;
-width:440px;
+width:540px;
 height:285px;
-border:1px solid #fff;
+border-left:1px solid #fff;
 }
 
 article.ismnews-content h3.ismnews-title-valve-prof{
 text-align:center;
 margin-bottom:8px;
-color:#fff !important;
+color:#333 !important;
 }
 
 article p.ismnews-description-valve-prof{
@@ -620,13 +620,13 @@ padding:0px;
 }
 
 .ismnews-valve-prof{
-width:410px;
+width:520px;
 height:290px;
 overflow:hidden;
 text-align:justify;
 margin:auto;
 margin-bottom:-35px;
-color:#fff;
+color:#666;
 }
 
 footer.footer-valve-prof{

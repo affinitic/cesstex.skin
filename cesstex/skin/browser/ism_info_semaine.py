@@ -23,11 +23,10 @@ class IsmInfoSemaine(BrowserView):
                               sort_on='Date',
                               sort_order='reverse',
                               sort_limit=nombre)
-        elif isValveProfNews:
+        elif isValveProfNews:  #checker pourquoi pas avec le path
             ismInfo = catalog(portal_type='News Item',
                               review_state=('external', 'internal'),
                               isValveProfNews=isValveProfNews,
-                              path={'query': path},
                               sort_on='Date',
                               sort_order='reverse',
                               sort_limit=nombre)
