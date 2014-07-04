@@ -25,7 +25,7 @@ class IsmInfoSemaine(BrowserView):
                               sort_limit=nombre)
         elif isValveProfNews:
             ismInfo = catalog(portal_type='News Item',
-                              review_state=('external','internal'),
+                              review_state=('external', 'internal'),
                               isValveProfNews=isValveProfNews,
                               path={'query': path},
                               sort_on='Date',

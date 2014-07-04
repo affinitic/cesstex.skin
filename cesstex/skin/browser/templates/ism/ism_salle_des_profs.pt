@@ -25,8 +25,8 @@
                                tal:condition="infoProf/isValveProfNews | nothing">
                         <article class="ismnews-content">
                             <a href=""
-                                   tal:attributes="href item/getURL;
-                                                   title item/Description">
+                               tal:attributes="href item/getURL;
+                                               title item/Description">
                                 <h3 tal:content="item/pretty_title_or_id"
                                     class="ismnews-title-valve-prof" />
                                 <div class="ismnews-valve-prof">

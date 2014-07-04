@@ -41,6 +41,10 @@
                         </article>
                     </tal:block>
                     <footer class="footer-info-generale">
+                        <div tal:condition="python:user.has_role(['Manager', 'Site Administrator'], here)"
+                             class="bouton-ajouter">
+                            <a href="createObject?type_name=News+Item">ajouter</a>
+                        </div>
                         <div class="bouton-suite">
                             <a href=""
                                tal:attributes="href item/getURL;
@@ -77,6 +81,10 @@
                 </tal:if>
             </div>
             <footer class="footer-info-generale">
+                <div tal:condition="python:user.has_role(['Manager', 'Site Administrator'], here)"
+                     class="bouton-ajouter">
+                    <a href="createObject?type_name=News+Item">ajouter</a>
+                </div>
                 <div class="bouton-suite">
                     <a href=""
                        tal:attributes="href string:${context/portal_url}/institut-sainte-marie/"></a>
@@ -119,10 +127,14 @@
                 </tal:if>
             </div>
             <footer class="footer-info-generale">
-                    <div class="bouton-suite">
-                        <a href=""
-                           tal:attributes="href string:${context/portal_url}/institut-sainte-marie/"></a>
-                    </div>
+                <div tal:condition="python:user.has_role(['Manager', 'Site Administrator'], here)"
+                     class="bouton-ajouter">
+                    <a href="createObject?type_name=Event">ajouter</a>
+                </div>
+                <div class="bouton-suite">
+                    <a href=""
+                       tal:attributes="href string:${context/portal_url}/institut-sainte-marie/"></a>
+                </div>
             </footer>
         </div>
 
