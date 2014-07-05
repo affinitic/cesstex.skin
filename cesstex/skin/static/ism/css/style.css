@@ -603,12 +603,13 @@ position:relative;
 left:40px;
 top:-40px;
 width:540px;
-height:285px;
-border-left:1px solid #fff;
+height:275px;
+border-left:1px solid #ccc;
 }
 
 article.ismnews-content h3.ismnews-title-valve-prof{
 text-align:center;
+text-shadow:1px 1px 1px rgba(255,255,255,0.9);
 margin-bottom:8px;
 color:#333 !important;
 }

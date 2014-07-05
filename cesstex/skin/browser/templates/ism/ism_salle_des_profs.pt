@@ -35,7 +35,6 @@
                                   -->
                                     <p tal:content="item/Description"
                                        class="ismnews-description-valve-prof"></p>
-                                    <br />
                                     <span tal:define="text python:infoProf.CookedBody(stx_level=2);">
                                         <span tal:replace="structure text" />
                                     </span>
