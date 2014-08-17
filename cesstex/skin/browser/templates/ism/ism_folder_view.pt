@@ -10,6 +10,21 @@
 
 <body>
 <div metal:fill-slot="main">
+    <h1>Un enseignement secondaire exigeant, un regard positif sur chacun</h1>
+    <section id="ism-brochure">
+        <div id="ism-couverture-brochure">
+            <a href="brochure-ism">
+            <img src="ism_couverture_pdf.png"
+                 alt="Institut Sainte-Marie La Louvière" /></a>
+        </div>
+        <p>
+        En 20 pages, notre projet, nos grilles, notre esprit et de nombreux renseignements pratiques.
+        </p>
+        <p>
+        <a href="brochure-ism">Téléchargez notre brochure au format pdf</a>
+        </p>
+    </section>
+    <p><br /><br /></p>
     <h1>Informations générales</h1>
     <section id="info-generale-bloc-sup">
         <div id="a-la-une">
@@ -59,7 +74,7 @@
         <div id="info-de-la-semaine">
             <h2>Info de la semaine</h2>
             <div tal:define="view nocall:context/@@ismInfoSemaineView;
-                             news python:view.getNews(5);
+                             news python:view.getNews(5, True, False);
                              convert nocall:context/@@plone/toLocalizedTime;
                              getNewsIconURL nocall:view/getNewsIconURL;"
                 tal:condition="news"
