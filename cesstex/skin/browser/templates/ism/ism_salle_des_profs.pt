@@ -12,55 +12,60 @@
 <div metal:fill-slot="main">
     <h1>Salle des profs</h1>
     <section id="ism-valve-prof">
-        <div id="ism-valve-prof-content">
-            <h2>Valves</h2>
-            <div tal:define="view nocall:context/@@ismInfoSemaineView;
-                             news python:view.getNews(1, False, True);
-                             convert nocall:context/@@plone/toLocalizedTime;
-                             getNewsIconURL nocall:view/getNewsIconURL;"
-                 tal:condition="news"
-                 class="info-prof-content">
-                <tal:boucle tal:repeat="item news">
-                    <tal:block tal:define="infoProf python:item.getObject()"
-                               tal:condition="infoProf/isValveProfNews | nothing">
-                        <article class="ismnews-content">
-                            <a href=""
-                               tal:attributes="href item/getURL;
-                                               title item/Description">
-                                <h3 tal:content="item/pretty_title_or_id"
-                                    class="ismnews-title-valve-prof" />
-                                <div class="ismnews-valve-prof">
-                                    <!--
-                                    <img tal:replace="structure python: infoProf.tag(scale='mini', css_class='ismnews-image-a-la-une')" />
-                                  -->
-                                    <p tal:content="item/Description"
-                                       class="ismnews-description-valve-prof"></p>
-                                    <span tal:define="text python:infoProf.CookedBody(stx_level=2);">
-                                        <span tal:replace="structure text" />
-                                    </span>
-                                </div>
-                            </a>
-                        </article>
-                    </tal:block>
-                    <footer class="footer-valve-prof">
-                        <div tal:condition="python:user.has_role(['Manager', 'Site Administrator'], here)"
-                             class="bouton-ajouter">
-                            <a href="createObject?type_name=News+Item">ajouter</a>
-                        </div>
-                        <div class="bouton-suite">
-                            <a href=""
-                               tal:attributes="href item/getURL;
-                                               title item/Description"></a>
-                        </div>
-                    </footer>
-                </tal:boucle>
-            </div>
+        <h2>Valves</h2>
+        <div tal:define="view nocall:context/@@ismInfoSemaineView;
+                         news python:view.getNews(5, False, True);
+                         convert nocall:context/@@plone/toLocalizedTime;
+                         getNewsIconURL nocall:view/getNewsIconURL;"
+             tal:condition="news"
+             class="info-prof-wrapper">
+            <tal:boucle tal:repeat="item news">
+                <tal:block tal:define="infoProf python:item.getObject();
+                                       description item/Description;
+                                       texte python:infoProf.CookedBody(stx_level=2)"
+                           tal:condition="infoProf/isValveProfNews | nothing">
+                    <article class="ismnews-valve-prof-content">
+                        <a href=""
+                           tal:attributes="href item/getURL;
+                                           title texte">
+                            <span tal:content="item/pretty_title_or_id"
+                                  class="ismnews-valve-prof-title"></span>
+                            <br />
+                            <span tal:content="description"
+                                  class="ismnews-valve-prof-description"></span>
+                            <br />
+                            <span class="ismnews-valve-prof-contenu">
+                                <span tal:replace="structure texte" />
+                            </span>
+                        </a>
+                    </article>
+                </tal:block>
+            </tal:boucle>
+            <footer class="footer-valve-prof">
+                    <div tal:condition="python:user.has_role(['Manager', 'Site Administrator'], here)"
+                         class="bouton-ajouter">
+                        <a href="createObject?type_name=News+Item">ajouter</a>
+                    </div>
+                    <div class="bouton-suite">
+                        <a href=""></a>
+                    </div>
+            </footer>
         </div>
     </section>
+
+    <p><br /><br /></p>
 
     <section  id="ism-dossier-salle-prof">
         <table class="invisible">
             <tr>
+                <td>
+                    <a title="Gestion des dossiers disciplinaires"
+                       class="internal-link"
+                       href="gestion-des-dossiers-disciplinaires">
+                        <img class="image-inline"
+                             src="icone_dossier/dossier_gestion_discipline.png/image_mini"
+                             alt="dossier_gestion_discipline.png" /></a>
+                </td>
                 <td>
                     <a title="Organisation générale et agenda"
                        class="internal-link"
@@ -70,20 +75,12 @@
                              alt="dossier_organisation.png" /></a>
                 </td>
                 <td>
-                    <a title="Documents généraux de référence"
+                    <a title="Groupes et équipes de travail"
                        class="internal-link"
-                       href="documents-generaux-de-reference">
+                       href="groupes-et-equipes-de-travail">
                         <img class="image-inline"
-                             src="icone_dossier/dossier_doc_gen.png/image_mini"
-                             alt="dossier_doc_gen.png" /></a>
-                </td>
-                <td>
-                    <a title="Documents pédagogiques"
-                       class="internal-link"
-                       href="documents-pedagogiques">
-                        <img class="image-inline"
-                             src="icone_dossier/dossier_doc_peda.png/image_mini"
-                             alt="dossier_doc_peda.png" /></a>
+                             src="icone_dossier/dossier_groupe_equipe_travail.png/image_mini"
+                             alt="dossier_groupe_equipe_travail.png" /></a><br />
                 </td>
             </tr>
             <tr>
@@ -114,12 +111,20 @@
             </tr>
             <tr>
                 <td>
-                    <a title="Groupes et équipes de travail"
+                    <a title="Documents pédagogiques"
                        class="internal-link"
-                       href="groupes-et-equipes-de-travail">
+                       href="documents-pedagogiques">
                         <img class="image-inline"
-                             src="icone_dossier/dossier_groupe_equipe_travail.png/image_mini"
-                             alt="dossier_groupe_equipe_travail.png" /></a><br />
+                             src="icone_dossier/dossier_doc_peda.png/image_mini"
+                             alt="dossier_doc_peda.png" /></a>
+                </td>
+                <td>
+                    <a title="Documents généraux de référence"
+                       class="internal-link"
+                       href="documents-generaux-de-reference">
+                        <img class="image-inline"
+                             src="icone_dossier/dossier_doc_gen.png/image_mini"
+                             alt="dossier_doc_gen.png" /></a>
                 </td>
                 <td>
                     <a title="VADE MECUM DU PROF ISM"
@@ -129,14 +134,7 @@
                              src="icone_dossier/dossier_vade_mecum.png/image_mini"
                              alt="dossier_vade_mecum.png" /></a>
                 </td>
-                <td>
-                    <a title="Gestion des dossiers disciplinaires"
-                       class="internal-link"
-                       href="gestion-des-dossiers-disciplinaires">
-                        <img class="image-inline"
-                             src="icone_dossier/dossier_gestion_discipline.png/image_mini"
-                             alt="dossier_gestion_discipline.png" /></a>
-                </td>
+
             </tr>
         </table>
     </section>
