@@ -36,18 +36,19 @@
     <replace css:content-children="#portal-header"
              css:theme-children="header" />
     -->
+    <replace css:content-children="#portal-searchbox"
+             css:theme-children="#search-engine" />
 
-    
     <replace css:content-children="#portal-siteactions"
              css:theme-children="#top-contact-plan" />
-    
+
     <replace css:content-children="#portal-personaltools-wrapper"
              css:theme-children="#top-connexion" />
-    
-    <!--    
+
+    <!--
     <replace css:content-children="#portal-logo"
              css:theme-children="#portal-logo" />
-    
+
     <replace css:content-children="#portal-globalnav"
              css:theme-children="#menu-sup" />
     -->
@@ -58,11 +59,11 @@
     <replace css:content-children="#portal-column-content"
              css:theme-children="#main-column"
              if="$have_portlets" />
-    
+
     <replace css:content-children="#portal-column-content"
              css:theme-children="#main-column-large"
              if="$have_no_portlet" />
-    
+
     <!--replace css:content-children="#portal-colophon"
              css:theme-children="#colophon" /-->
 
@@ -70,7 +71,7 @@
     <replace css:content-children="#portal-footer"
              css:theme-children="footer" />
     -->
-    
+
     <drop css:theme="#left-column" if="$have_no_portlet" />
     <drop css:theme="#main-column" if="$have_no_portlet" />
     <drop css:theme="#main-column-large" if="$have_portlets" />
