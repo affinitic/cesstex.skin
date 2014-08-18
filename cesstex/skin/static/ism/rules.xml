@@ -37,7 +37,7 @@
              css:theme-children="header" />
     -->
     <replace css:content-children="#portal-searchbox"
-             css:theme-children="#search-engine" />
+             css:theme-children="#search-engine-theme" />
 
     <replace css:content-children="#portal-siteactions"
              css:theme-children="#top-contact-plan" />

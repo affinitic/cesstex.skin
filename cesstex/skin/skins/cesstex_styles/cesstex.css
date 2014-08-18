@@ -249,6 +249,7 @@ width:100%;
 }
 
 /*** SEARCH ***/
+/*
 .portletItemSearch{
 background-color:#fff;
 height: 61px;
@@ -261,7 +262,7 @@ padding:15px 2px 6px 2px;
 }
 
 input.searchButton {
-background:White url(http://localhost:8080/plone/search_icon.gif) no-repeat scroll 2px 1px;
+background:White url(search_icon.gif) no-repeat scroll 2px 1px;
 border:1px solid #ddd;
 color:Black;
 cursor:pointer;
@@ -271,7 +272,7 @@ margin-right:5px;
 padding:1px 5px 1px 19px;
 text-transform:none;
 }
-
+*/
 
 
 /***HEADER BARRE NAVIGATION PLONE***/

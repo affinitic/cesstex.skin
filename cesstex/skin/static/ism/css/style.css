@@ -207,10 +207,10 @@ text-shadow:0px 0px 0px rgba(5,5,5, 0.8);
 
 header#header-ism #header-content #search-engine-theme{
 position:relative;
-left:380px;
-top:0px;
-width:300px;
-height:100px;
+left:404px;
+top:25px;
+width:280px;
+height:80px;
 background-color:rgba(255,255,255,0.3);
 border-radius:18px;
 box-shadow: 1px 1px 1px rgba(255, 255, 255, 0.6);
@@ -218,10 +218,20 @@ border-left:1px solid #555;
 border-top:1px solid #555;
 }
 
-#search-engine{
-width:250px;
-height:100px;
-background-color:#f00;
+header#header-ism #header-content #search-engine-theme form{
+margin:25px 0px 0px 10px;
+}
+
+div#search-engine-theme form#livesearch0 div.LSBox input.searchButton{
+margin-left:10px;
+}
+
+div#search-engine-theme form#livesearch0 div.LSBox div.searchSection{
+font-size:0.8em;
+}
+
+div#search-engine-theme form#livesearch0 div.LSBox div.searchSection label{
+padding-left:4px;
 }
 
 
