@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<object name="portal_catalog">
+
+    <index name="isALaUneNews" meta_type="BooleanIndex">
+        <indexed_attr value="isALaUneNews"/>
+    </index>
+    <index name="isValveProfNews" meta_type="BooleanIndex">
+        <indexed_attr value="isValveProfNews"/>
+    </index>
+
+    <column value="isALaUneNews" />
+    <column value="isValveProfNews" />
+
+</object>

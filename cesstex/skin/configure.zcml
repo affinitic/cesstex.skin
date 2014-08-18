@@ -13,7 +13,7 @@
     <include package="collective.autopermission" />
 
     <permission id="cesstex.ProfISM"
-               title="cesstex: ProfISM" />
+                title="cesstex: ProfISM" />
 
     <include package=".portlets" />
     <include package=".browser" />
@@ -27,7 +27,7 @@
     <browser:templateOverrides directory="skins/cesstex_templates" />
 
     <plone:static type="theme"
-                 directory="static"
-                 name="cesstex.skin" />
+                  directory="static"
+                  name="cesstex.skin" />
 
 </configure>

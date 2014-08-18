@@ -193,6 +193,7 @@ border-bottom:1px solid #5fd2c7 !important;
 border-radius:0px 0px 8px 8px;
 height:8px;
 background-color:#f9fbff;
+margin-top:-4px;
 }
 
 .portletFooterEvents {
@@ -225,9 +226,7 @@ text-decoration:none;
 .navTreeItem a:hover,
 dd.portletItem .navTreeItem a:hover,
 .navTreeCurrentItem {
-background-color:none;     /*#DEE7EC;*/
-border:1px solid #8CACBB;
-border-radius:5px;
+background-color:#DEE7EC;
 color:#436976;
 }
 
@@ -250,6 +249,7 @@ width:100%;
 }
 
 /*** SEARCH ***/
+/*
 .portletItemSearch{
 background-color:#fff;
 height: 61px;
@@ -262,7 +262,7 @@ padding:15px 2px 6px 2px;
 }
 
 input.searchButton {
-background:White url(http://localhost:8080/plone/search_icon.gif) no-repeat scroll 2px 1px;
+background:White url(search_icon.gif) no-repeat scroll 2px 1px;
 border:1px solid #ddd;
 color:Black;
 cursor:pointer;
@@ -272,7 +272,7 @@ margin-right:5px;
 padding:1px 5px 1px 19px;
 text-transform:none;
 }
-
+*/
 
 
 /***HEADER BARRE NAVIGATION PLONE***/
@@ -527,10 +527,17 @@ border-radius:8px 8px 0px 0px;
 background:#ffffb8;
 }
 
+#espace-interactif-ism,
+div#portletItemGestionMembre{
+font-family:"mondaregular";
+font-size:12px;
+font-weight:normal;
+}
+
 #espace-interactif-ism{
 border-left:1px solid #d5cc86;
 border-right:1px solid #d5cc86;
-padding:8px 3px 12px 3px;
+padding:8px 6px 12px 6px;
 text-align:center;
 background-color:#fffdf1;
 }

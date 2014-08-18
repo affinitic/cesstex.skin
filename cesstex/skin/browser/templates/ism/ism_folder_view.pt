@@ -14,7 +14,8 @@
     <section id="ism-brochure">
         <div id="ism-couverture-brochure">
             <a href="brochure-ism">
-            <img src="ism_couverture_pdf.png" alt="Institut Sainte-Marie La Louvière" /></a>
+            <img src="ism_couverture_pdf.png"
+                 alt="Institut Sainte-Marie La Louvière" /></a>
         </div>
         <p>
         En 20 pages, notre projet, nos grilles, notre esprit et de nombreux renseignements pratiques.
@@ -29,7 +30,7 @@
         <div id="a-la-une">
             <h2>A la une</h2>
             <div tal:define="view nocall:context/@@ismInfoSemaineView;
-                             news python:view.getNews(2, True, False);
+                             news python:view.getNews(1, True, False);
                              convert nocall:context/@@plone/toLocalizedTime;
                              getNewsIconURL nocall:view/getNewsIconURL;"
                  tal:condition="news"
@@ -60,12 +61,13 @@
                              class="bouton-ajouter">
                             <a href="createObject?type_name=News+Item">ajouter</a>
                         </div>
+                        <!--
                         <div class="bouton-suite">
-                            <!--
                             <a href=""
                                tal:attributes="href item/getURL;
-                                               title item/Description"></a>-->
+                                               title item/Description"></a>
                         </div>
+                        -->
                     </footer>
             </div>
         </div>
@@ -73,7 +75,7 @@
         <div id="info-de-la-semaine">
             <h2>Info de la semaine</h2>
             <div tal:define="view nocall:context/@@ismInfoSemaineView;
-                             news python:view.getNews(5);
+                             news python:view.getNews(5, True, False);
                              convert nocall:context/@@plone/toLocalizedTime;
                              getNewsIconURL nocall:view/getNewsIconURL;"
                 tal:condition="news"

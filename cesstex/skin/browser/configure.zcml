@@ -91,14 +91,13 @@
         />
 
     <!-- move portlet plone.personnal_bar-->
-     <browser:viewlet
+    <browser:viewlet
         name="plone.personnal_bar"
         manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
         class="plone.app.layout.viewlets.common.PersonalBarViewlet"
         layer=".interfaces.ICesstexTheme"
         permission="zope2.View"
         />
-
 
 
 <!-- IST -->

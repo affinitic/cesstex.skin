@@ -4,7 +4,6 @@
         <viewlet name="plone.skip_links" />
         <viewlet name="plone.site_actions" />
         <viewlet name="plone.logo" />
-        <viewlet name="plone.searchbox" />
         <viewlet name="plone.global_sections"/>
     </hidden>
 
@@ -22,6 +21,7 @@
 
    <order manager="plone.portalheader" skinname="cesstex skin">
        <viewlet name="cesstex.header"/>
+       <viewlet name="plone.searchbox" />
        <viewlet name="plone.personnal_bar"/>
        <viewlet name="plone.path_bar"/>
    </order>
