@@ -104,7 +104,7 @@
       <browser:page
          for="*"
          name="manageIST"
-         class=".ManageIST.ManageIST"
+         class=".manage_IST.ManageIST"
          allowed_interface=".interfaces.IManageIST"
          permission="zope.Public"
          />
@@ -114,7 +114,7 @@
         for="*"
         template="templates/ist_contact_form.pt"
         permission="zope.Public"
-        class=".ManageIST.ManageIST"
+        class=".manage_IST.ManageIST"
         allowed_interface=".interfaces.IManageIST" />
 
       <browser:page
@@ -122,7 +122,7 @@
         for="*"
         template="templates/ist_contact_merci.pt"
         permission="zope.Public"
-        class=".ManageIST.ManageIST"
+        class=".manage_IST.ManageIST"
         allowed_interface=".interfaces.IManageIST" />
 
 
@@ -137,7 +137,7 @@
         name="ist-listing-event"
         for="*"
         template="templates/ist_listing_event.pt"
-        class=".ManageIST.ManageIST"
+        class=".manage_IST.ManageIST"
         allowed_interface=".interfaces.IManageIST"
         permission="zope.Public" />
 
@@ -169,7 +169,7 @@
     <browser:page
         for="*"
         name="manageISM"
-        class=".ManageISM.ManageISM"
+        class=".manage_ISM.ManageISM"
         allowed_interface=".interfaces.IManageISM"
         permission="zope.Public"
         />
@@ -184,7 +184,7 @@
         name="ism-listing-event"
         for="*"
         template="templates/ism/ism_listing_event.pt"
-        class=".ManageISM.ManageISM"
+        class=".manage_ISM.ManageISM"
         allowed_interface=".interfaces.IManageISM"
         permission="zope.Public" />
 
@@ -194,7 +194,7 @@
         name="infos-generales"
         for="*"
         template="templates/ism/ism_folder_view.pt"
-        class=".ManageISM.ManageISM"
+        class=".manage_ISM.ManageISM"
         allowed_interface=".interfaces.IManageISM"
         permission="zope.Public" />
 
@@ -203,7 +203,7 @@
         name="salle-des-profs"
         for="*"
         template="templates/ism/ism_salle_des_profs.pt"
-        class=".ManageISM.ManageISM"
+        class=".manage_ISM.ManageISM"
         allowed_interface=".interfaces.IManageISM"
         permission="cesstex.ProfISM" />
 
@@ -214,7 +214,7 @@
         for="*"
         template="templates/ism/dossier_disciplinaire/dossier_disciplinaire_ajouter.pt"
         permission="cesstex.ProfISM"
-        class=".ManageDossierDisciplinaire.ManageDossierDisciplinaire"
+        class=".manage_dossier_disciplinaire.ManageDossierDisciplinaire"
         allowed_interface=".interfaces.IManageDossierDisciplinaire" />
 
     <browser:page
@@ -222,7 +222,7 @@
         for="*"
         template="templates/ism/dossier_disciplinaire/dossier_disciplinaire_modifier.pt"
         permission="cesstex.ProfISM"
-        class=".ManageDossierDisciplinaire.ManageDossierDisciplinaire"
+        class=".manage_dossier_disciplinaire.ManageDossierDisciplinaire"
         allowed_interface=".interfaces.IManageDossierDisciplinaire" />
 
     <browser:page
@@ -230,13 +230,13 @@
         for="*"
         template="templates/ism/dossier_disciplinaire/dossier_disciplinaire_supprimer.pt"
         permission="cesstex.ProfISM"
-        class=".ManageDossierDisciplinaire.ManageDossierDisciplinaire"
+        class=".manage_dossier_disciplinaire.ManageDossierDisciplinaire"
         allowed_interface=".interfaces.IManageDossierDisciplinaire" />
 
     <browser:page
         name="deleteDossierDisciplinaire"
         for="*"
-        class=".ManageDossierDisciplinaire.ManageDossierDisciplinaire"
+        class=".manage_dossier_disciplinaire.ManageDossierDisciplinaire"
         permission="cesstex.ProfISM"
         attribute="deleteDossierDisciplinaire"
         allowed_interface=".interfaces.IManageDossierDisciplinaire" />
@@ -247,7 +247,7 @@
     <browser:page
         name="insertEleve"
         for="*"
-        class=".ManageDossierDisciplinaire.ManageDossierDisciplinaire"
+        class=".manage_dossier_disciplinaire.ManageDossierDisciplinaire"
         permission="cesstex.ProfISM"
         attribute="insertEleve"
         allowed_interface=".interfaces.IManageDossierDisciplinaire" />
@@ -255,7 +255,7 @@
     <browser:page
         name="updateEleve"
         for="*"
-        class=".ManageDossierDisciplinaire.ManageDossierDisciplinaire"
+        class=".manage_dossier_disciplinaire.ManageDossierDisciplinaire"
         permission="cesstex.ProfISM"
         attribute="updateEleve"
         allowed_interface=".interfaces.IManageDossierDisciplinaire" />
@@ -263,7 +263,7 @@
     <browser:page
         name="deleteEleve"
         for="*"
-        class=".ManageDossierDisciplinaire.ManageDossierDisciplinaire"
+        class=".manage_dossier_disciplinaire.ManageDossierDisciplinaire"
         permission="cesstex.ProfISM"
         attribute="deleteEleve"
         allowed_interface=".interfaces.IManageDossierDisciplinaire" />
@@ -276,7 +276,7 @@
         for="*"
         template="templates/ism/dossier_disciplinaire/evenement_acte_ajouter.pt"
         permission="cesstex.ProfISM"
-        class=".ManageDossierDisciplinaire.ManageDossierDisciplinaire"
+        class=".manage_dossier_disciplinaire.ManageDossierDisciplinaire"
         allowed_interface=".interfaces.IManageDossierDisciplinaire" />
 
     <browser:page
@@ -284,7 +284,7 @@
         for="*"
         template="templates/ism/dossier_disciplinaire/evenement_acte_modifier.pt"
         permission="cesstex.ProfISM"
-        class=".ManageDossierDisciplinaire.ManageDossierDisciplinaire"
+        class=".manage_dossier_disciplinaire.ManageDossierDisciplinaire"
         allowed_interface=".interfaces.IManageDossierDisciplinaire" />
 
     <browser:page
@@ -292,14 +292,14 @@
         for="*"
         template="templates/ism/dossier_disciplinaire/evenement_acte_supprimer.pt"
         permission="cesstex.ProfISM"
-        class=".ManageDossierDisciplinaire.ManageDossierDisciplinaire"
+        class=".manage_dossier_disciplinaire.ManageDossierDisciplinaire"
         allowed_interface=".interfaces.IManageDossierDisciplinaire" />
 
 
     <browser:page
         name="insertEvenementActe"
         for="*"
-        class=".ManageDossierDisciplinaire.ManageDossierDisciplinaire"
+        class=".manage_dossier_disciplinaire.ManageDossierDisciplinaire"
         permission="cesstex.ProfISM"
         attribute="insertEvenementActe"
         allowed_interface=".interfaces.IManageDossierDisciplinaire" />
@@ -307,7 +307,7 @@
     <browser:page
         name="updateEvenementActe"
         for="*"
-        class=".ManageDossierDisciplinaire.ManageDossierDisciplinaire"
+        class=".manage_dossier_disciplinaire.ManageDossierDisciplinaire"
         permission="cesstex.ProfISM"
         attribute="updateEvenementActe"
         allowed_interface=".interfaces.IManageDossierDisciplinaire" />
@@ -315,7 +315,7 @@
     <browser:page
         name="deleteEvenementActe"
         for="*"
-        class=".ManageDossierDisciplinaire.ManageDossierDisciplinaire"
+        class=".manage_dossier_disciplinaire.ManageDossierDisciplinaire"
         permission="cesstex.ProfISM"
         attribute="deleteEvenementActe"
         allowed_interface=".interfaces.IManageDossierDisciplinaire" />
@@ -324,7 +324,7 @@
     <browser:page
         name="addEvenementActeDocument"
         for="*"
-        class=".ManageDossierDisciplinaire.ManageDossierDisciplinaire"
+        class=".manage_dossier_disciplinaire.ManageDossierDisciplinaire"
         permission="cesstex.ProfISM"
         attribute="addEvenementActeDocument"
         allowed_interface=".interfaces.IManageDossierDisciplinaire" />
@@ -332,7 +332,7 @@
     <browser:page
         name="deleteEvenementActeDocumentByDocumentPk"
         for="*"
-        class=".ManageDossierDisciplinaire.ManageDossierDisciplinaire"
+        class=".manage_dossier_disciplinaire.ManageDossierDisciplinaire"
         permission="cesstex.ProfISM"
         attribute="deleteEvenementActeDocumentByDocumentPk"
         allowed_interface=".interfaces.IManageDossierDisciplinaire" />
@@ -345,7 +345,7 @@
         for="*"
         template="templates/ism/gestion_profs/admin_professeur_chercher.pt"
         permission="cesstex.ProfISM"
-        class=".ManageISM.ManageISM"
+        class=".manage_ISM.ManageISM"
         allowed_interface=".interfaces.IManageISM" />
 
     <browser:page
@@ -353,7 +353,7 @@
         for="*"
         template="templates/ism/gestion_profs/admin_professeur_ajouter.pt"
         permission="cesstex.ProfISM"
-        class=".ManageISM.ManageISM"
+        class=".manage_ISM.ManageISM"
         allowed_interface=".interfaces.IManageISM" />
 
     <browser:page
@@ -361,7 +361,7 @@
         for="*"
         template="templates/ism/gestion_profs/admin_professeur_modifier.pt"
         permission="cesstex.ProfISM"
-        class=".ManageISM.ManageISM"
+        class=".manage_ISM.ManageISM"
         allowed_interface=".interfaces.IManageISM" />
 
     <browser:page
@@ -369,14 +369,14 @@
         for="*"
         template="templates/ism/gestion_profs/admin_professeur_supprimer.pt"
         permission="cesstex.ProfISM"
-        class=".ManageISM.ManageISM"
+        class=".manage_ISM.ManageISM"
         allowed_interface=".interfaces.IManageISM" />
 
 
     <browser:page
         name="insertProfesseur"
         for="*"
-        class=".ManageISM.ManageISM"
+        class=".manage_ISM.ManageISM"
         permission="cesstex.ProfISM"
         attribute="insertProfesseur"
         allowed_interface=".interfaces.IManageISM" />
@@ -384,7 +384,7 @@
     <browser:page
         name="updateProfesseur"
         for="*"
-        class=".ManageISM.ManageISM"
+        class=".manage_ISM.ManageISM"
         permission="cesstex.ProfISM"
         attribute="updateProfesseur"
         allowed_interface=".interfaces.IManageISM" />
@@ -392,7 +392,7 @@
     <browser:page
         name="deleteProfesseur"
         for="*"
-        class=".ManageISM.ManageISM"
+        class=".manage_ISM.ManageISM"
         permission="cesstex.ProfISM"
         attribute="deleteProfesseur"
         allowed_interface=".interfaces.IManageISM" />
