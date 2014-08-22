@@ -42,7 +42,17 @@
             />
     -->
 
-    <!-- page d'accueil avec listing des news -->
+<!-- LEFFE SEARCH -->
+    <browser:page
+         for="*"
+         name="eleve-searchJSON"
+         class=".search_dossier_disciplinaire.SearchEleveAutoCompleteJSON"
+         permission="zope.Public"
+         />
+
+
+
+<!-- page d'accueil avec listing des news -->
     <browser:view
         name="homepageView"
         for="*"
@@ -149,6 +159,14 @@
         name="ism.js"
         file="js/ism.js"
         />
+    <browser:resource
+        name="jquery-1.4.2.min.js"
+        file="js/jquery-1.4.2.min.js"
+        />
+    <browser:resource
+        name="jquery-ui.min.js"
+        file="js/jquery-ui.min.js"
+        />
 
     <browser:view
         name="ismInfoSemaineView"
@@ -210,6 +228,14 @@
 
 <!-- DOSSIER DISCIPLINAIRE -->
     <browser:page
+        name="gestionDossierDisciplinaire"
+        for="*"
+        permission="zope.Public"
+        class=".manage_dossier_disciplinaire.ManageDossierDisciplinaire"
+        allowed_interface=".interfaces.IManageDossierDisciplinaire"
+        />
+
+    <browser:page
         name="ajouter-un-dossier-disciplinaire"
         for="*"
         template="templates/ism/dossier_disciplinaire/dossier_disciplinaire_ajouter.pt"
@@ -241,6 +267,14 @@
         attribute="deleteDossierDisciplinaire"
         allowed_interface=".interfaces.IManageDossierDisciplinaire" />
 
+    <browser:page
+        name="resultat-recherche-dossier-disciplinaire"
+        for="*"
+        template="templates/ism/dossier_disciplinaire/dossier_disciplinaire_resultat_recherche.pt"
+        permission="zope.Public"
+        class=".manage_dossier_disciplinaire.ManageDossierDisciplinaire"
+        allowed_interface=".interfaces.IManageDossierDisciplinaire"
+        />
 
 
 <!-- ELEVE -->

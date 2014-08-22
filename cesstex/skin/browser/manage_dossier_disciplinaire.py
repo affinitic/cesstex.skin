@@ -282,6 +282,53 @@ class ManageDossierDisciplinaire(BrowserView):
         eleveByPk = query.one()
         return eleveByPk
 
+    def getEleveByLeffeSearch(self, searchString):
+        """
+        table pg etudiant
+        recuperation d'une eleve via le livesearch
+        """
+        wrapper = getSAWrapper('cesstex')
+        session = wrapper.session
+        query = session.query(Etudiant)
+        query = query.filter(Etudiant.eleve_nom.ilike("%%%s%%" % searchString))
+        query = query.order_by(Etudiant.eleve_nom)
+        for elem in query.all():
+            anneeDossier = elem.dossierEleve[0].dosdis_annee_scolaire
+            classeEleve = elem.eleve_classe
+            if elem.dossierEleve[0].dosdis_actif == True:
+                etatDossier = "Actif"
+            if elem.dossierEleve[0].dosdis_actif == False:
+                etatDossier = "Inactif"
+        eleve = ["%s, %s - [%s - %s - %s]" % ((elem.eleve_nom).upper(), elem.eleve_prenom, classeEleve, anneeDossier, etatDossier) for elem in query.all()]
+        return eleve
+
+    def getSearchingEleve(self, elevePk=None):
+        """
+        table pg eleve
+        recuperation d'un auteur selon la pk
+        la pk peut arriver via le form en hidden ou via un lien construit,
+         (cas du listing de resultat de moteur de recherche)
+        je teste si la pk arrive par param, si pas je prends celle du form
+        """
+        fields = self.request.form
+        eleveNom = fields.get('eleveNom', None)
+
+        if not elevePk:
+            elevePk = fields.get('eleve_pk')
+
+        wrapper = getSAWrapper('cesstex')
+        session = wrapper.session
+        query = session.query(Etudiant)
+        if eleveNom:
+            eleveNom = eleveNom.split(',')
+            eleveNom = eleveNom[0]
+            eleveNom = eleveNom.decode('utf-8')
+            query = query.filter(Etudiant.eleve_nom == eleveNom)
+        if elevePk:
+            query = query.filter(Etudiant.eleve_pk == elevePk)
+        allEleves = query.all()
+        return allEleves
+
     def insertEleve(self):
         """
         insère un nouvel élève dans la table etudaint

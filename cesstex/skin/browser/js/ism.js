@@ -2,10 +2,10 @@
 $(document).ready(function(){
 
   $(function() {
-    $("#titre_experience").autocomplete({
+    $("#nom_eleve").autocomplete({
         source: function(request, response) {
             $.ajax({
-                url: "experience-searchJSON",
+                url: "eleve-searchJSON",
                 dataType: "json",
                 data: {
                     featureClass: "P",
