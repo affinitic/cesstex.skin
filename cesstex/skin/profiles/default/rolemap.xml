@@ -2,11 +2,15 @@
 <rolemap>
    <roles>
       <role name="ProfISM" />
+      <role name="DirectionISM" />
+      <role name="ProfIST"/>
    </roles>
    <permissions>
         <permission name="cesstex: ProfISM"
                     acquire="True">
             <role name="ProfISM"/>
+            <role name="DirectionISM"/>
+            <role name="ProfIST"/>
             <role name="Site Administrator"/>
             <role name="Manager"/>
         </permission>
