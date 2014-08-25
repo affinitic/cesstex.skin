@@ -160,7 +160,7 @@ border-left:1px solid #5fd2c7 !important;
 border-right:1px solid #5fd2c7 !important;
 border-bottom:1px solid #fff !important;
 border-radius:8px 8px 0px 0px;
-height:12px;
+height:20px;
 background:#eaf8fc;
 }
 
@@ -186,12 +186,12 @@ padding:5px 5px;
 }
 
 .portletFooter {
-border-top:1px solid #fff !important;
+border-top:1px solid rgba(200,200,200,0.1) !important;
 border-left:1px solid #5fd2c7 !important;
 border-right:1px solid #5fd2c7 !important;
 border-bottom:1px solid #5fd2c7 !important;
 border-radius:0px 0px 8px 8px;
-height:8px;
+height:17px;
 background-color:#f9fbff;
 margin-top:-4px;
 }
