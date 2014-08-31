@@ -48,7 +48,7 @@ class IsmInfoSemaine(BrowserView):
             return 'image_tile'
         else:
             # image par défaut
-            return 'news.png'
+            return 'news_a_la_une.png'
 
 
 class IsmEventAgenda(BrowserView):

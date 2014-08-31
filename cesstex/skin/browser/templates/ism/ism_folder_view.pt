@@ -43,9 +43,10 @@
                                    tal:attributes="href item/getURL;
                                                    title item/Description">
                                 <h3 tal:content="item/pretty_title_or_id"
-                                    class="ismnews-title-a-la-une" />
+                                    class="ismnews-title-a-la-une"></h3>
+
                                 <div class="ismnews-contenu-a-la-une">
-                                    <img tal:replace="structure python: infoUne.tag(scale='mini', css_class='ismnews-image-a-la-une')" />
+                                    <!--<img tal:replace="structure python: infoUne.tag(scale='mini', css_class='ismnews-image-a-la-une')" />-->
                                     <p tal:content="item/Description"
                                        class="ismnews-description-a-la-une"></p>
                                     <span tal:define="text python:infoUne.CookedBody(stx_level=2);">
