@@ -38,20 +38,26 @@
                 <tal:boucle tal:repeat="item news">
                     <tal:block tal:define="infoUne python:item.getObject()"
                                tal:condition="infoUne/isALaUneNews | nothing">
-                        <article class="ismnews-content">
+                        <article class="ismnews-content-a-la-une">
                             <a href=""
                                    tal:attributes="href item/getURL;
                                                    title item/Description">
                                 <h3 tal:content="item/pretty_title_or_id"
                                     class="ismnews-title-a-la-une"></h3>
 
-                                <div class="ismnews-contenu-a-la-une">
-                                    <!--<img tal:replace="structure python: infoUne.tag(scale='mini', css_class='ismnews-image-a-la-une')" />-->
-                                    <p tal:content="item/Description"
-                                       class="ismnews-description-a-la-une"></p>
-                                    <span tal:define="text python:infoUne.CookedBody(stx_level=2);">
-                                        <span tal:replace="structure text" />
-                                    </span>
+                                <div tal:define="imgURL python:getNewsIconURL(item);"
+                                     class="ismnews-contenu-a-la-une">
+                                    <div class="ismnews-image-a-la-une">
+                                        <!--<img tal:replace="structure python: infoUne.tag(scale='mini')" />-->
+                                        <img src=""
+                                             tal:attributes="src string: ${item/getURL}/${imgURL}" />
+                                    </div>
+                                        <p tal:content="item/Description"
+                                           class="ismnews-description-a-la-une"></p>
+                                        <span tal:define="text python:infoUne.CookedBody(stx_level=2);">
+                                            <p><span tal:replace="structure text" /></p>
+                                        </span>
+
                                 </div>
                             </a>
                         </article>
