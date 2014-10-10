@@ -9,7 +9,7 @@
             <div id="portletHeaderGestionMembre">Gestion des membres</div>
             <div id="portletItemGestionMembre">
                 <a href=""
-                   tal:attributes="href string: ${context/portal_url}/institut-sainte-marie/ajouter-un-professeur-ism">G&eacute;rer les membres</a>
+                   tal:attributes="href string: ${context/portal_url}/institut-sainte-therese/ajouter-un-professeur-ist">G&eacute;rer les membres</a>
                 <br />
                 Chercher un membre
             </div>

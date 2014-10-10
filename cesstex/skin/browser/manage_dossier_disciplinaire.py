@@ -213,13 +213,14 @@ class ManageDossierDisciplinaire(BrowserView):
 
 
 #### PROFESSEURS ####
-    def getAllProfesseurs(self, statutProf):
+    def getAllProfesseurs(self, statutProf, ecole):
         """
         recuperation de tous les professseurs
         """
         wrapper = getSAWrapper('cesstex')
         session = wrapper.session
         query = session.query(Professeur)
+        query = query.filter(Professeur.prof_ecole_fk == ecole)
         query = query.filter(Professeur.prof_statut_fk == statutProf)
         query = query.order_by(Professeur.prof_nom)
         allProfesseurs = query.all()

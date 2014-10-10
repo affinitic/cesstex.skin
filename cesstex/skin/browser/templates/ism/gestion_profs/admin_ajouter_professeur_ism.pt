@@ -13,7 +13,7 @@
     <div>
         <div class="formulaire">
             <h2 class="forlulaire-titre">Liste des professeurs</h2>
-            <tal:requete tal:define="Professeurs python:view.getAllProfesseurs();">
+            <tal:requete tal:define="Professeurs python:view.getAllProfesseurs(ecole=1);">
                 <table width="90%"
                        class="listing"
                        align="center">
@@ -27,32 +27,46 @@
                             <th>Status</th>
                             <th></th>
                             <th></th>
+                            <th>Ecole</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tal:boucle tal:repeat="professeur Professeurs">
                             <tr>
-                                <td><span tal:content="professeur/prof_nom" /></td>
-                                <td><span tal:content="professeur/prof_prenom" /></td>
-                                <td><span tal:content="professeur/prof_login" /></td>
-                                <td><span tal:content="professeur/prof_pass" /></td>
                                 <td>
-                                  &rsaquo; Perso :
-                                  <span tal:content="professeur/prof_email" />
-                                  <br />
-                                  &rsaquo; Cesstex :
-                                  <span tal:content="professeur/prof_email_id" />
+                                    <span tal:content="professeur/prof_nom" />
                                 </td>
-                                <td><span tal:content="professeur/statut/statmembre_statut" /></td>
+                                <td>
+                                    <span tal:content="professeur/prof_prenom" />
+                                </td>
+                                <td>
+                                    <span tal:content="professeur/prof_login" />
+                                </td>
+                                <td>
+                                    <span tal:content="professeur/prof_pass" />
+                                </td>
+                                <td>
+                                    &rsaquo; Perso :
+                                    <span tal:content="professeur/prof_email" />
+                                    <br />
+                                    &rsaquo; Cesstex :
+                                    <span tal:content="professeur/prof_email_id" />
+                                </td>
+                                <td>
+                                    <span tal:content="professeur/statut/statmembre_statut" />
+                                </td>
                                 <td>
                                     <a href=""
-                                       tal:attributes="href string: ${context/absolute_url}/modifier-un-professeur?profPk=${professeur/prof_pk}">
+                                       tal:attributes="href string: ${context/absolute_url}/modifier-un-professeur-ism?profPk=${professeur/prof_pk}">
                                         <img src="modifier.png" alt="modifier" /></a>
                                 </td>
                                 <td>
                                     <a href=""
-                                       tal:attributes="href string: ${context/absolute_url}/supprimer-un-professeur?profPk=${professeur/prof_pk}">
+                                       tal:attributes="href string: ${context/absolute_url}/supprimer-un-professeur-ism?profPk=${professeur/prof_pk}">
                                         <img src="supprimer.png" alt="supprimer" /></a>
+                                </td>
+                                <td>
+                                    <span tal:content="professeur/prof_ecole_fk" />
                                 </td>
                             </tr>
                         </tal:boucle>

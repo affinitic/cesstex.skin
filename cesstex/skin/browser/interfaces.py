@@ -18,6 +18,7 @@ class ILogoView(Interface):
         return the logo regarding folder
         """
 
+
 class IIsmInfoSemaine(Interface):
     """
     Gestion des news infos semaine sur la folder view ism
@@ -33,6 +34,7 @@ class IIsmInfoSemaine(Interface):
         recupere l'icone d'une news (ou celle par defaut)
         """
 
+
 class IIsmEventAgenda(Interface):
     """
     Gestion des events agenda sur la folder view ism
@@ -44,9 +46,24 @@ class IIsmEventAgenda(Interface):
         """
 
 
-class IManageISM(Interface):
+class IManageDossierDisciplinaire(Interface):
     """
-    Gestion de Institut Sainte Marie
+    Gestion des dossiers disciplinaires
+    """
+    def insertEvenementActe():
+        """
+        insere un nouvel evenement acte dans un dossier disciplinaire
+        """
+
+    def updateEvenementActe():
+        """
+        update un evenement acte dans un dossier disciplinaire
+        """
+
+
+class IManageProfesseur(Interface):
+    """
+    Gestion des professeurs
     """
     def getAllProfesseurs():
         """
@@ -69,19 +86,10 @@ class IManageISM(Interface):
         """
 
 
-class IManageDossierDisciplinaire(Interface):
+class IManageISM(Interface):
     """
-    Gestion des dossiers disciplinaires
+    Gestion de Institut Sainte Marie
     """
-    def insertEvenementActe():
-        """
-        insere un nouvel evenement acte dans un dossier disciplinaire
-        """
-
-    def updateEvenementActe():
-        """
-        update un evenement acte dans un dossier disciplinaire
-        """
 
 
 class IManageIST(Interface):
