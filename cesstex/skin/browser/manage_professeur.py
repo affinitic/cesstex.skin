@@ -10,6 +10,12 @@ from interfaces import IManageISM
 
 LIMIT = 10
 
+from cesstex.db.pgsql.baseTypes import Ecole, \
+                                       Implantation, \
+                                       Professeur, \
+                                       StatutMembre
+
+
 
 class ManageProfesseur(BrowserView):
     implements(IManageISM)
@@ -69,6 +75,17 @@ class ManageProfesseur(BrowserView):
         query = query.order_by(StatutMembre.statmembre_statut)
         allStatutMembre = query.all()
         return allStatutMembre
+
+    def getEcoleDuProfesseur(self, ecolePK):
+        """
+        recuperation de l'école d'un prof
+        """
+        wrapper = getSAWrapper('cesstex')
+        session = wrapper.session
+        query = session.query(Ecole)
+        query = query.filter(Ecole.ecole_pk == ecolePK)
+        ecoleDuProfesseur = query.one()
+        return ecoleDuProfesseur
 
     def getAllProfesseurs(self, ecole):
         """
