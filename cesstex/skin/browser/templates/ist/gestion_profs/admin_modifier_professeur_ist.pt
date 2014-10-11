@@ -14,7 +14,7 @@
      tal:condition="python:user.has_role(['Manager', 'Site Administrator'], here)">
     <br />
 
-    <h1>:: Gestion des professeurs ::</h1>
+    <h1>:: Gestion des professeurs IST ::</h1>
     <div class="formulaire">
         <h2 class="formulaire-titre">Modifier un auteur</h2>
         <tal:requete tal:define="profPk request/profPk;
@@ -101,6 +101,9 @@
                                    name="profPk"
                                    value=""
                                    tal:attributes="value profPk">
+                            <input type="hidden"
+                                   name="profEcoleFk"
+                                   value="2" />
                             <input type="submit"
                                    value="Modifier" />
                         </div>

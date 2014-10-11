@@ -47,15 +47,19 @@
                                 <td><span tal:content="professeur/statut/statmembre_statut" /></td>
                                 <td>
                                     <a href=""
-                                       tal:attributes="href string: ${context/absolute_url}/modifier-un-professeur-ism?profPk=${professeur/prof_pk}">
+                                       tal:attributes="href string: ${context/absolute_url}/modifier-un-professeur-ist?profPk=${professeur/prof_pk}">
                                         <img src="modifier.png" alt="modifier" /></a>
                                 </td>
                                 <td>
                                     <a href=""
-                                       tal:attributes="href string: ${context/absolute_url}/supprimer-un-professeur-ism?profPk=${professeur/prof_pk}">
+                                       tal:attributes="href string: ${context/absolute_url}/supprimer-un-professeur-ist?profPk=${professeur/prof_pk}">
                                         <img src="supprimer.png" alt="supprimer" /></a>
                                 </td>
-                                <td><span tal:content="professeur/prof_ecole_fk" /></td>
+                                <td>
+                                    <span tal:define="ecole python:view.getEcoleDuProfesseur(professeur.prof_ecole_fk)">
+                                        <span tal:content="ecole/ecole_nom"></span>
+                                    </span>
+                                </td>
                             </tr>
                         </tal:boucle>
                     </tbody>

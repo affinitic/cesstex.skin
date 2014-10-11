@@ -61,6 +61,9 @@
                            name="profLogin"
                            value=""
                            tal:attributes="value professeur/prof_login" />
+                    <input type="hidden"
+                           name="profEcoleFk"
+                           value="2" />
                     <input class="context"
                            type="submit"
                            value="Supprimer ce membre" />
