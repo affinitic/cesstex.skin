@@ -66,7 +66,9 @@
                                         <img src="supprimer.png" alt="supprimer" /></a>
                                 </td>
                                 <td>
-                                    <span tal:content="professeur/prof_ecole_fk" />
+                                    <span tal:define="ecole python:view.getEcoleDuProfesseur(professeur.prof_ecole_fk)">
+                                        <span tal:content="ecole/ecole_nom" />
+                                    </span>
                                 </td>
                             </tr>
                         </tal:boucle>
