@@ -6,24 +6,17 @@
 <body>
 
 <div metal:fill-slot="main">
-<metal:main-macro define-macro="main">    
-
-        <div metal:use-macro="here/document_actions/macros/document_actions">
-            Document actions (print, sendto etc)
-        </div>
-
-        <h1 tal:content="object_title" class="documentFirstHeading">
-            Title or id
-        </h1>
-       <div class="plain slideshow-rich-body"
-             tal:define="text context/getRichContent|context/getText|nothing"
-             tal:condition="text"
-             tal:content="structure text">
-            Rich body for "Rich Topics" and Plone 3.0 Collections
-        </div>
-        <iframe src ="http://clavius.affinitic.be/picsengine/cesstex/ist/" id="picsEngineGalerie">
-            <p>Your browser does not support iframes.</p>
-        </iframe>
+<metal:main-macro define-macro="main">
+    <h1 class="documentFirstHeading">
+        Nos images
+    </h1>
+    <p>
+    Identité visuelle (droits) Toutes les photographies figurant sur ce site sont la propriété exclusive de l’IST. Elles ne peuvent donc être employées sur un autre site ou blog sans autorisation préalable. Toute infraction pourrait entraîner des poursuites judiciaires.   Ces photos sont destinées à illustrer la vie quotidienne de nos 3 implantations. Si vous souhaitez qu'une photo n'apparaisse plus, il vous suffit de nous le faire savoir par e-mail et la photo sera supprimée rapidement.
+    </p>
+    <iframe src ="http://euclide.affinitic.be/picsengine/cesstex/ist/"
+            id="picsEngineGalerie">
+        <p>Your browser does not support iframes.</p>
+    </iframe>
 </metal:main-macro>
 </div>
 
