@@ -139,7 +139,7 @@
                                                title item/Description">
                                 <h3 tal:content="item/pretty_title_or_id"
                                     class="ismevents-title" />
-                                <span tal:content="string:${item_startdate} ${item_startdate} ${item_starttime} - ${item_endtime}"
+                                <span tal:content="string:${item_startdate} ${item_enddate} ${item_starttime} - ${item_endtime}"
                                       class="ismevents-date" />
                                 <span tal:content="item/profResponsable"
                                       class="ismevents-date" />
