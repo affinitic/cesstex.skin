@@ -28,6 +28,11 @@ font-weight: normal;
 font-style: normal;
 }
 
+html,
+body{
+height:100%;
+}
+
 body{
 margin:0px;
 padding:0px;
