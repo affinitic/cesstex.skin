@@ -25,12 +25,13 @@
         </p>
     </section>
     <p>
+        <a href="https://fr.surveymonkey.com/s/ecolenumerique" target="_blanck">
         <img src="banner_ism_ecole_numerique.jpg"
              alt="Ecole numérique"
              title="Ecole numérique"
              width="743"
              height="157"
-             id="ism-banner-numerique" />
+             id="ism-banner-numerique" /></a>
     </p>
     <h1>Informations générales</h1>
     <section id="info-generale-bloc-sup">

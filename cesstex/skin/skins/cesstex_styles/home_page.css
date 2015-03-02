@@ -3,8 +3,7 @@
   masquer la barre de navigation sur la page d'accueil
 */
 body{
-background-image:url(background.png);
-background-color:none;
+background: rgb(35,83,138);
 }
 
 .documentContent {
