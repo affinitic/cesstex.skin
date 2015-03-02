@@ -24,7 +24,14 @@
         <a href="brochure-ism">Téléchargez notre brochure au format pdf</a>
         </p>
     </section>
-    <p><br /><br /></p>
+    <p>
+        <img src="banner_ism_ecole_numerique.jpg"
+             alt="Ecole numérique"
+             title="Ecole numérique"
+             width="743"
+             height="157"
+             id="ism-banner-numerique" />
+    </p>
     <h1>Informations générales</h1>
     <section id="info-generale-bloc-sup">
         <div id="a-la-une">

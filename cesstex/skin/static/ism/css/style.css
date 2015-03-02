@@ -54,6 +54,12 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#23538a', end
 clear:both;
 }
 
+
+#ism-banner-numerique{
+margin-left:35px;
+margin-top:10px;
+}
+
 header#header-ism #top-black{
 height:55px;
 background-color:#000;
@@ -120,12 +126,6 @@ header#header-ism #top-black #top-connexion #portal-personaltools.actionMenu .ac
 background-color:#8CACBB;
 color:#fff !important;
 }
-
-
-
-
-
-
 
 header#header-ism #top-nom-ecole{
 left:10px;
