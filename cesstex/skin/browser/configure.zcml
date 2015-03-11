@@ -230,6 +230,14 @@
         permission="zope.Public" />
 
     <browser:page
+        class=".gallery_view.GalleryView"
+        for="*"
+        name="countElements"
+        attribute="countElements"
+        permission="zope2.View"
+        />
+
+    <browser:page
         name="ism-listing-event"
         for="*"
         template="templates/ism/ism_listing_event.pt"

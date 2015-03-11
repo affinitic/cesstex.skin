@@ -51,6 +51,7 @@
             <div class="photoAlbumEntry photoAlbumFolder"
                  tal:define="image_brains_in_album python:album.atctListAlbum(subimages=1)['subimages'];
                              number_of_images python:len(image_brains_in_album);
+                             number_of_elements album/@@countElements;
                              random python:modules['random'];
                              random_image python:number_of_images and random.choice(image_brains_in_album).getObject() or None">
                         <a tal:attributes="href album/getURL;
@@ -62,7 +63,7 @@
                             </span>
                             <span class="photoAlbumEntryTitle">
                                <tal:title content="album/pretty_title_or_id">Title</tal:title>
-                            (<tal:number content="number_of_images" />)
+                            (<tal:number content="number_of_elements" />)
                             </span>
                         </a>
             </div>
