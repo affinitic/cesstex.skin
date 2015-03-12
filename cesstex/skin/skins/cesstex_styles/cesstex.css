@@ -978,7 +978,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff3019', end
 
 
 
-/* ISM DOSSIER DISCIPLINAIRE */
+/*** ISM DOSSIER DISCIPLINAIRE ***/
 div.btn-print-listing{
 }
 
@@ -1019,6 +1019,23 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 }
 
 
+/***  ISM ESPACE INTERACTIF ***/
+.photoAlbumFolder {
+background-image: none;
+background-color:#fffdf1;
+border:1px solid #d5cc86;
+border-radius:0px 0px 8px 8px;
+margin:8px;
+box-shadow:2px 2px 4px rgba(50,50,50,0.5);
+}
 
+.espace-interactif-titre-album{
+color:#ff6e00;
+font-variant:small-caps;
+font-weight:bold;
+}
 
+.espace-interactif-nombre-element{
+font-weight:bold;
+}
 
