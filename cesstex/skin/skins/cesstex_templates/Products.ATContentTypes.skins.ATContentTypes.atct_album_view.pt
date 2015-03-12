@@ -54,22 +54,22 @@
                                  number_of_elements album/@@countElements;
                                  random python:modules['random'];
                                  random_image python:number_of_images and random.choice(image_brains_in_album).getObject() or None">
-                            <a tal:attributes="href album/getURL;
-                                               title album/Description">
-                                <span class="photoAlbumEntryWrapper">
-                                    <img src="" alt=""
-                                         tal:condition="number_of_images"
-                                         tal:replace="structure python:random_image.tag(scale='thumb', title=album.Description)" />
-                                </span>
-                                <span class="photoAlbumEntryTitle">
+                    <a tal:attributes="href album/getURL;
+                                       title album/Description">
+                        <span class="photoAlbumEntryTitle">
 
-                                    <span tal:content="album/pretty_title_or_id"
-                                          class="espace-interactif-titre-album">Title</span>
-                                    <br />
-                                    (<span tal:content="number_of_elements"
-                                           class="espace-interactif-nombre-element" />)
-                                </span>
-                            </a>
+                            <span tal:content="album/pretty_title_or_id"
+                                  class="espace-interactif-titre-album">Title</span>
+                            <br />
+                            (<span tal:content="number_of_elements"
+                                   class="espace-interactif-nombre-element" />)
+                        </span>
+                        <span class="photoAlbumEntryWrapper">
+                            <img src="" alt=""
+                                 tal:condition="number_of_images"
+                                 tal:replace="structure python:random_image.tag(scale='thumb', title=album.Description)" />
+                        </span>
+                    </a>
                 </div>
             </tal:albums>
         </div>
