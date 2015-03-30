@@ -1075,4 +1075,20 @@ font-size:0.8em;
 
 
 
+/*** ISM - ECOLE FONDAMENTALE ST MARIE ***/
+.titre-rose-maternel{
+font-family:lobster,Verdana,Lucida,Helvetica,Arial,sans-serif;
+color:#e11268;
+border-bottom:none;
+font-size:2.2em;
+}
+
+.texte-orange-maternel{
+font-family:lobster,Verdana,Lucida,Helvetica,Arial,sans-serif;
+color:#ff6800;
+border-bottom:none;
+font-size:1.2em;
+}
+
+
 
