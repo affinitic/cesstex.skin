@@ -116,3 +116,23 @@ class IManageIST(Interface):
         """
         recupere l'icone d'une news (ou celle par defaut)
         """
+
+
+class IIstSalleDesProfsView(Interface):
+    """
+    gestion de la folderview de la salle des professeur
+    """
+    def getIstManageNews():
+        """
+        recupere le texte
+        """
+
+    def getIstLaLouviereNews():
+        """
+        recupere le texte
+        """
+
+    def getIstCefaManageNews():
+        """
+        recupere le texte
+        """

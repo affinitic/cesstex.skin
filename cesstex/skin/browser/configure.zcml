@@ -122,7 +122,7 @@
     <browser:page
         name="ist-formulaire-de-demande"
         for="*"
-        template="templates/ist_contact_form.pt"
+        template="templates/ist/ist_contact_form.pt"
         permission="zope.Public"
         class=".manage_IST.ManageIST"
         allowed_interface=".interfaces.IManageIST" />
@@ -130,7 +130,7 @@
     <browser:page
         name="ist-contact-merci"
         for="*"
-        template="templates/ist_contact_merci.pt"
+        template="templates/ist/ist_contact_merci.pt"
         permission="zope.Public"
         class=".manage_IST.ManageIST"
         allowed_interface=".interfaces.IManageIST" />
@@ -138,16 +138,23 @@
     <browser:page
         for="*"
         name="ist-gallerie"
-        template="templates/ist_gallery.pt"
-        permission="zope.Public"
-      />
+        template="templates/ist/ist_gallery.pt"
+        permission="zope.Public" />
 
     <browser:page
         name="ist-listing-event"
         for="*"
-        template="templates/ist_listing_event.pt"
+        template="templates/ist/ist_listing_event.pt"
         class=".manage_IST.ManageIST"
         allowed_interface=".interfaces.IManageIST"
+        permission="zope.Public" />
+
+    <browser:page
+        name="ist-la-nouvelle-salle-des-profs"
+        for="*"
+        template="templates/ist/ist_salle_des_profs.pt"
+        class=".ist_salle_des_profs.IstSalleDesProfsView"
+        allowed_interface=".interfaces.IIstSalleDesProfsView"
         permission="zope.Public" />
 
 <!-- GESTION DES PROFS IST -->
