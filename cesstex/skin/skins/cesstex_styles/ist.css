@@ -248,10 +248,20 @@ margin:10px 0px;
 
 article.ist-bloc-info-implantation{
 float:left;
-width:251px;
+width:250px;
 height:114px;
 background-repeat:no-repeat;
-background-position:left top;
+background-position:center top;
+}
+
+article.ist-bloc-info-implantation p{
+margin:auto;
+margin-top:20px;
+height:84px;
+width:220px;
+padding:0px 1px 4px 1px;
+font-size:0.8em;
+overflow:auto;
 }
 
 article#ist-spd-manage-news{
@@ -266,12 +276,19 @@ article#ist-sdp-cefa-manage-news{
 background-image:url(++theme++cesstex.skin/ist/images/ist_sdp_21_cefa_manage_news.jpg);
 }
 
+article.ist-bloc-info-implantation footer{
+margin:10px 0px 0px 10px;
+width:220px;
+border-top:1px dotted #999;
+}
 
+article.ist-bloc-info-implantation footer a{
+font-size:0.8em;
+color:#999;
+}
 
-
-
-
-
-
+article.ist-bloc-info-implantation footer a:hover{
+color:#f29400;
+}
 
 

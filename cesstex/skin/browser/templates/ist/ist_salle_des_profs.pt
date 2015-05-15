@@ -72,21 +72,21 @@
             <p tal:replace="structure view/getIstManageNews" />
             <footer tal:condition="manager">
                 <a href=""
-                   tal:attributes="href string:${context/portal_url}/boite-presentation/edit">[modifier ce texte]</a>
+                   tal:attributes="href string:${context/portal_url}/institut-sainte-therese/salle-des-profs/ist-manage-news/edit">[modifier ce texte]</a>
             </footer>
         </article>
         <article id="ist-sdp-la-louviere-news" class="ist-bloc-info-implantation">
             <p tal:replace="structure view/getIstLaLouviereNews" />
             <footer tal:condition="manager">
                 <a href=""
-                   tal:attributes="href string:${context/portal_url}/boite-presentation/edit">[modifier ce texte]</a>
+                   tal:attributes="href string:${context/portal_url}/institut-sainte-therese/salle-des-profs/ist-la-louviere-news/edit">[modifier ce texte]</a>
             </footer>
         </article>
         <article id="ist-sdp-cefa-manage-news" class="ist-bloc-info-implantation">
             <p tal:replace="structure view/getIstCefaManageNews" />
             <footer tal:condition="manager">
                 <a href=""
-                   tal:attributes="href string:${context/portal_url}/boite-presentation/edit">[modifier ce texte]</a>
+                   tal:attributes="href string:${context/portal_url}/institut-sainte-therese/salle-des-profs/ist-cefa-manage-news/edit">[modifier ce texte]</a>
             </footer>
         </article>
     </section>
