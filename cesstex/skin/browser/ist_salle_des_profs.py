@@ -63,3 +63,6 @@ class IstSalleDesProfsView(BrowserView):
 
     def getIstCefaManageNews(self):
         return self.getPageText('ist-cefa-manage-news')
+
+    def getActualiteDuMoment(self):
+        return self.getPageText('actualite-du-moment')

@@ -136,3 +136,8 @@ class IIstSalleDesProfsView(Interface):
         """
         recupere le texte
         """
+
+    def getActualiteDuMoment():
+        """
+        recupere le texte
+        """

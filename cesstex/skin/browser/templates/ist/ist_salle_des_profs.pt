@@ -15,75 +15,101 @@
     <h1>Nouvelle salle des profs IST</h1>
     <section id="ist-sdp-bloc-sup">
         <article id="ist-twee" class="ist-bloc-info">
-            <a href="tweeist"></a>
+            <a href=""
+               tal:attributes="href string:${context/portal_url}/institut-sainte-therese/tweeist"></a>
         </article>
         <article id="ist-agenda" class="ist-bloc-info">
-            <a href="agendas-et-horaires-1/agenda-des-activites-2014-2015"></a>
+            <a href=""
+               tal:attributes="href string:${context/portal_url}/institut-sainte-therese/agendas-et-horaires-1/agenda-des-activites-2014-2015"></a>
         </article>
         <article id="ist-horaire-cours" class="ist-bloc-info">
-            <a href="agendas-et-horaires-1/horaires"></a>
+            <a href=""
+               tal:attributes="href string:${context/portal_url}/institut-sainte-therese/agendas-et-horaires-1/horaires"></a>
         </article>
         <article id="ist-periode-examen" class="ist-bloc-info">
-            <a href="agendas-et-horaires-1/25ba-horaires-dexamens"></a>
+            <a href=""
+               tal:attributes="href string:${context/portal_url}/institut-sainte-therese/agendas-et-horaires-1/25ba-horaires-dexamens"></a>
         </article>
         <article id="ist-courrier-parent-eleve" class="ist-bloc-info">
-            <a href="courriers-adresses-aux-parents-et-aux-eleves"></a>
+            <a href=""
+               tal:attributes="href string:${context/portal_url}/institut-sainte-therese/courriers-adresses-aux-parents-et-aux-eleves"></a>
         </article>
         <article id="ist-docutheque" class="ist-bloc-info">
-            <a href="documents-utiles-1"></a>
+            <a href=""
+               tal:attributes="href string:${context/portal_url}/institut-sainte-therese/documents-utiles-1"></a>
         </article>
         <div class="visualClear"></div>
     </section>
 
     <section id="ist-sdp-bloc-centre">
         <article id="ist-actu_du_moment" class="ist-bloc-info-center">
-            <a href="#"></a>
+            <div>
+                <p tal:replace="structure view/getActualiteDuMoment" />
+            </div>
+            <footer tal:condition="manager">
+                <a href=""
+                   tal:attributes="href string:${context/portal_url}/institut-sainte-therese/salle-des-profs/actualite-du-moment/edit">[modifier ce texte]</a>
+            </footer>
+
         </article>
         <article id="ist-reference-pedagogique" class="ist-bloc-info-center">
-            <a href="#"></a>
+            <a href=""
+               tal:attributes="href string:${context/portal_url}/institut-sainte-therese/"></a>
         </article>
         <div class="visualClear"></div>
     </section>
 
     <section id="ist-sdp-bloc-inf">
         <article id="ist-mode_emploi" class="ist-bloc-info">
-            <a href="list-mode-demploi"></a>
+            <a href=""
+               tal:attributes="href string:${context/portal_url}/institut-sainte-therese/list-mode-demploi"></a>
         </article>
         <article id="ist-instance" class="ist-bloc-info">
-            <a href="les-instances-1"></a>
+            <a href=""
+               tal:attributes="href string:${context/portal_url}/institut-sainte-therese/les-instances-1"></a>
         </article>
         <article id="ist-groupe-relais-equipe" class="ist-bloc-info">
-            <a href="groupes-relais-et-equipes-de-travail-1"></a>
+            <a href=""
+               tal:attributes="href string:${context/portal_url}/institut-sainte-therese/groupes-relais-et-equipes-de-travail-1"></a>
         </article>
         <article id="ist-bulletin" class="ist-bloc-info">
-            <a href="les-bulletins"></a>
+            <a href=""
+               tal:attributes="href string:${context/portal_url}/institut-sainte-therese/salle-des-profs/les-bulletins"></a>
         </article>
         <article id="ist-galerie" class="ist-bloc-info">
-            <a href="#"></a>
+            <a href=""
+               tal:attributes="href string:${context/portal_url}/institut-sainte-therese/"></a>
         </article>
         <article id="ist-amicale" class="ist-bloc-info">
-            <a href="#"></a>
+            <a href=""
+               tal:attributes="href string:${context/portal_url}/institut-sainte-therese/amicale-ist"></a>
         </article>
         <div class="visualClear"></div>
     </section>
 
     <section id="ist-sdp-bloc-implantation">
         <article id="ist-spd-manage-news" class="ist-bloc-info-implantation">
-            <p tal:replace="structure view/getIstManageNews" />
+            <div>
+                <p tal:replace="structure view/getIstManageNews" />
+            </div>
             <footer tal:condition="manager">
                 <a href=""
                    tal:attributes="href string:${context/portal_url}/institut-sainte-therese/salle-des-profs/ist-manage-news/edit">[modifier ce texte]</a>
             </footer>
         </article>
         <article id="ist-sdp-la-louviere-news" class="ist-bloc-info-implantation">
-            <p tal:replace="structure view/getIstLaLouviereNews" />
+            <div>
+                <p tal:replace="structure view/getIstLaLouviereNews" />
+            </div>
             <footer tal:condition="manager">
                 <a href=""
                    tal:attributes="href string:${context/portal_url}/institut-sainte-therese/salle-des-profs/ist-la-louviere-news/edit">[modifier ce texte]</a>
             </footer>
         </article>
         <article id="ist-sdp-cefa-manage-news" class="ist-bloc-info-implantation">
-            <p tal:replace="structure view/getIstCefaManageNews" />
+            <div>
+                <p tal:replace="structure view/getIstCefaManageNews" />
+            </div>
             <footer tal:condition="manager">
                 <a href=""
                    tal:attributes="href string:${context/portal_url}/institut-sainte-therese/salle-des-profs/ist-cefa-manage-news/edit">[modifier ce texte]</a>
