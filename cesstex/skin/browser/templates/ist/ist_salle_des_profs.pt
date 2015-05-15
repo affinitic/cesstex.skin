@@ -50,7 +50,15 @@
                 <a href=""
                    tal:attributes="href string:${context/portal_url}/institut-sainte-therese/salle-des-profs/actualite-du-moment/edit">[modifier ce texte]</a>
             </footer>
-
+        </article>
+        <article id="ist-actu-breve-post-it" class="ist-bloc-info-center">
+            <div>
+                <p tal:replace="structure view/getActualiteBrevePostIt" />
+            </div>
+            <footer tal:condition="manager">
+                <a href=""
+                   tal:attributes="href string:${context/portal_url}/institut-sainte-therese/salle-des-profs/actualite-breve-post-it/edit">[modifier ce texte]</a>
+            </footer>
         </article>
         <article id="ist-reference-pedagogique" class="ist-bloc-info-center">
             <a href=""

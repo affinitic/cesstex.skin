@@ -187,21 +187,24 @@ background-image:url(++theme++cesstex.skin/ist/images/ist_sdp_06_docutheque.jpg)
 }
 
 
-/* bloc center */
-section#ist-sdp-bloc-center{
+/* BLOC CENTRE  */
+section#ist-sdp-bloc-centre{
+border:1px solid #0F0;
+height:237px;
 margin:10px 0px;
+background-image:url(++theme++cesstex.skin/ist/images/ist_sdp_08_actu_du_moment.jpg);
+background-repeat:no-repeat;
+background-position:left top;
 }
 
 article.ist-bloc-info-center{
 float:left;
 height:237px;
-background-repeat:no-repeat;
-background-position:left top;
 }
 
 article#ist-actu_du_moment{
-width:621px;
-background-image:url(++theme++cesstex.skin/ist/images/ist_sdp_08_actu_du_moment.jpg);
+width:370px;
+border:1px solid #f00;
 }
 
 article#ist-actu_du_moment div{
@@ -211,6 +214,26 @@ width:350px;
 padding:0px 1px 4px 15px;
 font-size:0.8em;
 overflow:auto;
+color:#888;
+}
+
+article#ist-actu-breve-post-it div{
+border:1px solid #000;
+margin-top:20px;
+margin-left:5px;
+height:197px;
+width:200px;
+padding:0px 1px 4px 15px;
+font-size:0.8em;
+overflow:auto;
+color:#888;
+}
+
+article#ist-reference-pedagogique{
+width:117px;
+background-image:url(++theme++cesstex.skin/ist/images/ist_sdp_09_reference_pedagogique.jpg);
+background-repeat:no-repeat;
+background-position:left top;
 }
 
 article.ist-bloc-info-center footer{
@@ -229,15 +252,7 @@ color:#f29400;
 }
 
 
-
-article#ist-reference-pedagogique{
-width:117px;
-background-image:url(++theme++cesstex.skin/ist/images/ist_sdp_09_reference_pedagogique.jpg);
-}
-
-
-
-/* bloc inf */
+/* BLOC INF */
 section#ist-sdp-bloc-inf{
 margin:10px 0px;
 }
@@ -288,6 +303,7 @@ width:220px;
 padding:0px 1px 4px 1px;
 font-size:0.8em;
 overflow:auto;
+color:#888;
 }
 
 article#ist-spd-manage-news{

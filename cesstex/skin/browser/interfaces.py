@@ -141,3 +141,8 @@ class IIstSalleDesProfsView(Interface):
         """
         recupere le texte
         """
+
+    def getActualiteBrevePostIt():
+        """
+        recupere le texte
+        """

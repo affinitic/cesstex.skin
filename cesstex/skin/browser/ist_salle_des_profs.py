@@ -66,3 +66,9 @@ class IstSalleDesProfsView(BrowserView):
 
     def getActualiteDuMoment(self):
         return self.getPageText('actualite-du-moment')
+
+    def getActualiteBrevePostIt(self):
+        return self.getPageText('actualite-breve-post-it')
+
+
+
