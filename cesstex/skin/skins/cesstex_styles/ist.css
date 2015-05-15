@@ -1,0 +1,277 @@
+/*
+Centre scolaire Saint-Exupéry
+Made by Affinitic.be
+
+CSS section IST
+
+*/
+/*** PORTLET IST ***/
+#portlet-ist{
+background-color:#DBF2FF;
+border:1px solid #999; /*#0075d2;*/
+padding:2px 0px 5px 0px;
+margin-bottom:1.2em;
+}
+
+.portlet-header-ist{
+font-weight:bold;
+font-size:1.1em;
+text-align:center;
+}
+
+/*** LISTING NEWS IST ***/
+.ist-event{
+margin:10px 0px;
+padding:3px;
+border-spacing: 0px;
+border-collapse: collapse;
+width:100%;
+background-color:#f6f6f8;
+background-image:url(istnews_fond.png);
+}
+
+.ist-event-header-left{
+background-image:url(istnews_border_left.png);
+background-repeat:no-repeat;
+background-position:left top;
+width:20px;
+height:60px;
+}
+
+.ist-event-header-center{
+background-image:url(istnews_border_center.png);
+background-repeat:repeat-x;
+}
+
+.ist-event-header-right{
+background-image:url(istnews_border_right.png);
+background-repeat:no-repeat;
+background-position:right top;
+width:46px;
+}
+
+.ist-event-title-content{
+margin-top:-12px;
+padding-left:20px;
+}
+
+.ist-event-content{
+background-color:transparent;
+}
+
+.ist-event-title-link{
+font-size:1.4em;
+font-weight:bold;
+text-align:left;
+}
+.ist-event-title-link a{
+color:#7bcbc0;
+}
+.ist-event-title-link a:hover{
+color:#3b8e85;
+}
+
+.ist-event-entete{
+width:90%;
+margin-left: 2em;
+font-weight: bold;
+}
+
+.ist-event-info{
+margin:15px 0px 5px 0px;
+}
+
+.ist-event-subject{
+text-align:right;
+font-size:0.8em;
+color:#888;
+}
+
+.ist-event-rubrique{
+font-size:0.9em;
+font-variant:small-caps;
+color:#5fb1a6;
+}
+.ist-event-description{
+font-weight:bold;
+}
+
+.ist-event-footer-left{
+height:26px;
+background-image:url(istnews_border_inf_left.png);
+}
+
+.ist-event-footer-center{
+background-image:url(istnews_border_inf_center.png);
+}
+
+.ist-event-footer-right{
+background-image:url(istnews_border_inf_right.png);
+}
+
+#ist-event-auteur{
+float:left;
+font-size:0.8em;
+color:#999;
+}
+#ist-event-add-calendar{
+float:right;
+font-size:0.8em;
+width:100px;
+}
+
+
+/*** FORMULAIRE IST CONTACT ***/
+#ist-form-contact{
+margin-top:10px;
+margin-left:2em;
+}
+
+#ist-form-contact div{
+margin: 12px 0px;
+}
+
+#ist-form-contact label{
+background-image:url(puce_bleue.gif);
+background-repeat:no-repeat;
+background-position:left center;
+padding-left:10px;
+color:#567184;
+}
+
+
+
+/**** SALLE DES PROFS ****/
+article.ist-bloc-info{
+float:left;
+width:124px;
+height:113px;
+background-repeat:no-repeat;
+background-position:left top;
+}
+
+article.ist-bloc-info a{
+display:block;
+width:120px;
+height:113px;
+cursor:pointer;
+}
+
+/* bloc sup*/
+section#ist-sdp-bloc-sup{
+margin:10px 0px;
+}
+
+article#ist-twee{
+background-image:url(++theme++cesstex.skin/ist/images/ist_sdp_01_twee.jpg);
+}
+
+article#ist-agenda{
+background-image:url(++theme++cesstex.skin/ist/images/ist_sdp_02_agenda.jpg);
+}
+
+article#ist-horaire-cours{
+background-image:url(++theme++cesstex.skin/ist/images/ist_sdp_03_horaire_cours.jpg);
+}
+
+article#ist-periode-examen{
+background-image:url(++theme++cesstex.skin/ist/images/ist_sdp_04_periode_examen.jpg);
+}
+
+article#ist-courrier-parent-eleve{
+background-image:url(++theme++cesstex.skin/ist/images/ist_sdp_05_courrier_parent_eleve.jpg);
+}
+
+article#ist-docutheque{
+background-image:url(++theme++cesstex.skin/ist/images/ist_sdp_06_docutheque.jpg);
+}
+
+
+/* bloc center */
+section#ist-sdp-bloc-center{
+margin:10px 0px;
+}
+
+article.ist-bloc-info-center{
+float:left;
+height:237px;
+background-repeat:no-repeat;
+background-position:left top;
+}
+
+article#ist-actu_du_moment{
+width:621px;
+background-image:url(++theme++cesstex.skin/ist/images/ist_sdp_08_actu_du_moment.jpg);
+}
+
+article#ist-reference-pedagogique{
+width:117px;
+background-image:url(++theme++cesstex.skin/ist/images/ist_sdp_09_reference_pedagogique.jpg);
+}
+
+
+
+/* bloc inf */
+section#ist-sdp-bloc-inf{
+margin:10px 0px;
+}
+
+article#ist-mode_emploi{
+background-image:url(++theme++cesstex.skin/ist/images/ist_sdp_12_mode_emploi.jpg);
+}
+
+article#ist-instance{
+background-image:url(++theme++cesstex.skin/ist/images/ist_sdp_13_instance.jpg);
+}
+
+article#ist-groupe-relais-equipe{
+background-image:url(++theme++cesstex.skin/ist/images/ist_sdp_14_groupe_relais.jpg);
+}
+
+article#ist-bulletin{
+background-image:url(++theme++cesstex.skin/ist/images/ist_sdp_15_bulletin.jpg);
+}
+
+article#ist-galerie{
+background-image:url(++theme++cesstex.skin/ist/images/ist_sdp_16_galerie.jpg);
+}
+
+article#ist-amicale{
+background-image:url(++theme++cesstex.skin/ist/images/ist_sdp_17_amicale.jpg);
+}
+
+
+/* bloc implantation */
+section#ist-sdp-bloc-implantation{
+margin:10px 0px;
+}
+
+article.ist-bloc-info-implantation{
+float:left;
+width:251px;
+height:114px;
+background-repeat:no-repeat;
+background-position:left top;
+}
+
+article#ist-spd-manage-news{
+background-image:url(++theme++cesstex.skin/ist/images/ist_sdp_19_ist_manage_news.jpg);
+}
+
+article#ist-sdp-la-louviere-news{
+background-image:url(++theme++cesstex.skin/ist/images/ist_sdp_20_ist_lalouviere_news.jpg);
+}
+
+article#ist-sdp-cefa-manage-news{
+background-image:url(++theme++cesstex.skin/ist/images/ist_sdp_21_cefa_manage_news.jpg);
+}
+
+
+
+
+
+
+
+
+
+
