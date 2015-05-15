@@ -1,0 +1,201 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="plone">
+
+<head>
+    <metal:noborder fill-slot="top_slot"
+                    tal:define="dummy python:request.set('disable_border',1)" />
+</head>
+
+<body>
+<div metal:fill-slot="main">
+    <h1>Un enseignement secondaire exigeant, un regard positif sur chacun</h1>
+    <section id="ism-brochure">
+        <div id="ism-couverture-brochure">
+            <a href="ism_brochure_2015.pdf ">
+            <img src="ism_couverture_pdf_2015.png"
+                 alt="Institut Sainte-Marie La Louvière" /></a>
+        </div>
+        <p>
+        En 20 pages, notre projet, nos grilles, notre esprit et de nombreux renseignements pratiques.
+        </p>
+        <p>
+        <a href="ism_brochure_2015.pdf">Téléchargez notre brochure au format pdf</a>
+        </p>
+    </section>
+    <div id="ism-banner-numerique">
+        <a href="https://fr.surveymonkey.com/s/ecolenumerique"
+           target="_blanck">
+            <img src="banner_ism_ecole_numerique.jpg"
+                 alt="Ecole numérique"
+                 title="Ecole numérique"
+                 width="743"
+                 height="157" /></a>
+    </div>
+    <h1>Informations générales</h1>
+    <section id="info-generale-bloc-sup">
+        <div id="a-la-une">
+            <h2>A la une</h2>
+            <div tal:define="view nocall:context/@@ismInfoSemaineView;
+                             news python:view.getNews(1, True, False);
+                             convert nocall:context/@@plone/toLocalizedTime;
+                             getNewsIconURL nocall:view/getNewsIconURL;"
+                 tal:condition="news"
+                 class="info-generale-content">
+                <tal:boucle tal:repeat="item news">
+                    <tal:block tal:define="infoUne python:item.getObject()"
+                               tal:condition="infoUne/isALaUneNews | nothing">
+                        <article class="ismnews-content-a-la-une">
+                            <a href=""
+                                   tal:attributes="href item/getURL;
+                                                   title item/Description">
+                                <h3 tal:content="item/pretty_title_or_id"
+                                    class="ismnews-title-a-la-une"></h3>
+
+                                <div tal:define="imgURL python:getNewsIconURL(item);"
+                                     class="ismnews-contenu-a-la-une">
+                                    <div class="ismnews-image-a-la-une">
+                                        <!--<img tal:replace="structure python: infoUne.tag(scale='mini')" />-->
+                                        <img src=""
+                                             tal:attributes="src string: ${item/getURL}/${imgURL}" />
+                                    </div>
+                                        <p tal:content="item/Description"
+                                           class="ismnews-description-a-la-une"></p>
+                                        <span tal:define="text python:infoUne.CookedBody(stx_level=2);">
+                                            <p><span tal:replace="structure text" /></p>
+                                        </span>
+
+                                </div>
+                            </a>
+                        </article>
+                    </tal:block>
+                </tal:boucle>
+                <footer class="footer-info-generale">
+                        <div tal:condition="python:user.has_role(['Manager', 'Site Administrator'], here)"
+                             class="bouton-ajouter">
+                            <a href="createObject?type_name=News+Item">ajouter</a>
+                        </div>
+                        <!--
+                        <div class="bouton-suite">
+                            <a href=""
+                               tal:attributes="href item/getURL;
+                                               title item/Description"></a>
+                        </div>
+                        -->
+                    </footer>
+            </div>
+        </div>
+
+        <div id="info-de-la-semaine">
+            <h2>Info de la semaine</h2>
+            <div tal:define="view nocall:context/@@ismInfoSemaineView;
+                             news python:view.getNews(5, True, False);
+                             convert nocall:context/@@plone/toLocalizedTime;
+                             getNewsIconURL nocall:view/getNewsIconURL;"
+                tal:condition="news"
+                class="info-generale-content">
+                <tal:if tal:condition="news">
+                    <tal:boucle tal:repeat="item news">
+                        <article class="ismnews-content">
+                              <a href=""
+                                 tal:attributes="href item/getURL;
+                                                 title item/Description">
+                                  <h3 tal:content="item/pretty_title_or_id"
+                                      class="ismnews-title" />
+                                <p tal:content="item/Description"
+                                   class="ismnews-description"></p>
+                            </a>
+                              <!--<span tal:content="python: convert(item.Date)"
+                                    class="ismnews-date" />-->
+                        </article>
+                    </tal:boucle>
+                </tal:if>
+            </div>
+            <footer class="footer-info-generale">
+                <div tal:condition="python:user.has_role(['Manager', 'Site Administrator'], here)"
+                     class="bouton-ajouter">
+                    <a href="createObject?type_name=News+Item">ajouter</a>
+                </div>
+                <div class="bouton-suite">
+                    <a href=""
+                       tal:attributes="href string:${context/portal_url}/institut-sainte-marie/"></a>
+                </div>
+            </footer>
+        </div>
+        <div class="visualClear"></div>
+    </section>
+
+    <section id="info-generale-bloc-inf">
+        <div id="agenda">
+            <h2>Agenda</h2>
+            <div tal:define="view nocall:context/@@ismEventAgendaView;
+                             events python:view.getEvents(5);
+                             toLocalizedTime nocall:context/@@plone/toLocalizedTime"
+                 tal:condition="events"
+                 class="info-generale-content">
+                <tal:if tal:condition="events">
+                    <tal:boucle tal:repeat="item events">
+
+                        <article tal:define="item_startdate python:toLocalizedTime(item.start());
+                                             item_starttime python:toLocalizedTime(item.start(),time_only=1);
+                                             item_enddate python:toLocalizedTime(item.end());
+                                             item_endtime python:toLocalizedTime(item.end(),time_only=1);"
+                               class="ismevents-content">
+                            <a href=""
+                               tal:attributes="href item/absolute_url;
+                                               title item/Description">
+                                <h3 tal:content="item/pretty_title_or_id"
+                                    class="ismevents-title" />
+                                <span tal:content="string:${item_startdate} ${item_enddate} ${item_starttime} - ${item_endtime}"
+                                      class="ismevents-date" />
+                                <span tal:content="item/profResponsable"
+                                      class="ismevents-date" />
+                                <p tal:content="item/Description"
+                                   class="ismevents-description"></p>
+                            </a>
+                        </article>
+                    </tal:boucle>
+                </tal:if>
+            </div>
+            <footer class="footer-info-generale">
+                <div tal:condition="python:user.has_role(['Manager', 'Site Administrator'], here)"
+                     class="bouton-ajouter">
+                    <a href="createObject?type_name=Event">ajouter</a>
+                </div>
+                <div class="bouton-suite">
+                    <a href=""
+                       tal:attributes="href string:${context/portal_url}/institut-sainte-marie/"></a>
+                </div>
+            </footer>
+        </div>
+
+
+        <div id="espace-interactif">
+            <h2>Espace interactif</h2>
+            <div class="info-generale-content">
+                <a href=""
+                   tal:attributes="href string:${context/portal_url}/institut-sainte-marie/espace-interactif/">
+                    &nbsp;&nbsp;&nbsp;Professeurs et &eacute;l&egrave;ves communiquent et échangent à propos de
+                    <ul>
+                        <li>documents,</li>
+                        <li>exercices,</li>
+                        <li>travaux,</li>
+                        <li>projets.</li>
+                    </ul>
+                    <img src="ism_espace_interactif.png" />
+                </a>
+            </div>
+            <footer class="footer-info-generale">
+                <div class="bouton-suite">
+                    <a href=""
+                       tal:attributes="href string:${context/portal_url}/institut-sainte-marie/espace-interactif/"></a>
+                </div>
+            </footer>
+        </div>
+        <div class="visualClear"></div>
+    </section>
+</div><!-- div metal-->
+</body>
+</html>
+
