@@ -25,6 +25,7 @@ setup(name='cesstex.skin',
       zip_safe=False,
       install_requires=[
           'setuptools',
+          'plone.api',
           'collective.autopermission',
           # -*- Extra requirements: -*-
       ],
