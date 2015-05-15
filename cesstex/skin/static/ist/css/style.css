@@ -1,0 +1,55 @@
+/**
+CSS pour CESSTEX
+AFFINITIC avril 2014
+
+style pour le sous-site IST
+HomePage
+SalleDesProfs
+
+**/
+
+@font-face {
+font-family: 'blairmd';
+src: url('../font/blairmditctt_medium-webfont.eot');
+src: url('../font/blairmditctt_medium-webfont.eot?#iefix') format('embedded-opentype'),
+     url('../font/blairmditctt_medium-webfont.woff') format('woff'),
+     url('../font/blairmditctt_medium-webfont.ttf') format('truetype'),
+     url('../font/blairmditctt_medium-webfont.svg#blairmditc_ttmedium') format('svg');
+font-weight: normal;
+font-style: normal;
+}
+
+@font-face {
+font-family: 'mondaregular';
+src: url('../font/monda-regular-webfont.eot');
+src: url('../font/monda-regular-webfont.eot?#iefix') format('embedded-opentype'),
+     url('../font/monda-regular-webfont.woff') format('woff'),
+     url('../font/monda-regular-webfont.ttf') format('truetype'),
+     url('../font/monda-regular-webfont.svg#mondaregular') format('svg');
+font-weight: normal;
+font-style: normal;
+}
+
+@font-face {
+font-family: 'lobster';
+src: url('../font/Lobster-webfont.eot');
+src: url('../font/Lobster-webfont.eot?#iefix') format('embedded-opentype'),
+     url('../font/Lobster-webfont.woff2') format('woff2'),
+     url('../font/Lobster-webfont.woff') format('woff'),
+     url('../font/Lobster-webfont.ttf') format('truetype'),
+     url('../font/Lobster-webfont.svg#lobster_1.4regular') format('svg');
+font-weight: normal;
+font-style: normal;
+}
+
+
+body{
+margin:0px;
+padding:0px;
+font-family:"Lucida Grande", verdana, arial, sans-serif;
+color:#444;
+}
+
+.stop-float{
+clear:both;
+}
