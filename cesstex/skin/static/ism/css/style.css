@@ -354,22 +354,6 @@ div#wrapper-ism div#main-content div#main-column div div#content a:hover{
 color:#5fd2c7 !important;
 }
 
-
-#wrapper-ism #main-content #main-column #ism-brochure{
-width:600px;
-margin:auto;
-border:1px solid #5fd2c7;
-border-radius:15px;
-padding:1em;
-text-align:center;
-}
-
-#wrapper-ism #main-content #main-column #ism-brochure a{
-text-decoration:none;
-border-bottom:0px;
-}
-
-
 #wrapper-ism #main-content #main-column #top-block,
 #wrapper-ism #main-content #main-column #bottom-block{
 /*border:1px solid #666;*/

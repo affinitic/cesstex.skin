@@ -10,29 +10,6 @@
 
 <body>
 <div metal:fill-slot="main">
-    <h1>Un enseignement secondaire exigeant, un regard positif sur chacun</h1>
-    <section id="ism-brochure">
-        <div id="ism-couverture-brochure">
-            <a href="ism_brochure_2015.pdf ">
-            <img src="ism_couverture_pdf_2015.png"
-                 alt="Institut Sainte-Marie La Louvière" /></a>
-        </div>
-        <p>
-        En 20 pages, notre projet, nos grilles, notre esprit et de nombreux renseignements pratiques.
-        </p>
-        <p>
-        <a href="ism_brochure_2015.pdf">Téléchargez notre brochure au format pdf</a>
-        </p>
-    </section>
-    <div id="ism-banner-numerique">
-        <a href="https://fr.surveymonkey.com/s/ecolenumerique"
-           target="_blanck">
-            <img src="banner_ism_ecole_numerique.jpg"
-                 alt="Ecole numérique"
-                 title="Ecole numérique"
-                 width="743"
-                 height="157" /></a>
-    </div>
     <h1>Informations générales</h1>
     <section id="info-generale-bloc-sup">
         <div id="a-la-une">

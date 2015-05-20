@@ -1,0 +1,35 @@
+<html xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      i18n:domain="plone">
+
+<body>
+<!--
+    Portlet qui liste toutes les exépriences pour la plate-forme assuetude
+-->
+<div metal:define-macro="portlet">
+    <div class="portlet">
+        <dl id="portlet-ism-brochure">
+            <dt class="portletHeaderBrochureIsm">
+                <span class="portletTopLeft"></span>
+                <span class="portletTopRight"></span>
+                Notre brochure
+            </dt>
+            <dt class="portletContentBrochureIsm">
+                <h3>Un enseignement secondaire exigeant, un regard positif sur chacun</h3>
+                <div id="ism-couverture-brochure">
+                    <a href="ism_brochure_2015.pdf ">
+                    <img src="ism_couverture_pdf_2015.png"
+                         alt="Institut Sainte-Marie La Louvière" /></a>
+                </div>
+                <p>
+                En 20 pages, notre projet, nos grilles, notre esprit et de nombreux renseignements pratiques.
+                </p>
+                <p>
+                <a href="ism_brochure_2015.pdf">Téléchargez notre brochure au format pdf</a>
+                </p>
+            </dt>
+        </dl>
+    </div>
+</div>
+</body>
+</html>
