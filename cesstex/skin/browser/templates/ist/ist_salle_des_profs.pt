@@ -12,13 +12,8 @@
 <div metal:fill-slot="content"
      tal:define="member context/@@plone_portal_state/member;
                  manager python: member.has_role('Manager');
-                 dummy python:request.set('disable_border',1);
-                 show-border python: True">
+                 dummy python:request.set('disable_border',1)">
 
-
-                    <div id="edit-bar"
-                        tal:condition="show_border"
-                        tal:content="structure provider:plone.contentviews" />
 
 
 
