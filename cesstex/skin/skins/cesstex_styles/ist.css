@@ -6,7 +6,9 @@ CSS section IST
 
 */
 /**** CONTENU GENERAL ****/
-body.section-institut-sainte-therese div#content h1.documentFirstHeading{
+body.section-institut-sainte-therese div#content h1.documentFirstHeading,
+body.section-institut-sainte-therese div#content h1,
+body.section-institut-sainte-therese div#content h2{
 border-bottom:0px;
 color:#27ace7;
 }
