@@ -9,34 +9,45 @@
 </head>
 
 <body>
-<div metal:fill-slot="main"
+<div metal:fill-slot="content"
      tal:define="member context/@@plone_portal_state/member;
-                 manager python: member.has_role('Manager')">
+                 manager python: member.has_role('Manager');
+                 dummy python:request.set('disable_border',1);
+                 show-border python: True">
+
+
+                    <div id="edit-bar"
+                        tal:condition="show_border"
+                        tal:content="structure provider:plone.contentviews" />
+
+
+
+
     <h1>Nouvelle salle des profs IST</h1>
     <section id="ist-sdp-bloc-sup">
         <article id="ist-twee" class="ist-bloc-info">
             <a href=""
-               tal:attributes="href string:${context/portal_url}/institut-sainte-therese/tweeist"></a>
+               tal:attributes="href string:${context/portal_url}/institut-sainte-therese/salle-des-profs/tweeist"></a>
         </article>
         <article id="ist-agenda" class="ist-bloc-info">
             <a href=""
-               tal:attributes="href string:${context/portal_url}/institut-sainte-therese/agendas-et-horaires-1/agenda-des-activites-2014-2015"></a>
+               tal:attributes="href string:${context/portal_url}/institut-sainte-therese/salle-des-profs/agendas-et-horaires-1 "></a>
         </article>
         <article id="ist-horaire-cours" class="ist-bloc-info">
             <a href=""
-               tal:attributes="href string:${context/portal_url}/institut-sainte-therese/agendas-et-horaires-1/horaires"></a>
+               tal:attributes="href string:${context/portal_url}/institut-sainte-therese/salle-des-profs/copy2_of_agendas-et-horaires-1"></a>
         </article>
         <article id="ist-periode-examen" class="ist-bloc-info">
             <a href=""
-               tal:attributes="href string:${context/portal_url}/institut-sainte-therese/agendas-et-horaires-1/25ba-horaires-dexamens"></a>
+               tal:attributes="href string:${context/portal_url}/institut-sainte-therese/salle-des-profs/copy_of_agendas-et-horaires-1"></a>
         </article>
         <article id="ist-courrier-parent-eleve" class="ist-bloc-info">
             <a href=""
-               tal:attributes="href string:${context/portal_url}/institut-sainte-therese/courriers-adresses-aux-parents-et-aux-eleves"></a>
+               tal:attributes="href string:${context/portal_url}/institut-sainte-therese/salle-des-profs/courriers-adresses-aux-parents-et-aux-eleves"></a>
         </article>
         <article id="ist-docutheque" class="ist-bloc-info">
             <a href=""
-               tal:attributes="href string:${context/portal_url}/institut-sainte-therese/documents-utiles-1"></a>
+               tal:attributes="href string:${context/portal_url}/institut-sainte-therese/salle-des-profs/la-docutheque/"></a>
         </article>
         <div class="visualClear"></div>
     </section>
@@ -62,7 +73,7 @@
         </article>
         <article id="ist-reference-pedagogique" class="ist-bloc-info-center">
             <a href=""
-               tal:attributes="href string:${context/portal_url}/institut-sainte-therese/"></a>
+               tal:attributes="href string:${context/portal_url}/institut-sainte-therese/salle-des-profs/les-references-pedagogiques/"></a>
         </article>
         <div class="visualClear"></div>
     </section>
@@ -70,15 +81,15 @@
     <section id="ist-sdp-bloc-inf">
         <article id="ist-mode_emploi" class="ist-bloc-info">
             <a href=""
-               tal:attributes="href string:${context/portal_url}/institut-sainte-therese/list-mode-demploi"></a>
+               tal:attributes="href string:${context/portal_url}/institut-sainte-therese/salle-des-profs/list-mode-demploi"></a>
         </article>
         <article id="ist-instance" class="ist-bloc-info">
             <a href=""
-               tal:attributes="href string:${context/portal_url}/institut-sainte-therese/les-instances-1"></a>
+               tal:attributes="href string:${context/portal_url}/institut-sainte-therese/salle-des-profs/les-instances-1"></a>
         </article>
         <article id="ist-groupe-relais-equipe" class="ist-bloc-info">
             <a href=""
-               tal:attributes="href string:${context/portal_url}/institut-sainte-therese/groupes-relais-et-equipes-de-travail-1"></a>
+               tal:attributes="href string:${context/portal_url}/institut-sainte-therese/salle-des-profs/groupes-relais-et-equipes-de-travail-1"></a>
         </article>
         <article id="ist-bulletin" class="ist-bloc-info">
             <a href=""
@@ -86,11 +97,11 @@
         </article>
         <article id="ist-galerie" class="ist-bloc-info">
             <a href=""
-               tal:attributes="href string:${context/portal_url}/institut-sainte-therese/"></a>
+               tal:attributes="href string:${context/portal_url}/institut-sainte-therese/salle-des-profs/la-galerie/"></a>
         </article>
         <article id="ist-amicale" class="ist-bloc-info">
-            <a href=""
-               tal:attributes="href string:${context/portal_url}/institut-sainte-therese/amicale-ist"></a>
+            <a href="https://www.facebook.com/groups/197560130316038/"
+               target="_blanck"></a>
         </article>
         <div class="visualClear"></div>
     </section>
@@ -124,7 +135,6 @@
             </footer>
         </article>
     </section>
-
 
 
 </div><!-- div metal-->
