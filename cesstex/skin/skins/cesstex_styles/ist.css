@@ -5,6 +5,16 @@ Made by Affinitic.be
 CSS section IST
 
 */
+/**** CONTENU GENERAL ****/
+body.section-institut-sainte-therese div#content h1.documentFirstHeading{
+border-bottom:0px;
+color:#27ace7;
+}
+
+
+
+
+
 /*** PORTLET IST ***/
 #portlet-ist{
 background-color:#DBF2FF;
