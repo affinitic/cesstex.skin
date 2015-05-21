@@ -593,6 +593,15 @@ text-align:justify;
 margin-bottom:11px;
 }
 
+article.ismnews-content{
+border-bottom:1px dotted #999;
+}
+
+article p.ismnews-description{
+overflow:auto;
+}
+
+
 footer.footer-info-generale{
 position:relative;
 top:4px;

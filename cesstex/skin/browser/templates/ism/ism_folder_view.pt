@@ -67,7 +67,7 @@
         <div id="info-de-la-semaine">
             <h2>Info de la semaine</h2>
             <div tal:define="view nocall:context/@@ismInfoSemaineView;
-                             news python:view.getNews(3, True, False);
+                             news python:view.getNews(4, True, False);
                              convert nocall:context/@@plone/toLocalizedTime;
                              getNewsIconURL nocall:view/getNewsIconURL;"
                 tal:condition="news"
@@ -80,8 +80,10 @@
                                                  title item/Description">
                                   <h3 tal:content="item/pretty_title_or_id"
                                       class="ismnews-title" />
-                                <p tal:content="item/Description"
+                                <p tal:condition="item/Description"
+                                   tal:content="item/Description"
                                    class="ismnews-description"></p>
+                                <p tal:condition="not: item/Description" style="height:15px"></p>
                             </a>
                               <!--<span tal:content="python: convert(item.Date)"
                                     class="ismnews-date" />-->
@@ -96,7 +98,7 @@
                 </div>
                 <div class="bouton-suite">
                     <a href=""
-                       tal:attributes="href string:${context/portal_url}/institut-sainte-marie/"></a>
+                       tal:attributes="href string:${context/portal_url}/institut-sainte-marie/ismactualite"></a>
                 </div>
             </footer>
         </div>
