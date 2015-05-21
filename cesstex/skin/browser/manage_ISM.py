@@ -37,6 +37,17 @@ class ManageISM(BrowserView):
             # image par défaut
             return 'events.gif'
 
+    @memoize
+    def getPageText(self, pageId):
+        page = getattr(self.context, pageId, None)
+        if page is None:
+            return
+        return page.getText()
+
+    def getIsmgInfoLaUne(self):
+        return self.getPageText('ism-info-a-la-une')
+
+
     def getAnneeCourante(self):
         """
         recupere l'annee courante

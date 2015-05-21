@@ -35,6 +35,7 @@ class IIsmInfoSemaine(Interface):
         """
 
 
+
 class IIsmEventAgenda(Interface):
     """
     Gestion des events agenda sur la folder view ism
@@ -90,6 +91,12 @@ class IManageISM(Interface):
     """
     Gestion de Institut Sainte Marie
     """
+
+    def getIsmgInfoLaUne():
+        """
+        recupere le texte de ism-info-a-la-une
+        """
+
 
 
 class IManageIST(Interface):

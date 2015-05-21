@@ -506,8 +506,13 @@ display:block;
 margin:auto;
 }
 
-.info-generale-content{
+div.info-generale-box{
 height:280px;
+}
+
+article.info-generale-content{
+height:280px;
+overflow:auto;
 }
 
 article.ismnews-content,
@@ -517,14 +522,14 @@ line-height:normal;
 
 article.ismnews-content a,
 article.ismevents-content a,
-div.info-generale-content a,{
+div.info-generale-box a,{
 display:block;
 border-radius:6px;
 }
 
 article.ismnews-content a:hover,
 article.ismevents-content a:hover,
-div.info-generale-content a:hover{
+div.info-generale-box a:hover{
 text-decoration:none;
 background-color:rgba(250,250,250, 0.5);
 }
