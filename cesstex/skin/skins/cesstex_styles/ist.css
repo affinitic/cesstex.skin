@@ -302,7 +302,7 @@ background-image:url(++theme++cesstex.skin/ist/images/ist_sdp_17_amicale.jpg);
 
 /* bloc implantation */
 section#ist-sdp-bloc-implantation{
-margin:10px 0px;
+margin:10px 0px 50px 0px;
 }
 
 article.ist-bloc-info-implantation{

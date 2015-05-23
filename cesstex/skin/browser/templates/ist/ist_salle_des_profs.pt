@@ -9,16 +9,11 @@
 </head>
 
 <body>
-<div metal:fill-slot="content"
+<div metal:fill-slot="content-core"
      tal:define="member context/@@plone_portal_state/member;
                  manager python: member.has_role('Manager');
                  dummy python:request.set('disable_border',1)">
 
-
-
-
-
-    <h1>Nouvelle salle des profs IST</h1>
     <section id="ist-sdp-bloc-sup">
         <article id="ist-twee" class="ist-bloc-info">
             <a href=""
@@ -129,6 +124,7 @@
                    tal:attributes="href string:${context/portal_url}/institut-sainte-therese/salle-des-profs/ist-cefa-manage-news/edit">[modifier ce texte]</a>
             </footer>
         </article>
+        <div class="visualClear"></div>
     </section>
 
 
