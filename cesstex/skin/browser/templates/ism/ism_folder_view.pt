@@ -15,9 +15,11 @@
         <div id="a-la-une">
             <h2>A la une</h2>
             <div class="info-generale-box">
-                <article class="info-generale-content">
-                    <p tal:replace="structure view/getIsmgInfoLaUne" />
-                </article>
+                <section class="info-generale-content">
+                    <article>
+                        <p tal:replace="structure view/getIsmgInfoLaUne" />
+                    </article>
+                </section>
                 <footer class="footer-info-generale">
                     <div tal:condition="python:user.has_role(['Manager', 'Site Administrator'], here)"
                          class="bouton-ajouter">
@@ -36,7 +38,7 @@
                              getNewsIconURL nocall:view/getNewsIconURL;"
                 tal:condition="news"
                 class="info-generale-box">
-                <div class="info-generale-content">
+                <section class="info-generale-content">
                     <tal:if tal:condition="news">
                         <tal:boucle tal:repeat="item news">
                             <article class="ismnews-content">
@@ -50,12 +52,12 @@
                                        class="ismnews-description"></p>
                                     <p tal:condition="not: item/Description" style="height:15px"></p>
                                 </a>
-                                  <!--<span tal:content="python: convert(item.Date)"
+                                <!--<span tal:content="python: convert(item.Date)"
                                         class="ismnews-date" />-->
                             </article>
                         </tal:boucle>
                     </tal:if>
-                </div>
+                </section>
             </div>
             <footer class="footer-info-generale">
                 <div tal:condition="python:user.has_role(['Manager', 'Site Administrator'], here)"
@@ -77,31 +79,31 @@
             <div tal:define="view nocall:context/@@ismEventAgendaView;
                              events python:view.getEvents(5);
                              toLocalizedTime nocall:context/@@plone/toLocalizedTime"
-                 tal:condition="events"
-                 class="info-generale-content">
-                <tal:if tal:condition="events">
-                    <tal:boucle tal:repeat="item events">
-
-                        <article tal:define="item_startdate python:toLocalizedTime(item.start());
-                                             item_starttime python:toLocalizedTime(item.start(),time_only=1);
-                                             item_enddate python:toLocalizedTime(item.end());
-                                             item_endtime python:toLocalizedTime(item.end(),time_only=1);"
-                               class="ismevents-content">
-                            <a href=""
-                               tal:attributes="href item/absolute_url;
-                                               title item/Description">
-                                <h3 tal:content="item/pretty_title_or_id"
-                                    class="ismevents-title" />
-                                <span tal:content="string:${item_startdate} ${item_enddate} ${item_starttime} - ${item_endtime}"
-                                      class="ismevents-date" />
-                                <span tal:content="item/profResponsable"
-                                      class="ismevents-date" />
-                                <p tal:content="item/Description"
-                                   class="ismevents-description"></p>
-                            </a>
-                        </article>
-                    </tal:boucle>
-                </tal:if>
+                 class="info-generale-box">
+                <section class="info-generale-content">
+                    <tal:if tal:condition="events">
+                        <tal:boucle tal:repeat="item events">
+                            <article tal:define="item_startdate python:toLocalizedTime(item.start());
+                                                 item_starttime python:toLocalizedTime(item.start(),time_only=1);
+                                                 item_enddate python:toLocalizedTime(item.end());
+                                                 item_endtime python:toLocalizedTime(item.end(),time_only=1);"
+                                   class="ismevents-content">
+                                <a href=""
+                                   tal:attributes="href item/absolute_url;
+                                                   title item/Description">
+                                    <h3 tal:content="item/pretty_title_or_id"
+                                        class="ismevents-title" />
+                                    <span tal:content="string:${item_startdate} ${item_enddate} ${item_starttime} - ${item_endtime}"
+                                          class="ismevents-date" />
+                                    <span tal:content="item/profResponsable"
+                                          class="ismevents-date" />
+                                    <p tal:content="item/Description"
+                                       class="ismevents-description"></p>
+                                </a>
+                            </article>
+                        </tal:boucle>
+                    </tal:if>
+                </section>
             </div>
             <footer class="footer-info-generale">
                 <div tal:condition="python:user.has_role(['Manager', 'Site Administrator'], here)"
@@ -110,33 +112,37 @@
                 </div>
                 <div class="bouton-suite">
                     <a href=""
-                       tal:attributes="href string:${context/portal_url}/institut-sainte-marie/"></a>
+                       tal:attributes="href string:${context/portal_url}/institut-sainte-marie/ismagenda"></a>
                 </div>
             </footer>
         </div>
 
 
         <div id="espace-interactif">
-            <h2>Espace interactif</h2>
-            <div class="info-generale-content">
-                <a href=""
-                   tal:attributes="href string:${context/portal_url}/institut-sainte-marie/espace-interactif/">
-                    &nbsp;&nbsp;&nbsp;Professeurs et &eacute;l&egrave;ves communiquent et échangent à propos de
-                    <ul>
-                        <li>documents,</li>
-                        <li>exercices,</li>
-                        <li>travaux,</li>
-                        <li>projets.</li>
-                    </ul>
-                    <img src="ism_espace_interactif.png" />
-                </a>
+            <div class="info-generale-box">
+                <h2>Espace interactif</h2>
+                <section class="info-generale-content">
+                    <article>
+                        <a href=""
+                           tal:attributes="href string:${context/portal_url}/institut-sainte-marie/espace-interactif/">
+                            &nbsp;&nbsp;&nbsp;Professeurs et &eacute;l&egrave;ves communiquent et échangent à propos de
+                            <ul>
+                                <li>documents,</li>
+                                <li>exercices,</li>
+                                <li>travaux,</li>
+                                <li>projets.</li>
+                            </ul>
+                            <img src="ism_espace_interactif.png" />
+                        </a>
+                    </article>
+                </section>
+                <footer class="footer-info-generale">
+                    <div class="bouton-suite">
+                        <a href=""
+                           tal:attributes="href string:${context/portal_url}/institut-sainte-marie/espace-interactif/"></a>
+                    </div>
+                </footer>
             </div>
-            <footer class="footer-info-generale">
-                <div class="bouton-suite">
-                    <a href=""
-                       tal:attributes="href string:${context/portal_url}/institut-sainte-marie/espace-interactif/"></a>
-                </div>
-            </footer>
         </div>
         <div class="visualClear"></div>
     </section>

@@ -510,7 +510,7 @@ div.info-generale-box{
 height:280px;
 }
 
-article.info-generale-content{
+section.info-generale-content{
 height:280px;
 overflow:auto;
 }
@@ -558,6 +558,7 @@ article.ismnews-content p{
 padding:3px 5px 0px 9px;
 height:60px;
 overflow:hidden;
+text-overflow: ellipsis;
 }
 
 article.ismnews-content-a-la-une p{
@@ -578,13 +579,6 @@ color:#20a3af;
 padding-left:9px;
 }
 
-.ismnews-image-a-la-une{
-float:left;
-margin:0px 15px 8px 0px;
-height:230px;
-min-width:100px;
-}
-
 article p.ismnews-description-a-la-une{
 font-weight:bold;
 font-size:1em;
@@ -598,7 +592,8 @@ text-align:justify;
 margin-bottom:11px;
 }
 
-article.ismnews-content{
+article.ismnews-content,
+article.ismevents-content{
 border-bottom:1px dotted #999;
 }
 
