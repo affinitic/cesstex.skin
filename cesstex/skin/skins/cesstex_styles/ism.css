@@ -7,8 +7,10 @@ CSS section ISM
 */
 
 /*** PORLET ISM ***/
-
-.portletHeaderBrochureIsm{
+dl.portletNavigationTree dt.portletHeader,
+dl.portletCollection dt.portletHeader,
+.portletHeaderBrochureIsm,
+.portletHeaderEspaceInteractif{
 height:31px;
 color:#333;
 text-shadow:1px 1px 1px rgba(250,250,250,0.8);
@@ -17,26 +19,63 @@ line-height:31px;
 padding-right:10px;
 font-variant:small-caps;
 font-weight:bold;
-border-top:1px solid #5fd2c7;
-border-left:1px solid #5fd2c7;
-border-right:1px solid #5fd2c7;
 border-radius:8px 8px 0px 0px;
-background:#a8ecee;
+}
+
+dl.portletNavigationTree dt.portletHeader{
+border-top:1px solid #20d4c8;
+border-left:1px solid #20d4c8;
+border-right:1px solid #20d4c8;
+background:#e6f8fc;
+}
+
+dl.portletCollection dt.portletHeader{
+border-top:1px solid #CC79B5;
+border-left:1px solid #CC79B5;
+border-right:1px solid #CC79B5;
+background:#E4A7D3;
+}
+
+dl.portletCollection dd.portletItem{
+border-left:1px solid #CC79B5;
+border-right:1px solid #CC79B5;
+background:#FDF2FA;
+}
+
+dl.portletCollection dd.portletFooter{
+border-bottom:1px solid #CC79B5 !important;
+border-left:1px solid #CC79B5 !important;
+border-right:1px solid #CC79B5 !important;
+background:#FDF2FA;
+}
+
+/*** portlet brochure ism ***/
+.portletHeaderBrochureIsm{
+border-top:1px solid #498282;
+border-left:1px solid #498282;
+border-right:1px solid #498282;
+background:#A9BDBD;
 }
 
 .portletContentBrochureIsm{
-background-color:rgba(232,255,255,1);
-border-left:1px solid #5fd2c7;
-border-right:1px solid #5fd2c7;
-border-bottom:1px solid #5fd2c7;
+border-left:1px solid #498282;
+border-right:1px solid #498282;
+border-bottom:1px solid #498282;
 border-radius:0px 0px 15px 15px;
 text-align:center;
+background-color:#D7DFDF;
+}
+
+.portletContentBrochureIsm a{
+color:#0082b6;
+}
+
+.portletContentBrochureIsm a:hover{
+color:#bb6600;
 }
 
 #wrapper-ism #main-content #left-column #portlet-ism-brochure{
 }
-
-
 
 #wrapper-ism #main-content #left-column #portlet-ism-brochure a{
 text-decoration:none;
@@ -54,18 +93,9 @@ box-shadow:3px 3px 6px rgba(50,50,50,0.5);
 
 
 .portletHeaderEspaceInteractif{
-height:31px;
-color:#333;
-text-shadow:1px 1px 1px rgba(250,250,250,0.8);
-text-align:right;
-line-height:31px;
-padding-right:10px;
-font-variant:small-caps;
-font-weight:bold;
 border-top:1px solid #d5cc86;
 border-left:1px solid #d5cc86;
 border-right:1px solid #d5cc86;
-border-radius:8px 8px 0px 0px;
 background:#ffffb8;
 }
 
