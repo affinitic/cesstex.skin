@@ -5,6 +5,8 @@
     <dt class="portletHeader">
         <span class="portletTopLeft"></span>
         <span class="portletTopRight"></span>
+        <a tal:attributes="href root/absolute_url;
+                           title root/Description">Home</a>
     </dt>
 
     <dd class="portletItem lastItem">
