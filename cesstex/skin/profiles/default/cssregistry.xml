@@ -56,7 +56,7 @@
                 enabled="1"
                 expression="object/isHomePage"/>
 
-    <stylesheet title=""
+    <stylesheet title="style pour les formulaires"
                 id="formulaire_style.css"
                 media="screen"
                 rel="stylesheet"
@@ -67,7 +67,7 @@
                 enabled="1"
                 expression=""/>
 
-    <stylesheet title=""
+    <stylesheet title="style pour tinyMCE"
                 id="editeur_interne_style.css"
                 media="screen"
                 rel="stylesheet"
@@ -78,6 +78,16 @@
                 enabled="1"
                 expression=""/>
 
+    <stylesheet title="style pour les portlets"
+                id="portlet.css"
+                media="screen"
+                rel="stylesheet"
+                rendering="import"
+                cacheable="True"
+                compression="safe"
+                cookable="True"
+                enabled="1"
+                expression=""/>
 
 
 
