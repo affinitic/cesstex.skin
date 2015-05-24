@@ -30,9 +30,9 @@ background:#e6f8fc;
 }
 
 dl.portletCollection dt.portletHeader{
-border-top:1px solid #CC79B5;
-border-left:1px solid #CC79B5;
-border-right:1px solid #CC79B5;
+border-top:1px solid #CC79B5 !important;
+border-left:1px solid #CC79B5 !important;
+border-right:1px solid #CC79B5 !important;
 background:#E4A7D3;
 }
 
