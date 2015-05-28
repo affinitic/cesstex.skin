@@ -15,22 +15,6 @@ color:#27ace7;
 
 
 
-
-
-/*** PORTLET IST ***/
-#portlet-ist{
-background-color:#DBF2FF;
-border:1px solid #999; /*#0075d2;*/
-padding:2px 0px 5px 0px;
-margin-bottom:1.2em;
-}
-
-.portlet-header-ist{
-font-weight:bold;
-font-size:1.1em;
-text-align:center;
-}
-
 /*** LISTING NEWS IST ***/
 .ist-event{
 margin:10px 0px;

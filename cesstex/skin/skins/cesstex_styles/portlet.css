@@ -25,3 +25,191 @@ float:right;
 div#portletmanager-plone-leftcolumn.portlets-manager div.managedPortlet.portlet div.portletHeader{
 height:40px;
 }
+
+
+
+/*** PORLET ISM ***/
+dl.portletNavigationTree dt.portletHeader,
+dl.portletCollection dt.portletHeader,
+dl.QuickUploadPortlet dt.portletHeader,
+.portletHeaderBrochureIsm,
+.portletHeaderEspaceInteractif{
+height:31px;
+color:#333;
+text-shadow:1px 1px 1px rgba(250,250,250,0.8);
+text-align:right;
+line-height:31px;
+padding-right:10px;
+font-variant:small-caps;
+font-weight:bold;
+border-radius:8px 8px 0px 0px;
+}
+
+dl.portletNavigationTree dt.portletHeader{
+border-top:1px solid #20d4c8;
+border-left:1px solid #20d4c8;
+border-right:1px solid #20d4c8;
+background:#e6f8fc;
+}
+
+dl.portletCollection dt.portletHeader{
+border-top:1px solid #CC79B5 !important;
+border-left:1px solid #CC79B5 !important;
+border-right:1px solid #CC79B5 !important;
+background:#E4A7D3;
+}
+
+dl.portletCollection dd.portletItem{
+border-left:1px solid #CC79B5;
+border-right:1px solid #CC79B5;
+background:#FDF2FA;
+}
+
+dl.portletCollection dd.portletFooter{
+border-bottom:1px solid #CC79B5 !important;
+border-left:1px solid #CC79B5 !important;
+border-right:1px solid #CC79B5 !important;
+background:#FDF2FA;
+}
+
+/*** portlet gestionnaire de galerie quickuload ***/
+dl.QuickUploadPortlet dt.portletHeader{
+border-top:1px solid #955345 !important;
+border-left:1px solid #955345 !important;
+border-right:1px solid #955345 !important;
+background:#eea391;
+}
+
+dl.QuickUploadPortlet dd.portletItem{
+border-left:1px solid #955345;
+border-right:1px solid #955345;
+border-bottom:1px solid #955345;
+border-radius:0px 0px 8px 8px;
+background:#ffebd8;
+}
+
+
+/*** portlet brochure ism ***/
+.portletHeaderBrochureIsm{
+border-top:1px solid #498282;
+border-left:1px solid #498282;
+border-right:1px solid #498282;
+background:#A9BDBD;
+}
+
+.portletContentBrochureIsm{
+border-left:1px solid #498282;
+border-right:1px solid #498282;
+border-bottom:1px solid #498282;
+border-radius:0px 0px 15px 15px;
+text-align:center;
+background-color:#D7DFDF;
+}
+
+.portletContentBrochureIsm a{
+color:#0082b6;
+}
+
+.portletContentBrochureIsm a:hover{
+color:#bb6600;
+}
+
+#wrapper-ism #main-content #left-column #portlet-ism-brochure{
+}
+
+#wrapper-ism #main-content #left-column #portlet-ism-brochure a{
+text-decoration:none;
+border-bottom:0px;
+}
+
+#wrapper-ism #main-content #left-column #portlet-ism-brochure #ism-couverture-brochure{
+margin:0px 0px 8px 0px;
+padding-top:6px;
+}
+
+#wrapper-ism #main-content #left-column #portlet-ism-brochure #ism-couverture-brochure img{
+box-shadow:3px 3px 6px rgba(50,50,50,0.5);
+}
+
+
+.portletHeaderEspaceInteractif{
+border-top:1px solid #d5cc86;
+border-left:1px solid #d5cc86;
+border-right:1px solid #d5cc86;
+background:#ffffb8;
+}
+
+#espace-interactif-ism,
+div#portletItemGestionMembre{
+font-family:"mondaregular";
+font-size:12px;
+font-weight:normal;
+}
+
+#espace-interactif-ism{
+border-left:1px solid #d5cc86;
+border-right:1px solid #d5cc86;
+padding:8px 6px 12px 6px;
+text-align:center;
+background-color:#fffdf1;
+}
+
+.portletFooterEspaceInteractif{
+border-left:1px solid #d5cc86;
+border-right:1px solid #d5cc86;
+border-bottom:1px solid #d5cc86;
+border-radius:0px 0px 8px 8px;
+margin:0;
+padding:0.25em 1em;
+text-align:right;
+background:#fffdf1;
+}
+
+.texte-interactif{
+font-size:1.2em;
+color:#444;
+}
+
+div#portletHeaderGestionMembre{
+height:31px;
+color:#333;
+text-shadow:1px 1px 1px rgba(250,250,250,0.8);
+text-align:right;
+line-height:31px;
+padding-right:10px;
+font-variant:small-caps;
+font-weight:bold;
+border-radius:8px 8px 0px 0px;
+background: rgb(180,227,145);
+}
+
+div#portletItemGestionMembre{
+background-color:rgba(232,255,225,0.5);
+border-left:1px solid #b2d1ac;
+border-right:1px solid #b2d1ac;
+border-bottom:1px solid #b2d1ac;
+border-radius:0px 0px 8px 8px;
+padding:1em;
+}
+
+div#portletItemGestionMembre ul{
+margin:0px;
+}
+
+
+
+
+/*** PORTLET IST ***/
+#portlet-ist{
+background-color:#DBF2FF;
+border:1px solid #999; /*#0075d2;*/
+padding:2px 0px 5px 0px;
+margin-bottom:1.2em;
+}
+
+.portlet-header-ist{
+font-weight:bold;
+font-size:1.1em;
+text-align:center;
+}
+
