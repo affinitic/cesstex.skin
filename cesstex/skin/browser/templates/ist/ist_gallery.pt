@@ -1,24 +1,0 @@
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
-      lang="en"
-      metal:use-macro="here/main_template/macros/master"
-      i18n:domain="plone">
-
-<body>
-
-<div metal:fill-slot="main">
-<metal:main-macro define-macro="main">
-    <h1 class="documentFirstHeading">
-        Nos images
-    </h1>
-    <p>
-    Identité visuelle (droits) Toutes les photographies figurant sur ce site sont la propriété exclusive de l’IST. Elles ne peuvent donc être employées sur un autre site ou blog sans autorisation préalable. Toute infraction pourrait entraîner des poursuites judiciaires.   Ces photos sont destinées à illustrer la vie quotidienne de nos 3 implantations. Si vous souhaitez qu'une photo n'apparaisse plus, il vous suffit de nous le faire savoir par e-mail et la photo sera supprimée rapidement.
-    </p>
-    <iframe src ="http://euclide.affinitic.be/picsengine/cesstex/ist/"
-            id="picsEngineGalerie">
-        <p>Your browser does not support iframes.</p>
-    </iframe>
-</metal:main-macro>
-</div>
-
-</body>
-</html>
