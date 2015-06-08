@@ -73,6 +73,10 @@ color:rgb(47,77,96);
 
 
 /*** IST ***/
+.font-desyrel{
+font-family: "desyrelregular", cursive;
+}
+
 .fond-transparent{
 background-color:transparent !important;
 }
