@@ -77,6 +77,10 @@ color:rgb(47,77,96);
 font-family: "desyrelregular", cursive;
 }
 
+.font-8pt{
+font-size:8pt;
+}
+
 .fond-transparent{
 background-color:transparent !important;
 }
