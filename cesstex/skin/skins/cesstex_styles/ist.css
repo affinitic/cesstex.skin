@@ -32,7 +32,11 @@ padding-left:6px;
 width:483px;
 height:114px;
 background-color:#259de0;
-padding-left:5px;
+padding:5px;
+color:#fff;
+font-family: "desyrelregular", cursive;
+font-size:24pt;
+overflow:auto;
 }
 
 
@@ -237,7 +241,9 @@ width:350px;
 padding:0px 1px 4px 15px;
 font-size:0.8em;
 overflow:auto;
-color:#888;
+font-family:"mondaregular", sans-serif;
+font-size:9pt;
+color:#555;
 }
 
 article#ist-actu-breve-post-it div{
@@ -248,7 +254,9 @@ width:185px;
 padding:4px 10px 4px 10px;
 font-size:0.8em;
 overflow:auto;
-color:#888;
+font-family:"desyrelregular", cursive;
+font-size:14pt;
+color:#555;
 }
 
 article#ist-reference-pedagogique{
@@ -327,7 +335,9 @@ width:220px;
 padding:0px 1px 4px 1px;
 font-size:0.8em;
 overflow:auto;
-color:#888;
+font-family:"mondaregular", sans-serif;
+font-size:8pt;
+color:#555;
 }
 
 article#ist-spd-manage-news{

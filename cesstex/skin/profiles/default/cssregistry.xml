@@ -89,7 +89,17 @@
                 enabled="1"
                 expression=""/>
 
-
+    <stylesheet title="Cesstex Font"
+                id="++theme++cesstex.skin/font.css"
+                media="screen"
+                rel="stylesheet"
+                rendering="import"
+                cacheable="True"
+                compression="safe"
+                cookable="True"
+                enabled="1"
+                applyPrefix="True"
+                expression="request/HTTP_X_THEME_ENABLED | nothing"/>
 
     <stylesheet title="ISM HomePage Styles"
                 id="++theme++cesstex.skin/ism/css/style.css"
@@ -114,6 +124,4 @@
                 enabled="1"
                 applyPrefix="True"
                 expression="request/HTTP_X_THEME_ENABLED | nothing"/>
-
-
 </object>
