@@ -9,7 +9,7 @@
 </head>
 
 <body>
-<div metal:fill-slot="content-core"
+<div metal:fill-slot="main"
      tal:define="member context/@@plone_portal_state/member;
                  manager python: member.has_role('Manager');
                  dummy python:request.set('disable_border',1)">
