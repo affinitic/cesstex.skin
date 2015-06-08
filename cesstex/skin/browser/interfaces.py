@@ -125,6 +125,27 @@ class IManageIST(Interface):
         """
 
 
+class IIstHomePageView(Interface):
+    """
+    gestion de la folderview du dossier IST (homePage)
+    page divisee en trois blocs horizontaux
+    """
+    def getIstHomePageTopSection():
+        """
+        recupere le bloc sup de la page
+        """
+
+    def getIstHomePageMiddleSection():
+        """
+        recupere le bloc central de la page
+        """
+
+    def getIstHomePageBottomSection(self):
+        """
+        recupere le bloc inf de la page
+        """
+
+
 class IIstSalleDesProfsView(Interface):
     """
     gestion de la folderview de la salle des professeur

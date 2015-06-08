@@ -120,6 +120,14 @@
          />
 
     <browser:page
+        name="ist-accueil"
+        for="*"
+        template="templates/ist/ist_folder_view.pt"
+        class=".ist_home_page.IstHomePageView"
+        allowed_interface=".interfaces.IIstHomePageView"
+        permission="zope.Public" />
+
+    <browser:page
         name="ist-formulaire-de-demande"
         for="*"
         template="templates/ist/ist_contact_form.pt"

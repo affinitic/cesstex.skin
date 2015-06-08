@@ -15,6 +15,28 @@ color:#27ace7;
 
 
 
+/**** HOMEPAGE FOLDER-VIEW ****/
+.ist-info-home-page-cel01{
+padding-left:4px;
+}
+
+.ist-info-home-page-cel02{
+padding-left:6px;
+}
+
+.ist-info-home-page-cel03{
+padding-left:6px;
+}
+
+#ist-info-home-page-content{
+width:483px;
+height:114px;
+background-color:#259de0;
+padding-left:5px;
+}
+
+
+
 /*** LISTING NEWS IST ***/
 .ist-event{
 margin:10px 0px;
