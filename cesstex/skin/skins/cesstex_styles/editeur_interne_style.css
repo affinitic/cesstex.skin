@@ -73,13 +73,22 @@ color:rgb(47,77,96);
 
 
 /*** IST ***/
+.font-lobster{
+font-family: "lobster", cursive;
+}
+
 .font-desyrel{
 font-family: "desyrelregular", cursive;
 }
 
-.font-8pt{
-font-size:8pt;
+.font-monda{
+font-family: "mondaregular", sans-serif;
 }
+
+.font-blairmd{
+font-family: "blairmd", sans-serif;
+}
+
 
 .fond-transparent{
 background-color:transparent !important;
