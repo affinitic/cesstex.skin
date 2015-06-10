@@ -11,6 +11,31 @@ via le plone_cotrol_panel
 
 
 /*** EXTERNAL EDITEUR ***/
+
+/*** font ***/
+.font-crayonematernel{
+font-family: "crayonematernel", cursive;
+}
+
+.font-desyrel{
+font-family: "desyrelregular", cursive;
+}
+
+.font-lobster{
+font-family: "lobster", cursive;
+}
+
+.font-monda{
+font-family: "mondaregular", sans-serif;
+}
+
+.font-blairmd{
+font-family: "blairmd", sans-serif;
+}
+
+
+
+/*** couleur ***/
 .fond-jaune{
 background-color:#f9f7c7;
 }
@@ -73,23 +98,6 @@ color:rgb(47,77,96);
 
 
 /*** IST ***/
-.font-lobster{
-font-family: "lobster", cursive;
-}
-
-.font-desyrel{
-font-family: "desyrelregular", cursive;
-}
-
-.font-monda{
-font-family: "mondaregular", sans-serif;
-}
-
-.font-blairmd{
-font-family: "blairmd", sans-serif;
-}
-
-
 .fond-transparent{
 background-color:transparent !important;
 }
