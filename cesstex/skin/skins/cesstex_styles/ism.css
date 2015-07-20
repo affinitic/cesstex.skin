@@ -109,6 +109,11 @@ width:100px;
 }
 
 
+
+div section#info-generale-bloc-sup div#a-la-une div.info-generale-box section.info-generale-content article p span{
+line-height: 1.54em;
+}
+
 /*** BOUTON CSS3 ***/
 .btn-ajouter-dossier-disciplinaire{
 display:inline-block;
