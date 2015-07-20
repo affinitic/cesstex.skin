@@ -139,6 +139,15 @@ border-right:1px solid #d5cc86;
 background:#ffffb8;
 }
 
+.portletHeaderEspaceInteractif a{
+text-decoration:none;
+color:#000;
+}
+
+.portletHeaderEspaceInteractif a:hover{
+text-decoration:underline;
+}
+
 #espace-interactif-ism,
 div#portletItemGestionMembre{
 font-family:"mondaregular";
@@ -152,6 +161,10 @@ border-right:1px solid #d5cc86;
 padding:8px 6px 12px 6px;
 text-align:center;
 background-color:#fffdf1;
+}
+
+#espace-interactif-ism a:hover{
+text-decoration:none;
 }
 
 .portletFooterEspaceInteractif{

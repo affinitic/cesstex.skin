@@ -12,15 +12,19 @@
             <dt class="portletHeaderEspaceInteractif">
                 <span class="portletTopLeft"></span>
                 <span class="portletTopRight"></span>
-                Espace interactif
+                <a href=""
+                   tal:attributes="href string:${context/portal_url}/institut-sainte-marie/espace-interactif/">Espace interactif</a>
             </dt>
             <dt id="espace-interactif-ism">
-                Documents - Exercices - Travaux - Projets
-                <br /><br />
-                Professeurs et &eacute;l&egrave;ves communiquent
-                <hr />
-                Entrez dans l'espace interactif pour<br />
-                       les professeurs et les &eacute;tudiants
+                <a href=""
+                   tal:attributes="href string:${context/portal_url}/institut-sainte-marie/espace-interactif/">
+                    Documents - Exercices - Travaux - Projets
+                    <br /><br />
+                    Professeurs et &eacute;l&egrave;ves communiquent
+                    <hr />
+                    Entrez dans l'espace interactif pour<br />
+                           les professeurs et les &eacute;tudiants
+                </a>
             </dt>
             <dt class="portletFooterEspaceInteractif">
                 <div class="bouton-suite">
