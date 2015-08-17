@@ -48,3 +48,17 @@ class ProfFolderView(BrowserView):
             policy.setPolicyIn('prof_folder')
         context.reindexObjectSecurity()
         alsoProvides(context, IProfFolder)
+        context.reindexObject()
+
+    def getAllProfsFolder(self):
+        """
+        """
+        path = '/'.join(api.portal.get().getPhysicalPath())
+        portal_catalog = api.portal.get_tool('portal_catalog')
+        queryDict = {}
+        queryDict['path'] = {'query': path, 'depth': -1}
+        queryDict['portal_type'] = 'Folder'
+        queryDict['object_provides'] = IProfFolder.__identifier__
+        queryDict['sort_on'] = 'getObjPositionInParent'
+        results = portal_catalog.searchResults(queryDict)
+        return results

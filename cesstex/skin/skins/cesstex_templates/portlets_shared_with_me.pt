@@ -1,0 +1,27 @@
+<html xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      i18n:domain="plone">
+
+<body>
+    <div metal:define-macro="portlet"
+         tal:condition="python:user.has_role(['Manager'], here)">
+        <div class="portlet" tal:define="view context/@@prof_folder_configuration;
+                                         folders view/getAllProfsFolder"
+                             tal:condition="folders">
+            <div id="portletHeaderFolders">Dossiers profs partagés</div>
+            <div id="portletItemFolders">
+                <ul>
+                    <li tal:repeat="folderBrain folders">
+                        <a href=""
+                           title=""
+                           tal:attributes="href folderBrain/getURL;
+                                           title folderBrain/Title"
+                           tal:content="folderBrain/Title" />
+                    </li>
+                <ul>
+            </div>
+         </div>
+    </div>
+</body>
+</html>
+
