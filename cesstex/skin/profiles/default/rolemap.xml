@@ -4,6 +4,7 @@
       <role name="ProfISM" />
       <role name="DirectionISM" />
       <role name="ProfIST"/>
+      <role name="Share editor"/>
    </roles>
    <permissions>
         <permission name="cesstex: ProfISM"
