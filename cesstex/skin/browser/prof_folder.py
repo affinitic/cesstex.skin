@@ -44,10 +44,10 @@ class ProfFolderView(BrowserView):
         if policy is None:
             context.manage_addProduct['CMFPlacefulWorkflow'].manage_addWorkflowPolicyConfig()
             policy = getattr(context, WorkflowPolicyConfig_id)
-            policy.setPolicyBelow('prof_folder')
-            policy.setPolicyIn('prof_folder')
-        context.reindexObjectSecurity()
+            policy.setPolicyBelow('prof_folder', update_security=True)
+            policy.setPolicyIn('prof_folder', update_security=True)
         alsoProvides(context, IProfFolder)
+        context.reindexObjectSecurity()
         context.reindexObject()
 
     def getAllProfsFolder(self):
