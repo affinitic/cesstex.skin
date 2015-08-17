@@ -3,8 +3,7 @@
       i18n:domain="plone">
 
 <body>
-    <div metal:define-macro="portlet"
-         tal:condition="python:user.has_role(['Manager'], here)">
+    <div metal:define-macro="portlet">
         <div class="portlet" tal:define="view context/@@prof_folder_configuration;
                                          folders view/getAllProfsFolder"
                              tal:condition="folders">
