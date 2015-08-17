@@ -468,5 +468,12 @@
         attribute="deleteProfesseur"
         allowed_interface=".interfaces.IManageProfesseur" />
 
+    <browser:page
+        for="*"
+        name="prof_folder_configuration"
+        class=".prof_folder.ProfFolderView"
+        permission="zope.Public"
+        allowed_attributes="can_configure configure" />
+
 </configure>
 

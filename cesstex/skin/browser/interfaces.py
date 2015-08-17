@@ -2,6 +2,12 @@ from plone.theme.interfaces import IDefaultPloneLayer
 from zope.interface import Interface
 
 
+class IProfFolder(Interface):
+    """
+    Marker interface for shareable Prof Folders
+    """
+
+
 class ICesstexTheme(IDefaultPloneLayer):
     """
     Theme for cesstex
