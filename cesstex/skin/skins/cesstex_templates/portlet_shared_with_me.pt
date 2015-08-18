@@ -7,8 +7,8 @@
         <div class="portlet" tal:define="view context/@@prof_folder_configuration;
                                          folders view/getAllProfsFolder"
                              tal:condition="folders">
-            <div id="portletHeaderFolders">Dossiers profs partagés</div>
-            <div id="portletItemFolders">
+            <div id="portletHeaderDossierProf">Mes dossiers partagés</div>
+            <div id="portletItemDossierProf">
                 <ul>
                     <li tal:repeat="folderBrain folders">
                         <a href=""
