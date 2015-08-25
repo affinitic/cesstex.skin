@@ -15,7 +15,7 @@
 <div metal:fill-slot="main"
      tal:define="eleves python: view.getSearchingEleve()">
     <h1>Gestion des dossiers disciplinaires</h1>
-    <div id="formulaire">
+    <div class="formulaire">
         <span tal:condition="python: len(eleves)==0">
             Il n'y a aucun
             dossier disciplinaire concernant cet élève.
