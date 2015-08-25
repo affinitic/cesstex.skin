@@ -29,7 +29,7 @@
             <form action="resultat-recherche-dossier-disciplinaire"
                   method="post">
                 <div class="formulaire-input">
-                    <label for="nom_eleve">Recherche d'un dossier ancien dossier disciplianaire</label>
+                    <label for="nom_eleve">Recherche d'un ancien dossier disciplianaire</label>
                     <input type="text"
                            name="eleveNom"
                            id="nom_eleve"
