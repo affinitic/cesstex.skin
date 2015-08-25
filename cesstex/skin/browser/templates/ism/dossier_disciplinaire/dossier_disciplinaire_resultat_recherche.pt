@@ -216,14 +216,8 @@
                         </div>
                     </tal:block>
                 </div>
-
-
-
-
-
-
-
             </div><!--define-->
+            <hr />
         </div><!--repeat-->
     </fieldset>
 </div>
