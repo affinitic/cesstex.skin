@@ -8,7 +8,7 @@ class SearchEleveAutoCompleteJSON(BrowserView):
     def __call__(self):
         searchString = self.request.form.get('name_startsWith')
         dossierView = getMultiAdapter((self.context, self.request), name="gestionDossierDisciplinaire")
-        terms = dossierView.getEleveByLeffeSearch(searchString)
+        terms = dossierView.getEleveDosDisByLeffeSearch(searchString)
         writer = getUtility(IJSONWriter)
         self.request.response.setHeader('content-type', 'application/json')
         return writer.write(terms)

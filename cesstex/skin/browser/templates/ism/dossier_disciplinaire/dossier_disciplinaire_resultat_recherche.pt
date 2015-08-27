@@ -13,7 +13,7 @@
   </metal:block>
 
 <div metal:fill-slot="main"
-     tal:define="eleves python: view.getSearchingEleve()">
+     tal:define="eleves python: view.getSearchingEleveDosDis()">
     <h1>Gestion des dossiers disciplinaires</h1>
 
     <fieldset class="fieldset-border">
@@ -35,7 +35,7 @@
 
         <div tal:repeat="eleve eleves">
             <div tal:define="elevePk eleve/eleve_pk;
-                             eleve python: view.getElevesByPk(elevePk);
+                             eleve python: view.getElevesDosDisByPk(elevePk);
                              dossier python: view.getDossierByEleve(elevePk);
                              dossierDisciplinairePk dossier/dosdis_pk;
                              evenements python: view.getAllEvenementByDossier(dossierDisciplinairePk)">

@@ -234,27 +234,27 @@
 
 <!-- ELEVE -->
     <browser:page
-        name="insertEleve"
+        name="insertEleveDosDis"
         for="*"
         class=".manage_dossier_disciplinaire.ManageDossierDisciplinaire"
         permission="cesstex.ProfISM"
-        attribute="insertEleve"
+        attribute="insertEleveDosDis"
         allowed_interface=".interfaces.IManageDossierDisciplinaire" />
 
     <browser:page
-        name="updateEleve"
+        name="updateEleveDosDis"
         for="*"
         class=".manage_dossier_disciplinaire.ManageDossierDisciplinaire"
         permission="cesstex.ProfISM"
-        attribute="updateEleve"
+        attribute="updateEleveDosDis"
         allowed_interface=".interfaces.IManageDossierDisciplinaire" />
 
     <browser:page
-        name="deleteEleve"
+        name="deleteEleveDosDis"
         for="*"
         class=".manage_dossier_disciplinaire.ManageDossierDisciplinaire"
         permission="cesstex.ProfISM"
-        attribute="deleteEleve"
+        attribute="deleteEleveDosDis"
         allowed_interface=".interfaces.IManageDossierDisciplinaire" />
 
 

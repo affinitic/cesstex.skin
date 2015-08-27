@@ -31,14 +31,14 @@
 <div metal:fill-slot="main"
      tal:condition="python:user.has_role(['Manager', 'Site Administrator', 'ProfISM'], here)"
      tal:define="elevePk request/elevePk;
-                 eleve python: view.getElevesByPk(elevePk);
+                 eleve python: view.getElevesDosDisByPk(elevePk);
                  dossier python: view.getDossierByEleve(elevePk);
                  dossierDisciplinairePk dossier/dosdis_pk">
     <h1>Gestion des dossiers disciplinaires</h1>
 
     <div class="formulaire">
         <h2 class="formulaire-titre">Modifier un dossier disciplinaire</h2>
-        <form action="updateEleve"
+        <form action="updateEleveDosDis"
               method="post">
             <div class="formulaire-input">
                 <label for="nomEleve">Nom de l'élève</label>

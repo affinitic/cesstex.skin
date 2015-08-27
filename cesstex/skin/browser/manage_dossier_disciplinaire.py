@@ -21,7 +21,7 @@ from Products.CMFCore.utils import getToolByName
 #from Products.Archetypes.atapi import BaseContent
 from interfaces import IManageDossierDisciplinaire
 #from collective.captcha.browser.captcha import Captcha
-from cesstex.db.pgsql.baseTypes import Etudiant, \
+from cesstex.db.pgsql.baseTypes import EleveDossierDisciplinaire, \
                                        Professeur, \
                                        DossierDisciplinaire, \
                                        EvenementActe, \
@@ -43,14 +43,14 @@ class ManageDossierDisciplinaire(BrowserView):
         mailer.setSubject(sujet)
         mailer.setRecipients(destinataires)
         mail = message
-        #print mail
-        mailer.sendAllMail(mail)
+        print mail
+        #mailer.sendAllMail(mail)
 
     def sendMailForNewDossier(self, elevePk):
         """
         envoi d'un mail lors de la création d'un nouveau dossier disciplinaire
         """
-        eleve = self.getElevesByPk(elevePk)
+        eleve = self.getElevesDosDisByPk(elevePk)
         destinataires = ''
 
         if eleve.titulaire01:
@@ -102,7 +102,7 @@ class ManageDossierDisciplinaire(BrowserView):
         """
         envoi d'un mail lors de la création d'un nouvel événement acté
         """
-        eleve = self.getElevesByPk(elevePk)
+        eleve = self.getElevesDosDisByPk(elevePk)
         destinataires = ''
 
         if eleve.titulaire01:
@@ -153,7 +153,7 @@ class ManageDossierDisciplinaire(BrowserView):
         """
         envoi d'un mail lors de la création d'un nouvel événement acté
         """
-        eleve = self.getElevesByPk(elevePk)
+        eleve = self.getElevesDosDisByPk(elevePk)
         destinataires = ''
         if eleve.titulaire01:
             destinataires = eleve.titulaire01.prof_email + ','
@@ -258,18 +258,18 @@ class ManageDossierDisciplinaire(BrowserView):
 
 
 #### ELEVES ####
-    def getAllEleves(self):
+    def getAllElevesDosDis(self):
         """
         recuperation de tous les élèves qui ont un dossier disciplinaire
         """
         wrapper = getSAWrapper('cesstex')
         session = wrapper.session
-        query = session.query(Etudiant)
-        query = query.order_by(Etudiant.eleve_nom)
+        query = session.query(EleveDossierDisciplinaire)
+        query = query.order_by(EleveDossierDisciplinaire.eleve_nom)
         allEleves = query.all()
         return allEleves
 
-    def getElevesByPk(self, elevePk=None):
+    def getElevesDosDisByPk(self, elevePk=None):
         """
         recuperation d'un élève selon sa pk
         """
@@ -279,21 +279,21 @@ class ManageDossierDisciplinaire(BrowserView):
 
         wrapper = getSAWrapper('cesstex')
         session = wrapper.session
-        query = session.query(Etudiant)
-        query = query.filter(Etudiant.eleve_pk == elevePk)
+        query = session.query(EleveDossierDisciplinaire)
+        query = query.filter(EleveDossierDisciplinaire.eleve_pk == elevePk)
         eleveByPk = query.one()
         return eleveByPk
 
-    def getEleveByLeffeSearch(self, searchString):
+    def getEleveDosDisByLeffeSearch(self, searchString):
         """
-        table pg etudiant
+        table pg eleve_dossier_disciplinaire
         recuperation d'une eleve via le livesearch
         """
         wrapper = getSAWrapper('cesstex')
         session = wrapper.session
-        query = session.query(Etudiant)
-        query = query.filter(Etudiant.eleve_nom.ilike("%%%s%%" % searchString))
-        query = query.order_by(Etudiant.eleve_nom)
+        query = session.query(EleveDossierDisciplinaire)
+        query = query.filter(EleveDossierDisciplinaire.eleve_nom.ilike("%%%s%%" % searchString))
+        query = query.order_by(EleveDossierDisciplinaire.eleve_nom)
         for elem in query.all():
             anneeDossier = elem.dossierEleve[0].dosdis_annee_scolaire
             classeEleve = elem.eleve_classe
@@ -304,7 +304,7 @@ class ManageDossierDisciplinaire(BrowserView):
         eleve = ["%s, %s - [%s - %s - %s]" % ((elem.eleve_nom).upper(), elem.eleve_prenom, classeEleve, anneeDossier, etatDossier) for elem in query.all()]
         return eleve
 
-    def getSearchingEleve(self, elevePk=None):
+    def getSearchingEleveDosDis(self, elevePk=None):
         """
         table pg eleve
         recuperation d'un auteur selon la pk
@@ -320,18 +320,18 @@ class ManageDossierDisciplinaire(BrowserView):
 
         wrapper = getSAWrapper('cesstex')
         session = wrapper.session
-        query = session.query(Etudiant)
+        query = session.query(EleveDossierDisciplinaire)
         if eleveNom:
             eleveNom = eleveNom.split(',')
             eleveNom = eleveNom[0]
             eleveNom = eleveNom.decode('utf-8')
-            query = query.filter(Etudiant.eleve_nom == eleveNom)
+            query = query.filter(EleveDossierDisciplinaire.eleve_nom == eleveNom)
         if elevePk:
-            query = query.filter(Etudiant.eleve_pk == elevePk)
+            query = query.filter(EleveDossierDisciplinaire.eleve_pk == elevePk)
         allEleves = query.all()
         return allEleves
 
-    def insertEleve(self):
+    def insertEleveDosDis(self):
         """
         insère un nouvel élève dans la table etudaint
         insère un nouveau dossier dans la table dossier liè à cet élève
@@ -351,12 +351,12 @@ class ManageDossierDisciplinaire(BrowserView):
 
         wrapper = getSAWrapper('cesstex')
         session = wrapper.session
-        newEntry = Etudiant(eleve_nom=eleveNom,
-                            eleve_prenom=elevePrenom,
-                            eleve_classe=eleveClasse,
-                            eleve_prof_titulaire_01_fk=titulaire01Pk,
-                            eleve_prof_titulaire_02_fk=titulaire02Pk,
-                            eleve_educateur_referent_fk=educateurReferent)
+        newEntry = EleveDossierDisciplinaire(eleve_nom=eleveNom,
+                               eleve_prenom=elevePrenom,
+                               eleve_classe=eleveClasse,
+                               eleve_prof_titulaire_01_fk=titulaire01Pk,
+                               eleve_prof_titulaire_02_fk=titulaire02Pk,
+                               eleve_educateur_referent_fk=educateurReferent)
         session.add(newEntry)
         session.flush()
         session.refresh(newEntry)
@@ -364,7 +364,7 @@ class ManageDossierDisciplinaire(BrowserView):
 
         self.insertDossier(elevePk, eleveNom, eleveClasse)
 
-        self.insertLogOperation('insertEleve', auteurPk)
+        self.insertLogOperation('insertEleveDosDis', auteurPk)
 
         portalUrl = getToolByName(self.context, 'portal_url')()
         ploneUtils = getToolByName(self.context, 'plone_utils')
@@ -374,7 +374,7 @@ class ManageDossierDisciplinaire(BrowserView):
         self.request.response.redirect(url)
         return ''
 
-    def updateEleve(self):
+    def updateEleveDosDis(self):
         """
         mise à jour des données d'un élève dans la table etudaint
         """
@@ -394,8 +394,8 @@ class ManageDossierDisciplinaire(BrowserView):
 
         wrapper = getSAWrapper('cesstex')
         session = wrapper.session
-        query = session.query(Etudiant)
-        query = query.filter(Etudiant.eleve_pk == elevePk)
+        query = session.query(EleveDossierDisciplinaire)
+        query = query.filter(EleveDossierDisciplinaire.eleve_pk == elevePk)
         eleve = query.one()
         eleve.eleve_nom = unicode(eleveNom, 'utf-8')
         eleve.eleve_prenom = unicode(elevePrenom, 'utf-8')
@@ -406,7 +406,7 @@ class ManageDossierDisciplinaire(BrowserView):
 
         session.flush()
 
-        self.insertLogOperation('updateEleve', auteurPk)
+        self.insertLogOperation('updateEleveDosDis', auteurPk)
 
         portalUrl = getToolByName(self.context, 'portal_url')()
         ploneUtils = getToolByName(self.context, 'plone_utils')
@@ -416,9 +416,9 @@ class ManageDossierDisciplinaire(BrowserView):
         self.request.response.redirect(url)
         return ''
 
-    def deleteEleve(self, elevePk=None):
+    def deleteEleveDosDis(self, elevePk=None):
         """
-        suppression d'un eleve dans la table etudiant
+        suppression d'un eleve dans la table eleve_dossier_disciplinaire
         """
         if not elevePk:
             fields = self.request.form
@@ -428,13 +428,13 @@ class ManageDossierDisciplinaire(BrowserView):
 
         wrapper = getSAWrapper('cesstex')
         session = wrapper.session
-        query = session.query(Etudiant)
-        query = query.filter(Etudiant.eleve_pk == elevePk)
+        query = session.query(EleveDossierDisciplinaire)
+        query = query.filter(EleveDossierDisciplinaire.eleve_pk == elevePk)
         eleve = query.one()
         session.delete(eleve)
         session.flush()
 
-        self.insertLogOperation('deleteEleve', auteurPk)
+        self.insertLogOperation('deleteEleveDosDis', auteurPk)
 
         return ''
 
@@ -519,7 +519,7 @@ class ManageDossierDisciplinaire(BrowserView):
         dossierDisciplinaire = query.one()
         session.delete(dossierDisciplinaire)
         session.flush()
-        self.deleteEleve(elevePk)
+        self.deleteEleveDosDis(elevePk)
 
         self.insertLogOperation('deleteDossierDisciplinaire', auteurPk, dossierDisciplinairePk)
 

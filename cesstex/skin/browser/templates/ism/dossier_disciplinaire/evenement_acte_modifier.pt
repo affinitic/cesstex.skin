@@ -31,7 +31,7 @@
 <div metal:fill-slot="main"
      tal:condition="python:user.has_role(['Manager', 'Site Administrator', 'ProfISM'], here)"
      tal:define="elevePk request/elevePk;
-                 eleve python: view.getElevesByPk(elevePk);
+                 eleve python: view.getElevesDosDisByPk(elevePk);
                  dossier python: view.getDossierByEleve(elevePk);
                  dossierDisciplinairePk dossier/dosdis_pk;
                  evenementActePk request/evenementActePk;

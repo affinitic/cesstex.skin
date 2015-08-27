@@ -44,7 +44,7 @@
     </div>
     <div class="formulaire">
         <div class="table-donne-db"
-             tal:define="eleves python: view.getAllEleves()">
+             tal:define="eleves python: view.getAllElevesDosDis()">
             <h2 class="formulaire-titre">Liste des dossiers actuellement ouverts</h2>
             <table width="0%"
                    class="listing"
@@ -111,7 +111,7 @@
 
     <div class="formulaire">
         <h2 class="formulaire-titre">Créer un dossier disciplinaire</h2>
-        <form action="insertEleve"
+        <form action="insertEleveDosDis"
               method="post">
             <div class="formulaire-input">
                 <label for="nomEleve">Nom de l'élève</label>

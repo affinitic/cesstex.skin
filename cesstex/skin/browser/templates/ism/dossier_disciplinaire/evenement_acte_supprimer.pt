@@ -29,7 +29,7 @@
 <div metal:fill-slot="main"
      tal:condition="python:user.has_role(['Manager'], here)"
      tal:define="elevePk request/elevePk;
-                 eleve python: view.getElevesByPk(elevePk);
+                 eleve python: view.getElevesDosDisByPk(elevePk);
                  dossier python: view.getDossierByEleve(elevePk);
                  dossierDisciplinairePk dossier/dosdis_pk;
                  evenementActePk request/evenementActePk;
@@ -110,7 +110,7 @@
             </h2>
             <form action="deleteEvenementActe"
                   method="post">
-                  
+
                 <div tal:define="evenementActePk evenement/eventact_pk"
                      class="evenement-acte">
                     <div class="numero-evenement-acte"><span tal:content="evenement/eventact_numero_ordre"></span></div>
