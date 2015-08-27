@@ -3,12 +3,14 @@
    <roles>
       <role name="ProfISM" />
       <role name="DirectionISM" />
+      <role name="EleveISM" />
       <role name="Share editor"/>
    </roles>
    <permissions>
         <permission name="cesstex: ProfISM"
                     acquire="True">
             <role name="ProfISM"/>
+            <role name="EleveISM" />
             <role name="DirectionISM"/>
             <role name="Site Administrator"/>
             <role name="Manager"/>
