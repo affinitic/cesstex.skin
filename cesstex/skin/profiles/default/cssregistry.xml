@@ -12,17 +12,6 @@
                 enabled="1"
                 expression=""/>
 
-    <stylesheet title="IST Style"
-                id="ist.css"
-                media="screen"
-                rel="stylesheet"
-                rendering="import"
-                cacheable="True"
-                compression="safe"
-                cookable="True"
-                enabled="1"
-                expression=""/>
-
     <stylesheet title="ISM Style"
                 id="ism.css"
                 media="screen"
@@ -113,15 +102,4 @@
                 applyPrefix="True"
                 expression="request/HTTP_X_THEME_ENABLED | nothing"/>
 
-    <stylesheet title="IST HomePage Styles"
-                id="++theme++cesstex.skin/ist/css/style.css"
-                media="screen"
-                rel="stylesheet"
-                rendering="import"
-                cacheable="True"
-                compression="safe"
-                cookable="True"
-                enabled="1"
-                applyPrefix="True"
-                expression="request/HTTP_X_THEME_ENABLED | nothing"/>
 </object>

@@ -3,7 +3,6 @@
    <roles>
       <role name="ProfISM" />
       <role name="DirectionISM" />
-      <role name="ProfIST"/>
       <role name="Share editor"/>
    </roles>
    <permissions>
@@ -11,7 +10,6 @@
                     acquire="True">
             <role name="ProfISM"/>
             <role name="DirectionISM"/>
-            <role name="ProfIST"/>
             <role name="Site Administrator"/>
             <role name="Manager"/>
         </permission>

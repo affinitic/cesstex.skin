@@ -29,35 +29,6 @@ def setupcesstex(context):
 
     existingIds = portal.objectIds()
 
-    # Create 3 Documents for top boxes
-    # setTitle needed because of https://github.com/plone/plone.api/issues/99
-    if not 'ist-manage-news' in existingIds:
-        page = api.content.create(container=portal, type='Document',
-                                  id='ist-manage-news',
-                                  title="Manage News")
-        page.setTitle("Manage News")
-        page.setExcludeFromNav(True)
-        api.content.transition(obj=portal['ist-manage-news'],
-                               transition='internal-publish')
-    if not 'ist-la-louviere-news' in existingIds:
-        page = api.content.create(container=portal, type='Document',
-                                  id='ist-la-louviere-news',
-                                  title="La Louviere News")
-        page.setTitle("La Louvière News")
-        page.setExcludeFromNav(True)
-        api.content.transition(obj=portal['ist-la-louviere-news'],
-                               transition='internal-publish')
-    if not 'ist-cefa-manage-news' in existingIds:
-        page = api.content.create(container=portal, type='Document',
-                                  id='ist-cefa-manage-news',
-                                  title="CEFA Manage News")
-        page.setTitle("CEFA Manage News")
-        page.setExcludeFromNav(True)
-        api.content.transition(obj=portal['ist-cefa-manage-news'],
-                               transition='internal-publish')
-
-    portal.setLayout('istSalleDesProfs')
-
 
 def setupNewFolder(portal, folder, idFolder, titleFolder, descriptionFolder, indexFolder):
     newFolder = createFolder(folder, idFolder, titleFolder, descriptionFolder)
