@@ -127,7 +127,7 @@ class ManageProfesseur(BrowserView):
 
         portalUrl = getToolByName(self.context, 'portal_url')()
         ploneUtils = getToolByName(self.context, 'plone_utils')
-        message = u"Le nouveau membre a bien été ajouté !"
+        message = u"Le nouvel élève a bien été ajouté !"
         ploneUtils.addPortalMessage(message, 'info')
         url = "%s/institut-sainte-marie/ajouter-un-eleve-ism" % (portalUrl)
         return ''
@@ -139,73 +139,63 @@ class ManageProfesseur(BrowserView):
 
         fields = self.context.REQUEST
 
-        profPk = getattr(fields, 'profPk')
-        profNom = getattr(fields, 'profNom')
-        profPrenom = getattr(fields, 'profPrenom', None)
-        profEmail = getattr(fields, 'profEmail', None)
-        profEmailCesstex = getattr(fields, 'profEmailCesstex', None)
-        profLogin = getattr(fields, 'profLogin', None)
-        profPass = getattr(fields, 'profPass', None)
-        profStatusFk = getattr(fields, 'profStatusFk', None)
-        profEcoleFk = getattr(fields, 'profEcoleFk', None)
+        elevefPk = getattr(fields, 'elevePk')
+        eleveNom = getattr(fields, 'eleveNom')
+        elevePrenom = getattr(fields, 'elevePrenom', None)
+        eleveEmail = getattr(fields, 'eleveEmail', None)
+        eleveClasse = getattr(fields, 'eleveClasse', None)
+        eleveLogin = getattr(fields, 'eleveLogin', None)
+        elevePass = getattr(fields, 'elevePass', None)
 
         wrapper = getSAWrapper('cesstex')
         session = wrapper.session
-        query = session.query(Professeur)
-        query = query.filter(Professeur.prof_pk == profPk)
-        professeur = query.one()
-        professeur.prof_nom = unicode(profNom, 'utf-8')
-        professeur.prof_prenom = unicode(profPrenom, 'utf-8')
-        professeur.prof_email = unicode(profEmail, 'utf-8')
-        professeur.prof_email_id = unicode(profEmailCesstex, 'utf-8')
-        professeur.prof_login = unicode(profLogin, 'utf-8')
-        professeur.prof_pass = unicode(profPass, 'utf-8')
-        professeur.prof_status_fk = profStatusFk
+        query = session.query(EleveIsm)
+        query = query.filter(EleveIsm.eleveIsm_pk == elevePk)
+        eleve = query.one()
+        eleve.eleveIsm_nom = unicode(eleveNom, 'utf-8')
+        eleve.eleveIsm_prenom = unicode(elevePrenom, 'utf-8')
+        eleve.eleveIsm_email = unicode(eleveEmail, 'utf-8')
+        eleve.eleveIsm_classe = unicode(eleveClasse, 'utf-8')
+        eleve.eleveIsm_login = unicode(eleveLogin, 'utf-8')
+        eleve.eleveIsm_pass = unicode(elevePass, 'utf-8')
         session.flush()
 
-        userProf = ('%s %s') % (profPrenom, profNom)
-        userRole = 'ProfISM'
-        self.addLoginProfesseur(profLogin, profPass, userRole)
-        self.addInfoProfesseur(profLogin, profEmail, userProf)
+        userEleve = ('%s %s') % (elevePrenom, eleveNom)
+        userRole = 'EleveISM'
+        self.addLoginEleve(eleveLogin, elevePass, userRole)
+        self.addInfoEleve(eleveLogin, eleveEmail, userEleve)
 
         portalUrl = getToolByName(self.context, 'portal_url')()
         ploneUtils = getToolByName(self.context, 'plone_utils')
-        message = u"Le professeur a bien été modifié !"
+        message = u"L'élève a bien été modifié !"
         ploneUtils.addPortalMessage(message, 'info')
-        if profEcoleFk == '1':
-            url = "%s/institut-sainte-marie/ajouter-un-professeur-ism?profPk=%s" % (portalUrl, profPk)
-        if profEcoleFk == '2':
-            url = "%s/institut-sainte-therese/ajouter-un-professeur-ist" % (portalUrl)
+        url = "%s/institut-sainte-marie/ajouter-un-eleve-ism?elevePk=%s" % (portalUrl, elevePk)
         self.request.response.redirect(url)
         return ''
 
-    def deleteProfesseur(self):
+    def deleteEleve(self):
         """
-        Supprimer un événement acté lié à un dossier
+        Supprimer un élève
         """
         fields = self.context.REQUEST
 
-        profPk = getattr(fields, 'profPk', None)
-        profLogin = getattr(fields, 'profLogin', None)
-        profEcoleFk = getattr(fields, 'profEcoleFk', None)
+        elevePk = getattr(fields, 'elevePk', None)
+        eleveLogin = getattr(fields, 'eleveLogin', None)
 
         wrapper = getSAWrapper('cesstex')
         session = wrapper.session
-        query = session.query(Professeur)
-        query = query.filter(Professeur.prof_pk == profPk)
-        professeur = query.one()
-        session.delete(professeur)
+        query = session.query(EleveIsm)
+        query = query.filter(EleveIsm.eleve_pk == elevePk)
+        eleve = query.one()
+        session.delete(eleve)
         session.flush()
 
-        self.delLoginProfesseur(profLogin)
+        self.delLoginEleve(eleveLogin)
 
         portalUrl = getToolByName(self.context, 'portal_url')()
         ploneUtils = getToolByName(self.context, 'plone_utils')
-        message = u"Le professeur a bien été supprimé !"
+        message = u"L'élève' a bien été supprimé !"
         ploneUtils.addPortalMessage(message, 'info')
-        if profEcoleFk == '1':
-            url = "%s/institut-sainte-marie/ajouter-un-professeur-ism?profPk=%s" % (portalUrl, profPk)
-        if profEcoleFk == '2':
-            url = "%s/institut-sainte-therese/ajouter-un-professeur-ist" % (portalUrl)
+        url = "%s/institut-sainte-marie/ajouter-un-eleve-ism?profPk=%s" % (portalUrl, profPk)
         self.request.response.redirect(url)
         return ''
