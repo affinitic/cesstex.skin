@@ -2,19 +2,16 @@
 
 from Products.Five import BrowserView
 from zope.interface import implements
-#from mailer import Mailer
+# from mailer import Mailer
 from Products.CMFCore.utils import getToolByName
 from z3c.sqlalchemy import getSAWrapper
-from cesstex.db.pgsql.baseTypes import Professeur, StatutMembre
+from cesstex.db.pgsql.baseTypes import EleveIsm
 from interfaces import IManageISM
 
 LIMIT = 10
 
-from cesstex.db.pgsql.baseTypes import EleveIsm
 
-
-
-class ManageProfesseur(BrowserView):
+class ManageEleve(BrowserView):
     implements(IManageISM)
 
 ### GESTION DES PROFS ###
@@ -62,17 +59,6 @@ class ManageProfesseur(BrowserView):
         userRole = user.getRoles()
         return userRole
 
-    def getAllStatutMembre(self):
-        """
-        recuperation de tous les status des membres (prof, direction, educateur, eleve)
-        """
-        wrapper = getSAWrapper('cesstex')
-        session = wrapper.session
-        query = session.query(StatutMembre)
-        query = query.order_by(StatutMembre.statmembre_statut)
-        allStatutMembre = query.all()
-        return allStatutMembre
-
     def getAllEleves(self):
         """
         recuperation de tous les élèves
@@ -110,12 +96,12 @@ class ManageProfesseur(BrowserView):
 
         wrapper = getSAWrapper('cesstex')
         session = wrapper.session
-        newEntry = EeleveIsm(eleve_nom=eleveNom,
-                             eleve_prenom=elevePrenom,
-                             eleve_email=eleveEmail,
-                             eleve_classe=eleveClasse,
-                             eleve_login=eleveLogin,
-                             eleve_pass=elevePass)
+        newEntry = EleveIsm(eleve_nom=eleveNom,
+                            eleve_prenom=elevePrenom,
+                            eleve_email=eleveEmail,
+                            eleve_classe=eleveClasse,
+                            eleve_login=eleveLogin,
+                            eleve_pass=elevePass)
         session.add(newEntry)
         session.flush()
         session.refresh(newEntry)
@@ -130,16 +116,17 @@ class ManageProfesseur(BrowserView):
         message = u"Le nouvel élève a bien été ajouté !"
         ploneUtils.addPortalMessage(message, 'info')
         url = "%s/institut-sainte-marie/ajouter-un-eleve-ism" % (portalUrl)
+        self.request.response.redirect(url)
         return ''
 
-    def updateProfesseur(self):
+    def updateEleve(self):
         """
         Updates un événement acté lié à un dossier
         """
 
         fields = self.context.REQUEST
 
-        elevefPk = getattr(fields, 'elevePk')
+        elevePk = getattr(fields, 'elevePk')
         eleveNom = getattr(fields, 'eleveNom')
         elevePrenom = getattr(fields, 'elevePrenom', None)
         eleveEmail = getattr(fields, 'eleveEmail', None)
@@ -196,6 +183,6 @@ class ManageProfesseur(BrowserView):
         ploneUtils = getToolByName(self.context, 'plone_utils')
         message = u"L'élève' a bien été supprimé !"
         ploneUtils.addPortalMessage(message, 'info')
-        url = "%s/institut-sainte-marie/ajouter-un-eleve-ism?profPk=%s" % (portalUrl, profPk)
+        url = "%s/institut-sainte-marie/ajouter-un-eleve-ism?elevefPk=%s" % (portalUrl, elevePk)
         self.request.response.redirect(url)
         return ''

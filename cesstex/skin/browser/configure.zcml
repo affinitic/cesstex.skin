@@ -232,7 +232,7 @@
         />
 
 
-<!-- ELEVE -->
+<!-- ELEVE DOSSIER DISCIPLINAIRE-->
     <browser:page
         name="insertEleveDosDis"
         for="*"
@@ -391,6 +391,65 @@
         class=".prof_folder.ProfFolderView"
         permission="zope.Public"
         allowed_attributes="can_configure configure" />
+
+
+
+<!-- GESTION DES ELEVES ISM -->
+    <browser:page
+        name="chercher-un-eleve-ism"
+        for="*"
+        template="templates/ism/gestion_eleves/admin_chercher_eleve_ism.pt"
+        permission="cesstex.ProfISM"
+        class=".manage_eleve.ManageEleve"
+        allowed_interface=".interfaces.IManageEleve" />
+
+    <browser:page
+        name="ajouter-un-eleve-ism"
+        for="*"
+        template="templates/ism/gestion_eleves/admin_ajouter_eleve_ism.pt"
+        permission="cesstex.ProfISM"
+        class=".manage_eleve.ManageEleve"
+        allowed_interface=".interfaces.IManageProfesseur" />
+
+    <browser:page
+        name="modifier-un-eleve-ism"
+        for="*"
+        template="templates/ism/gestion_eleves/admin_modifier_eleve_ism.pt"
+        permission="cesstex.ProfISM"
+        class=".manage_eleve.ManageEleve"
+        allowed_interface=".interfaces.IManageProfesseur" />
+
+    <browser:page
+        name="supprimer-un-eleve-ism"
+        for="*"
+        template="templates/ism/gestion_eleves/admin_supprimer_eleve_ism.pt"
+        permission="cesstex.ProfISM"
+        class=".manage_eleve.ManageEleve"
+        allowed_interface=".interfaces.IManageProfesseur" />
+
+    <browser:page
+        name="insertEleve"
+        for="*"
+        class=".manage_eleve.ManageEleve"
+        permission="cesstex.ProfISM"
+        attribute="insertEleve"
+        allowed_interface=".interfaces.IManageProfesseur" />
+
+    <browser:page
+        name="updateEleve"
+        for="*"
+        class=".manage_eleve.ManageEleve"
+        permission="cesstex.ProfISM"
+        attribute="updateEleve"
+        allowed_interface=".interfaces.IManageProfesseur" />
+
+    <browser:page
+        name="deleteEleve"
+        for="*"
+        class=".manage_eleve.ManageEleve"
+        permission="cesstex.ProfISM"
+        attribute="deleteEleve"
+        allowed_interface=".interfaces.IManageProfesseur" />
 
 </configure>
 

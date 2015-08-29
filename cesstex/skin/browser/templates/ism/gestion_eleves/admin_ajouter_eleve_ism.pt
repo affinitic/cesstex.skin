@@ -1,0 +1,157 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xml:lang="en"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="arsia">
+
+<body>
+
+<div metal:fill-slot="main"
+     tal:condition="python:user.has_role(['Manager', 'Site Administrator'], here)">
+
+    <h1>:: Gestion des professseurs ::</h1>
+    <div>
+        <div class="formulaire">
+            <h2 class="forlulaire-titre">Liste des professeurs</h2>
+            <tal:requete tal:define="Professeurs python:view.getAllProfesseurs(ecole=1);">
+                <table width="90%"
+                       class="listing"
+                       align="center">
+                    <thead>
+                        <tr>
+                            <th>Nom</th>
+                            <th>Prénom</th>
+                            <th>Login</th>
+                            <th>Pass</th>
+                            <th>Email</th>
+                            <th>Status</th>
+                            <th></th>
+                            <th></th>
+                            <th>Ecole</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tal:boucle tal:repeat="professeur Professeurs">
+                            <tr>
+                                <td>
+                                    <span tal:content="professeur/prof_nom" />
+                                </td>
+                                <td>
+                                    <span tal:content="professeur/prof_prenom" />
+                                </td>
+                                <td>
+                                    <span tal:content="professeur/prof_login" />
+                                </td>
+                                <td>
+                                    <span tal:content="professeur/prof_pass" />
+                                </td>
+                                <td>
+                                    &rsaquo; Perso :
+                                    <span tal:content="professeur/prof_email" />
+                                    <br />
+                                    &rsaquo; Cesstex :
+                                    <span tal:content="professeur/prof_email_id" />
+                                </td>
+                                <td>
+                                    <span tal:content="professeur/statut/statmembre_statut" />
+                                </td>
+                                <td>
+                                    <a href=""
+                                       tal:attributes="href string: ${context/absolute_url}/modifier-un-professeur-ism?profPk=${professeur/prof_pk}">
+                                        <img src="modifier.png" alt="modifier" /></a>
+                                </td>
+                                <td>
+                                    <a href=""
+                                       tal:attributes="href string: ${context/absolute_url}/supprimer-un-professeur-ism?profPk=${professeur/prof_pk}">
+                                        <img src="supprimer.png" alt="supprimer" /></a>
+                                </td>
+                                <td>
+                                    <span tal:define="ecole python:view.getEcoleDuProfesseur(professeur.prof_ecole_fk)">
+                                        <span tal:content="ecole/ecole_nom" />
+                                    </span>
+                                </td>
+                            </tr>
+                        </tal:boucle>
+                    </tbody>
+                </table>
+            </tal:requete>
+        </div>
+    </div>
+
+    <hr />
+
+    <div class="formulaire">
+       <h2 class="formulaire-titre">Ajouter un membre de l'équipe éducative</h2>
+       <form action="insertProfesseur"
+            methof="post">
+          <div class="formulaire-input">
+              <label for="profNom">Nom :</label>
+              <input type="text"
+                     name="profNom"
+                     id="profNom"
+                     size="80"/>
+          </div>
+          <div class="formulaire-input">
+              <label for="profPrenom">Prenom :</label>
+              <input type="text"
+                     name="profPrenom"
+                     id="profPrenom"
+                     size="80"/>
+          </div>
+          <div class="formulaire-input">
+              <label for="profLogin">Login :</label>
+              <input type="text"
+                     name="profLogin"
+                     id="profLogin"
+                     size="80"/>
+          </div>
+          <div class="formulaire-input">
+              <label for="profPass">Pass :</label>
+              <input type="text"
+                     name="profPass"
+                     id="profPass"
+                     size="80"/>
+          </div>
+          <div class="formulaire-input">
+              <label for="profEmail">Email privé:</label>
+              <input type="text"
+                     name="profEmail"
+                     id="profEmail"
+                     size="80"/>
+          </div>
+          <div class="formulaire-input">
+              <label for="profEmailCesstex">Email Cesstex :</label>
+              <input type="text"
+                     name="profEmailCesstex"
+                     id="profEmail"
+                     size="80"/>
+              @cesstex.be
+          </div>
+          <div class="formulaire-input">
+              <label for="profStatut">Statut :</label>
+              <tal:block tal:define="statutMembres python: view.getAllStatutMembre()">
+                  <select name="profStatutFk">
+                      <tal:boucle tal:repeat="statutMembre statutMembres">
+                          <option value=""
+                                  tal:attributes="value statutMembre/statmembre_pk"
+                                  tal:content="statutMembre/statmembre_statut"></option>
+                      </tal:boucle>
+                  </select>
+              </tal:block>
+          </div>
+         <div class="formulaire-submit">
+              <input type="hidden"
+                     name="operation"
+                     value="insert" />
+              <input type="hidden"
+                     name="profEcoleFk"
+                     value="1" />
+              <input class="context"
+                     type="submit"
+                     value="Enregister ce membre" />
+          </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

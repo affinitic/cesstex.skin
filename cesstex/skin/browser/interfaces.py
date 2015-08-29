@@ -41,7 +41,6 @@ class IIsmInfoSemaine(Interface):
         """
 
 
-
 class IIsmEventAgenda(Interface):
     """
     Gestion des events agenda sur la folder view ism
@@ -90,6 +89,31 @@ class IManageProfesseur(Interface):
     def deleteProfesseur():
         """
         delete un professeur dans dbPg et dans aclUser
+        """
+
+
+class IManageEleve(Interface):
+    """
+    Gestion des professeurs
+    """
+    def getAllEleves():
+        """
+        recupere tous les eleves ISM
+        """
+
+    def insertEleve():
+        """
+        insere un nouvel eleve dans dbPg et dans aclUser
+        """
+
+    def updateEleve():
+        """
+        update un eleve dans dbPg et dans aclUser
+        """
+
+    def deleteEleve():
+        """
+        delete un eleve dans dbPg et dans aclUser
         """
 
 
