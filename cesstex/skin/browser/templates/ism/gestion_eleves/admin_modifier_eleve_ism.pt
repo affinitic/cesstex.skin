@@ -14,83 +14,71 @@
      tal:condition="python:user.has_role(['Manager', 'Site Administrator'], here)">
     <br />
 
-    <h1>:: Gestion des professeurs ::</h1>
+    <h1>:: Gestion des élèves ::</h1>
     <div class="formulaire">
-        <h2 class="formulaire-titre">Modifier un auteur</h2>
-        <tal:requete tal:define="profPk request/profPk;
-                                 professeur python:view.getProfesseurByPk(profPk);">
-                <form action="updateProfesseur"
+        <h2 class="formulaire-titre">Modifier un élève</h2>
+        <tal:requete tal:define="elevePk request/elevePk;
+                                 eleve python:view.getEleveByPk(elevePk);">
+                <form action="updateEleve"
                       method="post">
                         <div class="formulaire-input">
-                            <label for="profNom">Nom</label>
+                            <label for="eleveNom">Nom</label>
                             <br />
                             <input type="text"
-                                   name="profNom"
-                                   id="profNom"
+                                   name="eleveNom"
+                                   id="eleveNom"
                                    value=""
                                    size="50"
-                                   tal:attributes="value professeur/prof_nom" />
+                                   tal:attributes="value eleve/eleveism_nom" />
                         </div>
                         <div class="formulaire-input">
-                            <label for="profPrenom">Prénom</label>
+                            <label for="elevePrenom">Prénom</label>
                             <input type="text"
-                                   name="profPrenom"
-                                   id="profPrenom"
+                                   name="elevePrenom"
+                                   id="elevePrenom"
                                    value=""
                                    size="50"
-                                   tal:attributes="value professeur/prof_prenom" />
+                                   tal:attributes="value eleve/eleveism_prenom" />
                         </div>
 
                         <div class="formulaire-input">
-                            <label for="profEmail">Email privé</label>
+                            <label for="eleveEmail">Email privé</label>
                             <input type="text"
-                                   name="profEmail"
-                                   id="profEmail"
+                                   name="eleveEmail"
+                                   id="eleveEmail"
                                    value=""
                                    size="50"
-                                   tal:attributes="value professeur/prof_email" />
+                                   tal:attributes="value eleve/eleveism_email" />
                         </div>
                         <div class="formulaire-input">
-                            <label for="profEmailCesstex">Email CESSTEX</label>
+                            <label for="eleveLogin">Login</label>
                             <input type="text"
-                                   name="profEmailCesstex"
-                                   id="profEmailCesstex"
+                                   name="eleveLogin"
+                                   id="eleveLogin"
                                    value=""
                                    size="50"
-                                   tal:attributes="value professeur/prof_email_id" />
+                                   tal:attributes="value eleve/eleveism_login" />
                         </div>
                         <div class="formulaire-input">
-                            <label for="profLogin">Login</label>
+                            <label for="elevePass">Pass</label>
                             <input type="text"
-                                   name="profLogin"
-                                   id="profLogin"
+                                   name="elevePass"
+                                   id="elevePass"
                                    value=""
                                    size="50"
-                                   tal:attributes="value professeur/prof_login" />
+                                   tal:attributes="value eleve/eleveism_pass" />
                         </div>
                         <div class="formulaire-input">
-                            <label for="profPass">Pass</label>
-                            <input type="text"
-                                   name="profPass"
-                                   id="profPass"
-                                   value=""
-                                   size="50"
-                                   tal:attributes="value professeur/prof_pass" />
-                        </div>
-                        <div class="formulaire-input">
-                            <label for="profStatut">Statut</label>
-                            <tal:block tal:define="statutMembres python: view.getAllStatutMembre()">
-                                <select name="profStatutFk">
-                                    <tal:boucle tal:repeat="statutMembre statutMembres">
-                                        <option value=""
-                                                selected=""
-                                                tal:attributes="value statutMembre/statmembre_pk;
-                                                                selected python:
-                                                                professeur.prof_statut_fk==statutMembre.statmembre_pk and 'selected' or None;"
-                                                tal:content="statutMembre/statmembre_statut"></option>
-                                    </tal:boucle>
-                                </select>
-                            </tal:block>
+                            <label for="eleveClasse">Classe</label>
+                            <select name="eleveClasse">
+                                <option value="">...</option>
+                                <option value="1A"
+                                        selected=""
+                                        tal:attributes="selected python: eleve.eleveism_classe=='1A' and 'selected' or None;">1A</option>
+                                <option value="1B"
+                                        selected=""
+                                        tal:attributes="selected python: eleve.eleveism_classe=='1B' and 'selected' or None;">1B</option>
+                          </select>
                         </div>
 
                         <div class="formulaire-submit">
@@ -98,14 +86,11 @@
                                    name="operation"
                                    value="update" />
                             <input type="hidden"
-                                   name="profPk"
+                                   name="elevePk"
                                    value=""
-                                   tal:attributes="value profPk">
-                            <input type="hidden"
-                                   name="profEcoleFk"
-                                   value="1" />
+                                   tal:attributes="value elevePk">
                             <input type="submit"
-                                   value="Modifier" />
+                                   value="Modifier les données de cet élève" />
                         </div>
                 </form>
         </tal:requete>
