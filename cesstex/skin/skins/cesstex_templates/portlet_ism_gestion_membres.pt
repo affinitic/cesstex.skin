@@ -8,10 +8,20 @@
         <div class="portlet">
             <div id="portletHeaderGestionMembre">Gestion des membres</div>
             <div id="portletItemGestionMembre">
+                <h4>&there4; Les enseignants</h4>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <a href=""
-                   tal:attributes="href string: ${context/portal_url}/institut-sainte-marie/ajouter-un-professeur-ism">G&eacute;rer les membres</a>
+                   tal:attributes="href string: ${context/portal_url}/institut-sainte-marie/ajouter-un-professeur-ism">G&eacute;rer les enseignants</a>
                 <br />
-                Chercher un membre
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                Chercher un enseignant
+                <h4>&there4; Les élèves</h4>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href=""
+                   tal:attributes="href string: ${context/portal_url}/institut-sainte-marie/ajouter-un-eleve-ism">G&eacute;rer les élèves</a>
+                <br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                Chercher un élève
             </div>
          </div>
     </div>
