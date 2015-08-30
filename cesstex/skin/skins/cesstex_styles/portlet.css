@@ -183,6 +183,7 @@ font-size:1.2em;
 color:#444;
 }
 
+/*** gestion des memebres ***/
 div#portletHeaderGestionMembre{
 height:31px;
 color:#333;
@@ -192,24 +193,29 @@ line-height:31px;
 padding-right:10px;
 font-variant:small-caps;
 font-weight:bold;
+border-left:1px solid #b08276;
+border-right:1px solid #b08276;
+border-top:1px solid #b08276;
 border-radius:8px 8px 0px 0px;
-background: rgb(180,227,145);
+background: rgb(204,156,143);
 }
 
 div#portletItemGestionMembre{
-background-color:rgba(232,255,225,0.5);
-border-left:1px solid #b2d1ac;
-border-right:1px solid #b2d1ac;
-border-bottom:1px solid #b2d1ac;
+background-color:rgba(255,236,222,1);
+border-left:1px solid #b08276;
+border-right:1px solid #b08276;
+border-bottom:1px solid #b08276;
 border-radius:0px 0px 8px 8px;
 padding:1em;
 }
 
-div#portletItemGestionMembre ul{
-margin:0px;
+div#portletItemGestionMembre h4{
+font-size:1.05em;
+color:#5f382e;
 }
 
 
+/*** dossiers partagés des profs ***/
 div#portletHeaderDossierProf{
 height:31px;
 color:#333;
@@ -234,23 +240,5 @@ padding:1em;
 
 div#portletItemDossierProf ul{
 margin-left:20px;
-}
-
-
-
-
-
-/*** PORTLET IST ***/
-#portlet-ist{
-background-color:#DBF2FF;
-border:1px solid #999; /*#0075d2;*/
-padding:2px 0px 5px 0px;
-margin-bottom:1.2em;
-}
-
-.portlet-header-ist{
-font-weight:bold;
-font-size:1.1em;
-text-align:center;
 }
 
