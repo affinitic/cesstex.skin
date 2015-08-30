@@ -1,0 +1,120 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xml:lang="en"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="arsia">
+
+<body>
+
+<div metal:fill-slot="main"
+     tal:define="professeurView context/@@manageProfesseur;"
+     tal:condition="python:user.has_role(['Manager', 'Site Administrator'], here)">
+
+    <h1>:: Gestion des classes ::</h1>
+    <div>
+        <div class="formulaire">
+            <h2 class="forlulaire-titre">Liste des classes</h2>
+            <tal:requete tal:define="Classes python:view.getAllClasses();">
+                <table width="90%"
+                       class="listing"
+                       align="center">
+                    <thead>
+                        <tr>
+                            <th>Nom</th>
+                            <th>Titulaire 1</th>
+                            <th>Titulaire 1</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tal:boucle tal:repeat="classe Classes">
+                            <tr>
+                                <td>
+                                    <span tal:content="classe/classeism_nom" />
+                                </td>
+                                <td>
+                                    <span tal:content="classe/titulaire01/prof_prenom" />
+                                    <span tal:content="classe/titulaire01/prof_nom" />
+
+                                </td>
+                                <td>
+                                    <span tal:content="classe/titulaire02/prof_prenom" />
+                                    <span tal:content="classe/titulaire02/prof_nom" />
+                                </td>
+                                <td>
+                                    <a href=""
+                                       tal:attributes="href string: ${context/absolute_url}/modifier-une-classe-ism?classePk=${classe/classeism_pk}">
+                                        <img src="modifier.png" alt="modifier" /></a>
+                                </td>
+                                <td>
+                                    <a href=""
+                                       tal:attributes="href string: ${context/absolute_url}/supprimer-une-classe-ism?classePk=${classe/classeism_pk}">
+                                        <img src="supprimer.png" alt="supprimer" /></a>
+                                </td>
+                            </tr>
+                        </tal:boucle>
+                    </tbody>
+                </table>
+            </tal:requete>
+        </div>
+    </div>
+
+    <hr />
+
+    <div class="formulaire">
+       <h2 class="formulaire-titre">Ajouter une classe</h2>
+       <form action="insertClasse"
+            methof="post">
+          <div class="formulaire-input">
+              <label for="classeNom">Nom :</label>
+              <input type="text"
+                     name="classeNom"
+                     id="classeNom"
+                     size="8"/>
+          </div>
+          <div class="formulaire-input">
+                <label for="classeTitulaire01Pk">Titulaire 1</label>
+                <tal:block tal:define="professeurs python: professeurView.getAllProfesseursByStatut(statutProf=3, ecole=1)">
+                    <select name="classeTitulaire01Pk"
+                            id="classeTitulaire01Pk">
+                        <option value="">...</option>
+                        <tal:boucle tal:repeat="professeur professeurs">
+                            <option value=""
+                                    tal:attributes="value professeur/prof_pk">
+                                <span tal:content="professeur/prof_nom" />
+                                <span tal:content="professeur/prof_prenom" />
+                            </option>
+                        </tal:boucle>
+                    </select>
+                </tal:block>
+            </div>
+            <div class="formulaire-input">
+                <label for="classeTitulaire02Pk">Titulaire 2</label>
+                <tal:block tal:define="professeurs python: professeurView.getAllProfesseursByStatut(statutProf=3, ecole=1)">
+                    <select name="classeTitulaire02Pk"
+                            id="classeTitulaire02Pk">
+                        <option value="">...</option>
+                        <tal:boucle tal:repeat="professeur professeurs">
+                            <option value=""
+                                    tal:attributes="value professeur/prof_pk">
+                                <span tal:content="professeur/prof_nom" />
+                                <span tal:content="professeur/prof_prenom" />
+                            </option>
+                        </tal:boucle>
+                    </select>
+                </tal:block>
+            </div>
+            <div class="formulaire-submit">
+              <input type="hidden"
+                     name="operation"
+                     value="insert" />
+              <input class="context"
+                     type="submit"
+                     value="Enregister cet élève" />
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

@@ -117,6 +117,31 @@ class IManageEleve(Interface):
         """
 
 
+class IManageClasse(Interface):
+    """
+    Gestion des classes
+    """
+    def getAllClasses():
+        """
+        recupere toutes les classes
+        """
+
+    def insertClasse():
+        """
+        insere une nouvelle classe dans dbPg
+        """
+
+    def updateClasse():
+        """
+        update une classe dans dbPg
+        """
+
+    def deleteClasse():
+        """
+        delete une classe dans dbPg
+        """
+
+
 class IManageISM(Interface):
     """
     Gestion de Institut Sainte Marie

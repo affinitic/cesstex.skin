@@ -5,16 +5,13 @@ from zope.interface import implements
 #from mailer import Mailer
 from Products.CMFCore.utils import getToolByName
 from z3c.sqlalchemy import getSAWrapper
-from cesstex.db.pgsql.baseTypes import Professeur, StatutMembre
 from interfaces import IManageISM
 
 LIMIT = 10
 
 from cesstex.db.pgsql.baseTypes import Ecole, \
-                                       Implantation, \
                                        Professeur, \
                                        StatutMembre
-
 
 
 class ManageProfesseur(BrowserView):
@@ -97,6 +94,23 @@ class ManageProfesseur(BrowserView):
         query = session.query(Professeur)
         query = query.order_by(Professeur.prof_nom)
         query = query.filter(Professeur.prof_ecole_fk == ecole)
+        allProfesseurs = query.all()
+        return allProfesseurs
+
+    def getAllProfesseursByStatut(self, statutProf, ecole):
+        """
+        recuperation de tous les professseurs
+            selon ecole
+                1 ism - 2 ist
+            selon leur statutProf
+                1 direction - 2 educateur - 3 prof
+        """
+        wrapper = getSAWrapper('cesstex')
+        session = wrapper.session
+        query = session.query(Professeur)
+        query = query.filter(Professeur.prof_ecole_fk == ecole)
+        query = query.filter(Professeur.prof_statut_fk == statutProf)
+        query = query.order_by(Professeur.prof_nom)
         allProfesseurs = query.all()
         return allProfesseurs
 

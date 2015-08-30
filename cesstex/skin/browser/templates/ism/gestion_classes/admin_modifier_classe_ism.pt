@@ -1,0 +1,88 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="plone">
+
+<head>
+    <script src="validate_forms.js" type="text/javascript"></script>
+    <metal:noborder fill-slot="top_slot"
+                 tal:define="dummy python:request.set('disable_border',1)" />
+</head>
+
+<body>
+<div metal:fill-slot="main"
+     tal:define="professeurView context/@@manageProfesseur;"
+     tal:condition="python:user.has_role(['Manager', 'Site Administrator'], here)">
+    <br />
+
+    <h1>:: Gestion des classes ::</h1>
+    <div class="formulaire">
+        <h2 class="formulaire-titre">Modifier une classe</h2>
+        <tal:requete tal:define="classePk request/classePk;
+                                 classe python:view.getClasseByPk(classePk);">
+                <form action="updateClasse"
+                      method="post">
+                    <div class="formulaire-input">
+                        <label for="classeNom">Nom</label>
+                        <br />
+                        <input type="text"
+                               name="classeNom"
+                               id="classeNom"
+                               value=""
+                               size="8"
+                               tal:attributes="value classe/classeism_nom" />
+                    </div>
+                    <div class="formulaire-input">
+                        <label for="classeTitulaire01Pk">Titulaire 1</label>
+                        <tal:block tal:define="professeurs python: professeurView.getAllProfesseursByStatut(statutProf=3, ecole=1)">
+                            <select name="classeTitulaire01Pk"
+                                    id="classeTitulaire01Pk">
+                                <option value="">...</option>
+                                <tal:boucle tal:repeat="professeur professeurs">
+                                    <option value=""
+                                            selected=""
+                                            tal:attributes="value professeur/prof_pk;
+                                                            selected python:professeur.prof_pk==classe.classeism_titulaire_01_fk and 'selected' or None;">
+                                        <span tal:content="professeur/prof_nom" />
+                                        <span tal:content="professeur/prof_prenom" />
+                                    </option>
+                                </tal:boucle>
+                            </select>
+                        </tal:block>
+                    </div>
+                    <div class="formulaire-input">
+                        <label for="classeTitulaire02Pk">Titulaire 2</label>
+                        <tal:block tal:define="professeurs python: professeurView.getAllProfesseursByStatut(statutProf=3, ecole=1)">
+                            <select name="classeTitulaire02Pk"
+                                    id="classeTitulaire02Pk">
+                                <option value="">...</option>
+                                <tal:boucle tal:repeat="professeur professeurs">
+                                    <option value=""
+                                            selected=""
+                                            tal:attributes="value professeur/prof_pk;
+                                                            selected python:professeur.prof_pk==classe.classeism_titulaire_02_fk and 'selected' or None;">
+                                        <span tal:content="professeur/prof_nom" />
+                                        <span tal:content="professeur/prof_prenom" />
+                                    </option>
+                                </tal:boucle>
+                            </select>
+                        </tal:block>
+                    </div>
+                    <div class="formulaire-submit">
+                        <input type="hidden"
+                               name="operation"
+                               value="update" />
+                        <input type="hidden"
+                               name="classePk"
+                               value=""
+                               tal:attributes="value classePk">
+                        <input type="submit"
+                               value="Modifier les données de cette classe" />
+                    </div>
+                </form>
+        </tal:requete>
+    </div>
+</div><!-- div metal-->
+</body>
+</html>
+

@@ -12,7 +12,7 @@
     <h1>:: Gestion des élèves ::</h1>
     <div>
         <div class="formulaire">
-            <h2 class="forlulaire-titre">Liste des élèvess</h2>
+            <h2 class="forlulaire-titre">Liste des élèves</h2>
             <tal:requete tal:define="Eleves python:view.getAllEleves();">
                 <table width="90%"
                        class="listing"

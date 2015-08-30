@@ -22,7 +22,11 @@
                 <br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 Chercher un élève
-            </div>
+                <h4>&there4; Les classes</h4>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href=""
+                   tal:attributes="href string: ${context/portal_url}/institut-sainte-marie/ajouter-une-classe-ism">G&eacute;rer les classes</a>
+                </div>
          </div>
     </div>
 </body>

@@ -146,6 +146,14 @@
         />
 
     <browser:page
+        for="*"
+        name="manageProfesseur"
+        class=".manage_professeur.ManageProfesseur"
+        allowed_interface=".interfaces.IManageProfesseur"
+        permission="zope.Public" />
+        />
+
+    <browser:page
         class=".gallery_view.GalleryView"
         for="*"
         name="countElements"
@@ -409,7 +417,7 @@
         template="templates/ism/gestion_eleves/admin_ajouter_eleve_ism.pt"
         permission="cesstex.ProfISM"
         class=".manage_eleve.ManageEleve"
-        allowed_interface=".interfaces.IManageProfesseur" />
+        allowed_interface=".interfaces.IManageEleve" />
 
     <browser:page
         name="modifier-un-eleve-ism"
@@ -417,7 +425,7 @@
         template="templates/ism/gestion_eleves/admin_modifier_eleve_ism.pt"
         permission="cesstex.ProfISM"
         class=".manage_eleve.ManageEleve"
-        allowed_interface=".interfaces.IManageProfesseur" />
+        allowed_interface=".interfaces.IManageEleve" />
 
     <browser:page
         name="supprimer-un-eleve-ism"
@@ -425,7 +433,7 @@
         template="templates/ism/gestion_eleves/admin_supprimer_eleve_ism.pt"
         permission="cesstex.ProfISM"
         class=".manage_eleve.ManageEleve"
-        allowed_interface=".interfaces.IManageProfesseur" />
+        allowed_interface=".interfaces.IManageEleve" />
 
     <browser:page
         name="insertEleve"
@@ -433,7 +441,7 @@
         class=".manage_eleve.ManageEleve"
         permission="cesstex.ProfISM"
         attribute="insertEleve"
-        allowed_interface=".interfaces.IManageProfesseur" />
+        allowed_interface=".interfaces.IManageEleve" />
 
     <browser:page
         name="updateEleve"
@@ -441,7 +449,7 @@
         class=".manage_eleve.ManageEleve"
         permission="cesstex.ProfISM"
         attribute="updateEleve"
-        allowed_interface=".interfaces.IManageProfesseur" />
+        allowed_interface=".interfaces.IManageEleve" />
 
     <browser:page
         name="deleteEleve"
@@ -449,7 +457,65 @@
         class=".manage_eleve.ManageEleve"
         permission="cesstex.ProfISM"
         attribute="deleteEleve"
-        allowed_interface=".interfaces.IManageProfesseur" />
+        allowed_interface=".interfaces.IManageEleve" />
+
+
+<!-- GESTION DES CLASSES ISM -->
+    <browser:page
+        name="chercher-une-classe-ism"
+        for="*"
+        template="templates/ism/gestion_classes/admin_chercher_classe_ism.pt"
+        permission="cesstex.ProfISM"
+        class=".manage_classe.ManageClasse"
+        allowed_interface=".interfaces.IManageClasse" />
+
+    <browser:page
+        name="ajouter-une-classe-ism"
+        for="*"
+        template="templates/ism/gestion_classes/admin_ajouter_classe_ism.pt"
+        permission="cesstex.ProfISM"
+        class=".manage_classe.ManageClasse"
+        allowed_interface=".interfaces.IManageClasse" />
+
+    <browser:page
+        name="modifier-une-classe-ism"
+        for="*"
+        template="templates/ism/gestion_classes/admin_modifier_classe_ism.pt"
+        permission="cesstex.ProfISM"
+        class=".manage_classe.ManageClasse"
+        allowed_interface=".interfaces.IManageClasse" />
+
+    <browser:page
+        name="supprimer-une-classe-ism"
+        for="*"
+        template="templates/ism/gestion_classes/admin_supprimer_classe_ism.pt"
+        permission="cesstex.ProfISM"
+        class=".manage_classe.ManageClasse"
+        allowed_interface=".interfaces.IManageClasse" />
+
+    <browser:page
+        name="insertClasse"
+        for="*"
+        class=".manage_classe.ManageClasse"
+        permission="cesstex.ProfISM"
+        attribute="insertClasse"
+        allowed_interface=".interfaces.IManageClasse" />
+
+    <browser:page
+        name="updateClasse"
+        for="*"
+        class=".manage_classe.ManageClasse"
+        permission="cesstex.ProfISM"
+        attribute="updateClasse"
+        allowed_interface=".interfaces.IManageClasse" />
+
+    <browser:page
+        name="deleteClasse"
+        for="*"
+        class=".manage_classe.ManageClasse"
+        permission="cesstex.ProfISM"
+        attribute="deleteClasse"
+        allowed_interface=".interfaces.IManageClasse" />
 
 </configure>
 

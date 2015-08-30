@@ -8,8 +8,6 @@ from z3c.sqlalchemy import getSAWrapper
 from cesstex.db.pgsql.baseTypes import EleveIsm
 from interfaces import IManageISM
 
-LIMIT = 10
-
 
 class ManageEleve(BrowserView):
     implements(IManageISM)
