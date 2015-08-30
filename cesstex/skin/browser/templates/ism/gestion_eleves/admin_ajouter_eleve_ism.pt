@@ -9,11 +9,11 @@
 <div metal:fill-slot="main"
      tal:condition="python:user.has_role(['Manager', 'Site Administrator'], here)">
 
-    <h1>:: Gestion des professseurs ::</h1>
+    <h1>:: Gestion des élèves ::</h1>
     <div>
         <div class="formulaire">
-            <h2 class="forlulaire-titre">Liste des professeurs</h2>
-            <tal:requete tal:define="Professeurs python:view.getAllProfesseurs(ecole=1);">
+            <h2 class="forlulaire-titre">Liste des élèvess</h2>
+            <tal:requete tal:define="Eleves python:view.getAllEleves();">
                 <table width="90%"
                        class="listing"
                        align="center">
@@ -24,51 +24,42 @@
                             <th>Login</th>
                             <th>Pass</th>
                             <th>Email</th>
-                            <th>Status</th>
+                            <th>Classe</th>
                             <th></th>
                             <th></th>
-                            <th>Ecole</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tal:boucle tal:repeat="professeur Professeurs">
+                        <tal:boucle tal:repeat="eleve Eleves">
                             <tr>
                                 <td>
-                                    <span tal:content="professeur/prof_nom" />
+                                    <span tal:content="eleve/eleveism_nom" />
                                 </td>
                                 <td>
-                                    <span tal:content="professeur/prof_prenom" />
+                                    <span tal:content="eleve/eleveism_prenom" />
                                 </td>
                                 <td>
-                                    <span tal:content="professeur/prof_login" />
+                                    <span tal:content="eleve/eleveism_login" />
                                 </td>
                                 <td>
-                                    <span tal:content="professeur/prof_pass" />
+                                    <span tal:content="eleve/eleveism_pass" />
                                 </td>
                                 <td>
-                                    &rsaquo; Perso :
-                                    <span tal:content="professeur/prof_email" />
-                                    <br />
-                                    &rsaquo; Cesstex :
-                                    <span tal:content="professeur/prof_email_id" />
+                                    <span tal:content="eleve/eleveism_email" />
                                 </td>
                                 <td>
-                                    <span tal:content="professeur/statut/statmembre_statut" />
+                                    <span tal:content="eleve/eleveism_classe" />
                                 </td>
                                 <td>
                                     <a href=""
-                                       tal:attributes="href string: ${context/absolute_url}/modifier-un-professeur-ism?profPk=${professeur/prof_pk}">
+                                       tal:attributes="href string: ${context/absolute_url}/modifier-un-eleve-ism?elevePk=${eleve/eleveism_pk}">
                                         <img src="modifier.png" alt="modifier" /></a>
                                 </td>
                                 <td>
                                     <a href=""
-                                       tal:attributes="href string: ${context/absolute_url}/supprimer-un-professeur-ism?profPk=${professeur/prof_pk}">
+                                       tal:attributes="href string: ${context/absolute_url}/supprimer-un-eleve-ism?profPk=${eleve/eleveism_pk}">
                                         <img src="supprimer.png" alt="supprimer" /></a>
-                                </td>
-                                <td>
-                                    <span tal:define="ecole python:view.getEcoleDuProfesseur(professeur.prof_ecole_fk)">
-                                        <span tal:content="ecole/ecole_nom" />
-                                    </span>
                                 </td>
                             </tr>
                         </tal:boucle>
@@ -81,74 +72,59 @@
     <hr />
 
     <div class="formulaire">
-       <h2 class="formulaire-titre">Ajouter un membre de l'équipe éducative</h2>
-       <form action="insertProfesseur"
+       <h2 class="formulaire-titre">Ajouter un élève</h2>
+       <form action="insertEleve"
             methof="post">
           <div class="formulaire-input">
-              <label for="profNom">Nom :</label>
+              <label for="eleveNom">Nom :</label>
               <input type="text"
-                     name="profNom"
-                     id="profNom"
+                     name="eleveNom"
+                     id="eleveNom"
                      size="80"/>
           </div>
           <div class="formulaire-input">
-              <label for="profPrenom">Prenom :</label>
+              <label for="elevePrenom">Prenom :</label>
               <input type="text"
-                     name="profPrenom"
-                     id="profPrenom"
+                     name="elevePrenom"
+                     id="elevePrenom"
                      size="80"/>
           </div>
           <div class="formulaire-input">
-              <label for="profLogin">Login :</label>
+              <label for="eleveLogin">Login :</label>
               <input type="text"
-                     name="profLogin"
-                     id="profLogin"
+                     name="eleveLogin"
+                     id="eleveLogin"
                      size="80"/>
           </div>
           <div class="formulaire-input">
-              <label for="profPass">Pass :</label>
+              <label for="elevePass">Pass :</label>
               <input type="text"
-                     name="profPass"
-                     id="profPass"
+                     name="elevePass"
+                     id="elevePass"
                      size="80"/>
           </div>
           <div class="formulaire-input">
-              <label for="profEmail">Email privé:</label>
+              <label for="eleveEmail">Email privé:</label>
               <input type="text"
-                     name="profEmail"
-                     id="profEmail"
+                     name="eleveEmail"
+                     id="eleveEmail"
                      size="80"/>
           </div>
           <div class="formulaire-input">
-              <label for="profEmailCesstex">Email Cesstex :</label>
-              <input type="text"
-                     name="profEmailCesstex"
-                     id="profEmail"
-                     size="80"/>
-              @cesstex.be
-          </div>
-          <div class="formulaire-input">
-              <label for="profStatut">Statut :</label>
-              <tal:block tal:define="statutMembres python: view.getAllStatutMembre()">
-                  <select name="profStatutFk">
-                      <tal:boucle tal:repeat="statutMembre statutMembres">
-                          <option value=""
-                                  tal:attributes="value statutMembre/statmembre_pk"
-                                  tal:content="statutMembre/statmembre_statut"></option>
-                      </tal:boucle>
-                  </select>
-              </tal:block>
+              <label for="eleveClasse">Classe :</label>
+              <select name="profStatutFk">
+                    <option value="">...</option>
+                    <option value="1A">1A</option>
+                    <option value="1B">1B</option>
+              </select>
           </div>
          <div class="formulaire-submit">
               <input type="hidden"
                      name="operation"
                      value="insert" />
-              <input type="hidden"
-                     name="profEcoleFk"
-                     value="1" />
               <input class="context"
                      type="submit"
-                     value="Enregister ce membre" />
+                     value="Enregister cet élève" />
           </div>
         </form>
     </div>
