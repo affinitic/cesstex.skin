@@ -58,7 +58,7 @@
                                 </td>
                                 <td>
                                     <a href=""
-                                       tal:attributes="href string: ${context/absolute_url}/supprimer-un-eleve-ism?profPk=${eleve/eleveism_pk}">
+                                       tal:attributes="href string: ${context/absolute_url}/supprimer-un-eleve-ism?elevePk=${eleve/eleveism_pk}">
                                         <img src="supprimer.png" alt="supprimer" /></a>
                                 </td>
                             </tr>
@@ -112,7 +112,7 @@
           </div>
           <div class="formulaire-input">
               <label for="eleveClasse">Classe :</label>
-              <select name="profStatutFk">
+              <select name="eleveClasse">
                     <option value="">...</option>
                     <option value="1A">1A</option>
                     <option value="1B">1B</option>

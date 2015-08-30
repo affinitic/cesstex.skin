@@ -89,19 +89,19 @@ class ManageEleve(BrowserView):
 
         eleveNom = getattr(fields, 'eleveNom')
         elevePrenom = getattr(fields, 'elevePrenom', None)
-        eleveEmail = getattr(fields, 'eleveEmail', None)
-        eleveClasse = getattr(fields, 'eleveClasse', None)
         eleveLogin = getattr(fields, 'eleveLogin', None)
         elevePass = getattr(fields, 'elevePass', None)
+        eleveEmail = getattr(fields, 'eleveEmail', None)
+        eleveClasse = getattr(fields, 'eleveClasse', None)
 
         wrapper = getSAWrapper('cesstex')
         session = wrapper.session
-        newEntry = EleveIsm(eleve_nom=eleveNom,
-                            eleve_prenom=elevePrenom,
-                            eleve_email=eleveEmail,
-                            eleve_classe=eleveClasse,
-                            eleve_login=eleveLogin,
-                            eleve_pass=elevePass)
+        newEntry = EleveIsm(eleveism_nom=eleveNom,
+                            eleveism_prenom=elevePrenom,
+                            eleveism_login=eleveLogin,
+                            eleveism_pass=elevePass,
+                            eleveism_email=eleveEmail,
+                            eleveism_classe=eleveClasse)
         session.add(newEntry)
         session.flush()
         session.refresh(newEntry)
@@ -172,7 +172,7 @@ class ManageEleve(BrowserView):
         wrapper = getSAWrapper('cesstex')
         session = wrapper.session
         query = session.query(EleveIsm)
-        query = query.filter(EleveIsm.eleve_pk == elevePk)
+        query = query.filter(EleveIsm.eleveism_pk == elevePk)
         eleve = query.one()
         session.delete(eleve)
         session.flush()
