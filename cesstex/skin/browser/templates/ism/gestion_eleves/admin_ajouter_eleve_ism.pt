@@ -7,13 +7,14 @@
 <body>
 
 <div metal:fill-slot="main"
+     tal:define="classeView context/@@manageClasse"
      tal:condition="python:user.has_role(['Manager', 'Site Administrator'], here)">
 
     <h1>:: Gestion des élèves ::</h1>
     <div>
         <div class="formulaire">
             <h2 class="forlulaire-titre">Liste des élèves</h2>
-            <tal:requete tal:define="Eleves python:view.getAllEleves();">
+            <tal:requete tal:define="Eleves python: view.getAllEleves()">
                 <table width="90%"
                        class="listing"
                        align="center">
@@ -49,7 +50,7 @@
                                     <span tal:content="eleve/eleveism_email" />
                                 </td>
                                 <td>
-                                    <span tal:content="eleve/eleveism_classe" />
+                                    <span tal:content="eleve/classe/classeism_nom" />
                                 </td>
                                 <td>
                                     <a href=""
@@ -73,59 +74,66 @@
 
     <div class="formulaire">
        <h2 class="formulaire-titre">Ajouter un élève</h2>
-       <form action="insertEleve"
-            methof="post">
-          <div class="formulaire-input">
-              <label for="eleveNom">Nom :</label>
-              <input type="text"
-                     name="eleveNom"
-                     id="eleveNom"
-                     size="80"/>
-          </div>
-          <div class="formulaire-input">
-              <label for="elevePrenom">Prenom :</label>
-              <input type="text"
-                     name="elevePrenom"
-                     id="elevePrenom"
-                     size="80"/>
-          </div>
-          <div class="formulaire-input">
-              <label for="eleveLogin">Login :</label>
-              <input type="text"
-                     name="eleveLogin"
-                     id="eleveLogin"
-                     size="80"/>
-          </div>
-          <div class="formulaire-input">
-              <label for="elevePass">Pass :</label>
-              <input type="text"
-                     name="elevePass"
-                     id="elevePass"
-                     size="80"/>
-          </div>
-          <div class="formulaire-input">
-              <label for="eleveEmail">Email privé:</label>
-              <input type="text"
-                     name="eleveEmail"
-                     id="eleveEmail"
-                     size="80"/>
-          </div>
-          <div class="formulaire-input">
-              <label for="eleveClasse">Classe :</label>
-              <select name="eleveClasse">
-                    <option value="">...</option>
-                    <option value="1A">1A</option>
-                    <option value="1B">1B</option>
-              </select>
-          </div>
-         <div class="formulaire-submit">
-              <input type="hidden"
-                     name="operation"
-                     value="insert" />
-              <input class="context"
-                     type="submit"
-                     value="Enregister cet élève" />
-          </div>
+        <form action="insertEleve"
+              methof="post">
+            <div class="formulaire-input">
+                <label for="eleveNom">Nom :</label>
+                <input type="text"
+                       name="eleveNom"
+                       id="eleveNom"
+                       size="80"/>
+            </div>
+            <div class="formulaire-input">
+                <label for="elevePrenom">Prenom :</label>
+                <input type="text"
+                       name="elevePrenom"
+                       id="elevePrenom"
+                       size="80"/>
+            </div>
+            <div class="formulaire-input">
+                <label for="eleveLogin">Login :</label>
+                <input type="text"
+                       name="eleveLogin"
+                       id="eleveLogin"
+                       size="80"/>
+            </div>
+            <div class="formulaire-input">
+                <label for="elevePass">Pass :</label>
+                <input type="text"
+                       name="elevePass"
+                       id="elevePass"
+                       size="80"/>
+            </div>
+            <div class="formulaire-input">
+                <label for="eleveEmail">Email privé:</label>
+                <input type="text"
+                       name="eleveEmail"
+                       id="eleveEmail"
+                       size="80"/>
+            </div>
+            <div class="formulaire-input">
+                <label for="eleveClasse">Classe :</label>
+                <tal:block tal:define="classes python: classeView.getAllClasses()">
+                    <select name="eleveClasseFk"
+                            id="eleveClasse">
+                        <option value="">...</option>
+                        <tal:boucle tal:repeat="classe classes">
+                            <option value=""
+                                    tal:attributes="value classe/classeism_pk">
+                                <span tal:content="classe/classeism_nom" />
+                            </option>
+                        </tal:boucle>
+                    </select>
+                </tal:block>
+            </div>
+             <div class="formulaire-submit">
+                  <input type="hidden"
+                         name="operation"
+                         value="insert" />
+                  <input class="context"
+                         type="submit"
+                         value="Enregister cet élève" />
+              </div>
         </form>
     </div>
 </div>

@@ -90,7 +90,7 @@ class ManageEleve(BrowserView):
         eleveLogin = getattr(fields, 'eleveLogin', None)
         elevePass = getattr(fields, 'elevePass', None)
         eleveEmail = getattr(fields, 'eleveEmail', None)
-        eleveClasse = getattr(fields, 'eleveClasse', None)
+        eleveClasseFk = getattr(fields, 'eleveClasseFk', None)
 
         wrapper = getSAWrapper('cesstex')
         session = wrapper.session
@@ -99,7 +99,7 @@ class ManageEleve(BrowserView):
                             eleveism_login=eleveLogin,
                             eleveism_pass=elevePass,
                             eleveism_email=eleveEmail,
-                            eleveism_classe=eleveClasse)
+                            eleveism_classe_fk=eleveClasseFk)
         session.add(newEntry)
         session.flush()
         session.refresh(newEntry)
@@ -128,9 +128,9 @@ class ManageEleve(BrowserView):
         eleveNom = getattr(fields, 'eleveNom')
         elevePrenom = getattr(fields, 'elevePrenom', None)
         eleveEmail = getattr(fields, 'eleveEmail', None)
-        eleveClasse = getattr(fields, 'eleveClasse', None)
         eleveLogin = getattr(fields, 'eleveLogin', None)
         elevePass = getattr(fields, 'elevePass', None)
+        eleveClasseFk = getattr(fields, 'eleveClasseFk', None)
 
         wrapper = getSAWrapper('cesstex')
         session = wrapper.session
@@ -140,9 +140,10 @@ class ManageEleve(BrowserView):
         eleve.eleveism_nom = unicode(eleveNom, 'utf-8')
         eleve.eleveism_prenom = unicode(elevePrenom, 'utf-8')
         eleve.eleveism_email = unicode(eleveEmail, 'utf-8')
-        eleve.eleveism_classe = unicode(eleveClasse, 'utf-8')
         eleve.eleveism_login = unicode(eleveLogin, 'utf-8')
         eleve.eleveism_pass = unicode(elevePass, 'utf-8')
+        eleve.eleveism_classe_fk = eleveClasseFk
+
         session.flush()
 
         userEleve = ('%s %s') % (elevePrenom, eleveNom)

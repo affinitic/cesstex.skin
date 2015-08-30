@@ -42,6 +42,33 @@
             />
     -->
 
+<!-- VIEW SUR LES CLASSES -->
+    <browser:page
+        for="*"
+        name="manageISM"
+        class=".manage_ISM.ManageISM"
+        allowed_interface=".interfaces.IManageISM"
+        permission="zope.Public"
+        />
+
+    <browser:page
+        for="*"
+        name="manageProfesseur"
+        class=".manage_professeur.ManageProfesseur"
+        allowed_interface=".interfaces.IManageProfesseur"
+        permission="zope.Public" />
+        />
+
+    <browser:page
+        for="*"
+        name="manageClasse"
+        class=".manage_classe.ManageClasse"
+        allowed_interface=".interfaces.IManageClasse"
+        permission="zope.Public" />
+        />
+
+
+
 <!-- LEFFE SEARCH -->
     <browser:page
          for="*"
@@ -135,22 +162,6 @@
         allowed_interface=".interfaces.IIsmEventAgenda"
         for="*"
         permission="zope.Public"
-        />
-
-    <browser:page
-        for="*"
-        name="manageISM"
-        class=".manage_ISM.ManageISM"
-        allowed_interface=".interfaces.IManageISM"
-        permission="zope.Public"
-        />
-
-    <browser:page
-        for="*"
-        name="manageProfesseur"
-        class=".manage_professeur.ManageProfesseur"
-        allowed_interface=".interfaces.IManageProfesseur"
-        permission="zope.Public" />
         />
 
     <browser:page

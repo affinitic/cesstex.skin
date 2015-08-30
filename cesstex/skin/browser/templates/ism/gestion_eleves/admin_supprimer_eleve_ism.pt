@@ -47,7 +47,7 @@
                 </div>
                 <div class="formulaire-input">
                     <label for="eleveClasse">Classe :</label>
-                    <span tal:content="eleve/eleveism_classe">classe</span>
+                    <span tal:content="eleve/classe/classeism_nom">classe</span>
                 </div>
                 <div class="formulaire-submit">
                     <input type="hidden"

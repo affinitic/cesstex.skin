@@ -11,6 +11,7 @@
 
 <body>
 <div metal:fill-slot="main"
+     tal:define="classeView context/@@manageClasse"
      tal:condition="python:user.has_role(['Manager', 'Site Administrator'], here)">
     <br />
 
@@ -18,7 +19,7 @@
     <div class="formulaire">
         <h2 class="formulaire-titre">Modifier un élève</h2>
         <tal:requete tal:define="elevePk request/elevePk;
-                                 eleve python:view.getEleveByPk(elevePk);">
+                                 eleve python:view.getEleveByPk(elevePk)">
                 <form action="updateEleve"
                       method="post">
                         <div class="formulaire-input">
@@ -70,15 +71,19 @@
                         </div>
                         <div class="formulaire-input">
                             <label for="eleveClasse">Classe</label>
-                            <select name="eleveClasse">
-                                <option value="">...</option>
-                                <option value="1A"
-                                        selected=""
-                                        tal:attributes="selected python: eleve.eleveism_classe=='1A' and 'selected' or None;">1A</option>
-                                <option value="1B"
-                                        selected=""
-                                        tal:attributes="selected python: eleve.eleveism_classe=='1B' and 'selected' or None;">1B</option>
-                          </select>
+                            <tal:block tal:define="classes python: classeView.getAllClasses()">
+                                <select name="eleveClasseFk">
+                                    <option value="">...</option>
+                                    <tal:boucle tal:repeat="classe classes">
+                                        <option value=""
+                                                selected=""
+                                                tal:attributes="value classe/classeism_pk;
+                                                                selected python:eleve.eleveism_classe_fk==classe.classeism_pk and 'selected' or None">
+                                            <span tal:content="classe/classeism_nom" />
+                                        </option>
+                                    </tal:boucle>
+                                </select>
+                            </tal:block>
                         </div>
 
                         <div class="formulaire-submit">
