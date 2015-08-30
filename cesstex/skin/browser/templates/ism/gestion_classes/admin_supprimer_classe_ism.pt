@@ -11,59 +11,46 @@
 
 <body>
 <div metal:fill-slot="main"
+     tal:define="professeurView context/@@manageProfesseur;"
      tal:condition="python:user.has_role(['Manager', 'Site Administrator'], here)">
     <br />
 
-    <h1>:: Gestion des élèves ::</h1>
+    <h1>:: Gestion des classes ::</h1>
     <div class="formulaire">
         <h2 class="formulaire-titre">
             <img src="alerte.png" />
-            <span class="grasrouge">Supprimer cet élève</span>
+            <span class="grasrouge">Supprimer cette classe</span>
         </h2>
 
-        <tal:requete tal:define="elevePk request/elevePk;
-                                 eleve python:view.getEleveByPk(elevePk);">
-            <form action="deleteEleve"
+        <tal:requete tal:define="classePk request/classePk;
+                                 classe python:view.getClasseByPk(classePk);">
+            <form action="deleteClasse"
                   methof="post">
                 <div class="formulaire-input">
-                    <label for="eleveNom">Nom :</label>
-                    <span tal:content="eleve/eleveism_nom">nom</span>
+                    <label for="classeNom">Nom :</label>
+                    <span tal:content="classe/classeism_nom">nom</span>
                 </div>
                 <div class="formulaire-input">
-                    <label for="profPrenom">Prenom :</label>
-                    <span tal:content="eleve/eleveism_prenom">prenom</span>
+                    <label for="titulaire01">Titulaire 01 :</label>
+                    <span tal:content="classe/titulaire01/prof_prenom" />
+                    <span tal:content="classe/titulaire01/prof_nom" />
                 </div>
                 <div class="formulaire-input">
-                    <label for="profEmail">Email :</label>
-                    <span tal:content="eleve/eleveism_email">email</span>
-                </div>
-                <div class="formulaire-input">
-                    <label for="profLogin">Login :</label>
-                    <span tal:content="eleve/eleveism_login">login</span>
-                </div>
-                <div class="formulaire-input">
-                    <label for="profPass">Pass :</label>
-                    <span tal:content="eleve/eleveism_pass">pass</span>
-                </div>
-                <div class="formulaire-input">
-                    <label for="eleveClasse">Classe :</label>
-                    <span tal:content="eleve/eleveism_classe">classe</span>
+                    <label for="titulaire02">Titulaire 02 :</label>
+                    <span tal:content="classe/titulaire02/prof_prenom" />
+                    <span tal:content="classe/titulaire02/prof_nom" />
                 </div>
                 <div class="formulaire-submit">
                     <input type="hidden"
                            name="operation"
                            value="delete" />
                     <input type="hidden"
-                           name="elevePk"
+                           name="classePk"
                            value=""
-                           tal:attributes="value elevePk" />
-                    <input type="hidden"
-                           name="eleveLogin"
-                           value=""
-                           tal:attributes="value eleve/eleveism_login" />
+                           tal:attributes="value classePk" />
                     <input class="context"
                            type="submit"
-                           value="Supprimer cet élève" />
+                           value="Supprimer cette classe" />
                 </div>
             </form>
         </tal:requete>

@@ -112,6 +112,6 @@ class ManageClasse(BrowserView):
         ploneUtils = getToolByName(self.context, 'plone_utils')
         message = u"La classe a bien été supprimée !"
         ploneUtils.addPortalMessage(message, 'info')
-        url = "%s/institut-sainte-marie/ajouter-un-classe-ism?classefPk=%s" % (portalUrl, classePk)
+        url = "%s/institut-sainte-marie/ajouter-une-classe-ism?classefPk=%s" % (portalUrl, classePk)
         self.request.response.redirect(url)
         return ''
