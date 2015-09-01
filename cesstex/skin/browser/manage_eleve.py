@@ -105,7 +105,7 @@ class ManageEleve(BrowserView):
         session.refresh(newEntry)
 
         userEleve = ('%s %s') % (elevePrenom, eleveNom)
-        userRole = 'eleveISM'
+        userRole = 'EleveISM'
         self.addLoginEleve(eleveLogin, elevePass, userRole)
         self.addInfoEleve(eleveLogin, eleveEmail, userEleve)
 
