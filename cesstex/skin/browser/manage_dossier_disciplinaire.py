@@ -43,8 +43,8 @@ class ManageDossierDisciplinaire(BrowserView):
         mailer.setSubject(sujet)
         mailer.setRecipients(destinataires)
         mail = message
-        print mail
-        #mailer.sendAllMail(mail)
+        #print mail
+        mailer.sendAllMail(mail)
 
     def sendMailForNewDossier(self, elevePk):
         """
