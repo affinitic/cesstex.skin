@@ -184,7 +184,7 @@ class ManageProfesseur(BrowserView):
         profEmailCesstex = getattr(fields, 'profEmailCesstex', None)
         profLogin = getattr(fields, 'profLogin', None)
         profPass = getattr(fields, 'profPass', None)
-        profStatusFk = getattr(fields, 'profStatusFk', None)
+        profStatutFk = getattr(fields, 'profStatutFk', None)
         profEcoleFk = getattr(fields, 'profEcoleFk', None)
 
         wrapper = getSAWrapper('cesstex')
@@ -198,7 +198,7 @@ class ManageProfesseur(BrowserView):
         professeur.prof_email_id = unicode(profEmailCesstex, 'utf-8')
         professeur.prof_login = unicode(profLogin, 'utf-8')
         professeur.prof_pass = unicode(profPass, 'utf-8')
-        professeur.prof_status_fk = profStatusFk
+        professeur.prof_statut_fk = int(profStatutFk)
         session.flush()
 
         userProf = ('%s %s') % (profPrenom, profNom)
