@@ -10,27 +10,25 @@
             another template, make sure to change it when you upgrade.
     </tal:comment>
   </head>
-  <body>
+<body>
     <div metal:fill-slot="main" id="content-news">
-
-
-    <div align="center">
-      <object type="application/x-shockwave-flash"
-              data="main2.swf"
-              style="width:800px;height:600px;">
-        <param name="base"
-               value="main2.swf" />
-        <param name="movie"
-               value="main2.swf" />
-        <param name="quality"
-               value="high">
-        <param name="wmode"
-               value="transparent" />
-        <param name="menu"
-               value="true" />
-      </object>
+        <div align="center">
+            <object type="application/x-shockwave-flash"
+                    data="main2.swf"
+                    style="width:800px;height:600px;">
+                <param name="base"
+                       value="main2.swf" />
+                <param name="movie"
+                       value="main2.swf" />
+                <param name="quality"
+                       value="high">
+                <param name="wmode"
+                       value="transparent" />
+                <param name="menu"
+                       value="true" />
+            </object>
+        </div>
     </div>
-   </div>
-  </body>
+</body>
 </html>
 
