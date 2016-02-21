@@ -64,7 +64,7 @@ class ManageEleve(BrowserView):
         wrapper = getSAWrapper('cesstex')
         session = wrapper.session
         query = session.query(EleveIsm)
-        query = query.order_by(EleveIsm.eleveism_classe_fk)
+        query = query.order_by(EleveIsm.eleveism_nom)
         allEleves = query.all()
         return allEleves
 
