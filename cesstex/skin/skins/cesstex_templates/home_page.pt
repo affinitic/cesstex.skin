@@ -39,7 +39,7 @@
       <a href=""
          tal:attributes="href string:
                          ${context/portal_url}/ecole-fondamentale-saint-antoine">
-         Ecole fondamentale Sainte-Antoine</a> |
+         Ecole fondamentale Saint-Antoine</a> |
 
       <a href=""
          tal:attributes="href string: ${context/portal_url}/institut-sainte-marie">
