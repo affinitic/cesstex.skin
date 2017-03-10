@@ -352,11 +352,11 @@ class ManageDossierDisciplinaire(BrowserView):
         wrapper = getSAWrapper('cesstex')
         session = wrapper.session
         newEntry = EleveDossierDisciplinaire(eleve_nom=eleveNom,
-                               eleve_prenom=elevePrenom,
-                               eleve_classe=eleveClasse,
-                               eleve_prof_titulaire_01_fk=titulaire01Pk,
-                               eleve_prof_titulaire_02_fk=titulaire02Pk,
-                               eleve_educateur_referent_fk=educateurReferent)
+                                             eleve_prenom=elevePrenom,
+                                             eleve_classe=eleveClasse,
+                                             eleve_prof_titulaire_01_fk=titulaire01Pk,
+                                             eleve_prof_titulaire_02_fk=titulaire02Pk,
+                                             eleve_educateur_referent_fk=educateurReferent)
         session.add(newEntry)
         session.flush()
         session.refresh(newEntry)
