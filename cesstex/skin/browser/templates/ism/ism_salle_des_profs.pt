@@ -17,10 +17,10 @@
                          news python:view.getNews(5, False, True);
                          convert nocall:context/@@plone/toLocalizedTime;
                          getNewsIconURL nocall:view/getNewsIconURL;"
-             tal:condition="news"
              class="info-prof-wrapper">
             <div id="ismnews-valve-contenu">
-            <tal:boucle tal:repeat="item news">
+            <tal:boucle tal:condition="news"
+                        tal:repeat="item news">
                 <tal:block tal:define="infoProf python:item.getObject();
                                        description item/Description;
                                        texte python:infoProf.CookedBody(stx_level=2)"
