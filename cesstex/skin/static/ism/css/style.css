@@ -715,13 +715,18 @@ border-left:1px solid #ccc;
 padding:3px 10px 3px 10px;
 }
 
+div#ismnews-valve-contenu{
+height:410px;
+overflow:auto;
+}
+
 article.ismnews-valve-prof-content{
-height:80px;
-overflow:hidden;
+height:90px;
+overflow:auto;
 background-color:rgba(250,250,250,0.6);
 margin:4px 0px;
 border-radius:5px;
-padding:0px 6px;
+padding:3px 6px;
 }
 
 article.ismnews-valve-prof-content a{
@@ -733,18 +738,19 @@ article.ismnews-valve-prof-content a:hover{
 color:#080 !important;
 }
 
-
 .ismnews-valve-prof-title{
-text-shadow:1px 1px 1px rgba(255,255,255,0.9);
 margin-bottom:8px;
-color:#333 !important;
+color:#393 !important;
 font-size:1.1em;
 }
 
 .ismnews-valve-prof-description{
+display:block;
 font-weight:bold;
+color:#888;
 font-size:0.9em;
 padding-left:14px;
+padding-top:6px;
 }
 
 .ismnews-valve-prof-contenu{

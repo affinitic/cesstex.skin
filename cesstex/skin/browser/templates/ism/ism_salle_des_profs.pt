@@ -19,6 +19,7 @@
                          getNewsIconURL nocall:view/getNewsIconURL;"
              tal:condition="news"
              class="info-prof-wrapper">
+            <div id="ismnews-valve-contenu">
             <tal:boucle tal:repeat="item news">
                 <tal:block tal:define="infoProf python:item.getObject();
                                        description item/Description;
@@ -30,7 +31,6 @@
                                            title texte">
                             <span tal:content="item/pretty_title_or_id"
                                   class="ismnews-valve-prof-title"></span>
-                            <br />
                             <span tal:content="description"
                                   class="ismnews-valve-prof-description"></span>
                             <br />
@@ -41,6 +41,7 @@
                     </article>
                 </tal:block>
             </tal:boucle>
+            </div>
             <footer class="footer-valve-prof">
                     <div tal:condition="python:user.has_role(['Manager', 'Site Administrator'], here)"
                          class="bouton-ajouter">
