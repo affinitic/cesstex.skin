@@ -24,12 +24,12 @@ cursor:pointer;
 margin-top:15px;
 font-size:14px;
 color:#666;
-text-shadow:1px 1px 1px rgba(255,255,255, 1); 
+text-shadow:1px 1px 1px rgba(255,255,255, 1);
 padding-left:15px;
 margin-bottom:4px;
-background-image:url(label_flch_rouge.png);
+background-image:url(list_flch_rouge.png);
 background-repeat:no-repeat;
-background-position:left top;
+background-position:left 2px;
 }
 
 .formulaire input[type=checkbox] {
@@ -327,4 +327,4 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#80ffffff', e
 
 .decalle{
 padding-left:15px;
-} 
+}
