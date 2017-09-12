@@ -16,7 +16,7 @@
 
     <h1>:: Gestion des professeurs ::</h1>
     <div class="formulaire">
-        <h2 class="formulaire-titre">Modifier un auteur</h2>
+        <h2 class="formulaire-titre">Modifier les données d'un professeur</h2>
         <tal:requete tal:define="profPk request/profPk;
                                  professeur python:view.getProfesseurByPk(profPk);">
                 <form action="updateProfesseur"
@@ -92,6 +92,17 @@
                                 </select>
                             </tal:block>
                         </div>
+                        <div class="formulaire-input">
+                            <label for="profActif">Actif</label>
+                            <select name="profActif">
+                                <option value="True"
+                                        selected=""
+                                        tal:attributes="selected python:professeur.prof_actif is True or None"> Activé </option>
+                                <option value="False"
+                                         selected=""
+                                         tal:attributes="selected python:professeur.prof_actif is False or None"> Désactivé </option>
+                            </select>
+                        </div>
 
                         <div class="formulaire-submit">
                             <input type="hidden"
@@ -105,7 +116,7 @@
                                    name="profEcoleFk"
                                    value="1" />
                             <input type="submit"
-                                   value="Modifier" />
+                                   value="Modifier les données" />
                         </div>
                 </form>
         </tal:requete>

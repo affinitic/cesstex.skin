@@ -18,7 +18,7 @@
     <div class="formulaire">
         <h2 class="formulaire-titre">
             <img src="alerte.png" />
-            <span class="grasrouge">Supprimer ce membre</span>
+            <span class="grasrouge">Désactiver ce membre</span>
         </h2>
 
         <tal:requete tal:define="profPk request/profPk;
@@ -66,7 +66,7 @@
                            value="1" />
                     <input class="context"
                            type="submit"
-                           value="Supprimer ce membre" />
+                           value="Désactiver ce membre" />
                 </div>
             </form>
         </tal:requete>

@@ -25,7 +25,7 @@
                             <th>Pass</th>
                             <th>Email</th>
                             <th>Status</th>
-                            <th></th>
+                            <th>Actif</th>
                             <th></th>
                             <th>Ecole</th>
                         </tr>
@@ -56,14 +56,17 @@
                                     <span tal:content="professeur/statut/statmembre_statut" />
                                 </td>
                                 <td>
-                                    <a href=""
-                                       tal:attributes="href string: ${context/absolute_url}/modifier-un-professeur-ism?profPk=${professeur/prof_pk}">
-                                        <img src="modifier.png" alt="modifier" /></a>
+                                    <span tal:attributes="class python: professeur.prof_actif==True and 'grasvert' or 'grasrouge'">
+                                        <span tal:condition="python:professeur.prof_actif is True or None"> Oui </span>
+                                        <span tal:condition="python:professeur.prof_actif is False or None"> Non </span>
+                                    </span>
                                 </td>
                                 <td>
                                     <a href=""
-                                       tal:attributes="href string: ${context/absolute_url}/supprimer-un-professeur-ism?profPk=${professeur/prof_pk}">
-                                        <img src="supprimer.png" alt="supprimer" /></a>
+                                       tal:attributes="href string: ${context/absolute_url}/modifier-un-professeur-ism?profPk=${professeur/prof_pk}">
+                                        <img src="modifier.png"
+                                             alt="modifier"
+                                             title="modifier les données du professeur" /></a>
                                 </td>
                                 <td>
                                     <span tal:define="ecole python:view.getEcoleDuProfesseur(professeur.prof_ecole_fk)">
