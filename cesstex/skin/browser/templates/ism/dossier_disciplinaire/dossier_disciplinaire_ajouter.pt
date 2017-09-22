@@ -51,6 +51,7 @@
                    align="center">
                 <thead>
                     <tr>
+                        <th> ID Dossier </th>
                         <th> Nom de l'élève </th>
                         <th> Prénom de l'élève </th>
                         <th> Classe </th>
@@ -67,12 +68,14 @@
                               tal:condition="python: etatDossier==True">
                             <tr tal:attributes="class python:odd and 'odd' or 'even'">
                                 <td align="center">
+                                    <span tal:content="python:eleve.dossierEleve[0].dosdis_pk"
+                                          class="discreet">dossier eleve</span>
+                                </td>
+                                <td align="center">
                                     <a href=""
                                        tal:attributes="href string:${context/portal_url}/institut-sainte-marie/la-salle-des-profs/gestion-des-dossiers-disciplinaires/ajouter-un-evenement-au-dossier?elevePk=${eleve/eleve_pk}">
                                        <span tal:content="eleve/eleve_nom">nom eleve</span>
                                     </a>
-                                    <span tal:content="python:eleve.dossierEleve[0].dosdis_pk"
-                                          class="discreet">dossier eleve</span>
                                 </td>
                                 <td align="center">
                                     <span tal:content="eleve/eleve_prenom">prenom eleve</span>
