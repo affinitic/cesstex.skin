@@ -141,6 +141,7 @@ class ManageProfesseur(BrowserView):
         profLogin = getattr(fields, 'profLogin', None)
         profPass = getattr(fields, 'profPass', None)
         profStatutFk = getattr(fields, 'profStatutFk', None)
+        profEcoleFk = getattr(fields, 'profEcoleFk', None)
         profActif = True
 
         wrapper = getSAWrapper('cesstex')
