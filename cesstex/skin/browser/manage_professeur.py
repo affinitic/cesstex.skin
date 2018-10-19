@@ -213,7 +213,6 @@ class ManageProfesseur(BrowserView):
             self.addLoginProfesseur(profLogin, profPass, userRole)
             self.addInfoProfesseur(profLogin, profEmail, userProf)
         if profActif == "False":
-            import pdb; pdb.set_trace()
             self.delLoginProfesseur(profLogin)
 
         portalUrl = getToolByName(self.context, 'portal_url')()
