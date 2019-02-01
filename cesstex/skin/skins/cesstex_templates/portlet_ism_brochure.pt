@@ -18,10 +18,11 @@
                 <div id="ism-couverture-brochure">
                     <a href="ism_brochure.pdf">
                     <img src="ism_couverture_pdf.png"
-                         alt="Institut Sainte-Marie La Louvière" /></a>
+                         alt="Institut Sainte-Marie La Louvière"
+                         style="width: 90%;"/></a>
                 </div>
                 <p>
-                <a href="ism_brochure.pdf">Téléchargez notre brochure au format PDF</a>
+                <a href="ism_brochure.pdf">Téléchargez notre brochure au format pdf</a>
                 </p>
             </dt>
         </dl>
